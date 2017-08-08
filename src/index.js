@@ -2,18 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import Overlay from './Overlay'
-// import { ActXiv } from './testing'
 
 // uncomment for testing
 // import './testing'
-// document.addEventListener('onOverlayDataUpdate', function(e) {
-//   var start = new Date().getTime()
-//   var details = e.detail
 
-//   ReactDOM.render(<Overlay {...e.detail} />, document.getElementById('root'))
-// })
+const handle = require(`./images/handle.png`)
 
-// comment for testing
 function onOverlayDataUpdate(e) {
   ReactDOM.render(<Overlay {...e.detail} />, document.getElementById('root'))
 }

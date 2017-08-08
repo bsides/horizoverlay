@@ -122,7 +122,7 @@ export var ActXivBefore = {
     'Dodd Himself': {
       n: '\n',
       t: '\t',
-      name: 'Dodd Himself Dodd Himself Dodd Himself Dodd Himself',
+      name: 'Dodd Himself',
       duration: '02:21',
       DURATION: '141',
       damage: '4130',
@@ -1715,7 +1715,7 @@ export var ActXivAfter = {
     'Dodd Himself': {
       n: '\n',
       t: '\t',
-      name: 'Dodd Himself Dodd Himself Dodd Himself Dodd Himself',
+      name: 'Dodd Himself',
       duration: '02:21',
       DURATION: '141',
       damage: '4130',
@@ -3309,7 +3309,7 @@ export var ActXiv = {
     'Dodd Himself': {
       n: '\n',
       t: '\t',
-      name: 'Dodd Himself Dodd Himself Dodd Himself Dodd Himself',
+      name: 'Dodd Himself',
       duration: '02:21',
       DURATION: '141',
       damage: '4130',

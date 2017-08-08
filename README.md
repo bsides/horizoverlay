@@ -2,11 +2,19 @@ This is a simple horizontal [overlay](https://github.com/hibiyasleep/OverlayPlug
 
 ![Horizontal overlay by https://www.twitch.tv/yuu_tayuun](https://i.redd.it/l1vfkfd2dccz.png "Horizontal Overlay by https://www.twitch.tv/yuu_tayuun")
 
+It's based of the amazing work [of this repo](https://github.com/billyvg/OverlayPlugin-themes) that tries to compile a whole bunch of [Overlay](https://github.com/hibiyasleep/OverlayPlugin) themes together. Thanks to its repo's `testing.js` file (and [/u/rdmty](https://www.reddit.com/user/rdmty)), I was able to mock the data that ACT throws and built this theme.
 
-It's based of the amazing work [of this repo](https://github.com/billyvg/OverlayPlugin-themes) that tries to compile a whole bunch of [Overlay](https://github.com/hibiyasleep/OverlayPlugin) themes together. Thanks to its repo's `testing.js` file, I was able to mock the data that ACT throws and built this theme.
+## Example setup
+This is how it should be showing for you after setup
+![Horizoverlay](example.png "Horizoverlay")
+
+Also check [this other example](example2.png) without the mock data.
 
 ## Install
-I'm still working on it. When it's ready it'll be available as an url to be pasted on ACT's Overlay plugin, just [like this]((https://github.com/hibiyasleep/kagerou).
+Just paste this url into the overlay's url field:
+`https://bsides.github.io/horizoverlay/`
+
+Ispired by [this overlay]((https://github.com/hibiyasleep/kagerou).
 
 ## Usage
 It'll show the name, class and DPS of players in your party. Resize the overlay window will make its items bigger/wider. Adjust as you see everyone fits as it's automatic, using Flexbox.

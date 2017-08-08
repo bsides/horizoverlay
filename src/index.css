@@ -9,6 +9,13 @@ body {
   /* background: url(https://puu.sh/x4Qhi/dcce1de30b.jpg); */
   color: #fff;
   font-size: 12px;
+  box-sizing: border-box;
+  height: 100%;
+}
+.resizable {
+  background-image: url(images/handle.png);
+  background-position: bottom right;
+  background-repeat: no-repeat;
 }
 
 h3 {
@@ -31,6 +38,7 @@ h3 {
   flex: 1;
   text-shadow: 0 0 8px #000;
   margin: 0 6px;
+  max-width: 140px;
 }
 .row.self div.dps {
   background: rgba(255, 255, 255, 0.8);
