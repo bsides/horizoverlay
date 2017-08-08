@@ -6,9 +6,9 @@ It's based of the amazing work [of this repo](https://github.com/billyvg/Overlay
 
 ## Example setup
 This is how it should be showing for you after setup
-![Horizoverlay](example.png "Horizoverlay")
+![Horizoverlay](https://raw.githubusercontent.com/bsides/horizoverlay/master/example.jpg "Horizoverlay")
 
-Also check [this other example](example2.png) without the mock data.
+Also check [this other example](https://raw.githubusercontent.com/bsides/horizoverlay/master/example2.jpg) without the mock data.
 
 ## Install
 Just paste this url into the overlay's url field:
