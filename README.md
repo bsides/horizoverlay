@@ -14,7 +14,7 @@ Also check [this other example](https://raw.githubusercontent.com/bsides/horizov
 Just paste this url into the overlay's url field:
 `https://bsides.github.io/horizoverlay/`
 
-Ispired by [this overlay]((https://github.com/hibiyasleep/kagerou).
+Ispired by [this overlay](https://github.com/hibiyasleep/kagerou).
 
 ## Usage
 It'll show the name, class and DPS of players in your party. Resize the overlay window will make its items bigger/wider. Adjust as you see everyone fits as it's automatic, using Flexbox.
