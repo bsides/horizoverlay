@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Horizoverlay",
+  "name": "Just a simple overlay for FFXIV posted on reddit",
   "icons": [
     {
       "src": "favicon.ico",
