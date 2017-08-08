@@ -1,4 +1,4 @@
-This is a simple horizontal [overlay](https://github.com/hibiyasleep/OverlayPlugin) to show party DPS based on [this post on reddit](https://www.reddit.com/r/ffxiv/comments/6q41r3/what_act_overlay_is_this_snipped_off_of_a_stream/).
+This is a simple horizontal Final Fantasy XIV damage meter [overlay](https://github.com/hibiyasleep/OverlayPlugin) to show party DPS based on [this post on reddit](https://www.reddit.com/r/ffxiv/comments/6q41r3/what_act_overlay_is_this_snipped_off_of_a_stream/).
 
 ![Horizontal overlay by https://www.twitch.tv/yuu_tayuun](https://i.redd.it/l1vfkfd2dccz.png "Horizontal Overlay by https://www.twitch.tv/yuu_tayuun")
 
