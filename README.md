@@ -11,10 +11,12 @@ This is how it should be showing for you after setup
 Also check [this other example](https://raw.githubusercontent.com/bsides/horizoverlay/master/example2.jpg) without the mock data.
 
 ## Install
-Just paste this url into the overlay's url field:
+1. Please, be sure you are running version 0.3.3.13 or higher of hibiyasleep Overlay plugin: https://github.com/hibiyasleep/OverlayPlugin/releases | [Version x64](https://github.com/hibiyasleep/OverlayPlugin/releases/download/0.3.3.13/OverlayPlugin-0.3.3.13-x64-full.zip) | [Version x86](https://github.com/hibiyasleep/OverlayPlugin/releases/download/0.3.3.13/OverlayPlugin-0.3.3.13-x86-full.zip) |
+
+2. Just paste this url into the overlay's url field:
 `https://bsides.github.io/horizoverlay/`
 
-Hit some dummy so you have data to actually see something so you can resize the window and stuff like that. I'm planning on leaving some mock data for this initial setup as it looks weird now.
+3. You need to grab and resize the overlay and hit a mob to have data so it shows anything. I'm planning on leaving some mock data for this initial setup as it looks weird now.
 
 Ispired by [this overlay](https://github.com/hibiyasleep/kagerou).
 
