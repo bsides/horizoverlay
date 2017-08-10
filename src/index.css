@@ -40,38 +40,62 @@ h3 {
   margin: 0 6px;
   max-width: 140px;
 }
-.row.self div.dps {
+.row.self div.horizelem {
   background: rgba(255, 255, 255, 0.8);
   color: #000;
 }
-.row .dps {
+.row.self div.horizelem.irrelevant {
+  background: rgba(255, 255, 255, 0.3);
+}
+.row .horizelem {
   background: rgba(0, 0, 0, 0.3);
   color: #fff;
   transform: skew(-30deg);
   text-shadow: initial;
-  padding: 2px 0 3px;
+  padding: 2px 5px 3px 5px;
+  margin: 3px 0;
+}
+.row .horizelem.irrelevant {
+  background: rgba(0, 0, 0, 0.08);
 }
 .row > div {
   margin: 0px auto;
   padding: 0 0 1px;
 }
-.row div.dps > div {
+.row div.horizelem > div {
   transform: skew(30deg);
 }
-.row div.dps > div:after {
+.row div.horizelem > div:after {
   clear: both;
   content: "";
   display: table;
 }
-.character-job {
-  text-transform: uppercase;
-  float: left;
-  padding-left: 12px;
+.horiz-elems {
+  display: flex;
+  width: 140px;
 }
-.damage-stats {
-  float: right;
-  padding-right: 12px;
+
+.horizelem {
+  flex-grow: 1;
 }
-.rank {
-  display: none;
+.horizelem:first-child {
+  text-align: left;
+}
+.horizelem:last-child {
+  text-align: right;
+}
+
+.horizelem span.label {
+    font-size: 8px;
+    width: 100%;
+    margin: auto;
+}
+
+.job {
+    height: 20px;
+    margin: 0 4px;
+}
+
+.name {
+    white-space: nowrap;
 }

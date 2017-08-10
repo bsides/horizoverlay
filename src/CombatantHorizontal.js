@@ -1,4 +1,17 @@
 import React, { Component } from 'react'
+var images = require.context('./images', false, /\.png$/);
+function HorizElement(props) {
+    return (<div className={props.relevant ? "horizelem" : "horizelem irrelevant"}>
+      <div>
+        <span className="damage-stats">
+            {props.text}
+        </span>
+        <span className="label">
+            {props.label}
+        </span>
+      </div>
+    </div>);
+}
 
 class CombatantHorizontal extends Component {
   render() {
@@ -7,6 +20,7 @@ class CombatantHorizontal extends Component {
     //   this.props.data.damage / this.props.encounterDamage * 100,
     //   10
     // )}%`
+    //console.log(this.props);
     return (
       <div
         className={`row ${this.props.data.Job}${this.props.isSelf
@@ -19,16 +33,11 @@ class CombatantHorizontal extends Component {
           <span className="character-name">
             {this.props.data.name}
           </span>
+          <img src={images("./"+(this.props.data.Job ? this.props.data.Job.toLowerCase() : "error") + ".png")} className="job"/>
         </div>
-        <div className="dps">
-          <div>
-            <span className="character-job">
-              {this.props.data.Job}
-            </span>
-            <span className="damage-stats">
-              {this.props.data.dps} DPS
-            </span>
-          </div>
+        <div className="horiz-elems">
+            <HorizElement text={this.props.data.enchps} label="HPS" relevant={this.props.data.heals > 0}/>
+            <HorizElement text={this.props.data.encdps} label="DPS" relevant={this.props.data.hits > 0}/>
         </div>
       </div>
     )
