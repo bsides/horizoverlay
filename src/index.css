@@ -10,8 +10,6 @@ body {
   height: 100%;
   font-size: 0.9rem;
   color: #fff;
-  /* testing  */
-  /* background: #000; */
 }
 .resizable {
   background-image: url(images/handle.png);

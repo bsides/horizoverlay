@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { object, bool } from 'prop-types'
 import Encounter from './Encounter'
 import Combatants from './Combatants'
-import Config from './Config'
 
 class Overlay extends Component {
   static propTypes = {
@@ -20,6 +19,7 @@ class Overlay extends Component {
     encounterDuration: false,
     encounterTotalDps: false
   }
+  configWindow = {}
   componentDidMount() {
     const configStore = localStorage.getItem('horizoverlay')
     if (!configStore) {
@@ -61,35 +61,53 @@ class Overlay extends Component {
     // And then save it to localStorage!
     localStorage.setItem('horizoverlay', JSON.stringify(config))
   }
-  toggleConfig = e => {
-    const isOpen = this.state.isConfigOpen
-    this.setState({ isConfigOpen: !isOpen })
+  openConfig = () => {
+    this.setState({ isConfigOpen: true })
+    const windowFeatures =
+      'menubar=0,location=0,resizable=0,scrollbars=1,status=0,width=960,height=540'
+    this.configWindow = window.open(
+      '/config/',
+      'Horizoverlay Config',
+      windowFeatures
+    )
   }
+  // openConfig = () => {
+  //   this.setState({ isConfigOpen: true })
+  //   const windowFeatures =
+  //     'menubar=0,location=0,resizable=0,scrollbars=1,status=0,width=960,height=540'
+  //   this.configWindow = window.open('/', 'Horizoverlay Config', windowFeatures)
+  // }
+  // closeConfig = () => {
+  //   this.configWindow.close()
+  //   this.configWindow = false
+  //   this.setState({ isConfigOpen: false })
+  // }
   render() {
-    if (this.state.isConfigOpen) {
-      return (
-        <Config
-          toggleConfig={this.toggleConfig}
-          config={this.state.config}
-          handleConfig={this.handleConfig}
+    return (
+      <div
+        className={`damage-meter${this.props.isActive ? '' : ' inactive'}`}
+        onContextMenu={this.openConfig}
+      >
+        <h3>Awaiting data.</h3>
+        <Encounter {...this.props.Encounter} />
+        <Combatants
+          data={this.props.Combatant}
+          encounterDamage={this.props.Encounter.damage}
         />
-      )
-    } else {
-      return (
-        <div
-          className={`damage-meter${this.props.isActive ? '' : ' inactive'}`}
-          onContextMenu={this.toggleConfig}
-        >
-          <h3>Awaiting data.</h3>
-          <Encounter {...this.props.Encounter} />
-          <Combatants
-            data={this.props.Combatant}
-            encounterDamage={this.props.Encounter.damage}
-          />
-        </div>
-      )
-    }
+      </div>
+    )
   }
 }
 
 export default Overlay
+
+// if (this.state.isConfigOpen) {
+//   return (
+//     <Config
+//       closeConfig={this.closeConfig}
+//       config={this.state.config}
+//       handleConfig={this.handleConfig}
+//       configWindow={this.configWindow}
+//     />
+//   )
+// } else {
