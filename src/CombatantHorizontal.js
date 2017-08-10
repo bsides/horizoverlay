@@ -36,8 +36,8 @@ class CombatantHorizontal extends Component {
           <img src={images("./"+(this.props.data.Job ? this.props.data.Job.toLowerCase() : "error") + ".png")} className="job"/>
         </div>
         <div className="horiz-elems">
-            <HorizElement text={this.props.data.enchps} label="HPS" relevant={this.props.data.heals > 0}/>
-            <HorizElement text={this.props.data.encdps} label="DPS" relevant={this.props.data.hits > 0}/>
+            <HorizElement text={this.props.data.enchps} label="HPS" relevant={this.props.data.enchps > 0}/>
+            <HorizElement text={this.props.data.encdps} label="DPS" relevant={this.props.data.encdps > 0}/>
         </div>
       </div>
     )
