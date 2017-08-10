@@ -1,8 +1,22 @@
 import React, { Component } from 'react'
+import { jobsTank, jobsHealer, jobsDps } from './helpers'
 
 class CombatantHorizontal extends Component {
   render() {
     let order = this.props.rank
+    let job = this.props.data.Job || 'WHO?'
+    let jobClass
+    if (jobsDps.indexOf(job.toLowerCase()) >= 0) {
+      jobClass = ' job-dps'
+    }
+    if (jobsHealer.indexOf(job.toLowerCase()) >= 0) {
+      jobClass = ' job-healer'
+    }
+    if (jobsTank.indexOf(job.toLowerCase()) >= 0) {
+      jobClass = ' job-tank'
+    }
+    // console.log(this.props.config)
+    if (this.props.config.color !== 'byRole') jobClass = ''
     // let width = `${parseInt(
     //   this.props.data.damage / this.props.encounterDamage * 100,
     //   10
@@ -11,7 +25,7 @@ class CombatantHorizontal extends Component {
       <div
         className={`row ${this.props.data.Job}${this.props.isSelf
           ? ' self'
-          : ''}`}
+          : ''}${jobClass}`}
         style={{ order }}
       >
         <div className="name">
@@ -23,7 +37,7 @@ class CombatantHorizontal extends Component {
         <div className="dps">
           <div>
             <span className="character-job">
-              {this.props.data.Job}
+              {job}
             </span>
             <span className="damage-stats">
               {this.props.data.dps} DPS
