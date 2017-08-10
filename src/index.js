@@ -1,5 +1,5 @@
 // uncomment for testing
-import './testing'
+// import './testing'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
