@@ -1,0 +1,73 @@
+.config {
+  padding: 6px 3px;
+  background: black;
+}
+.config > div {
+  text-align: center;
+}
+
+fieldset {
+  display: block;
+  -webkit-margin-start: 2px;
+  -webkit-margin-end: 2px;
+  -webkit-padding-before: 0.35em;
+  -webkit-padding-start: 0.75em;
+  -webkit-padding-end: 0.75em;
+  -webkit-padding-after: 0.625em;
+  min-width: -webkit-min-content;
+  border-width: 2px;
+  border-style: groove;
+  border-color: threedface;
+  border-image: initial;
+  flex: 1;
+  text-align: center;
+}
+form {
+  display: flex;
+}
+
+/* form div:first-of-type {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 5px;
+} */
+
+label {
+  margin: 0;
+  margin-right: 15px;
+  line-height: 32px;
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+
+  border: 2px solid #ddd;
+}
+input[type=radio]:checked {
+  border: 6px solid white;
+}
+input[type=radio],
+input[type=checkbox] {
+  width: 16px;
+  height: 16px;
+  transition: 0.2s all linear;
+  outline: none;
+  margin-right: 5px;
+
+  position: relative;
+  top: 3px;
+}
+
+legend {
+  color: black;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 0;
+  border: 0;
+  font-size: 14px;
+}
