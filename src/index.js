@@ -1,15 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import Overlay from './Overlay'
-
 // uncomment for testing
 // import './testing'
 
-const handle = require(`./images/handle.png`)
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './reboot.css'
+import './index.css'
+import Overlay from './Overlay'
 
-function onOverlayDataUpdate(e) {
-  ReactDOM.render(<Overlay {...e.detail} />, document.getElementById('root'))
+require(`./images/handle.png`)
+
+function onOverlayDataUpdate({ detail }) {
+  ReactDOM.render(<Overlay {...detail} />, document.getElementById('root'))
 }
 document.addEventListener('onOverlayDataUpdate', onOverlayDataUpdate)
 document.addEventListener('onOverlayStateUpdate', function(e) {
