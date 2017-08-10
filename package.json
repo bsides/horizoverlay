@@ -7,7 +7,7 @@
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.10"
   },
-  "homepage": "https://bsides.github.io/horizoverlay",
+  "homepage": "https://bmwang.github.io/horizoverlay",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
