@@ -1,0 +1,33 @@
+.encounter,
+.encounter-totaldps,
+.encounter-duration {
+  display: none;
+}
+.encounter-totaldps.show,
+.encounter-duration.show,
+.encounter.show {
+  display: block;
+}
+
+.encounter {
+  text-shadow: 0 0 8px #000;
+  text-align: center;
+  margin-top: 4px;
+}
+.encounter > div {
+  display: flex;
+  margin: 0 auto;
+  width: 280px;
+  transform: skew(-30deg);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0px 10px;
+}
+.encounter > div > div {
+  flex: 1;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform: skew(30deg);
+  margin: 2px 4px;
+}
