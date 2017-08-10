@@ -16,7 +16,16 @@ Also check [this other example](https://raw.githubusercontent.com/bsides/horizov
 2. Just paste this url into the overlay's url field:
 `https://bsides.github.io/horizoverlay/`
 
-3. You need to grab and resize the overlay and hit a mob to have data so it shows anything. I'm planning on leaving some mock data for this initial setup as it looks weird now.
+3. You need to grab and resize the overlay and hit a mob to have data so it shows anything.
+
+4. You should look at something like this: ![No Data Example](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/no-data.png)
+
+5. From version 2 onwards, you can now right click anywhere the overlay to open a config menu:
+![Config Window](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-window.png)
+
+6. Test the options yourself! Here are some examples:
+![Config Color Default](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-default-totaldps.png)
+![Config Color By Role](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-byrole.png)
 
 Ispired by [this overlay](https://github.com/hibiyasleep/kagerou).
 
