@@ -7,10 +7,11 @@ body {
     Roboto, "Helvetica Neue", Arial, sans-serif;
   background: transparent;
   overflow: hidden;
-  /* testing  */
-  /* background: url(https://puu.sh/x4Qhi/dcce1de30b.jpg); */
-  color: #fff;
   height: 100%;
+  font-size: 0.9rem;
+  color: #fff;
+  /* testing  */
+  /* background: #000; */
 }
 .resizable {
   background-image: url(images/handle.png);
