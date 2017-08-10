@@ -63,7 +63,7 @@ class Overlay extends Component {
   }
   toggleConfig = e => {
     const isOpen = this.state.isConfigOpen
-    this.setState({ openConfig: !isOpen })
+    this.setState({ isConfigOpen: !isOpen })
   }
   render() {
     if (this.state.isConfigOpen) {
