@@ -3,6 +3,10 @@ import { object, bool } from 'prop-types'
 import Encounter from './Encounter'
 import Combatants from './Combatants'
 
+import './reboot.css'
+import './index.css'
+import './overlay.css'
+
 class Overlay extends Component {
   static propTypes = {
     Combatant: object,
@@ -64,24 +68,13 @@ class Overlay extends Component {
   openConfig = () => {
     this.setState({ isConfigOpen: true })
     const windowFeatures =
-      'menubar=0,location=0,resizable=0,scrollbars=1,status=0,width=960,height=540'
+      'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=960,height=156'
     this.configWindow = window.open(
       '/config/',
       'Horizoverlay Config',
       windowFeatures
     )
   }
-  // openConfig = () => {
-  //   this.setState({ isConfigOpen: true })
-  //   const windowFeatures =
-  //     'menubar=0,location=0,resizable=0,scrollbars=1,status=0,width=960,height=540'
-  //   this.configWindow = window.open('/', 'Horizoverlay Config', windowFeatures)
-  // }
-  // closeConfig = () => {
-  //   this.configWindow.close()
-  //   this.configWindow = false
-  //   this.setState({ isConfigOpen: false })
-  // }
   render() {
     return (
       <div
@@ -89,25 +82,15 @@ class Overlay extends Component {
         onContextMenu={this.openConfig}
       >
         <h3>Awaiting data.</h3>
-        <Encounter {...this.props.Encounter} />
         <Combatants
           data={this.props.Combatant}
           encounterDamage={this.props.Encounter.damage}
+          config={this.state.config}
         />
+        <Encounter {...this.props.Encounter} config={this.state.config} />
       </div>
     )
   }
 }
 
 export default Overlay
-
-// if (this.state.isConfigOpen) {
-//   return (
-//     <Config
-//       closeConfig={this.closeConfig}
-//       config={this.state.config}
-//       handleConfig={this.handleConfig}
-//       configWindow={this.configWindow}
-//     />
-//   )
-// } else {

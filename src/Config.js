@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import './config.css'
+// import 'semantic-ui-css/semantic.min.css';
 
 class Config extends Component {
   state = {
-    currentViewIndex: 0,
     config: {},
     isConfigOpen: true
   }
@@ -26,7 +26,7 @@ class Config extends Component {
   }
   onStorageUpdate() {
     // reload the overlay
-    console.log('alo?')
+    // console.log('alo?')
     window.opener.location.reload()
   }
   handleConfig = e => {
@@ -55,8 +55,8 @@ class Config extends Component {
     return (
       <div className="config">
         <div>
-          Please resize this window to setup. <strong>Right click</strong> to
-          save and go back and forth.
+          Resize this window as necessary. Everything saves automatically.{' '}
+          <strong>Right click</strong> open this window.
         </div>
         <form>
           <fieldset>

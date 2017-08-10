@@ -9,27 +9,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Overlay from './Overlay'
 import Config from './Config'
 import NotFound from './NotFound'
-
-import './reboot.css'
-import './index.css'
+import Nothing from './Nothing'
 
 require(`./images/handle.png`)
-
-const Root = detail => {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" render={() => <Overlay {...detail} />} />
-        <Route exact path="/config/" component={Config} />
-        <Route render={() => <NotFound text="Page Not Found!" />} />
-      </Switch>
-    </BrowserRouter>
-  )
-}
-
-function onOverlayDataUpdate(e) {
-  ReactDOM.render(<Root {...e.detail} />, document.getElementById('root'))
-}
 
 document.addEventListener('onOverlayDataUpdate', onOverlayDataUpdate)
 document.addEventListener('onOverlayStateUpdate', function(e) {
@@ -44,3 +26,36 @@ window.addEventListener('message', function(e) {
     onOverlayDataUpdate(e.data)
   }
 })
+window.addEventListener('storage', function() {
+  window.location.reload()
+})
+
+const Inactive = detail => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/config/" component={Config} />
+        <Route component={Nothing} />
+      </Switch>
+    </BrowserRouter>
+  )
+}
+
+const Root = detail => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" render={() => <Overlay {...detail} />} />
+        <Route exact path="/config/" component={Config} />
+        <Route render={() => <NotFound text="Page Not Found!" />} />
+      </Switch>
+    </BrowserRouter>
+  )
+}
+
+// This will run when data is ON
+function onOverlayDataUpdate(e) {
+  ReactDOM.render(<Root {...e.detail} />, document.getElementById('root'))
+}
+// This will run when there's no data
+ReactDOM.render(<Inactive />, document.getElementById('root'))

@@ -5,7 +5,7 @@ export function getRandom(min, max) {
 }
 
 export const jobsTank = ['drk', 'gla', 'mrd', 'pld', 'war']
-export const JobsHealer = ['ast', 'cnj', 'sch', 'whm']
+export const jobsHealer = ['ast', 'cnj', 'sch', 'whm']
 export const jobsDps = [
   'acn',
   'arc',
