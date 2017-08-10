@@ -7,12 +7,12 @@ class Encounter extends Component {
   render() {
     // let dps =
     //   this.props.encdps.length <= 7 ? this.props.encdps : this.props.ENCDPS
-    let rdps = parseFloat(this.props.encdps)
-    let rdps_max = 0
+    // let rdps = parseFloat(this.props.encdps)
+    // let rdps_max = 0
 
-    if (!isNaN(rdps) && rdps != Infinity) {
-      rdps_max = Math.max(rdps_max, rdps)
-    }
+    // if (!isNaN(rdps) && rdps != Infinity) {
+    //   rdps_max = Math.max(rdps_max, rdps)
+    // }
 
     // let width = rdps / rdps_max * 100
 
