@@ -13,7 +13,7 @@ class Overlay extends Component {
   state = {
     currentViewIndex: 0,
     config: {},
-    openConfig: false
+    isConfigOpen: false
   }
   defaultConfig = {
     color: 'default',
@@ -62,11 +62,11 @@ class Overlay extends Component {
     localStorage.setItem('horizoverlay', JSON.stringify(config))
   }
   toggleConfig = e => {
-    const isOpen = this.state.openConfig
+    const isOpen = this.state.isConfigOpen
     this.setState({ openConfig: !isOpen })
   }
   render() {
-    if (this.state.openConfig) {
+    if (this.state.isConfigOpen) {
       return (
         <Config
           toggleConfig={this.toggleConfig}
