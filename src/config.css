@@ -1,3 +1,7 @@
+html,
+body {
+  overflow-y: auto;
+}
 .config {
   padding: 6px 3px;
   background: black;
