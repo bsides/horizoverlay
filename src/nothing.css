@@ -1,0 +1,54 @@
+.nothing {
+  color: #fff;
+  background: rgba(255, 0, 0, 0.1);
+  text-align: center;
+  padding: 8px 12px;
+  margin: 0 auto;
+  text-shadow: 0 0 6px #000;
+}
+.instructions {
+  margin-top: 6px;
+}
+
+.combatants {
+  display: flex;
+  text-align: center;
+}
+.row {
+  flex: 1;
+  text-shadow: 0 0 8px #000;
+  margin: 0 6px;
+  max-width: 140px;
+}
+.byRole .row.job-dps .dps {
+  background: rgba(244, 67, 54, 0.3);
+}
+.byRole .row.job-tank .dps {
+  background: rgba(33, 150, 243, 0.3);
+}
+.byRole .row.job-healer .dps {
+  background: rgba(139, 195, 74, 0.3);
+}
+.row.self div.dps,
+.byRole .row.self.job-dps .dps {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+.default .row .dps {
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  transform: skew(-30deg);
+  text-shadow: initial;
+}
+.row > div {
+  margin: 0px auto;
+  padding: 0 0 1px;
+}
+.row div.dps > div {
+  transform: skew(30deg);
+}
+.row div.dps > div:after {
+  clear: both;
+  content: "";
+  display: table;
+}

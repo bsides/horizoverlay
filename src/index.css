@@ -1,101 +1,46 @@
-html,
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans');
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
 body {
   margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+}
+html,
+body {
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Droid Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   background: transparent;
   overflow: hidden;
-  /* testing  */
-  /* background: url(https://puu.sh/x4Qhi/dcce1de30b.jpg); */
-  color: #fff;
-  font-size: 12px;
-  box-sizing: border-box;
   height: 100%;
+  font-size: 0.9rem;
+  color: #fff;
 }
 .resizable {
   background-image: url(images/handle.png);
   background-position: bottom right;
   background-repeat: no-repeat;
-}
-
-h3 {
-  display: none;
-}
-.inactive h3 {
-  display: block;
-}
-.encounter {
-  display: none;
-}
-.inactive .combatants {
-  display: none;
-}
-.combatants {
-  display: flex;
-  text-align: center;
-}
-.row {
-  flex: 1;
-  text-shadow: 0 0 8px #000;
-  margin: 0 6px;
-  max-width: 140px;
-}
-.row.self div.horizelem {
-  background: rgba(255, 255, 255, 0.8);
-  color: #000;
-}
-.row.self div.horizelem.irrelevant {
-  background: rgba(255, 255, 255, 0.3);
-}
-.row .horizelem {
-  background: rgba(0, 0, 0, 0.3);
-  color: #fff;
-  transform: skew(-30deg);
-  text-shadow: initial;
-  padding: 2px 5px 3px 5px;
-  margin: 3px 0;
-}
-.row .horizelem.irrelevant {
-  background: rgba(0, 0, 0, 0.08);
-}
-.row > div {
-  margin: 0px auto;
-  padding: 0 0 1px;
-}
-.row div.horizelem > div {
-  transform: skew(30deg);
-}
-.row div.horizelem > div:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-.horiz-elems {
-  display: flex;
-  width: 140px;
-}
-
-.horizelem {
-  flex-grow: 1;
-}
-.horizelem:first-child {
-  text-align: left;
-}
-.horizelem:last-child {
-  text-align: right;
-}
-
-.horizelem span.label {
-    font-size: 8px;
-    width: 100%;
-    margin: auto;
-}
-
-.job {
-    height: 20px;
-    margin: 0 4px;
-}
-
-.name {
-    white-space: nowrap;
 }

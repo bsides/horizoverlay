@@ -36,6 +36,7 @@ class Combatants extends Component {
           encounterDamage={this.props.encounterDamage}
           rank={order}
           data={combatant}
+          config={this.props.config}
           isSelf={isSelf}
           key={names[i]}
         />
