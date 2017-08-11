@@ -8,14 +8,12 @@
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.10"
   },
-  "homepage": "https://bsides.github.io/horizoverlay",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build"
   },
   "devDependencies": {
     "gh-pages": "^1.0.0"
