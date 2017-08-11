@@ -5,7 +5,7 @@ import './config.css'
 class Config extends Component {
   state = {
     config: {},
-    isConfigOpen: true
+    isConfigOpen: false
   }
   defaultConfig = {
     color: 'byRole',

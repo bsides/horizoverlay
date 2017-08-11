@@ -16,7 +16,7 @@ class Overlay extends Component {
   state = {
     currentViewIndex: 0,
     config: {},
-    isConfigOpen: true
+    isConfigOpen: false
   }
   defaultConfig = {
     color: 'byRole',
