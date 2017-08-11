@@ -12,8 +12,11 @@ class Nothing extends Component {
     encounterDuration: false,
     encounterTotalDps: false,
     showHps: true,
-    jobIcon: true
+    jobIcon: true,
+    showRank: true,
+    showDamagePercent: true
   }
+
   configWindow = {}
   componentDidMount() {
     const configStore = localStorage.getItem('horizoverlay')

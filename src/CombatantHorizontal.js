@@ -40,6 +40,15 @@ class CombatantHorizontal extends Component {
     let dpsElement = <HorizElement text={this.props.data.encdps} label="DPS" relevant={this.props.data.encdps > 0}/>
     let classElement = <HorizElement text={this.props.data.Job.toUpperCase()} label="" relevant="1"/>
     let jobIcon = <img src={images("./"+(this.props.data.Job ? this.props.data.Job.toLowerCase() : "error") + ".png")} className="job" alt={this.props.data.Job}/>
+    let damagePercent = (
+      <div>
+        <div className="damage-percent-bg">
+          <div className="damage-percent-fg" style={{width: width}}/>
+        </div>
+        <div className="damage-percent">
+          {width}
+        </div>
+      </div>);
     return (
       <div
         className={`row ${this.props.data.Job}${this.props.isSelf
@@ -48,7 +57,7 @@ class CombatantHorizontal extends Component {
         style={{ order }}
       >
         <div className="name">
-          <span className="rank">{`${this.props.rank}. `}</span>
+          {this.props.config.showRank ? <span className="rank">{`${this.props.rank}. `}</span> : null}
           <span className="character-name">
             {this.props.data.name}
           </span>
@@ -58,12 +67,7 @@ class CombatantHorizontal extends Component {
           {this.props.config.showHps ? hpsElement : classElement}
           {dpsElement}
         </div>
-        <div className="damage-percent-bg">
-          <div className="damage-percent-fg" style={{width: width}}/>
-        </div>
-        <div className="damage-percent">
-          {width}
-        </div>
+        {this.props.config.showDamagePercent ? damagePercent : null}
       </div>
     )
   }

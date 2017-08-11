@@ -21,7 +21,7 @@ h3 {
 .row.job-dps .damage-percent-bg {
   background: rgba(244, 67, 54, 0.3);
 }
-.row.job-tank .dps
+.row.job-tank .dps,
 .row.job-tank .damage-percent-bg {
   background: rgba(33, 150, 243, 0.3);
 }
@@ -30,7 +30,7 @@ h3 {
   background: rgba(139, 195, 74, 0.3);
 }
 .row.self .damage-percent-bg {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.5);
 }
 .row.job-dps .damage-percent-fg {
   background: rgba(244, 67, 54, 0.7);
@@ -58,7 +58,7 @@ h3 {
   color: #000;
 }
 .row.self div.dps.irrelevant {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.5);
 }
 .row .damage-percent-bg {
   height: 2px;
@@ -74,9 +74,6 @@ h3 {
   transform: skew(-30deg);
   margin: 0;
 }
-.row.self .damage-percent {
-  color: #000;
-}
 .row .damage-percent {
   position: relative;
   text-align: right;
@@ -90,7 +87,7 @@ h3 {
   color: #fff;
   transform: skew(-30deg);
   text-shadow: initial;
-  padding: 2px 5px;
+  padding: 2px 5px 2px 0;
   margin: 3px 0 0 0;
   flex-grow: 1;
 }
@@ -110,11 +107,10 @@ h3 {
   display: table;
 }
 .job {
-  height: 20px;
-  margin: 0 auto;
-  position: relative;
+  width: 20px;
+  position: absolute;
   top: -5px;
-  left: 50%;
+  left: 59px;
   z-index: 1;
 }
 .name {
@@ -123,6 +119,7 @@ h3 {
 .horiz-elems {
   display: flex;
   width: 140px;
+  position: relative;
 }
 .dps:first-child {
   text-align: left;
@@ -132,4 +129,5 @@ h3 {
 }
 .dps span.label {
   font-size: 8px;
+  margin: 0 0 0 1px;
 }

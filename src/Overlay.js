@@ -23,7 +23,9 @@ class Overlay extends Component {
     encounterDuration: false,
     encounterTotalDps: false,
     showHps: true,
-    jobIcon: true
+    jobIcon: true,
+    showRank: true,
+    showDamagePercent: true
   }
   configWindow = {}
   componentDidMount() {

@@ -12,7 +12,9 @@ class Config extends Component {
     encounterDuration: false,
     encounterTotalDps: false,
     showHps: true,
-    jobIcon: true
+    jobIcon: true,
+    showRank: true,
+    showDamagePercent: true
   }
   componentDidMount() {
     window.addEventListener('storage', this.onStorageUpdate, false)
@@ -116,6 +118,22 @@ class Config extends Component {
               onClick={this.handleConfig}
             />
             <label htmlFor="showJobIcon">Show Job Icon</label>
+            <input
+              type="checkbox"
+              name="showRank"
+              id="showRank"
+              defaultChecked={config.showRank}
+              onClick={this.handleConfig}
+            />
+            <label htmlFor="showRank">Show Rank</label>
+            <input
+              type="checkbox"
+              name="showDamagePercent"
+              id="showDamagePercent"
+              defaultChecked={config.showDamagePercent}
+              onClick={this.handleConfig}
+            />
+            <label htmlFor="showDamagePercent">Show Damage Percent</label>
           </fieldset>
         </form>
       </div>
