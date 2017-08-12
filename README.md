@@ -13,12 +13,15 @@ This is how it should be showing for you after setup with everything checked
 
 2. Just paste this url into the overlay's url field:
 `https://horizoverlay.now.sh` and click in the _Reload Overlay_ button. You should see something like this:
+
 ![First Screen](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-initial.png "First Screen of Horizoverlay")
 
 3. Now would be the right time to resize the window to something like 70% of your screen's width.
+
 ![Resize](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-resize.png)
 
 4. Right click in the text to open Settings!
+
 ![Settings](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-window.png "Horizoverlay Settings")
 If you can't see the Settings window, just alt tab until you do.
 
@@ -30,11 +33,17 @@ Congratulations, you have it installed and setup.
 It's still in the same URL `https://bsides.github.io/horizoverlay` but I won't update it anymore. Also, you're free to download version 1 [straight from here](https://github.com/bsides/horizoverlay/tree/version-1) and serve the html locally. It should work. I recommend it as I don't know how long this URL will be available.
 
 ## Screenshots
-![All By Role](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-byrole.png)
+Color by Role
 
-![Black & White](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-colorbw.png)
+![All By Role](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-byrole.png "Color by Role")
 
-![Minimalist](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-minimalist.png)
+Black & White
+
+![Black & White](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-colorbw.png "Black & White")
+
+Minimalist AKA version 1
+
+![Minimalist](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-minimalist.png "Minimalist AKA version 1")
 
 
 ## Suggestion, bug report, FAQ
