@@ -10,6 +10,7 @@ h3 {
 .combatants {
   display: flex;
   text-align: center;
+  justify-content: center;
 }
 .row {
   flex: 1;
@@ -62,7 +63,7 @@ h3 {
 }
 .row .damage-percent-bg {
   height: 2px;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   transform: skew(-30deg);
   position: relative;
   left: -8px;
@@ -70,7 +71,7 @@ h3 {
 }
 .row .damage-percent-fg {
   height: 2px;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   transform: skew(-30deg);
   margin: 0;
 }
@@ -120,9 +121,6 @@ h3 {
   display: flex;
   width: 140px;
   position: relative;
-}
-.dps:first-child {
-  text-align: left;
 }
 .dps:last-child {
   text-align: right;

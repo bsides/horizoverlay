@@ -1,11 +1,27 @@
 .nothing {
   color: #fff;
-  background: rgba(255, 0, 0, 0.1);
   text-align: center;
   padding: 8px 12px;
   margin: 0 auto;
   text-shadow: 0 0 6px #000;
 }
+.nothing .wrapper {
+  background: rgba(150, 0, 0, 0.1);
+}
+.nothing .wrapper.hide {
+  display: none;
+}
+.nothing .notice {
+  color: rgba(255, 255, 255, 0.7);
+  display: none;
+}
+.notice > div {
+  color: rgba(255, 255, 255, 0.3);
+}
+.nothing .wrapper.hide + .notice {
+  display: block;
+}
+
 .instructions {
   margin-top: 6px;
 }
@@ -20,15 +36,7 @@
   margin: 0 6px;
   max-width: 140px;
 }
-.byRole .row.job-dps .dps {
-  background: rgba(244, 67, 54, 0.3);
-}
-.byRole .row.job-tank .dps {
-  background: rgba(33, 150, 243, 0.3);
-}
-.byRole .row.job-healer .dps {
-  background: rgba(139, 195, 74, 0.3);
-}
+
 .row.self div.dps,
 .byRole .row.self.job-dps .dps {
   background: rgba(255, 255, 255, 0.8);
