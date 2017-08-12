@@ -15,7 +15,7 @@ class Encounter extends Component {
       this.props.title === 'Encounter'
         ? this.props.CurrentZoneName
         : this.props.title
-    let hasOptions = config.encounterTotalDps || config.encounterDuration
+    let hasOptions = config.showTotalDps || config.showDuration
     return (
       <div className={`encounter${hasOptions ? ' show' : ''}`}>
         <div>
@@ -23,14 +23,14 @@ class Encounter extends Component {
             {title}
           </div>
           <div
-            className={`encounter-totaldps${config.encounterTotalDps
+            className={`encounter-totaldps${config.showTotalDps
               ? ' show'
               : ''}`}
           >
             {rdps} DPS
           </div>
           <div
-            className={`encounter-duration${config.encounterDuration
+            className={`encounter-duration${config.showDuration
               ? ' show'
               : ''}`}
           >
