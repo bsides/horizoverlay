@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { defaultConfig } from './helpers'
 
 import './reboot.css'
 import './nothing.css'
@@ -7,16 +8,7 @@ class Nothing extends Component {
   state = {
     config: {}
   }
-  defaultConfig = {
-    color: 'byRole',
-    encounterDuration: false,
-    encounterTotalDps: false,
-    showHps: true,
-    jobIcon: true,
-    showRank: true,
-    showDamagePercent: true
-  }
-
+  defaultConfig = defaultConfig
   configWindow = {}
   componentDidMount() {
     const configStore = localStorage.getItem('horizoverlay')

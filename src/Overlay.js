@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { object, string } from 'prop-types'
 import Encounter from './Encounter'
 import Combatants from './Combatants'
+import { defaultConfig } from './helpers'
 
 import './reboot.css'
 import './index.css'
@@ -18,15 +19,7 @@ class Overlay extends Component {
     config: {},
     isConfigOpen: false
   }
-  defaultConfig = {
-    color: 'byRole',
-    encounterDuration: false,
-    encounterTotalDps: false,
-    showHps: true,
-    jobIcon: true,
-    showRank: true,
-    showDamagePercent: true
-  }
+  defaultConfig = defaultConfig
   configWindow = {}
   componentDidMount() {
     const configStore = localStorage.getItem('horizoverlay')
@@ -72,7 +65,7 @@ class Overlay extends Component {
   openConfig = () => {
     this.setState({ isConfigOpen: true })
     const windowFeatures =
-      'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=960,height=156'
+      'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=1000,height=200'
     this.configWindow = window.open(
       '/config/',
       'Horizoverlay Config',
