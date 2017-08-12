@@ -8,6 +8,7 @@ class Encounter extends Component {
       this.props.encdps.length <= 7 ? this.props.encdps : this.props.ENCDPS
     let rdps = parseFloat(dps)
     // Looks stupid but it's better than isNaN()
+    // eslint-disable-next-line
     rdps = rdps !== rdps ? '∞' : rdps
 
     const { config } = this.props
