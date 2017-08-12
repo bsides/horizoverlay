@@ -33,9 +33,10 @@ Congratulations, you have it installed and setup.
 It's still in the same URL `https://bsides.github.io/horizoverlay` but I won't update it anymore. Also, you're free to download version 1 [straight from here](https://github.com/bsides/horizoverlay/tree/version-1) and serve the html locally. It should work. I recommend it as I don't know how long this URL will be available.
 
 ## Screenshots
-Color by Role
+Color by Role and [@bmwang](https://github.com/bmwang)'s
 
 ![All By Role](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-byrole.png "Color by Role")
+![By Role @bmwang](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/bmwang-setup.png "By Role @bmwang")
 
 Black & White
 
