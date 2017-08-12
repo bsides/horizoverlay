@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { object, string } from 'prop-types'
+import { object, string, bool, oneOfType } from 'prop-types'
 import Encounter from './Encounter'
 import Combatants from './Combatants'
 import { defaultConfig } from './helpers'
@@ -12,7 +12,7 @@ class Overlay extends Component {
   static propTypes = {
     Combatant: object,
     Encounter: object,
-    isActive: string
+    isActive: oneOfType([string, bool])
   }
   state = {
     currentViewIndex: 0,
