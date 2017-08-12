@@ -110,7 +110,6 @@ class Config extends Component {
               onClick={this.handleConfig}
             />
             <label htmlFor="showSetup">Toggle</label>
-            Recommended<br /> to turn this off
           </fieldset>
           <fieldset>
             <legend>Check to Show</legend>
