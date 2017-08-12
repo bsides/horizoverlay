@@ -65,7 +65,7 @@ class Overlay extends Component {
   openConfig = () => {
     this.setState({ isConfigOpen: true })
     const windowFeatures =
-      'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=1000,height=200'
+      'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=1000,height=187'
     this.configWindow = window.open(
       '/config/',
       'Horizoverlay Config',
