@@ -1,52 +1,62 @@
-This is a simple horizontal Final Fantasy XIV damage meter [overlay](https://github.com/hibiyasleep/OverlayPlugin) to show party DPS based on [this post on reddit](https://www.reddit.com/r/ffxiv/comments/6q41r3/what_act_overlay_is_this_snipped_off_of_a_stream/).
+# H O R I Z O V E R L A Y
+A simple horizontal damage meter [overlay](https://github.com/hibiyasleep/OverlayPlugin) for Final Fantasy XIV. It currently shows player dps, damage %, hps, encounter duration and total dps. Based on [this post on reddit](https://www.reddit.com/r/ffxiv/comments/6q41r3/what_act_overlay_is_this_snipped_off_of_a_stream/).
 
 ![Horizontal overlay by https://www.twitch.tv/yuu_tayuun](https://i.redd.it/l1vfkfd2dccz.png "Horizontal Overlay by https://www.twitch.tv/yuu_tayuun")
 
-It's based of the amazing work [of this repo](https://github.com/billyvg/OverlayPlugin-themes) that tries to compile a whole bunch of [Overlay](https://github.com/hibiyasleep/OverlayPlugin) themes together. Thanks to its repo's `testing.js` file (and [/u/rdmty](https://www.reddit.com/user/rdmty)), I was able to mock the data that ACT throws and built this theme.
-
 ## Example setup
-This is how it should be showing for you after setup
-![Horizoverlay](https://raw.githubusercontent.com/bsides/horizoverlay/master/example.jpg "Horizoverlay")
-
-Also check [this other example](https://raw.githubusercontent.com/bsides/horizoverlay/master/example2.jpg) without the mock data.
+This is how it should be showing for you after setup with everything checked
+![Horizoverlay](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-allbyrole.jpg "Horizoverlay")
 
 ## Install
+### __Please notice the URL has changed from v1!__
 1. Please, be sure you are running version 0.3.3.13 or higher of hibiyasleep Overlay plugin: https://github.com/hibiyasleep/OverlayPlugin/releases | [Version x64](https://github.com/hibiyasleep/OverlayPlugin/releases/download/0.3.3.13/OverlayPlugin-0.3.3.13-x64-full.zip) | [Version x86](https://github.com/hibiyasleep/OverlayPlugin/releases/download/0.3.3.13/OverlayPlugin-0.3.3.13-x86-full.zip) |
 
 2. Just paste this url into the overlay's url field:
-`https://bsides.github.io/horizoverlay/`
+`https://horizoverlay.now.sh` and click in the _Reload Overlay_ button. You should see something like this:
+![First Screen](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-initial.png "First Screen of Horizoverlay")
 
-3. You need to grab and resize the overlay and hit a mob to have data so it shows anything.
+3. Now would be the right time to resize the window to something like 70% of your screen's width.
+![Resize](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-resize.png)
 
-4. You should look at something like this: ![No Data Example](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/no-data.png)
+4. Right click in the text to open Settings!
+![Settings](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-window.png "Horizoverlay Settings")
+If you can't see the Settings window, just alt tab until you do.
 
-5. From version 2 onwards, you can now right click anywhere the overlay to open a config menu:
-![Config Window](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-window.png)
+5. To tweak the settings without having to hit something, toggle Setup Mode. With it enabled you can see all changes you do live. All settings are saved automatically.
 
-6. Test the options yourself! Here are some examples:
-![Config Color Default](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-default-totaldps.png)
-![Config Color By Role](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-byrole.png)
+Congratulations, you have it installed and setup.
 
-Ispired by [this overlay](https://github.com/hibiyasleep/kagerou).
+## Screenshots
+![All By Role](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-byrole.png)
 
-## Usage
-It'll show the name, class and DPS of players in your party. Resize the overlay window ~~will make its items bigger/wider~~ -> I've set the width to a max-width or else with less people in the party it'd look too wide! Adjust the window so it fits everyone in your party, like 50-60% of your screen width.
+![Black & White](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-colorbw.png)
 
-The order of the items, from left to right, is based on the amount of damage given by the player so sometimes it's not the higher dps.
+![Minimalist](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-minimalist.png)
 
-I made it to fit the screen [like the example in the post](https://www.reddit.com/r/ffxiv/comments/6q41r3/what_act_overlay_is_this_snipped_off_of_a_stream/) (I even worked with [this screenshot](https://puu.sh/x4Qhi/dcce1de30b.jpg) behind the overlay).
 
-## Suggestion, bug report, critic, general questions, etc
+## Suggestion, bug report, FAQ
 Please, [open an issue](https://github.com/bsides/horizoverlay/issues). Also don't forget to search if it's alerady down here in the known issue section ;)
 
-If you want to contact me in game, I currently play in Cactuar server as Guru Clef
+## Contributing
+You are welcome to [open a PR](https://github.com/bsides/horizoverlay/pulls) with anything. Just please try to follow the mindset of what is done.
 
-## Next steps
-* Make it configurable ([look at this!](https://github.com/hibiyasleep/kagerou))
-* About the above, maybe start with the things that will be shown: name, position, DPS, damage, etc.
+The project uses:
+* React
+* React Router
+* ES6
+* [Prettier](https://github.com/prettier/prettier) with ESLint (react defaults) to autoformat with ease
 
-## Known issues
-Some files aren't used in this theme but I left here to make it more customizeable in the future: `CombatantCompact.js` and `Combatant.js`. In theory, `Encounter.js` isn't used either (but its component is used to keep semantics).
+💲💲💲 If you're looking to donate, please do so [at my Patreon page](https://www.patreon.com/bsides) 👍
 
-## Other details
+## Credits & other Magicked KnickerKnacks
+It's based of the amazing work [of this repo](https://github.com/billyvg/OverlayPlugin-themes) that tries to compile a whole bunch of [Overlay](https://github.com/hibiyasleep/OverlayPlugin) themes together. Thanks to its repo's `testing.js` file (and [/u/rdmty](https://www.reddit.com/user/rdmty)), I was able to mock the data that ACT throws and built this theme.
+
+The background image from the config window was made by [Richard Tabor](https://purtypixels.com/) and was taken from [Subtle Patterns](https://www.toptal.com/designers/subtlepatterns/).
+
+Thanks to [@bmwang](https://github.com/bmwang) for introducing more options and color themes.
+
+A lot of inspiration from [Kagerou](https://github.com/hibiyasleep/kagerou) overlay by [@hibiyasleep](https://github.com/hibiyasleep).
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+Special thanks to [my awesome boyfriend](http://na.finalfantasyxiv.com/lodestone/character/2834234/), who test everything everytime I ask ❤
