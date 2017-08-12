@@ -21,8 +21,7 @@ class Config extends Component {
     }
   }
   onStorageUpdate() {
-    // reload the overlay
-    // console.log('alo?')
+    // Reload the overlay on every config update
     window.opener.location.reload()
   }
   handleConfig = e => {
@@ -102,23 +101,35 @@ class Config extends Component {
             </div>
           </fieldset>
           <fieldset>
+            <legend>Setup Mode</legend>
+            <input
+              type="checkbox"
+              name="showSetup"
+              id="showSetup"
+              defaultChecked={config.showSetup}
+              onClick={this.handleConfig}
+            />
+            <label htmlFor="showSetup">Toggle</label>
+            Recommended<br /> to turn this off
+          </fieldset>
+          <fieldset>
             <legend>Check to Show</legend>
             <input
               type="checkbox"
-              name="encounterDuration"
-              id="encounterDuration"
-              defaultChecked={config.encounterDuration}
+              name="showDuration"
+              id="showDuration"
+              defaultChecked={config.showDuration}
               onClick={this.handleConfig}
             />
-            <label htmlFor="encounterDuration">Encounter Duration</label>
+            <label htmlFor="showDuration">Duration</label>
             <input
               type="checkbox"
-              name="encounterTotalDps"
-              id="encounterTotalDps"
-              defaultChecked={config.encounterTotalDps}
+              name="showTotalDps"
+              id="showTotalDps"
+              defaultChecked={config.showTotalDps}
               onClick={this.handleConfig}
             />
-            <label htmlFor="encounterTotalDps">Encounter Total DPS</label>
+            <label htmlFor="showTotalDps">Total DPS</label>
             <input
               type="checkbox"
               name="showHps"
@@ -152,14 +163,6 @@ class Config extends Component {
               onClick={this.handleConfig}
             />
             <label htmlFor="showDamagePercent">Damage Percent</label>
-            <input
-              type="checkbox"
-              name="showSetup"
-              id="showSetup"
-              defaultChecked={config.showSetup}
-              onClick={this.handleConfig}
-            />
-            <label htmlFor="showSetup">Unreal Data Setup</label>
           </fieldset>
           <button type="submit" className="reset">
             <span>Reset</span>
