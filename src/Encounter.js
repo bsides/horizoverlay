@@ -38,7 +38,10 @@ class Encounter extends Component {
               ? ' show'
               : ''}`}
           >
-            🕒 {this.props.duration}
+            <span role="img" aria-label="Clock">
+              🕒
+            </span>{' '}
+            {this.props.duration}
           </div>
         </div>
       </div>
