@@ -1,6 +1,6 @@
 .config {
-  padding: 6px 3px;
-  background: black;
+  padding: 6px 8px;
+  background: black url(images/bg.png) 50% 85%;
 }
 .config > div {
   text-align: center;
@@ -17,10 +17,13 @@ fieldset {
   min-width: -webkit-min-content;
   border-width: 2px;
   border-style: groove;
-  border-color: threedface;
+  border-color: rgba(0, 0, 0, 0.4);
   border-image: initial;
-  flex: 1;
   text-align: center;
+  flex: 1;
+}
+fieldset:nth-child(4) {
+  flex: 3;
 }
 form {
   display: flex;
@@ -62,12 +65,32 @@ input[type=checkbox] {
   position: relative;
   top: 3px;
 }
+input[type=text] {
+  padding: 2px 6px;
+  background: #fff;
+  border: 0;
+}
 
 legend {
-  color: black;
-  background-color: white;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 5px 10px;
   border-radius: 0;
   border: 0;
   font-size: 14px;
+}
+
+.reset {
+  margin-top: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  transition: 0.2s all linear;
+}
+.reset:hover {
+  background: rgba(255, 56, 59, 0.80);
+}
+.reset > span {
+  transform: rotate(90deg);
+  display: inline-block;
 }
