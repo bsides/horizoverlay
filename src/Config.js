@@ -1,21 +1,13 @@
 import React, { Component } from 'react'
+import { defaultConfig } from './helpers'
 import './config.css'
-// import 'semantic-ui-css/semantic.min.css';
 
 class Config extends Component {
   state = {
     config: {},
     isConfigOpen: false
   }
-  defaultConfig = {
-    color: 'byRole',
-    encounterDuration: false,
-    encounterTotalDps: false,
-    showHps: true,
-    jobIcon: true,
-    showRank: true,
-    showDamagePercent: true
-  }
+  defaultConfig = defaultConfig
   componentDidMount() {
     window.addEventListener('storage', this.onStorageUpdate, false)
     const configStore = localStorage.getItem('horizoverlay')
@@ -52,36 +44,61 @@ class Config extends Component {
     // And then save it to localStorage!
     localStorage.setItem('horizoverlay', JSON.stringify(config))
   }
+  handleReset = e => {
+    e.preventDefault()
+
+    // Default values
+    const config = defaultConfig
+    this.setState({ config })
+
+    // Clear any setup
+    localStorage.clear()
+
+    // Then save new values
+    localStorage.setItem('horizoverlay', JSON.stringify(config))
+  }
   // *** IMPORTANT ***
   // Gotta bind 'onClick' for checkboxes since false values don't bubble to 'onChange'!
   render() {
     const { config } = this.state
     return (
       <div className="config">
-        <div>
-          Resize this window as necessary. Everything saves automatically.{' '}
-          <strong>Right click</strong> open this window.
-        </div>
-        <form>
+        <form onSubmit={this.handleReset}>
+          <fieldset>
+            <legend>Character Name</legend>
+            <div>
+              <label htmlFor="characterName">Your character's name:</label>
+              <input
+                type="text"
+                name="characterName"
+                value={config.characterName}
+                placeholder={config.characterName}
+                onChange={this.handleConfig}
+              />
+            </div>
+          </fieldset>
           <fieldset>
             <legend>Color theme</legend>
             <div>
               <input
                 type="radio"
                 name="color"
-                value="default"
-                checked={config.color === 'default'}
-                onChange={this.handleConfig}
-              />
-              <label htmlFor="colorDefault">Black & White (default)</label>
-              <input
-                type="radio"
-                name="color"
+                id="colorByRole"
                 value="byRole"
                 checked={config.color === 'byRole'}
                 onChange={this.handleConfig}
               />
               <label htmlFor="colorByRole">Color By Role</label>
+              <br />
+              <input
+                type="radio"
+                name="color"
+                id="colorBlackWhite"
+                value="blackWhite"
+                checked={config.color === 'blackWhite'}
+                onChange={this.handleConfig}
+              />
+              <label htmlFor="colorBlackWhite">Black & White</label>
             </div>
           </fieldset>
           <fieldset>
@@ -109,7 +126,8 @@ class Config extends Component {
               defaultChecked={config.showHps}
               onClick={this.handleConfig}
             />
-            <label htmlFor="showHps">Show HPS</label>
+            <label htmlFor="showHps">HPS</label>
+            <br />
             <input
               type="checkbox"
               name="showJobIcon"
@@ -117,7 +135,7 @@ class Config extends Component {
               defaultChecked={config.showJobIcon}
               onClick={this.handleConfig}
             />
-            <label htmlFor="showJobIcon">Show Job Icon</label>
+            <label htmlFor="showJobIcon">Job Icon</label>
             <input
               type="checkbox"
               name="showRank"
@@ -125,7 +143,7 @@ class Config extends Component {
               defaultChecked={config.showRank}
               onClick={this.handleConfig}
             />
-            <label htmlFor="showRank">Show Rank</label>
+            <label htmlFor="showRank">Rank</label>
             <input
               type="checkbox"
               name="showDamagePercent"
@@ -133,9 +151,24 @@ class Config extends Component {
               defaultChecked={config.showDamagePercent}
               onClick={this.handleConfig}
             />
-            <label htmlFor="showDamagePercent">Show Damage Percent</label>
+            <label htmlFor="showDamagePercent">Damage Percent</label>
+            <input
+              type="checkbox"
+              name="showSetup"
+              id="showSetup"
+              defaultChecked={config.showSetup}
+              onClick={this.handleConfig}
+            />
+            <label htmlFor="showSetup">Unreal Data Setup</label>
           </fieldset>
+          <button type="submit" className="reset">
+            <span>Reset</span>
+          </button>
         </form>
+        <div>
+          Resize this window as necessary. Everything saves automatically.{' '}
+          <strong>Right click</strong> open this window.
+        </div>
       </div>
     )
   }
