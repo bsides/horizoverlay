@@ -15,11 +15,13 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.2",
-    "react-scripts": "1.0.10"
+    "react-scripts": "1.0.10",
+    "serve": "^6.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "now-start": "serve ./build --single",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build"

@@ -34,7 +34,7 @@ const Inactive = detail => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/config/" component={Config} />
+        <Route path={`${process.env.PUBLIC_URL}/config`} component={Config} />
         <Route component={Nothing} />
       </Switch>
     </BrowserRouter>
@@ -45,8 +45,11 @@ const Root = detail => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" render={() => <Overlay {...detail} />} />
-        <Route exact path="/config/" component={Config} />
+        <Route
+          path={`${process.env.PUBLIC_URL}`}
+          render={() => <Overlay {...detail} />}
+        />
+        <Route path={`${process.env.PUBLIC_URL}/config`} component={Config} />
         <Route render={() => <NotFound text="Page Not Found!" />} />
       </Switch>
     </BrowserRouter>
