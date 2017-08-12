@@ -4,6 +4,18 @@ export function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+export const defaultConfig = {
+  showSetup: true,
+  color: 'byRole',
+  characterName: 'YOU',
+  encounterDuration: true,
+  encounterTotalDps: true,
+  showHps: true,
+  showJobIcon: true,
+  showRank: true,
+  showDamagePercent: true
+}
+
 export const jobsTank = ['drk', 'gla', 'mrd', 'pld', 'war']
 export const jobsHealer = ['ast', 'cnj', 'sch', 'whm']
 export const jobsDps = [
