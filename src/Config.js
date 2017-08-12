@@ -5,12 +5,16 @@ import './config.css'
 class Config extends Component {
   state = {
     config: {},
-    isConfigOpen: true
+    isConfigOpen: false
   }
   defaultConfig = {
-    color: 'default',
+    color: 'byRole',
     encounterDuration: false,
-    encounterTotalDps: false
+    encounterTotalDps: false,
+    showHps: true,
+    jobIcon: true,
+    showRank: true,
+    showDamagePercent: true
   }
   componentDidMount() {
     window.addEventListener('storage', this.onStorageUpdate, false)
@@ -98,6 +102,38 @@ class Config extends Component {
               onClick={this.handleConfig}
             />
             <label htmlFor="encounterTotalDps">Encounter Total DPS</label>
+            <input
+              type="checkbox"
+              name="showHps"
+              id="showHps"
+              defaultChecked={config.showHps}
+              onClick={this.handleConfig}
+            />
+            <label htmlFor="showHps">Show HPS</label>
+            <input
+              type="checkbox"
+              name="showJobIcon"
+              id="showJobIcon"
+              defaultChecked={config.showJobIcon}
+              onClick={this.handleConfig}
+            />
+            <label htmlFor="showJobIcon">Show Job Icon</label>
+            <input
+              type="checkbox"
+              name="showRank"
+              id="showRank"
+              defaultChecked={config.showRank}
+              onClick={this.handleConfig}
+            />
+            <label htmlFor="showRank">Show Rank</label>
+            <input
+              type="checkbox"
+              name="showDamagePercent"
+              id="showDamagePercent"
+              defaultChecked={config.showDamagePercent}
+              onClick={this.handleConfig}
+            />
+            <label htmlFor="showDamagePercent">Show Damage Percent</label>
           </fieldset>
         </form>
       </div>

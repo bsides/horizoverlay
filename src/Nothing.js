@@ -8,10 +8,15 @@ class Nothing extends Component {
     config: {}
   }
   defaultConfig = {
-    color: 'default',
+    color: 'byRole',
     encounterDuration: false,
-    encounterTotalDps: false
+    encounterTotalDps: false,
+    showHps: true,
+    jobIcon: true,
+    showRank: true,
+    showDamagePercent: true
   }
+
   configWindow = {}
   componentDidMount() {
     const configStore = localStorage.getItem('horizoverlay')

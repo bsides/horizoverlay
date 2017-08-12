@@ -17,25 +17,82 @@ h3 {
   margin: 0 6px;
   max-width: 140px;
 }
-.row.job-dps .dps {
+.row.job-dps .dps,
+.row.job-dps .damage-percent-bg {
   background: rgba(244, 67, 54, 0.3);
 }
-.row.job-tank .dps {
+.row.job-tank .dps,
+.row.job-tank .damage-percent-bg {
   background: rgba(33, 150, 243, 0.3);
 }
-.row.job-healer .dps {
+.row.job-healer .dps,
+.row.job-healer .damage-percent-bg {
   background: rgba(139, 195, 74, 0.3);
+}
+.row.self .damage-percent-bg {
+  background: rgba(255, 255, 255, 0.5);
+}
+.row.job-dps .damage-percent-fg {
+  background: rgba(244, 67, 54, 0.7);
+}
+.row.job-tank .damage-percent-fg {
+  background: rgba(33, 150, 243, 0.7);
+}
+.row.job-healer .damage-percent-fg {
+  background: rgba(139, 195, 74, 0.7);
+}
+.row.self .damage-percent-fg {
+  background: rgba(255, 255, 255, 1.0);
+}
+.row.job-dps .dps.irrelevant {
+  background: rgba(244, 67, 54, 0.1);
+}
+.row.job-tank .dps.irrelevant {
+  background: rgba(33, 150, 243, 0.1);
+}
+.row.job-healer .dps.irrelevant {
+  background: rgba(139, 195, 74, 0.1);
 }
 .row.self div.dps {
   background: rgba(255, 255, 255, 0.8);
   color: #000;
+}
+.row.self div.dps.irrelevant {
+  background: rgba(255, 255, 255, 0.5);
+}
+.row .damage-percent-bg {
+  height: 2px;
+  background: rgba(0,0,0,0.3);
+  transform: skew(-30deg);
+  position: relative;
+  left: -8px;
+  margin: 0;
+}
+.row .damage-percent-fg {
+  height: 2px;
+  background: rgba(0,0,0,0.7);
+  transform: skew(-30deg);
+  margin: 0;
+}
+.row .damage-percent {
+  position: relative;
+  text-align: right;
+  width: 100%;
+  font-size: 7px;
+  top: -2px;
+  right: 10px;
 }
 .row .dps {
   background: rgba(0, 0, 0, 0.3);
   color: #fff;
   transform: skew(-30deg);
   text-shadow: initial;
-  padding: 2px 0 3px;
+  padding: 2px 5px 2px 0;
+  margin: 3px 0 0 0;
+  flex-grow: 1;
+}
+.row .dps.irrelevant {
+  background: rgba(0, 0, 0, 0.1);
 }
 .row > div {
   margin: 0px auto;
@@ -49,15 +106,28 @@ h3 {
   content: "";
   display: table;
 }
-.character-job {
-  text-transform: uppercase;
-  float: left;
-  padding-left: 12px;
+.job {
+  width: 20px;
+  position: absolute;
+  top: -5px;
+  left: 59px;
+  z-index: 1;
 }
-.damage-stats {
-  float: right;
-  padding-right: 12px;
+.name {
+  white-space: nowrap;
 }
-.rank {
-  display: none;
+.horiz-elems {
+  display: flex;
+  width: 140px;
+  position: relative;
+}
+.dps:first-child {
+  text-align: left;
+}
+.dps:last-child {
+  text-align: right;
+}
+.dps span.label {
+  font-size: 8px;
+  margin: 0 0 0 1px;
 }

@@ -39,7 +39,6 @@
   color: #fff;
   transform: skew(-30deg);
   text-shadow: initial;
-  padding: 2px 0 3px;
 }
 .row > div {
   margin: 0px auto;
@@ -52,16 +51,4 @@
   clear: both;
   content: "";
   display: table;
-}
-.character-job {
-  text-transform: uppercase;
-  float: left;
-  padding-left: 12px;
-}
-.damage-stats {
-  float: right;
-  padding-right: 12px;
-}
-.rank {
-  display: none;
 }

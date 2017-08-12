@@ -19,9 +19,13 @@ class Overlay extends Component {
     isConfigOpen: false
   }
   defaultConfig = {
-    color: 'default',
+    color: 'byRole',
     encounterDuration: false,
-    encounterTotalDps: false
+    encounterTotalDps: false,
+    showHps: true,
+    jobIcon: true,
+    showRank: true,
+    showDamagePercent: true
   }
   configWindow = {}
   componentDidMount() {
