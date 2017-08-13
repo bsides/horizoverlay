@@ -1,32 +1,33 @@
 import React, { Component } from 'react'
 import { defaultConfig } from './helpers'
-import { bool, string, number } from 'prop-types'
+import { shape, bool, string, number } from 'prop-types'
 import './config.css'
 
 class Config extends Component {
-  static defaultProps = defaultConfig
+  static defaultProps = { config: defaultConfig }
   static propTypes = {
-    showSetup: bool.isRequired,
-    color: string.isRequired,
-    characterName: string.isRequired,
-    showDuration: bool.isRequired,
-    showTotalDps: bool.isRequired,
-    showHps: bool.isRequired,
-    showJobIcon: bool.isRequired,
-    showRank: bool.isRequired,
-    showDamagePercent: bool.isRequired,
-    zoom: number.isRequired
+    config: shape({
+      showSetup: bool.isRequired,
+      color: string.isRequired,
+      characterName: string.isRequired,
+      showDuration: bool.isRequired,
+      showTotalDps: bool.isRequired,
+      showHps: bool.isRequired,
+      showJobIcon: bool.isRequired,
+      showRank: bool.isRequired,
+      showDamagePercent: bool.isRequired,
+      zoom: number.isRequired
+    })
   }
   state = {
-    config: {},
+    config: this.props.config,
     isConfigOpen: false
   }
-  defaultConfig = defaultConfig
   componentDidMount() {
     window.addEventListener('storage', this.onStorageUpdate, false)
     const configStore = localStorage.getItem('horizoverlay')
     if (!configStore) {
-      const config = this.defaultConfig
+      const config = this.props.config
       localStorage.setItem('horizoverlay', JSON.stringify(config))
       this.setState({ config })
     } else {
