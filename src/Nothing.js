@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { defaultConfig, mockData } from './helpers'
+import { shape, bool, string, number } from 'prop-types'
 
 import './reboot.css'
 import './nothing.css'
@@ -7,16 +8,29 @@ import './nothing.css'
 var images = require.context('./images', false, /\.png$/)
 
 class Nothing extends Component {
-  static defaultProps = { mockData }
+  static defaultProps = { mockData, config: defaultConfig }
+  static propTypes = {
+    config: shape({
+      showSetup: bool.isRequired,
+      color: string.isRequired,
+      characterName: string.isRequired,
+      showDuration: bool.isRequired,
+      showTotalDps: bool.isRequired,
+      showHps: bool.isRequired,
+      showJobIcon: bool.isRequired,
+      showRank: bool.isRequired,
+      showDamagePercent: bool.isRequired,
+      zoom: number.isRequired
+    })
+  }
   state = {
     config: {}
   }
-  defaultConfig = defaultConfig
   configWindow = {}
   componentDidMount() {
     const configStore = localStorage.getItem('horizoverlay')
     if (!configStore) {
-      const config = this.defaultConfig
+      const config = this.props.config
       localStorage.setItem('horizoverlay', JSON.stringify(config))
       this.setState({ config })
     } else {
