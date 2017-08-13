@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { object, string, bool, oneOfType } from 'prop-types'
+import { shape, number, object, string, bool, oneOfType } from 'prop-types'
 import Encounter from './Encounter'
 import Combatants from './Combatants'
 import { defaultConfig } from './helpers'
@@ -9,22 +9,34 @@ import './index.css'
 import './overlay.css'
 
 class Overlay extends Component {
+  static defaultProps = { config: defaultConfig }
   static propTypes = {
     Combatant: object,
     Encounter: object,
-    isActive: oneOfType([string, bool])
+    isActive: oneOfType([string, bool]),
+    config: shape({
+      showSetup: bool.isRequired,
+      color: string.isRequired,
+      characterName: string.isRequired,
+      showDuration: bool.isRequired,
+      showTotalDps: bool.isRequired,
+      showHps: bool.isRequired,
+      showJobIcon: bool.isRequired,
+      showRank: bool.isRequired,
+      showDamagePercent: bool.isRequired,
+      zoom: number.isRequired
+    })
   }
   state = {
     currentViewIndex: 0,
     config: {},
     isConfigOpen: false
   }
-  defaultConfig = defaultConfig
   configWindow = {}
   componentDidMount() {
     const configStore = localStorage.getItem('horizoverlay')
     if (!configStore) {
-      const config = this.defaultConfig
+      const config = this.props.config
       localStorage.setItem('horizoverlay', JSON.stringify(config))
       this.setState({ config })
     } else {
@@ -42,25 +54,6 @@ class Overlay extends Component {
       return false
     }
     return true
-  }
-  handleConfig = e => {
-    const target = e.target
-    const config = { ...this.state.config }
-    let key = target.name,
-      value = target.value
-
-    // Why aren't HTML elements more consistent? 😦
-    if (target.type === 'checkbox') {
-      value = target.checked
-    }
-
-    // update the value in our copied state...
-    config[key] = value
-    // ...and set it to component' state
-    this.setState({ config })
-
-    // And then save it to localStorage!
-    localStorage.setItem('horizoverlay', JSON.stringify(config))
   }
   openConfig = () => {
     this.setState({ isConfigOpen: true })
