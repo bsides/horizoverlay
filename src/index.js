@@ -1,10 +1,10 @@
 // uncomment for testing
-// import './testing/testing'
+import './testing/testing'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Overlay from './Overlay'
 import Config from './Config'
@@ -32,18 +32,18 @@ window.addEventListener('storage', function() {
 
 const Inactive = detail => {
   return (
-    <BrowserRouter>
+    <Router>
       <Switch>
         <Route path={`${process.env.PUBLIC_URL}/config`} component={Config} />
         <Route component={SetupMode} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   )
 }
 
 const Root = detail => {
   return (
-    <BrowserRouter>
+    <Router>
       <Switch>
         <Route
           path={`${process.env.PUBLIC_URL}`}
@@ -52,7 +52,7 @@ const Root = detail => {
         <Route path={`${process.env.PUBLIC_URL}/config`} component={Config} />
         <Route render={() => <NotFound text="Page Not Found!" />} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   )
 }
 
