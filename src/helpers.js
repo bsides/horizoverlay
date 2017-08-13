@@ -13,7 +13,8 @@ export const defaultConfig = {
   showHps: true,
   showJobIcon: true,
   showRank: true,
-  showDamagePercent: true
+  showDamagePercent: true,
+  zoom: 1
 }
 
 export const jobsTank = ['drk', 'gla', 'mrd', 'pld', 'war']
