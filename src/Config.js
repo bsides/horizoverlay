@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { defaultConfig } from './helpers'
 import { shape, bool, string, number } from 'prop-types'
-import './config.css'
+
+import './css/config.css'
 
 class Config extends Component {
   static defaultProps = { config: defaultConfig }

@@ -1,24 +1,24 @@
-.nothing {
+.setupMode {
   color: #fff;
   text-align: center;
   padding: 8px 12px;
   margin: 0 auto;
   text-shadow: 0 0 6px #000;
 }
-.nothing .wrapper {
+.setupMode .wrapper {
   background: rgba(150, 0, 0, 0.1);
 }
-.nothing .wrapper.hide {
+.setupMode .wrapper.hide {
   display: none;
 }
-.nothing .notice {
+.setupMode .notice {
   color: rgba(255, 255, 255, 0.7);
   display: none;
 }
 .notice > div {
   color: rgba(255, 255, 255, 0.3);
 }
-.nothing .wrapper.hide + .notice {
+.setupMode .wrapper.hide + .notice {
   display: block;
 }
 

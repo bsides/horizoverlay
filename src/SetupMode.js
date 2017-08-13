@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { defaultConfig, mockData } from './helpers'
 import { shape, bool, string, number } from 'prop-types'
 
-import './reboot.css'
-import './nothing.css'
+import './css/reboot.css'
+import './css/setupMode.css'
 
 var images = require.context('./images', false, /\.png$/)
 
-class Nothing extends Component {
+class SetupMode extends Component {
   static defaultProps = { mockData, config: defaultConfig }
   static propTypes = {
     config: shape({
@@ -51,7 +51,10 @@ class Nothing extends Component {
     const colorClass = this.state.config.color
     const isVisible = this.state.config.showSetup ? 'show' : 'hide'
     return (
-      <div className={`nothing ${colorClass}`} onContextMenu={this.openConfig}>
+      <div
+        className={`setupMode ${colorClass}`}
+        onContextMenu={this.openConfig}
+      >
         <div className={`wrapper ${isVisible}`}>
           <div className="combatants">
             {mockData.map(mock =>
@@ -149,4 +152,4 @@ class Nothing extends Component {
   }
 }
 
-export default Nothing
+export default SetupMode

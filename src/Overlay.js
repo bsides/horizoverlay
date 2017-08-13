@@ -4,9 +4,9 @@ import Encounter from './Encounter'
 import Combatants from './Combatants'
 import { defaultConfig } from './helpers'
 
-import './reboot.css'
-import './index.css'
-import './overlay.css'
+import './css/reboot.css'
+import './css/index.css'
+import './css/overlay.css'
 
 class Overlay extends Component {
   static defaultProps = { config: defaultConfig }

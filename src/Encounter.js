@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import './encounter.css'
+import './css/encounter.css'
 
 class Encounter extends Component {
   render() {

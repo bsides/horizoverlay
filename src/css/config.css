@@ -1,6 +1,6 @@
 .config {
   padding: 6px 8px;
-  background: black url(images/bg.png) 50% 85%;
+  background: black url(../images/bg.png) 50% 85%;
 }
 .config > div {
   text-align: center;

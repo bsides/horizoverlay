@@ -1,5 +1,5 @@
 // uncomment for testing
-// import './testing'
+// import './testing/testing'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -9,7 +9,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Overlay from './Overlay'
 import Config from './Config'
 import NotFound from './NotFound'
-import Nothing from './Nothing'
+import SetupMode from './SetupMode'
 
 require(`./images/handle.png`)
 
@@ -35,7 +35,7 @@ const Inactive = detail => {
     <BrowserRouter>
       <Switch>
         <Route path={`${process.env.PUBLIC_URL}/config`} component={Config} />
-        <Route component={Nothing} />
+        <Route component={SetupMode} />
       </Switch>
     </BrowserRouter>
   )
