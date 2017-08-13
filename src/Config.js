@@ -1,8 +1,22 @@
 import React, { Component } from 'react'
 import { defaultConfig } from './helpers'
+import { bool, string, number } from 'prop-types'
 import './config.css'
 
 class Config extends Component {
+  static defaultProps = defaultConfig
+  static propTypes = {
+    showSetup: bool.isRequired,
+    color: string.isRequired,
+    characterName: string.isRequired,
+    showDuration: bool.isRequired,
+    showTotalDps: bool.isRequired,
+    showHps: bool.isRequired,
+    showJobIcon: bool.isRequired,
+    showRank: bool.isRequired,
+    showDamagePercent: bool.isRequired,
+    zoom: number.isRequired
+  }
   state = {
     config: {},
     isConfigOpen: false
