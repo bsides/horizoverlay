@@ -1,58 +1,19 @@
 import React, { Component } from 'react'
-import { shape, number, object, string, bool, oneOfType } from 'prop-types'
 import Encounter from './Encounter'
 import Combatants from './Combatants'
-import { defaultConfig } from './helpers'
+import { withHelper } from './helpers'
 
 import './css/reboot.css'
 import './css/index.css'
 import './css/overlay.css'
 
-class Overlay extends Component {
-  static defaultProps = { config: defaultConfig }
-  static propTypes = {
-    Combatant: object,
-    Encounter: object,
-    isActive: oneOfType([string, bool]),
-    config: shape({
-      showSetup: bool.isRequired,
-      color: string.isRequired,
-      characterName: string.isRequired,
-      showDuration: bool.isRequired,
-      showTotalDps: bool.isRequired,
-      showHps: bool.isRequired,
-      showJobIcon: bool.isRequired,
-      showRank: bool.isRequired,
-      showDamagePercent: bool.isRequired,
-      zoom: number.isRequired
-    })
-  }
+class OverlayRaw extends Component {
   state = {
-    currentViewIndex: 0,
-    config: {},
+    config: this.props.config,
     isConfigOpen: false
   }
-  configWindow = {}
-  componentDidMount() {
-    const configStore = localStorage.getItem('horizoverlay')
-    if (!configStore) {
-      const config = this.props.config
-      localStorage.setItem('horizoverlay', JSON.stringify(config))
-      this.setState({ config })
-    } else {
-      const config = JSON.parse(configStore)
-      this.setState({ config })
-    }
-  }
   shouldComponentUpdate(nextProps, nextState) {
-    // if (this.state.openConfig) return false
     if (nextProps.Encounter.encdps === '---') return false
-    if (this.state.currentViewIndex !== nextState.currentViewIndex) {
-      return true
-    }
-    if (this.state.selectedEncounter) {
-      return false
-    }
     return true
   }
   openConfig = () => {
@@ -60,27 +21,31 @@ class Overlay extends Component {
     const windowFeatures =
       'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=1000,height=187'
     this.configWindow = window.open(
-      '/config/',
+      '/#/config',
       'Horizoverlay Config',
       windowFeatures
     )
   }
   render() {
+    const { isActive, Combatant } = this.props
+    const { config } = this.state
+    const style = { zoom: config.zoom }
     return (
       <div
-        className={`damage-meter${this.props.isActive ? '' : ' inactive'}`}
+        className={`damage-meter${isActive ? '' : ' inactive'}`}
         onContextMenu={this.openConfig}
+        style={{ style }}
       >
-        <h3>Awaiting data.</h3>
         <Combatants
-          data={this.props.Combatant}
+          data={Combatant}
           encounterDamage={this.props.Encounter.damage}
-          config={this.state.config}
+          config={config}
         />
-        <Encounter {...this.props.Encounter} config={this.state.config} />
+        <Encounter {...this.props.Encounter} config={config} />
       </div>
     )
   }
 }
 
+const Overlay = withHelper(OverlayRaw)
 export default Overlay
