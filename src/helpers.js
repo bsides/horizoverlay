@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { shape, bool, string, number, object } from 'prop-types'
+import { shape, bool, string, object } from 'prop-types'
 
 export const defaultConfig = {
   showSetup: false,
@@ -11,7 +11,7 @@ export const defaultConfig = {
   showJobIcon: true,
   showRank: true,
   showDamagePercent: true,
-  zoom: 1,
+  zoom: '1',
   configWindow: {
     width: 1300,
     height: 206
@@ -42,7 +42,7 @@ export const withHelper = ({
         showJobIcon: bool.isRequired,
         showRank: bool.isRequired,
         showDamagePercent: bool.isRequired,
-        zoom: number.isRequired,
+        zoom: string.isRequired,
         configWindow: object.isRequired
       })
     }

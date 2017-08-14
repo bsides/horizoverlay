@@ -42,7 +42,7 @@ class ConfigRaw extends Component {
   render() {
     let { config } = this.state
     return (
-      <div className="config" style={{ zoom: config.zoom }}>
+      <div className="config" style={{ zoom: config.zoom.toString() }}>
         <form onSubmit={e => this.resetConfig(e)}>
           <label
             htmlFor="showSetup"
@@ -155,7 +155,9 @@ class ConfigRaw extends Component {
 
             <label
               htmlFor="zoom90"
-              className={`${config.zoom === '0.9' ? '' : ' disabled'}`}
+              className={`${config.zoom.toString() === '0.9'
+                ? ''
+                : ' disabled'}`}
             >
               <span>
                 <input
@@ -163,7 +165,7 @@ class ConfigRaw extends Component {
                   name="zoom"
                   id="zoom90"
                   value="0.9"
-                  checked={config.zoom === '0.9'}
+                  checked={config.zoom.toString() === '0.9'}
                   onChange={this.handleConfig}
                 />{' '}
                 90%
@@ -171,7 +173,7 @@ class ConfigRaw extends Component {
             </label>
             <label
               htmlFor="zoom100"
-              className={`${config.zoom === '1' ? '' : ' disabled'}`}
+              className={`${config.zoom.toString() === '1' ? '' : ' disabled'}`}
             >
               <span>
                 <input
@@ -179,7 +181,7 @@ class ConfigRaw extends Component {
                   name="zoom"
                   id="zoom100"
                   value="1"
-                  checked={config.zoom === '1'}
+                  checked={config.zoom.toString() === '1'}
                   onChange={this.handleConfig}
                 />{' '}
                 100%
@@ -187,7 +189,9 @@ class ConfigRaw extends Component {
             </label>
             <label
               htmlFor="zoom110"
-              className={`${config.zoom === '1.1' ? '' : ' disabled'}`}
+              className={`${config.zoom.toString() === '1.1'
+                ? ''
+                : ' disabled'}`}
             >
               <span>
                 <input
@@ -195,7 +199,7 @@ class ConfigRaw extends Component {
                   name="zoom"
                   id="zoom110"
                   value="1.1"
-                  checked={config.zoom === '1.1'}
+                  checked={config.zoom.toString() === '1.1'}
                   onChange={this.handleConfig}
                 />{' '}
                 110%
@@ -205,7 +209,9 @@ class ConfigRaw extends Component {
             <br />
             <label
               htmlFor="zoom125"
-              className={`${config.zoom === '1.25' ? '' : ' disabled'}`}
+              className={`${config.zoom.toString() === '1.25'
+                ? ''
+                : ' disabled'}`}
             >
               <span>
                 <input
@@ -213,7 +219,7 @@ class ConfigRaw extends Component {
                   name="zoom"
                   id="zoom125"
                   value="1.25"
-                  checked={config.zoom === '1.25'}
+                  checked={config.zoom.toString() === '1.25'}
                   onChange={this.handleConfig}
                 />{' '}
                 125%
@@ -221,7 +227,9 @@ class ConfigRaw extends Component {
             </label>
             <label
               htmlFor="zoom150"
-              className={`${config.zoom === '1.5' ? '' : ' disabled'}`}
+              className={`${config.zoom.toString() === '1.5'
+                ? ''
+                : ' disabled'}`}
             >
               <span>
                 <input
@@ -229,7 +237,7 @@ class ConfigRaw extends Component {
                   name="zoom"
                   id="zoom150"
                   value="1.5"
-                  checked={config.zoom === '1.5'}
+                  checked={config.zoom.toString() === '1.5'}
                   onChange={this.handleConfig}
                 />{' '}
                 150%
@@ -237,7 +245,7 @@ class ConfigRaw extends Component {
             </label>
             <label
               htmlFor="zoom200"
-              className={`${config.zoom === '2' ? '' : ' disabled'}`}
+              className={`${config.zoom.toString() === '2' ? '' : ' disabled'}`}
             >
               <span>
                 <input
@@ -245,7 +253,7 @@ class ConfigRaw extends Component {
                   name="zoom"
                   id="zoom200"
                   value="2"
-                  checked={config.zoom === '2'}
+                  checked={config.zoom.toString() === '2'}
                   onChange={this.handleConfig}
                 />{' '}
                 200%
@@ -258,7 +266,7 @@ class ConfigRaw extends Component {
               step="0.1"
               id="zoom"
               name="zoom"
-              value={config.zoom}
+              value={config.zoom.toString()}
               onChange={this.handleConfig}
             />
           </fieldset>
