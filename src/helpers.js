@@ -50,6 +50,8 @@ export const withHelper = ({
     resizeTimeout = undefined
     componentWillMount() {
       window.addEventListener('storage', this.updateState, false)
+      // Check this before implementing
+      // https://lodash.com/docs/4.17.4#throttle
       // if (isConfig)
       //   window.addEventListener('resize', this.handleResizeThrottler, false)
       this.updateState()
