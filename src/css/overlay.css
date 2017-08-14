@@ -39,6 +39,7 @@
 .row.self .damage-percent-fg {
   background: rgba(255, 255, 255, 1.0);
 }
+/*
 .row.job-dps .dps.irrelevant {
   background: rgba(244, 67, 54, 0.1);
 }
@@ -48,12 +49,16 @@
 .row.job-healer .dps.irrelevant {
   background: rgba(139, 195, 74, 0.1);
 }
+.row.self div.dps.irrelevant {
+  background: rgba(255, 255, 255, 0.5);
+}
+.row .dps.irrelevant {
+  background: rgba(0, 0, 0, 0.1);
+}
+    */
 .row.self div.dps {
   background: rgba(255, 255, 255, 0.8);
   color: #000;
-}
-.row.self div.dps.irrelevant {
-  background: rgba(255, 255, 255, 0.5);
 }
 .row .damage-percent-bg {
   height: 2px;
@@ -85,9 +90,6 @@
   padding: 2px 5px 2px 0;
   margin: 3px 0 0 0;
   flex-grow: 1;
-}
-.row .dps.irrelevant {
-  background: rgba(0, 0, 0, 0.1);
 }
 .row > div {
   margin: 0px auto;
