@@ -22,8 +22,11 @@ fieldset {
   text-align: center;
   flex: 1;
 }
-fieldset:nth-child(4) {
+.fieldsToShow {
   flex: 3;
+}
+.fieldsZoom {
+  flex: 2;
 }
 form {
   display: flex;
@@ -40,6 +43,7 @@ label {
   margin: 0;
   margin-right: 15px;
   line-height: 32px;
+  cursor: pointer;
 }
 
 input[type=radio] {
@@ -108,10 +112,30 @@ legend {
   margin: 0;
   padding: 0;
   margin-top: 15px;
-  padding-top: 60px;
+  padding-top: 44px;
   width: 50px;
   cursor: pointer;
 }
 .setup-btn.disabled {
   background: rgba(0, 0, 0, 0.2);
+}
+.fieldsZoom label,
+.fieldsZoom button {
+  border: 2px solid rgba(23, 162, 184, 0.1);
+  background: rgba(23, 162, 184, 0.10);
+  color: #fff;
+  cursor: pointer;
+  margin-right: 3px;
+  padding: .5rem .75rem;
+  line-height: 1.25;
+  margin: 0 8px 6px 0;
+}
+.fieldsZoom label:hover,
+.fieldsZoom button:hover {
+  color: #fff;
+  background-color: #138496;
+  border-color: #117a8b;
+}
+.fieldsZoom input[type=range] {
+  display: none;
 }

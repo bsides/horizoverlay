@@ -42,7 +42,7 @@ class ConfigRaw extends Component {
   render() {
     let { config } = this.state
     return (
-      <div className="config">
+      <div className="config" style={{ zoom: config.zoom }}>
         <form onSubmit={e => this.resetConfig(e)}>
           <label
             htmlFor="showSetup"
@@ -67,6 +67,7 @@ class ConfigRaw extends Component {
               <input
                 type="text"
                 name="characterName"
+                id="characterName"
                 value={config.characterName}
                 placeholder={config.characterName}
                 onChange={this.handleConfig}
@@ -97,7 +98,7 @@ class ConfigRaw extends Component {
               <label htmlFor="colorBlackWhite">Black & White</label>
             </div>
           </fieldset>
-          <fieldset>
+          <fieldset className="fieldsToShow">
             <legend>Check to Show</legend>
             <input
               type="checkbox"
@@ -149,62 +150,107 @@ class ConfigRaw extends Component {
             />
             <label htmlFor="showDamagePercent">Damage Percent</label>
           </fieldset>
-          <fieldset>
-            <legend>Scale</legend>
-            <button
-              type="button"
-              className=""
-              onClick={this.handleConfig}
-              name="zoom"
-              value="0.5"
+          <fieldset className="fieldsZoom">
+            <legend>Zoom Scale</legend>
+
+            <label
+              htmlFor="zoom90"
+              className={`${config.zoom === '0.9' ? '' : ' disabled'}`}
             >
-              50%
-            </button>
-            <button
-              type="button"
-              className=""
-              onClick={this.handleConfig}
-              name="zoom"
-              value="1"
+              <span>
+                <input
+                  type="radio"
+                  name="zoom"
+                  id="zoom90"
+                  value="0.9"
+                  checked={config.zoom === '0.9'}
+                  onChange={this.handleConfig}
+                />{' '}
+                90%
+              </span>
+            </label>
+            <label
+              htmlFor="zoom100"
+              className={`${config.zoom === '1' ? '' : ' disabled'}`}
             >
-              100%
-            </button>
-            <button
-              type="button"
-              className=""
-              onClick={this.handleConfig}
-              name="zoom"
-              value="1.1"
+              <span>
+                <input
+                  type="radio"
+                  name="zoom"
+                  id="zoom100"
+                  value="1"
+                  checked={config.zoom === '1'}
+                  onChange={this.handleConfig}
+                />{' '}
+                100%
+              </span>
+            </label>
+            <label
+              htmlFor="zoom110"
+              className={`${config.zoom === '1.1' ? '' : ' disabled'}`}
             >
-              110%
-            </button>
-            <button
-              type="button"
-              className=""
-              onClick={this.handleConfig}
-              name="zoom"
-              value="1.25"
+              <span>
+                <input
+                  type="radio"
+                  name="zoom"
+                  id="zoom110"
+                  value="1.1"
+                  checked={config.zoom === '1.1'}
+                  onChange={this.handleConfig}
+                />{' '}
+                110%
+              </span>
+            </label>
+
+            <br />
+            <label
+              htmlFor="zoom125"
+              className={`${config.zoom === '1.25' ? '' : ' disabled'}`}
             >
-              125%
-            </button>
-            <button
-              type="button"
-              className=""
-              onClick={this.handleConfig}
-              name="zoom"
-              value="1.5"
+              <span>
+                <input
+                  type="radio"
+                  name="zoom"
+                  id="zoom125"
+                  value="1.25"
+                  checked={config.zoom === '1.25'}
+                  onChange={this.handleConfig}
+                />{' '}
+                125%
+              </span>
+            </label>
+            <label
+              htmlFor="zoom150"
+              className={`${config.zoom === '1.5' ? '' : ' disabled'}`}
             >
-              150%
-            </button>
-            <button
-              type="button"
-              className=""
-              onClick={this.handleConfig}
-              name="zoom"
-              value="2"
+              <span>
+                <input
+                  type="radio"
+                  name="zoom"
+                  id="zoom150"
+                  value="1.5"
+                  checked={config.zoom === '1.5'}
+                  onChange={this.handleConfig}
+                />{' '}
+                150%
+              </span>
+            </label>
+            <label
+              htmlFor="zoom200"
+              className={`${config.zoom === '2' ? '' : ' disabled'}`}
             >
-              200%
-            </button>
+              <span>
+                <input
+                  type="radio"
+                  name="zoom"
+                  id="zoom200"
+                  value="2"
+                  checked={config.zoom === '2'}
+                  onChange={this.handleConfig}
+                />{' '}
+                200%
+              </span>
+            </label>
             <input
               type="range"
               min="0.5"
@@ -215,7 +261,6 @@ class ConfigRaw extends Component {
               value={config.zoom}
               onChange={this.handleConfig}
             />
-            <label htmlFor="zoom">Zoom Scale</label>
           </fieldset>
           <button type="submit" className="reset">
             <span>Reset</span>
@@ -230,5 +275,5 @@ class ConfigRaw extends Component {
   }
 }
 
-const Config = withHelper(ConfigRaw)
+const Config = withHelper({ WrappedComponent: ConfigRaw, isConfig: true })
 export default Config

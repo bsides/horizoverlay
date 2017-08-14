@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { shape, bool, string, number } from 'prop-types'
+import { shape, bool, string, number, object } from 'prop-types'
 
 export const defaultConfig = {
   showSetup: false,
@@ -11,10 +11,21 @@ export const defaultConfig = {
   showJobIcon: true,
   showRank: true,
   showDamagePercent: true,
-  zoom: 1
+  zoom: 1,
+  configWindow: {
+    width: 1300,
+    height: 206
+  },
+  colorHealer: 'rgba(139, 195, 74, 0.3)',
+  colorTank: 'rgba(33, 150, 243, 0.3)',
+  colorDps: 'rgba(244, 67, 54, 0.3)'
 }
 
-export const withHelper = (WrappedComponent, willMock = false) => {
+export const withHelper = ({
+  WrappedComponent,
+  willMock = false,
+  isConfig = false
+}) => {
   return class withConfig extends Component {
     static defaultProps = {
       mockData: willMock ? mockData : null,
@@ -31,12 +42,16 @@ export const withHelper = (WrappedComponent, willMock = false) => {
         showJobIcon: bool.isRequired,
         showRank: bool.isRequired,
         showDamagePercent: bool.isRequired,
-        zoom: number.isRequired
+        zoom: number.isRequired,
+        configWindow: object.isRequired
       })
     }
     state = { ...this.props }
+    resizeTimeout = undefined
     componentWillMount() {
       window.addEventListener('storage', this.updateState, false)
+      // if (isConfig)
+      //   window.addEventListener('resize', this.handleResizeThrottler, false)
       this.updateState()
     }
     componentWillReceiveProps(nextProps) {
@@ -44,6 +59,8 @@ export const withHelper = (WrappedComponent, willMock = false) => {
     }
     componentWillUnmount() {
       window.removeEventListener('storage', this.updateState)
+      // if (isConfig)
+      //   window.removeEventListener('resize', this.handleResizeThrottler)
     }
     updateState = () => {
       const configStore = localStorage.getItem('horizoverlay')
@@ -56,10 +73,32 @@ export const withHelper = (WrappedComponent, willMock = false) => {
         this.setState({ config })
       }
     }
+    handleResize = () => {
+      const config = { ...this.state.config }
+      let width = window.innerWidth,
+        height = window.innerHeight
+
+      // update the value in our copied state...
+      config.configWindow = { width, height }
+      // ...and set it to component' state
+      this.setState({ config })
+
+      // And then save it to localStorage!
+      localStorage.setItem('horizoverlay', JSON.stringify(config))
+    }
+    handleResizeThrottler = () => {
+      if (!this.resizeTimeout) {
+        this.resizeTimeout = setTimeout(() => {
+          this.resizeTimeout = null
+          this.handleResize()
+        }, 66)
+      }
+    }
     openConfig = () => {
       this.setState({ isConfigOpen: true })
-      const windowFeatures =
-        'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=1200,height=200'
+      const windowFeatures = `menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=${this
+        .props.config.configWindow.width},height=${this.props.config
+        .configWindow.height}`
       this.configWindow = window.open(
         '/#/config',
         'Horizoverlay Config',
