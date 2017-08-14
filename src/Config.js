@@ -4,13 +4,10 @@ import { withHelper } from './helpers'
 import './css/config.css'
 
 class ConfigRaw extends Component {
-  state = { config: this.props.config }
-  onStorageUpdate = () => {
-    // Reload the overlay on every config update
-    // window.opener.location.reload()
-  }
+  state = { ...this.props }
   handleConfig = e => {
     const target = e.target
+    if (target.type === 'text') e.preventDefault()
     const config = { ...this.state.config }
     let key = target.name,
       value = target.value
@@ -18,9 +15,6 @@ class ConfigRaw extends Component {
     // Why aren't HTML elements more consistent? 😦
     if (target.type === 'checkbox') {
       value = target.checked
-    }
-    if (target.type === 'range') {
-      key = target.id
     }
 
     // update the value in our copied state...
@@ -31,18 +25,17 @@ class ConfigRaw extends Component {
     // And then save it to localStorage!
     localStorage.setItem('horizoverlay', JSON.stringify(config))
   }
-  handleReset = e => {
+  resetConfig = e => {
     e.preventDefault()
 
-    // Default values
-    const config = this.props.config
-    this.setState({ config })
-
     // Clear any setup
-    localStorage.clear()
+    window.localStorage.clear()
 
-    // Then save new values
-    localStorage.setItem('horizoverlay', JSON.stringify(config))
+    // send to the wrapper component
+    this.props.handleReset(e)
+
+    // well that's horrible
+    window.location.reload()
   }
   // *** IMPORTANT ***
   // Gotta bind 'onChange' for checkboxes since false values don't bubble to 'onChange'!
@@ -50,7 +43,23 @@ class ConfigRaw extends Component {
     let { config } = this.state
     return (
       <div className="config">
-        <form onSubmit={this.handleReset}>
+        <form onSubmit={e => this.resetConfig(e)}>
+          <label
+            htmlFor="showSetup"
+            className={`setup-btn${config.showSetup ? '' : ' disabled'}`}
+          >
+            <span>
+              <input
+                type="checkbox"
+                name="showSetup"
+                id="showSetup"
+                checked={config.showSetup}
+                onChange={this.handleConfig}
+              />{' '}
+              Setup Mode
+            </span>
+          </label>
+
           <fieldset>
             <legend>Character Name</legend>
             <div>
@@ -87,17 +96,6 @@ class ConfigRaw extends Component {
               />
               <label htmlFor="colorBlackWhite">Black & White</label>
             </div>
-          </fieldset>
-          <fieldset>
-            <legend>Setup Mode</legend>
-            <input
-              type="checkbox"
-              name="showSetup"
-              id="showSetup"
-              defaultChecked={config.showSetup}
-              onChange={this.handleConfig}
-            />
-            <label htmlFor="showSetup">Toggle</label>
           </fieldset>
           <fieldset>
             <legend>Check to Show</legend>
@@ -151,21 +149,77 @@ class ConfigRaw extends Component {
             />
             <label htmlFor="showDamagePercent">Damage Percent</label>
           </fieldset>
+          <fieldset>
+            <legend>Scale</legend>
+            <button
+              type="button"
+              className=""
+              onClick={this.handleConfig}
+              name="zoom"
+              value="0.5"
+            >
+              50%
+            </button>
+            <button
+              type="button"
+              className=""
+              onClick={this.handleConfig}
+              name="zoom"
+              value="1"
+            >
+              100%
+            </button>
+            <button
+              type="button"
+              className=""
+              onClick={this.handleConfig}
+              name="zoom"
+              value="1.1"
+            >
+              110%
+            </button>
+            <button
+              type="button"
+              className=""
+              onClick={this.handleConfig}
+              name="zoom"
+              value="1.25"
+            >
+              125%
+            </button>
+            <button
+              type="button"
+              className=""
+              onClick={this.handleConfig}
+              name="zoom"
+              value="1.5"
+            >
+              150%
+            </button>
+            <button
+              type="button"
+              className=""
+              onClick={this.handleConfig}
+              name="zoom"
+              value="2"
+            >
+              200%
+            </button>
+            <input
+              type="range"
+              min="0.5"
+              max="2"
+              step="0.1"
+              id="zoom"
+              name="zoom"
+              value={config.zoom}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="zoom">Zoom Scale</label>
+          </fieldset>
           <button type="submit" className="reset">
             <span>Reset</span>
           </button>
-          <fieldset className="zoomField">
-            <input
-              type="range"
-              id="zoom"
-              min="0.5"
-              max="5"
-              step="0.1"
-              value={this.state.config.zoom}
-              onChange={this.handleConfig}
-            />
-            <label htmlFor="zoom">Scale</label>
-          </fieldset>
         </form>
         <div>
           Resize this window as necessary. Everything saves automatically.{' '}

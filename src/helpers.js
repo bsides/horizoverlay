@@ -14,9 +14,12 @@ export const defaultConfig = {
   zoom: 1
 }
 
-export const withHelper = WrappedComponent => {
+export const withHelper = (WrappedComponent, willMock = false) => {
   return class withConfig extends Component {
-    static defaultProps = { config: defaultConfig }
+    static defaultProps = {
+      mockData: willMock ? mockData : null,
+      config: defaultConfig
+    }
     static propTypes = {
       config: shape({
         showSetup: bool.isRequired,
@@ -32,7 +35,17 @@ export const withHelper = WrappedComponent => {
       })
     }
     state = { ...this.props }
-    componentDidMount = () => {
+    componentWillMount() {
+      window.addEventListener('storage', this.updateState, false)
+      this.updateState()
+    }
+    componentWillReceiveProps(nextProps) {
+      this.updateState()
+    }
+    componentWillUnmount() {
+      window.removeEventListener('storage', this.updateState)
+    }
+    updateState = () => {
       const configStore = localStorage.getItem('horizoverlay')
       if (!configStore) {
         const config = this.props.config
@@ -43,8 +56,29 @@ export const withHelper = WrappedComponent => {
         this.setState({ config })
       }
     }
+    openConfig = () => {
+      this.setState({ isConfigOpen: true })
+      const windowFeatures =
+        'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=1200,height=200'
+      this.configWindow = window.open(
+        '/#/config',
+        'Horizoverlay Config',
+        windowFeatures
+      )
+      this.configWindow.focus()
+      this.configWindow.onbeforeunload = () => {
+        this.setState({ isConfigOpen: false })
+        this.configWindow = null
+      }
+    }
     render = () => {
-      return <WrappedComponent {...this.state} />
+      return (
+        <WrappedComponent
+          {...this.state}
+          openConfig={this.openConfig}
+          handleReset={this.updateState}
+        />
+      )
     }
   }
 }

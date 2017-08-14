@@ -1,10 +1,10 @@
 // uncomment for testing
-import './testing/testing'
+// import './testing/testing'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Overlay from './Overlay'
 import Config from './Config'
@@ -26,30 +26,31 @@ window.addEventListener('message', function(e) {
     onOverlayDataUpdate(e.data)
   }
 })
-// window.addEventListener('storage', function() {
-//   window.location.reload()
-// })
 
 const Inactive = detail => {
   return (
-    <BrowserRouter>
+    <Router>
       <Switch>
         <Route path={`/config`} component={Config} />
         <Route component={SetupMode} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   )
 }
 
 const Root = detail => {
   return (
-    <BrowserRouter>
+    <Router>
       <Switch>
-        <Route exact path={`/`} render={() => <Overlay {...detail} />} />
-        <Route path={`/config`} component={Config} />
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/`}
+          render={() => <Overlay {...detail} />}
+        />
+        <Route path={`${process.env.PUBLIC_URL}/config`} component={Config} />
         <Route render={() => <NotFound text="Page Not Found!" />} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   )
 }
 

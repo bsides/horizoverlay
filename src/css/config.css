@@ -94,3 +94,24 @@ legend {
   transform: rotate(90deg);
   display: inline-block;
 }
+.setup-btn span {
+  transform: rotate(-90deg);
+  display: inline-block;
+  white-space: nowrap;
+  margin-left: -28px;
+}
+.setup-btn {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+  background: rgba(255, 56, 215, 0.80);
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+  padding-top: 60px;
+  width: 50px;
+  cursor: pointer;
+}
+.setup-btn.disabled {
+  background: rgba(0, 0, 0, 0.2);
+}
