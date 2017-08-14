@@ -26,30 +26,30 @@ window.addEventListener('message', function(e) {
     onOverlayDataUpdate(e.data)
   }
 })
-window.addEventListener('storage', function() {
-  window.location.reload()
-})
+// window.addEventListener('storage', function() {
+//   window.location.reload()
+// })
 
 const Inactive = detail => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Switch>
         <Route path={`/config`} component={Config} />
         <Route component={SetupMode} />
       </Switch>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 
 const Root = detail => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Switch>
         <Route exact path={`/`} render={() => <Overlay {...detail} />} />
         <Route path={`/config`} component={Config} />
         <Route render={() => <NotFound text="Page Not Found!" />} />
       </Switch>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 

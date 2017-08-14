@@ -7,7 +7,7 @@ class ConfigRaw extends Component {
   state = { config: this.props.config }
   onStorageUpdate = () => {
     // Reload the overlay on every config update
-    window.opener.location.reload()
+    // window.opener.location.reload()
   }
   handleConfig = e => {
     const target = e.target
@@ -18,6 +18,9 @@ class ConfigRaw extends Component {
     // Why aren't HTML elements more consistent? 😦
     if (target.type === 'checkbox') {
       value = target.checked
+    }
+    if (target.type === 'range') {
+      key = target.id
     }
 
     // update the value in our copied state...
@@ -45,9 +48,8 @@ class ConfigRaw extends Component {
   // Gotta bind 'onChange' for checkboxes since false values don't bubble to 'onChange'!
   render() {
     let { config } = this.state
-    const zoom = config.zoom
     return (
-      <div className="config" style={{ zoom }}>
+      <div className="config">
         <form onSubmit={this.handleReset}>
           <fieldset>
             <legend>Character Name</legend>
@@ -152,6 +154,18 @@ class ConfigRaw extends Component {
           <button type="submit" className="reset">
             <span>Reset</span>
           </button>
+          <fieldset className="zoomField">
+            <input
+              type="range"
+              id="zoom"
+              min="0.5"
+              max="5"
+              step="0.1"
+              value={this.state.config.zoom}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="zoom">Scale</label>
+          </fieldset>
         </form>
         <div>
           Resize this window as necessary. Everything saves automatically.{' '}

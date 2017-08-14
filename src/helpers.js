@@ -15,7 +15,7 @@ export const defaultConfig = {
 }
 
 export const withHelper = WrappedComponent => {
-  return class ConfigHelper extends Component {
+  return class withConfig extends Component {
     static defaultProps = { config: defaultConfig }
     static propTypes = {
       config: shape({
@@ -31,11 +31,8 @@ export const withHelper = WrappedComponent => {
         zoom: number.isRequired
       })
     }
-    state = {
-      config: this.props.config
-    }
+    state = { ...this.props }
     componentDidMount = () => {
-      window.addEventListener('storage', this.onStorageUpdate, false)
       const configStore = localStorage.getItem('horizoverlay')
       if (!configStore) {
         const config = this.props.config
@@ -46,9 +43,8 @@ export const withHelper = WrappedComponent => {
         this.setState({ config })
       }
     }
-
     render = () => {
-      return <WrappedComponent {...this.state} {...this.props} />
+      return <WrappedComponent {...this.state} />
     }
   }
 }
