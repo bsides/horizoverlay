@@ -3,8 +3,8 @@ import { withHelper } from './helpers'
 
 import './css/config.css'
 
-class Config extends Component {
-  state = { ...this.props }
+class ConfigRaw extends Component {
+  state = { config: this.props.config }
   onStorageUpdate = () => {
     // Reload the overlay on every config update
     window.opener.location.reload()
@@ -162,6 +162,5 @@ class Config extends Component {
   }
 }
 
-var ConfigWithHelper = withHelper(Config)
-
-export default ConfigWithHelper
+const Config = withHelper(ConfigRaw)
+export default Config
