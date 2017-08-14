@@ -39,13 +39,19 @@ class SetupMode extends Component {
     }
   }
   openConfig = () => {
+    this.setState({ isConfigOpen: true })
     const windowFeatures =
       'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=1000,height=187'
     this.configWindow = window.open(
-      '/config/',
+      '/#/config',
       'Horizoverlay Config',
       windowFeatures
     )
+    this.configWindow.focus()
+    this.configWindow.onbeforeunload = () => {
+      this.setState({ isConfigOpen: false })
+      this.configWindow = null
+    }
   }
   render() {
     const colorClass = this.state.config.color
@@ -54,6 +60,7 @@ class SetupMode extends Component {
       <div
         className={`setupMode ${colorClass}`}
         onContextMenu={this.openConfig}
+        style={{ zoom: this.state.config.zoom }}
       >
         <div className={`wrapper ${isVisible}`}>
           <div className="combatants">

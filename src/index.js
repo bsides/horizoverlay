@@ -1,10 +1,10 @@
 // uncomment for testing
-import './testing/testing'
+// import './testing/testing'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Overlay from './Overlay'
 import Config from './Config'
@@ -46,7 +46,8 @@ const Root = detail => {
     <Router>
       <Switch>
         <Route
-          path={`${process.env.PUBLIC_URL}`}
+          exact
+          path={`${process.env.PUBLIC_URL}/`}
           render={() => <Overlay {...detail} />}
         />
         <Route path={`${process.env.PUBLIC_URL}/config`} component={Config} />

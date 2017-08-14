@@ -42,6 +42,7 @@ class Config extends Component {
   }
   handleConfig = e => {
     const target = e.target
+    if (target.type === 'text') e.preventDefault()
     const config = { ...this.state.config }
     let key = target.name,
       value = target.value
@@ -79,6 +80,22 @@ class Config extends Component {
     return (
       <div className="config">
         <form onSubmit={this.handleReset}>
+          <label
+            htmlFor="showSetup"
+            className={`setup-btn${config.showSetup ? '' : ' disabled'}`}
+          >
+            <span>
+              <input
+                type="checkbox"
+                name="showSetup"
+                id="showSetup"
+                checked={config.showSetup}
+                onClick={this.handleConfig}
+              />{' '}
+              Setup Mode
+            </span>
+          </label>
+
           <fieldset>
             <legend>Character Name</legend>
             <div>
@@ -115,17 +132,6 @@ class Config extends Component {
               />
               <label htmlFor="colorBlackWhite">Black & White</label>
             </div>
-          </fieldset>
-          <fieldset>
-            <legend>Setup Mode</legend>
-            <input
-              type="checkbox"
-              name="showSetup"
-              id="showSetup"
-              defaultChecked={config.showSetup}
-              onClick={this.handleConfig}
-            />
-            <label htmlFor="showSetup">Toggle</label>
           </fieldset>
           <fieldset>
             <legend>Check to Show</legend>
@@ -178,6 +184,74 @@ class Config extends Component {
               onClick={this.handleConfig}
             />
             <label htmlFor="showDamagePercent">Damage Percent</label>
+          </fieldset>
+          <fieldset>
+            <legend>Scale</legend>
+            <button
+              type="button"
+              className=""
+              onClick={this.handleConfig}
+              name="zoom"
+              value="0.5"
+            >
+              50%
+            </button>
+            <button
+              type="button"
+              className=""
+              onClick={this.handleConfig}
+              name="zoom"
+              value="1"
+            >
+              100%
+            </button>
+            <button
+              type="button"
+              className=""
+              onClick={this.handleConfig}
+              name="zoom"
+              value="1.1"
+            >
+              110%
+            </button>
+            <button
+              type="button"
+              className=""
+              onClick={this.handleConfig}
+              name="zoom"
+              value="1.25"
+            >
+              125%
+            </button>
+            <button
+              type="button"
+              className=""
+              onClick={this.handleConfig}
+              name="zoom"
+              value="1.5"
+            >
+              150%
+            </button>
+            <button
+              type="button"
+              className=""
+              onClick={this.handleConfig}
+              name="zoom"
+              value="2"
+            >
+              200%
+            </button>
+            <input
+              type="range"
+              min="0.5"
+              max="2"
+              step="0.1"
+              id="zoom"
+              name="zoom"
+              value={config.zoom}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="zoom">Zoom Scale</label>
           </fieldset>
           <button type="submit" className="reset">
             <span>Reset</span>

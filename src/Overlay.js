@@ -32,7 +32,6 @@ class Overlay extends Component {
     config: {},
     isConfigOpen: false
   }
-  configWindow = {}
   componentDidMount() {
     const configStore = localStorage.getItem('horizoverlay')
     if (!configStore) {
@@ -60,16 +59,22 @@ class Overlay extends Component {
     const windowFeatures =
       'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=1000,height=187'
     this.configWindow = window.open(
-      '/config/',
+      '/#/config',
       'Horizoverlay Config',
       windowFeatures
     )
+    this.configWindow.focus()
+    this.configWindow.onbeforeunload = () => {
+      this.setState({ isConfigOpen: false })
+      this.configWindow = null
+    }
   }
   render() {
     return (
       <div
         className={`damage-meter${this.props.isActive ? '' : ' inactive'}`}
         onContextMenu={this.openConfig}
+        style={{ zoom: this.state.config.zoom }}
       >
         <h3>Awaiting data.</h3>
         <Combatants
