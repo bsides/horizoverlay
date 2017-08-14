@@ -14,8 +14,8 @@ export const defaultConfig = {
   zoom: 1
 }
 
-export const withHelper = WrappedComponent =>
-  class extends Component {
+export const withHelper = WrappedComponent => {
+  return class ConfigHelper extends Component {
     static defaultProps = { config: defaultConfig }
     static propTypes = {
       config: shape({
@@ -46,10 +46,12 @@ export const withHelper = WrappedComponent =>
         this.setState({ config })
       }
     }
+
     render = () => {
       return <WrappedComponent {...this.state} {...this.props} />
     }
   }
+}
 
 export function getRandom(min, max) {
   min = Math.ceil(min)
