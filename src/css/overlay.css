@@ -1,9 +1,3 @@
-h3 {
-  display: none;
-}
-.inactive h3 {
-  display: block;
-}
 .inactive .combatants {
   display: none;
 }
