@@ -1,42 +1,11 @@
 import React, { Component } from 'react'
-import { defaultConfig } from './helpers'
-import { shape, bool, string, number } from 'prop-types'
+import { withHelper } from './helpers'
 
 import './css/config.css'
 
 class Config extends Component {
-  static defaultProps = { config: defaultConfig }
-  static propTypes = {
-    config: shape({
-      showSetup: bool.isRequired,
-      color: string.isRequired,
-      characterName: string.isRequired,
-      showDuration: bool.isRequired,
-      showTotalDps: bool.isRequired,
-      showHps: bool.isRequired,
-      showJobIcon: bool.isRequired,
-      showRank: bool.isRequired,
-      showDamagePercent: bool.isRequired,
-      zoom: number.isRequired
-    })
-  }
-  state = {
-    config: this.props.config,
-    isConfigOpen: false
-  }
-  componentDidMount() {
-    window.addEventListener('storage', this.onStorageUpdate, false)
-    const configStore = localStorage.getItem('horizoverlay')
-    if (!configStore) {
-      const config = this.props.config
-      localStorage.setItem('horizoverlay', JSON.stringify(config))
-      this.setState({ config })
-    } else {
-      const config = JSON.parse(configStore)
-      this.setState({ config })
-    }
-  }
-  onStorageUpdate() {
+  state = { ...this.props }
+  onStorageUpdate = () => {
     // Reload the overlay on every config update
     window.opener.location.reload()
   }
@@ -63,7 +32,7 @@ class Config extends Component {
     e.preventDefault()
 
     // Default values
-    const config = defaultConfig
+    const config = this.props.config
     this.setState({ config })
 
     // Clear any setup
@@ -73,11 +42,12 @@ class Config extends Component {
     localStorage.setItem('horizoverlay', JSON.stringify(config))
   }
   // *** IMPORTANT ***
-  // Gotta bind 'onClick' for checkboxes since false values don't bubble to 'onChange'!
+  // Gotta bind 'onChange' for checkboxes since false values don't bubble to 'onChange'!
   render() {
-    const { config } = this.state
+    let { config } = this.state
+    const zoom = config.zoom
     return (
-      <div className="config">
+      <div className="config" style={{ zoom }}>
         <form onSubmit={this.handleReset}>
           <fieldset>
             <legend>Character Name</legend>
@@ -123,7 +93,7 @@ class Config extends Component {
               name="showSetup"
               id="showSetup"
               defaultChecked={config.showSetup}
-              onClick={this.handleConfig}
+              onChange={this.handleConfig}
             />
             <label htmlFor="showSetup">Toggle</label>
           </fieldset>
@@ -134,7 +104,7 @@ class Config extends Component {
               name="showDuration"
               id="showDuration"
               defaultChecked={config.showDuration}
-              onClick={this.handleConfig}
+              onChange={this.handleConfig}
             />
             <label htmlFor="showDuration">Duration</label>
             <input
@@ -142,7 +112,7 @@ class Config extends Component {
               name="showTotalDps"
               id="showTotalDps"
               defaultChecked={config.showTotalDps}
-              onClick={this.handleConfig}
+              onChange={this.handleConfig}
             />
             <label htmlFor="showTotalDps">Total DPS</label>
             <input
@@ -150,7 +120,7 @@ class Config extends Component {
               name="showHps"
               id="showHps"
               defaultChecked={config.showHps}
-              onClick={this.handleConfig}
+              onChange={this.handleConfig}
             />
             <label htmlFor="showHps">HPS</label>
             <br />
@@ -159,7 +129,7 @@ class Config extends Component {
               name="showJobIcon"
               id="showJobIcon"
               defaultChecked={config.showJobIcon}
-              onClick={this.handleConfig}
+              onChange={this.handleConfig}
             />
             <label htmlFor="showJobIcon">Job Icon</label>
             <input
@@ -167,7 +137,7 @@ class Config extends Component {
               name="showRank"
               id="showRank"
               defaultChecked={config.showRank}
-              onClick={this.handleConfig}
+              onChange={this.handleConfig}
             />
             <label htmlFor="showRank">Rank</label>
             <input
@@ -175,7 +145,7 @@ class Config extends Component {
               name="showDamagePercent"
               id="showDamagePercent"
               defaultChecked={config.showDamagePercent}
-              onClick={this.handleConfig}
+              onChange={this.handleConfig}
             />
             <label htmlFor="showDamagePercent">Damage Percent</label>
           </fieldset>
@@ -192,4 +162,6 @@ class Config extends Component {
   }
 }
 
-export default Config
+var ConfigWithHelper = withHelper(Config)
+
+export default ConfigWithHelper

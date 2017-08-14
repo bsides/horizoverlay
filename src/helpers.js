@@ -1,8 +1,5 @@
-export function getRandom(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
+import React, { Component } from 'react'
+import { shape, bool, string, number } from 'prop-types'
 
 export const defaultConfig = {
   showSetup: false,
@@ -15,6 +12,49 @@ export const defaultConfig = {
   showRank: true,
   showDamagePercent: true,
   zoom: 1
+}
+
+export const withHelper = WrappedComponent =>
+  class extends Component {
+    static defaultProps = { config: defaultConfig }
+    static propTypes = {
+      config: shape({
+        showSetup: bool.isRequired,
+        color: string.isRequired,
+        characterName: string.isRequired,
+        showDuration: bool.isRequired,
+        showTotalDps: bool.isRequired,
+        showHps: bool.isRequired,
+        showJobIcon: bool.isRequired,
+        showRank: bool.isRequired,
+        showDamagePercent: bool.isRequired,
+        zoom: number.isRequired
+      })
+    }
+    state = {
+      config: this.props.config
+    }
+    componentDidMount = () => {
+      window.addEventListener('storage', this.onStorageUpdate, false)
+      const configStore = localStorage.getItem('horizoverlay')
+      if (!configStore) {
+        const config = this.props.config
+        localStorage.setItem('horizoverlay', JSON.stringify(config))
+        this.setState({ config })
+      } else {
+        const config = JSON.parse(configStore)
+        this.setState({ config })
+      }
+    }
+    render = () => {
+      return <WrappedComponent {...this.state} {...this.props} />
+    }
+  }
+
+export function getRandom(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 export const jobsTank = ['drk', 'gla', 'mrd', 'pld', 'war']
