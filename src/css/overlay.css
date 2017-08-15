@@ -12,15 +12,20 @@
   margin: 0 6px;
   max-width: 140px;
 }
-.row.job-dps .dps,
+.row.self.job-dps .horiz-elems:before,
+.row.self.job-tank .horiz-elems:before,
+.row.self.job-healer .horiz-elems:before {
+  background: rgba(255, 255, 255, 0.8);
+}
+.row.job-dps .horiz-elems:before,
 .row.job-dps .damage-percent-bg {
   background: rgba(244, 67, 54, 0.3);
 }
-.row.job-tank .dps,
+.row.job-tank .horiz-elems:before,
 .row.job-tank .damage-percent-bg {
   background: rgba(33, 150, 243, 0.3);
 }
-.row.job-healer .dps,
+.row.job-healer .horiz-elems:before,
 .row.job-healer .damage-percent-bg {
   background: rgba(139, 195, 74, 0.3);
 }
@@ -56,8 +61,7 @@
   background: rgba(0, 0, 0, 0.1);
 }
     */
-.row.self div.dps {
-  background: rgba(255, 255, 255, 0.8);
+.row.self .dps {
   color: #000;
 }
 .row .damage-percent-bg {
@@ -82,27 +86,33 @@
   top: -2px;
   right: 10px;
 }
+
 .row .dps {
-  background: rgba(0, 0, 0, 0.3);
   color: #fff;
-  transform: skew(-30deg);
   text-shadow: initial;
-  padding: 2px 5px 2px 0;
+  padding: 0 5px 2px 0;
   margin: 3px 0 0 0;
   flex-grow: 1;
+  position: relative;
+}
+
+.row .horiz-elems:before {
+  background: rgba(0, 0, 0, 0.3);
+  transform: skew(-30deg);
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 96%;
 }
 .row > div {
   margin: 0px auto;
   padding: 0 0 1px;
 }
 .row div.dps > div {
-  transform: skew(30deg);
+  /* transform: skew(30deg); */
 }
-.row div.dps > div:after {
-  clear: both;
-  content: "";
-  display: table;
-}
+
 .job {
   width: 20px;
   position: absolute;
