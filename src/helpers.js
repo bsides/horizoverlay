@@ -119,7 +119,7 @@ export const withHelper = ({
           {...this.state}
           Combatant={Combatant}
           Encounter={Encounter}
-          Combatant={Combatant}
+          isActive={isActive}
           openConfig={this.openConfig}
           handleReset={this.updateState}
         />
