@@ -155,9 +155,7 @@ class ConfigRaw extends Component {
 
             <label
               htmlFor="zoom90"
-              className={`${config.zoom === '0.9'
-                ? ''
-                : ' disabled'}`}
+              className={`${config.zoom === '0.9' ? '' : ' disabled'}`}
             >
               <span>
                 <input
@@ -189,9 +187,7 @@ class ConfigRaw extends Component {
             </label>
             <label
               htmlFor="zoom110"
-              className={`${config.zoom === '1.1'
-                ? ''
-                : ' disabled'}`}
+              className={`${config.zoom === '1.1' ? '' : ' disabled'}`}
             >
               <span>
                 <input
@@ -209,9 +205,7 @@ class ConfigRaw extends Component {
             <br />
             <label
               htmlFor="zoom125"
-              className={`${config.zoom === '1.25'
-                ? ''
-                : ' disabled'}`}
+              className={`${config.zoom === '1.25' ? '' : ' disabled'}`}
             >
               <span>
                 <input
@@ -227,9 +221,7 @@ class ConfigRaw extends Component {
             </label>
             <label
               htmlFor="zoom150"
-              className={`${config.zoom === '1.5'
-                ? ''
-                : ' disabled'}`}
+              className={`${config.zoom === '1.5' ? '' : ' disabled'}`}
             >
               <span>
                 <input

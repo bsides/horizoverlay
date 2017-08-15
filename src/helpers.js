@@ -113,9 +113,13 @@ export const withHelper = ({
       }
     }
     render = () => {
+      const { Combatant, Encounter, isActive } = this.props
       return (
         <WrappedComponent
           {...this.state}
+          Combatant={Combatant}
+          Encounter={Encounter}
+          Combatant={Combatant}
           openConfig={this.openConfig}
           handleReset={this.updateState}
         />
