@@ -37,26 +37,17 @@
   max-width: 140px;
 }
 
-.row.self div.dps,
-.byRole .row.self.job-dps .dps {
+.row.self div.horiz-elems:before,
+.byRole .row.self .horiz-elems:before {
   background: rgba(255, 255, 255, 0.8);
-  color: #000;
 }
 .default .row .dps {
   background: rgba(0, 0, 0, 0.3);
   color: #fff;
-  transform: skew(-30deg);
+  /* transform: skew(-30deg); */
   text-shadow: initial;
 }
 .row > div {
   margin: 0px auto;
   padding: 0 0 1px;
-}
-.row div.dps > div {
-  transform: skew(30deg);
-}
-.row div.dps > div:after {
-  clear: both;
-  content: "";
-  display: table;
 }
