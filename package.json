@@ -24,6 +24,8 @@
     "now-start": "serve -s build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "now": "npm-run-all -s build now-deploy",
+    "now-deploy": "now build --public",
     "predeploy": "npm run build"
   },
   "bugs": {

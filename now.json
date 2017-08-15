@@ -1,0 +1,5 @@
+{
+  "name": "horizoverlay.build",
+  "alias": "horizoverlay",
+  "files": ["build", "!build/**/*.map"]
+}
