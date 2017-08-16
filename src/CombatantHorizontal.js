@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { jobsTank, jobsHealer, jobsDps } from './helpers'
+import { jobRoles } from './helpers'
 var images = require.context('./images', false, /\.png$/)
 
 function HorizElement(props) {
@@ -22,17 +22,18 @@ class CombatantHorizontal extends Component {
     let order = this.props.rank
     let job = this.props.data.Job || 'WHO?'
     let jobClass
-    if (jobsDps.indexOf(job.toLowerCase()) >= 0) {
-      jobClass = ' job-dps'
-    }
-    if (jobsHealer.indexOf(job.toLowerCase()) >= 0) {
-      jobClass = ' job-healer'
-    }
-    if (jobsTank.indexOf(job.toLowerCase()) >= 0) {
-      jobClass = ' job-tank'
+
+    // Color theme byRole
+    if (this.props.config.color === 'byRole') {
+      for (const role in jobRoles) {
+        if (jobRoles[role].indexOf(job.toLowerCase()) >= 0) {
+          jobClass = ` job-${role}`
+        }
+      }
+    } else {
+      jobClass = ''
     }
 
-    if (this.props.config.color !== 'byRole') jobClass = ''
     let width = `${parseInt(
       this.props.data.damage / this.props.encounterDamage * 100,
       10
