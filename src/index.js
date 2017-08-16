@@ -13,20 +13,6 @@ import SetupMode from './SetupMode'
 
 require(`./images/handle.png`)
 
-document.addEventListener('onOverlayDataUpdate', onOverlayDataUpdate)
-document.addEventListener('onOverlayStateUpdate', function(e) {
-  if (!e.detail.isLocked) {
-    document.documentElement.classList.add('resizable')
-  } else {
-    document.documentElement.classList.remove('resizable')
-  }
-})
-window.addEventListener('message', function(e) {
-  if (e.data.type === 'onOverlayDataUpdate') {
-    onOverlayDataUpdate(e.data)
-  }
-})
-
 const Inactive = detail => {
   return (
     <Router>
@@ -60,3 +46,26 @@ function onOverlayDataUpdate(e) {
 }
 // This will run when there's no data
 ReactDOM.render(<Inactive />, document.getElementById('root'))
+
+// :: Events
+// https://github.com/RainbowMage/OverlayPlugin/wiki/JavaScript-API-reference
+// https://github.com/hibiyasleep/OverlayPlugin/wiki/Additional-Javascript-API-Reference
+
+// - onOverlayDataUpdate
+// This event occurs when the OverlayPlugin sends the new data.
+document.addEventListener('onOverlayDataUpdate', onOverlayDataUpdate)
+// - onOverlayStateUpdate
+// This event occurs when the overlay setting has changed.
+document.addEventListener('onOverlayStateUpdate', function(e) {
+  if (!e.detail.isLocked) {
+    document.documentElement.classList.add('resizable')
+  } else {
+    document.documentElement.classList.remove('resizable')
+  }
+})
+// Receiver of OverlayPluginApi.sendMessage and OverlayPluginApi.broadcastMessage, not being used as far as I know
+window.addEventListener('message', function(e) {
+  if (e.data.type === 'onOverlayDataUpdate') {
+    onOverlayDataUpdate(e.data)
+  }
+})
