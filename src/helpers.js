@@ -129,31 +129,33 @@ export const withHelper = ({
 }
 
 export function getRandom(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min + 1)) + min
+  const first = Math.ceil(min)
+  const last = Math.floor(max)
+  return Math.floor(Math.random() * (last - first + 1)) + first
 }
 
-export const jobsTank = ['drk', 'gla', 'mrd', 'pld', 'war']
-export const jobsHealer = ['ast', 'cnj', 'sch', 'whm']
-export const jobsDps = [
-  'acn',
-  'arc',
-  'blm',
-  'brd',
-  'drg',
-  'lnc',
-  'mch',
-  'mnk',
-  'nin',
-  'pgl',
-  'pug',
-  'rdm',
-  'rog',
-  'sam',
-  'smn',
-  'thm'
-]
+const jobRoles = {
+  tank: ['drk', 'gla', 'mrd', 'pld', 'war'],
+  healer: ['ast', 'cnj', 'sch', 'whm'],
+  dps: [
+    'acn',
+    'arc',
+    'blm',
+    'brd',
+    'drg',
+    'lnc',
+    'mch',
+    'mnk',
+    'nin',
+    'pgl',
+    'pug',
+    'rdm',
+    'rog',
+    'sam',
+    'smn',
+    'thm'
+  ]
+}
 
 export const mockData = [
   {
