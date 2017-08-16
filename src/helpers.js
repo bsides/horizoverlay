@@ -21,11 +21,12 @@ export const defaultConfig = {
   colorDps: 'rgba(244, 67, 54, 0.3)'
 }
 
-export const withHelper = ({
+// Declaring as a function makes it hoisted and don't mess with constructor from React.Component
+export function withHelper({
   WrappedComponent,
   willMock = false,
   isConfig = false
-}) => {
+}) {
   return class withConfig extends Component {
     static defaultProps = {
       mockData: willMock ? mockData : null,
@@ -134,7 +135,7 @@ export function getRandom(min, max) {
   return Math.floor(Math.random() * (last - first + 1)) + first
 }
 
-const jobRoles = {
+export const jobRoles = {
   tank: ['drk', 'gla', 'mrd', 'pld', 'war'],
   healer: ['ast', 'cnj', 'sch', 'whm'],
   dps: [
