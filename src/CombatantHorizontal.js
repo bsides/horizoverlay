@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { bool, string, number, object, oneOfType } from 'prop-types'
 import { jobRoles, otherIcons } from './helpers'
-import { includes as _includes } from 'lodash/includes'
 var images = require.context('./images', false, /\.png$/)
 
 DataWrapper.propTypes = {
@@ -40,18 +39,19 @@ export default class CombatantHorizontal extends Component {
     // Color theme byRole
     if (config.color === 'byRole') {
       for (const role in jobRoles) {
-        if (jobRoles[role].indexOf(data.Job.toLowerCase()) >= 0) {
+        if (jobRoles[role].indexOf(data.Job.toLowerCase()) >= 0)
           jobStyleClass = ` job-${role}`
-        }
         if (data.Job === '') {
-          if (_includes(jobRoles[role], name)) {
-            jobStyleClass = ` job-${role}`
+          for (const job of jobRoles[role]) {
+            if (name.indexOf(job) >= 0) jobStyleClass = ` job-${role}`
           }
         }
       }
     } else {
       jobStyleClass = ''
     }
+    console.log(jobStyleClass)
+    console.log('------------------------------')
 
     // Damage Percent
     if (config.showDamagePercent) {
@@ -71,7 +71,6 @@ export default class CombatantHorizontal extends Component {
         for (const otherIcon of otherIcons) {
           if (name.indexOf(otherIcon) >= 0) newIcon = otherIcon
         }
-        console.log(newIcon)
         jobIcon += newIcon
       } else {
         jobIcon += data.Job.toLowerCase()
