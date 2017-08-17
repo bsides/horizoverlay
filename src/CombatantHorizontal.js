@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
+import { bool, string, number, oneOfType } from 'prop-types'
 import { jobRoles } from './helpers'
 var images = require.context('./images', false, /\.png$/)
+
+DataElement.propTypes = {
+  text: string.isRequired,
+  label: string,
+  relevant: oneOfType([bool, string, number]).isRequired
+}
 
 export default class CombatantHorizontal extends Component {
   render() {
