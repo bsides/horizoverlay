@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { bool, string, number, object, oneOfType } from 'prop-types'
-import { jobRoles } from './helpers'
+import { jobRoles, otherIcons } from './helpers'
+import { includes as _includes } from 'lodash/includes'
 var images = require.context('./images', false, /\.png$/)
 
 DataWrapper.propTypes = {
@@ -14,7 +15,7 @@ DataText.propTypes = {
   data: object
 }
 DamageBar.propTypes = {
-  width: string.isRequired,
+  width: string,
   show: bool.isRequired
 }
 
@@ -29,18 +30,27 @@ export default class CombatantHorizontal extends Component {
   render() {
     const { config, data } = this.props
     const order = this.props.rank
-    const job = data.Job || 'WHO?'
+    const jobName = data.Job || 'WHO?'
+    const name = data.name.toLowerCase()
     let jobStyleClass, jobIcon, damageWidth
+
+    // don't need to render this component if this is a limit break
+    if (!data.Job && name === 'limit break') return null
 
     // Color theme byRole
     if (config.color === 'byRole') {
       for (const role in jobRoles) {
-        if (jobRoles[role].indexOf(job.toLowerCase()) >= 0) {
+        if (jobRoles[role].indexOf(data.Job.toLowerCase()) >= 0) {
           jobStyleClass = ` job-${role}`
+        }
+        if (data.Job === '') {
+          if (_includes(jobRoles[role], name)) {
+            jobStyleClass = ` job-${role}`
+          }
         }
       }
     } else {
-      jobStyleClass = null
+      jobStyleClass = ''
     }
 
     // Damage Percent
@@ -51,16 +61,20 @@ export default class CombatantHorizontal extends Component {
       )}%`
     }
 
-    // don't need to render this component if this is a limit break
-    if (!job && data.name.toLowerCase() === 'limit break') return null
-
     // Job icon
     if (config.showJobIcon) {
       jobIcon = './'
-      if (!job) {
-        jobIcon += 'error'
+      if (data.Job === '') {
+        // well there are a lot of things that doesn't have a job, like summoner's pets and alike. Lets assume them all.
+        let newIcon
+        newIcon = 'error'
+        for (const otherIcon of otherIcons) {
+          if (name.indexOf(otherIcon) >= 0) newIcon = otherIcon
+        }
+        console.log(newIcon)
+        jobIcon += newIcon
       } else {
-        jobIcon += job.toLowerCase()
+        jobIcon += data.Job.toLowerCase()
       }
       jobIcon = images(`${jobIcon}.png`)
     }
@@ -69,7 +83,9 @@ export default class CombatantHorizontal extends Component {
     const characterName = this.props.isSelf ? config.characterName : data.name
     return (
       <div
-        className={`row ${job}${jobStyleClass}${this.props.isSelf && ' self'}`}
+        className={`row ${data.Job}${jobStyleClass}${this.props.isSelf
+          ? ' self'
+          : ''}`}
         style={{ order }}
       >
         <div className="name">
@@ -80,7 +96,7 @@ export default class CombatantHorizontal extends Component {
           </span>
         </div>
         <div className="horiz-elems">
-          {jobIcon && <img src={jobIcon} className="job" alt={job} />}
+          {jobIcon && <img src={jobIcon} className="job" alt={jobName} />}
           <DataText type="hps" show={config.showHps} {...data} />
           <DataText type="job" show={!config.showHps} {...data} />
           <DataText type="dps" {...data} />

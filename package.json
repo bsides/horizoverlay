@@ -12,6 +12,7 @@
     "url": "https://github.com/bsides/horizoverlay.git"
   },
   "dependencies": {
+    "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.2",
