@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
+import { object } from 'prop-types'
 
 import './css/encounter.css'
 
 class Encounter extends Component {
+  static propTypes = {
+    config: object.isRequired
+  }
   render() {
     const { config } = this.props
     let dps =
