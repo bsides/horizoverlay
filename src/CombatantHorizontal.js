@@ -1,54 +1,75 @@
 import React, { Component } from 'react'
-import { bool, string, number, oneOfType } from 'prop-types'
+import { bool, string, number, object, oneOfType } from 'prop-types'
 import { jobRoles } from './helpers'
 var images = require.context('./images', false, /\.png$/)
 
-DataElement.propTypes = {
+DataWrapper.propTypes = {
   text: string.isRequired,
   label: string,
   relevant: oneOfType([bool, string, number]).isRequired
 }
+DataText.propTypes = {
+  type: string.isRequired,
+  show: bool,
+  data: object
+}
+DamageBar.propTypes = {
+  width: string.isRequired,
+  show: bool.isRequired
+}
 
 export default class CombatantHorizontal extends Component {
+  static propTypes = {
+    encounterDamage: oneOfType([string, number]).isRequired,
+    rank: number,
+    data: object.isRequired,
+    config: object.isRequired,
+    isSelf: bool.isRequired
+  }
   render() {
-    const { config } = this.props
+    const { config, data } = this.props
     const order = this.props.rank
-    const job = this.props.data.Job || 'WHO?'
-    let jobClass
+    const job = data.Job || 'WHO?'
+    let jobStyleClass, jobIcon, damageWidth
 
     // Color theme byRole
     if (config.color === 'byRole') {
       for (const role in jobRoles) {
         if (jobRoles[role].indexOf(job.toLowerCase()) >= 0) {
-          jobClass = ` job-${role}`
+          jobStyleClass = ` job-${role}`
         }
       }
     } else {
-      jobClass = ''
+      jobStyleClass = null
     }
 
-    const width = `${parseInt(
-      this.props.data.damage / this.props.encounterDamage * 100,
-      10
-    )}%`
+    // Damage Percent
+    if (config.showDamagePercent) {
+      damageWidth = `${parseInt(
+        data.damage / this.props.encounterDamage * 100,
+        10
+      )}%`
+    }
 
-    const damagePercent = (
-      <div>
-        <div className="damage-percent-bg">
-          <div className="damage-percent-fg" style={{ width }} />
-        </div>
-        <div className="damage-percent">
-          {width}
-        </div>
-      </div>
-    )
-    const characterName = this.props.isSelf
-      ? config.characterName
-      : this.props.data.name
+    // don't need to render this component if this is a limit break
+    if (!job && data.name.toLowerCase() === 'limit break') return null
+
+    // Job icon
+    if (config.showJobIcon) {
+      jobIcon = './'
+      if (!job) {
+        jobIcon += 'error'
+      } else {
+        jobIcon += job.toLowerCase()
+      }
+      jobIcon = images(`${jobIcon}.png`)
+    }
+
+    // Character name (self, instead of 'YOU')
+    const characterName = this.props.isSelf ? config.characterName : data.name
     return (
       <div
-        className={`row ${this.props.data.Job}${jobClass}${this.props.isSelf &&
-          ' self'}`}
+        className={`row ${job}${jobStyleClass}${this.props.isSelf && ' self'}`}
         style={{ order }}
       >
         <div className="name">
@@ -59,20 +80,32 @@ export default class CombatantHorizontal extends Component {
           </span>
         </div>
         <div className="horiz-elems">
-          <Data type="jobIcon" {...this.props.data} show={config.showJobIcon} />
-
-          <Data type="hps" {...this.props.data} show={config.showHps} />
-          <Data type="job" {...this.props.data} show={!config.showHps} />
-
-          <Data type="dps" {...this.props.data} />
+          {jobIcon && <img src={jobIcon} className="job" alt={job} />}
+          <DataText type="hps" show={config.showHps} {...data} />
+          <DataText type="job" show={!config.showHps} {...data} />
+          <DataText type="dps" {...data} />
         </div>
-        {config.showDamagePercent && damagePercent}
+        <DamageBar {...damageWidth} show={config.showDamagePercent} />
       </div>
     )
   }
 }
 
-function DataElement(props) {
+function DamageBar({ width, show }) {
+  if (!show) return null
+  return (
+    <div>
+      <div className="damage-percent-bg">
+        <div className="damage-percent-fg" style={{ width }} />
+      </div>
+      <div className="damage-percent">
+        {width}
+      </div>
+    </div>
+  )
+}
+
+function DataWrapper(props) {
   return (
     <div className={props.relevant ? 'dps' : 'dps irrelevant'}>
       <div>
@@ -87,7 +120,7 @@ function DataElement(props) {
   )
 }
 
-function Data({ type, show = true, ...data } = {}) {
+function DataText({ type, show = true, ...data } = {}) {
   if (!show) return null
   let text, label, relevant
   switch (type) {
@@ -106,15 +139,7 @@ function Data({ type, show = true, ...data } = {}) {
       label = ''
       relevant = '1'
       break
-    case 'jobIcon':
-      return (
-        <img
-          src={images(`./${data.Job ? data.Job.toLowerCase() : 'error'}.png`)}
-          className="job"
-          alt={data.Job}
-        />
-      )
     default:
   }
-  return <DataElement text={text} label={label} relevant={relevant} />
+  return <DataWrapper text={text} label={label} relevant={relevant} />
 }
