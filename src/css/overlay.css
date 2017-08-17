@@ -61,9 +61,6 @@
   background: rgba(0, 0, 0, 0.1);
 }
     */
-.row.self .dps {
-  color: #000;
-}
 .row .damage-percent-bg {
   height: 2px;
   background: rgba(0, 0, 0, 0.3);
@@ -89,11 +86,15 @@
 
 .row .dps {
   color: #fff;
-  text-shadow: initial;
+  text-shadow: 0 0 5px #000;
   padding: 0 5px 2px 0;
   margin: 3px 0 0 0;
   flex-grow: 1;
   position: relative;
+}
+.row.self .dps {
+  color: #000;
+  text-shadow: none;
 }
 
 .row .horiz-elems:before {
