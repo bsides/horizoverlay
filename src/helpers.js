@@ -136,8 +136,8 @@ export function getRandom(min, max) {
 }
 
 export const jobRoles = {
-  tank: ['drk', 'gla', 'mrd', 'pld', 'war'],
-  healer: ['ast', 'cnj', 'sch', 'whm'],
+  tank: ['drk', 'gla', 'mrd', 'pld', 'war', 'titan'],
+  healer: ['ast', 'cnj', 'sch', 'whm', 'eos', 'selene'],
   dps: [
     'acn',
     'arc',
@@ -154,9 +154,29 @@ export const jobRoles = {
     'rog',
     'sam',
     'smn',
-    'thm'
+    'thm',
+    'carbuncle',
+    'garuda',
+    'ifrit',
+    'rook',
+    'bishop',
+    'chocobo',
+    'lb'
   ]
 }
+
+export const otherIcons = [
+  'lb',
+  'chocobo',
+  'bishop',
+  'rook',
+  'eos',
+  'selene',
+  'carbuncle',
+  'garuda',
+  'ifrit',
+  'titan'
+]
 
 export const mockData = [
   {
@@ -275,5 +295,18 @@ export const mockData = [
     hps: '5661.12',
     isHealing: true,
     damagePct: '2'
+  },
+  {
+    isSelf: false,
+    name: 'Limit Break',
+    jobClass: '',
+    jobFull: '',
+    job: '',
+    jobRole: '',
+    rank: 5.5,
+    dps: '447.18',
+    hps: '',
+    isHealing: true,
+    damagePct: '4'
   }
 ]
