@@ -2,7 +2,70 @@ import React, { Component } from 'react'
 import { jobRoles } from './helpers'
 var images = require.context('./images', false, /\.png$/)
 
-function HorizElement(props) {
+export default class CombatantHorizontal extends Component {
+  render() {
+    const { config } = this.props
+    const order = this.props.rank
+    const job = this.props.data.Job || 'WHO?'
+    let jobClass
+
+    // Color theme byRole
+    if (config.color === 'byRole') {
+      for (const role in jobRoles) {
+        if (jobRoles[role].indexOf(job.toLowerCase()) >= 0) {
+          jobClass = ` job-${role}`
+        }
+      }
+    } else {
+      jobClass = ''
+    }
+
+    const width = `${parseInt(
+      this.props.data.damage / this.props.encounterDamage * 100,
+      10
+    )}%`
+
+    const damagePercent = (
+      <div>
+        <div className="damage-percent-bg">
+          <div className="damage-percent-fg" style={{ width }} />
+        </div>
+        <div className="damage-percent">
+          {width}
+        </div>
+      </div>
+    )
+    const characterName = this.props.isSelf
+      ? config.characterName
+      : this.props.data.name
+    return (
+      <div
+        className={`row ${this.props.data.Job}${jobClass}${this.props.isSelf &&
+          ' self'}`}
+        style={{ order }}
+      >
+        <div className="name">
+          {config.showRank &&
+            <span className="rank">{`${this.props.rank}. `}</span>}
+          <span className="character-name">
+            {characterName}
+          </span>
+        </div>
+        <div className="horiz-elems">
+          <Data type="jobIcon" {...this.props.data} show={config.showJobIcon} />
+
+          <Data type="hps" {...this.props.data} show={config.showHps} />
+          <Data type="job" {...this.props.data} show={!config.showHps} />
+
+          <Data type="dps" {...this.props.data} />
+        </div>
+        {config.showDamagePercent && damagePercent}
+      </div>
+    )
+  }
+}
+
+function DataElement(props) {
   return (
     <div className={props.relevant ? 'dps' : 'dps irrelevant'}>
       <div>
@@ -17,97 +80,34 @@ function HorizElement(props) {
   )
 }
 
-class CombatantHorizontal extends Component {
-  render() {
-    let order = this.props.rank
-    let job = this.props.data.Job || 'WHO?'
-    let jobClass
-
-    // Color theme byRole
-    if (this.props.config.color === 'byRole') {
-      for (const role in jobRoles) {
-        if (jobRoles[role].indexOf(job.toLowerCase()) >= 0) {
-          jobClass = ` job-${role}`
-        }
-      }
-    } else {
-      jobClass = ''
-    }
-
-    let width = `${parseInt(
-      this.props.data.damage / this.props.encounterDamage * 100,
-      10
-    )}%`
-
-    let hpsElement = (
-      <HorizElement
-        text={this.props.data.enchps}
-        label="HPS"
-        relevant={this.props.data.enchps > 0}
-      />
-    )
-    let dpsElement = (
-      <HorizElement
-        text={this.props.data.encdps}
-        label="DPS"
-        relevant={this.props.data.encdps > 0}
-      />
-    )
-    let classElement = (
-      <HorizElement
-        text={this.props.data.Job.toUpperCase()}
-        label=""
-        relevant="1"
-      />
-    )
-    let jobIcon = (
-      <img
-        src={images(
-          `./${this.props.data.Job
-            ? this.props.data.Job.toLowerCase()
-            : 'error'}.png`
-        )}
-        className="job"
-        alt={this.props.data.Job}
-      />
-    )
-    let damagePercent = (
-      <div>
-        <div className="damage-percent-bg">
-          <div className="damage-percent-fg" style={{ width: width }} />
-        </div>
-        <div className="damage-percent">
-          {width}
-        </div>
-      </div>
-    )
-    let characterName = this.props.isSelf
-      ? this.props.config.characterName
-      : this.props.data.name
-    return (
-      <div
-        className={`row ${this.props.data.Job}${this.props.isSelf
-          ? ' self'
-          : ''}${jobClass}`}
-        style={{ order }}
-      >
-        <div className="name">
-          {this.props.config.showRank
-            ? <span className="rank">{`${this.props.rank}. `}</span>
-            : null}
-          <span className="character-name">
-            {characterName}
-          </span>
-        </div>
-        <div className="horiz-elems">
-          {this.props.config.showJobIcon ? jobIcon : null}
-          {this.props.config.showHps ? hpsElement : classElement}
-          {dpsElement}
-        </div>
-        {this.props.config.showDamagePercent ? damagePercent : null}
-      </div>
-    )
+function Data({ type, show = true, ...data } = {}) {
+  if (!show) return null
+  let text, label, relevant
+  switch (type) {
+    case 'hps':
+      text = data.enchps
+      label = 'HPS'
+      relevant = data.enchps > 0
+      break
+    case 'dps':
+      text = data.encdps
+      label = 'DPS'
+      relevant = data.encdps > 0
+      break
+    case 'job':
+      text = data.Job.toUpperCase()
+      label = ''
+      relevant = '1'
+      break
+    case 'jobIcon':
+      return (
+        <img
+          src={images(`./${data.Job ? data.Job.toLowerCase() : 'error'}.png`)}
+          className="job"
+          alt={data.Job}
+        />
+      )
+    default:
   }
+  return <DataElement text={text} label={label} relevant={relevant} />
 }
-
-export default CombatantHorizontal
