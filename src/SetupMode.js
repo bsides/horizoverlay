@@ -18,72 +18,76 @@ function SetupModeRaw(props) {
     >
       <div className={`wrapper ${isVisible}`}>
         <div className="combatants">
-          {mockData.map(mock =>
-            <div
-              className={`row${mock.isSelf ? ' self' : ''} ${props.config
-                .color === 'byRole'
-                ? mock.jobRole
-                : ''} ${mock.jobClass} `}
-              style={{ order: mock.rank }}
-              key={mock.rank}
-            >
-              <div className="name">
-                {props.config.showRank
-                  ? <span className="rank">{`${mock.rank}. `}</span>
-                  : null}
-                <span className="character-name">
-                  {mock.isSelf ? props.config.characterName : mock.name}
-                </span>
-              </div>
-              <div className="horiz-elems">
-                {props.config.showJobIcon
-                  ? <img
-                      src={images(`./${mock.job}.png`)}
-                      className="job"
-                      alt={mock.jobFull}
-                    />
-                  : null}
-                <div
-                  className={`dps${mock.isHealing
-                    ? ' relevant'
-                    : ' irrelevant'}`}
-                >
-                  <div>
-                    <span className="damage-stats">
-                      {props.config.showHps ? mock.hps : mock.job.toUpperCase()}
-                    </span>
-                    <span className="label">
-                      {props.config.showHps ? 'HPS' : null}
-                    </span>
-                  </div>
+          {mockData.map(
+            mock =>
+              mock.name.toLowerCase() !== 'limit break' &&
+              <div
+                className={`row${mock.isSelf ? ' self' : ''} ${props.config
+                  .color === 'byRole'
+                  ? mock.jobRole
+                  : ''} ${mock.jobClass} `}
+                style={{ order: mock.rank }}
+                key={mock.rank}
+              >
+                <div className="name">
+                  {props.config.showRank
+                    ? <span className="rank">{`${mock.rank}. `}</span>
+                    : null}
+                  <span className="character-name">
+                    {mock.isSelf ? props.config.characterName : mock.name}
+                  </span>
                 </div>
-                <div
-                  className={`dps${mock.isHealing
-                    ? ' irrelevant'
-                    : ' relevant'}`}
-                >
-                  <div>
-                    <span className="damage-stats">
-                      {mock.dps}
-                    </span>
-                    <span className="label">DPS</span>
-                  </div>
-                </div>
-              </div>
-              {props.config.showDamagePercent
-                ? <div>
-                    <div className="damage-percent-bg">
-                      <div
-                        className="damage-percent-fg"
-                        style={{ width: `${mock.damagePct}px` }}
+                <div className="horiz-elems">
+                  {props.config.showJobIcon
+                    ? <img
+                        src={images(`./${mock.job}.png`)}
+                        className="job"
+                        alt={mock.jobFull}
                       />
-                    </div>
-                    <div className="damage-percent">
-                      {mock.damagePct}%
+                    : null}
+                  <div
+                    className={`dps${mock.isHealing
+                      ? ' relevant'
+                      : ' irrelevant'}`}
+                  >
+                    <div>
+                      <span className="damage-stats">
+                        {props.config.showHps
+                          ? mock.hps
+                          : mock.job.toUpperCase()}
+                      </span>
+                      <span className="label">
+                        {props.config.showHps ? 'HPS' : null}
+                      </span>
                     </div>
                   </div>
-                : null}
-            </div>
+                  <div
+                    className={`dps${mock.isHealing
+                      ? ' irrelevant'
+                      : ' relevant'}`}
+                  >
+                    <div>
+                      <span className="damage-stats">
+                        {mock.dps}
+                      </span>
+                      <span className="label">DPS</span>
+                    </div>
+                  </div>
+                </div>
+                {props.config.showDamagePercent
+                  ? <div>
+                      <div className="damage-percent-bg">
+                        <div
+                          className="damage-percent-fg"
+                          style={{ width: `${mock.damagePct}px` }}
+                        />
+                      </div>
+                      <div className="damage-percent">
+                        {mock.damagePct}%
+                      </div>
+                    </div>
+                  : null}
+              </div>
           )}
         </div>
         <div className="instructions">
