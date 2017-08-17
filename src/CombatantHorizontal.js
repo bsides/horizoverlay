@@ -50,8 +50,6 @@ export default class CombatantHorizontal extends Component {
     } else {
       jobStyleClass = ''
     }
-    console.log(jobStyleClass)
-    console.log('------------------------------')
 
     // Damage Percent
     if (config.showDamagePercent) {
