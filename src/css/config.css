@@ -139,3 +139,24 @@ legend {
 .fieldsZoom input[type=range] {
   display: none;
 }
+
+.form-discord {
+  margin: 0 auto;
+  justify-content: center;
+  padding: 6px 0;
+  border: 2px groove rgba(0, 0, 0, 0.4);
+  border-top: 0;
+}
+.form-discord label {
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 0;
+  padding: 0 20px;
+}
+.form-discord input[type=text] {
+  min-width: 47%;
+}
+.form-discord span {
+  display: inline-block;
+  margin-left: 12px;
+  line-height: 2.6;
+}

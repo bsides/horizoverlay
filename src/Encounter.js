@@ -7,6 +7,40 @@ class Encounter extends Component {
   static propTypes = {
     config: object.isRequired
   }
+  sendToDiscord = () => {
+    const data = new FormData()
+    data.append('json', JSON.stringify(this.props.combatant))
+    console.log(JSON.stringify(this.props.combatant))
+    fetch(this.props.config.discord, {
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: 'H O R I Z O V E R L A Y',
+        avatar_url:
+          'https://68.media.tumblr.com/2d83ce19282a68c3e2365be87254ae6a/tumblr_oh9wzyYbdb1u9t5z9o1_500.gif',
+        content:
+          '```MD\n' +
+          `# WAW! Que espertinho!\n` +
+          `
+Encounter at:         [${this.props.wholeData.Encounter.CurrentZoneName}]
+Encounter Total DPS:  [${this.props.wholeData.Encounter.encdps}]
+---
+<dt>Definition list</dt>
+---
+* Now imagine
+* a list of crap
+* that could fit here
+[Mnk]
+          ` +
+          '\n```'
+      })
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
+  }
   render() {
     const { config } = this.props
     let dps =
@@ -39,6 +73,11 @@ class Encounter extends Component {
               🕒
             </span>{' '}
             {this.props.duration}
+          </div>
+          <div>
+            <button type="button" onClick={this.sendToDiscord}>
+              Send to Discord
+            </button>
           </div>
         </div>
       </div>

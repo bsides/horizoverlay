@@ -8,19 +8,19 @@ import './css/index.css'
 import './css/overlay.css'
 
 function OverlayRaw(props) {
-  const { isActive, Combatant } = props
+  console.log(props)
   return (
     <div
-      className={`damage-meter${isActive ? '' : ' inactive'}`}
+      className={`damage-meter${props.isActive ? '' : ' inactive'}`}
       onContextMenu={props.openConfig}
       style={{ zoom: props.config.zoom }}
     >
       <Combatants
-        data={Combatant}
+        data={props.Combatant}
         encounterDamage={props.Encounter.damage}
         config={props.config}
       />
-      <Encounter {...props.Encounter} config={props.config} />
+      <Encounter {...props.Encounter} wholeData={props} config={props.config} />
     </div>
   )
 }

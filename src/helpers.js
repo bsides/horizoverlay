@@ -12,9 +12,10 @@ export const defaultConfig = {
   showRank: true,
   showDamagePercent: true,
   zoom: '1',
+  discord: '',
   configWindow: {
     width: 1300,
-    height: 206
+    height: 240
   },
   colorHealer: 'rgba(139, 195, 74, 0.3)',
   colorTank: 'rgba(33, 150, 243, 0.3)',

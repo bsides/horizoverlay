@@ -92,13 +92,13 @@ function SetupModeRaw(props) {
         </div>
         <div className="instructions">
           <div>
-            <strong>Right click</strong> anywhere this window to open settings!
+            <strong>Right click anywhere this window to open settings!</strong>
           </div>
           <div>
             This is NOT real data, this is just a mock so you can place and
-            setup this overlay the way you want. Go hit a dummy or involve in
+            setup this overlay the way you want. Go hit a dummy or engage in
             real combat to get real data here. <br />Also, please resize this
-            window to something like 70% your screen width.
+            window to something like the width of the settings window.
           </div>
         </div>
       </div>
