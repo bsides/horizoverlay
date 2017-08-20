@@ -8,12 +8,18 @@ class Encounter extends Component {
     config: object.isRequired
   }
   sendToDiscord = () => {
-    const data = new FormData()
-    data.append('json', JSON.stringify(this.props.combatant))
-    console.log(JSON.stringify(this.props.combatant))
+    // finish the fight for ACT
+    // window.OverlayPluginApi.endEncounter()
 
-    const combatantRow = `-------------------------------------------------------------------------------------
-[JOB] CHARACTER | 💪 DPS (DPS%) | 💊 HEAL (HEAL%) | 💀 DEATH | 💣 CRIT% | 🎯 DHIT% |`
+    //     const combatantRow = `-------------------------------------------------------------------------------------
+    // [JOB] CHARACTER | 💪 DPS (DPS%) | 💊 HEAL (HEAL%) | 💀 DEATH | 💣 CRIT% | 🎯 DHIT% |`
+
+    const data = this.props.discordData
+    console.log(data)
+    const combatantRow = data.map(combatant => {
+      return `**[${combatant.job}] ${combatant.characterName}** \`| DPS: ${combatant.dps} (${combatant.damage}%) | HPS: ${combatant.hps} (${combatant.healed}%) | DIE: ${combatant.deaths} | CRIT: ${combatant.crit} | DHIT: ${combatant.dhit}% |\`\n`
+    })
+    console.log(combatantRow)
     const encounterRow = `=====================================================================================
 Encounter: ENCOUNTER | ZONE | DURATION | RDPS | MAXHIT`
 
@@ -28,24 +34,13 @@ Encounter: ENCOUNTER | ZONE | DURATION | RDPS | MAXHIT`
         avatar_url:
           'https://68.media.tumblr.com/2d83ce19282a68c3e2365be87254ae6a/tumblr_oh9wzyYbdb1u9t5z9o1_500.gif',
         content:
-          '```MD\n' +
-          `# WAW! Que espertinho!\n` +
+          '\n' +
           `
-Encounter at:         [${this.props.wholeData.Encounter.CurrentZoneName}]
-Encounter Total DPS:  [${this.props.wholeData.Encounter.encdps}]
----
-<dt>Definition list</dt>
----
-* Now imagine
-* a list of crap
-* that could fit here
-[Mnk]
+${combatantRow}
           ` +
-          '\n```'
+          '\n'
       })
     })
-      .then(res => res.json())
-      .then(data => console.log(data))
   }
   render() {
     const { config } = this.props
@@ -61,6 +56,8 @@ Encounter Total DPS:  [${this.props.wholeData.Encounter.encdps}]
         ? this.props.CurrentZoneName
         : this.props.title
     let hasOptions = config.showTotalDps || config.showDuration
+
+    // https://discordapp.com/api/webhooks/347402490242793475/imwUYWomByxJh55M1AMWyfYrx1rZMIo869GZDRA6lJqcx87I4jY0UXwZR4DeUrOu5LuY
     return (
       <div className={`encounter${hasOptions ? ' show' : ''}`}>
         <div className="skewer">
@@ -92,7 +89,11 @@ Encounter Total DPS:  [${this.props.wholeData.Encounter.encdps}]
             </span>{' '}
             {this.props.duration}
           </div>
-          <div style={{ display: 'none' }}>
+          <div
+            className={`encounter-discord${config.discord === ''
+              ? ' hide'
+              : ''}`}
+          >
             <button type="button" onClick={this.sendToDiscord}>
               Send to Discord
             </button>

@@ -9,10 +9,14 @@ import './css/overlay.css'
 
 class OverlayRaw extends React.Component {
   state = {
-    limitBreak: 0
+    limitBreak: 0,
+    discordData: []
   }
   handleLimitBreak = value => {
     this.setState({ limitBreak: value })
+  }
+  handleDiscordData = value => {
+    this.setState({ discordData: value })
   }
   render() {
     const props = this.props
@@ -26,12 +30,14 @@ class OverlayRaw extends React.Component {
           data={props.Combatant}
           encounterDamage={props.Encounter.damage}
           handleLimitBreak={this.handleLimitBreak}
+          handleDiscordData={this.handleDiscordData}
           config={props.config}
         />
         <Encounter
           {...props.Encounter}
           wholeData={props}
           limitBreak={this.state.limitBreak}
+          discordData={this.state.discordData}
           config={props.config}
         />
       </div>
