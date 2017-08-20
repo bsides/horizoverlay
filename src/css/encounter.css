@@ -12,28 +12,35 @@
 .encounter {
   text-shadow: 0 0 8px #000;
   text-align: center;
-  margin: 0;
+  margin: 5px 0 0;
 }
-.encounter > div {
-  display: flex;
-  margin: 0 auto;
-  width: 350px;
+.encounter .skewer:before {
   transform: skew(-30deg);
   background: rgba(255, 255, 255, 0.1);
-  padding: 0px 10px;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.encounter .skewer {
+  display: flex;
+  margin: 0 auto;
+  /* years of css and never heard of this */
+  width: -webkit-fit-content;
+  padding: 0 10px;
+  position: relative;
+  justify-content: center;
 }
 /* Encounter name, Raid DPS and Encounter Duration boxes */
-.encounter > div > div {
+.encounter .skewer > div {
   flex: 1;
 
   white-space: nowrap;
-  /* overflow: hidden;
-  text-overflow: ellipsis; */
-  transform: skew(30deg);
   margin: 2px 4px;
   padding-left: 6px;
 }
-.encounter > div > div:first-child {
+.encounter .skewer > div:first-child {
   flex: 3;
-  padding: 0;
+  padding: 0 8px;
 }
