@@ -19,6 +19,7 @@ class Combatants extends Component {
     let maxdps = false
     let combatant
     let isSelf
+    let limitBreak
 
     for (let i = 0; i < names.length; i++) {
       combatant = this.props.data[names[i]]
@@ -39,6 +40,7 @@ class Combatants extends Component {
           config={this.props.config}
           isSelf={isSelf}
           key={names[i]}
+          handleLimitBreak={this.props.handleLimitBreak}
         />
       )
     }

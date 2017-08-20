@@ -62,18 +62,30 @@ Encounter Total DPS:  [${this.props.wholeData.Encounter.encdps}]
         : this.props.title
     let hasOptions = config.showTotalDps || config.showDuration
     return (
-      <div className={`encounter${hasOptions && ' show'}`}>
+      <div className={`encounter${hasOptions ? ' show' : ''}`}>
         <div className="skewer">
           <div className="encounter-title">
             {title}
           </div>
           <div
-            className={`encounter-totaldps${config.showTotalDps && ' show'}`}
+            className={`encounter-totaldps${config.showTotalDps
+              ? ' show'
+              : ''}`}
           >
             {totalDps} DPS
           </div>
           <div
-            className={`encounter-duration${config.showDuration && ' show'}`}
+            className={`encounter-limitBreak${config.showTotalDps &&
+            this.props.limitBreak > 0
+              ? ' show'
+              : ''}`}
+          >
+            LB {this.props.limitBreak}%
+          </div>
+          <div
+            className={`encounter-duration${config.showDuration
+              ? ' show'
+              : ''}`}
           >
             <span role="img" aria-label="Time">
               🕒

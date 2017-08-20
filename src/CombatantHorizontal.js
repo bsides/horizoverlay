@@ -34,7 +34,12 @@ export default class CombatantHorizontal extends Component {
     let jobStyleClass, jobIcon, damageWidth
 
     // don't need to render this component if this is a limit break
-    if (!data.Job && name === 'limit break') return null
+    if (!data.Job && name === 'limit break') {
+      // return null
+      this.props.handleLimitBreak(
+        parseInt(data.damage / this.props.encounterDamage * 100, 10)
+      )
+    }
 
     // Color theme byRole
     if (config.color === 'byRole') {
