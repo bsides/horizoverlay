@@ -17,15 +17,24 @@
 .row.self.job-healer .horiz-elems:before {
   background: rgba(255, 255, 255, 0.8);
 }
-.row.job-dps .horiz-elems:before,
+.row.job-dps .horiz-elems:before {
+  background: rgba(244, 67, 54, 0.7);
+}
+.row.job-tank .horiz-elems:before {
+  background: rgba(33, 150, 243, 0.7);
+}
+.row.job-healer .horiz-elems:before {
+  background: rgba(139, 195, 74, 0.7);
+}
+.row.self .horiz-elems:before {
+  background: rgba(255, 255, 255, 1.0);
+}
 .row.job-dps .damage-percent-bg {
   background: rgba(244, 67, 54, 0.3);
 }
-.row.job-tank .horiz-elems:before,
 .row.job-tank .damage-percent-bg {
   background: rgba(33, 150, 243, 0.3);
 }
-.row.job-healer .horiz-elems:before,
 .row.job-healer .damage-percent-bg {
   background: rgba(139, 195, 74, 0.3);
 }
