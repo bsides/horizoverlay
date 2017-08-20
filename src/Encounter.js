@@ -11,6 +11,12 @@ class Encounter extends Component {
     const data = new FormData()
     data.append('json', JSON.stringify(this.props.combatant))
     console.log(JSON.stringify(this.props.combatant))
+
+    const combatantRow = `-------------------------------------------------------------------------------------
+[JOB] CHARACTER | 💪 DPS (DPS%) | 💊 HEAL (HEAL%) | 💀 DEATH | 💣 CRIT% | 🎯 DHIT% |`
+    const encounterRow = `=====================================================================================
+Encounter: ENCOUNTER | ZONE | DURATION | RDPS | MAXHIT`
+
     fetch(this.props.config.discord, {
       method: 'post',
       headers: {
@@ -57,7 +63,7 @@ Encounter Total DPS:  [${this.props.wholeData.Encounter.encdps}]
     let hasOptions = config.showTotalDps || config.showDuration
     return (
       <div className={`encounter${hasOptions && ' show'}`}>
-        <div>
+        <div className="skewer">
           <div className="encounter-title">
             {title}
           </div>
@@ -74,7 +80,7 @@ Encounter Total DPS:  [${this.props.wholeData.Encounter.encdps}]
             </span>{' '}
             {this.props.duration}
           </div>
-          <div>
+          <div style={{ display: 'none' }}>
             <button type="button" onClick={this.sendToDiscord}>
               Send to Discord
             </button>
