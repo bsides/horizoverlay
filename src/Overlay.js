@@ -8,7 +8,6 @@ import './css/index.css'
 import './css/overlay.css'
 
 function OverlayRaw(props) {
-  console.log(props)
   return (
     <div
       className={`damage-meter${props.isActive ? '' : ' inactive'}`}
