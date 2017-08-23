@@ -63,9 +63,10 @@
   text-shadow: 0 0 5px rgba(0, 0, 0, 1);
   z-index: 2;
   position: relative;
+  cursor: pointer;
 }
 .encounter-discord:before {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
   transform: skew(-30deg);
   content: "";
   display: block;

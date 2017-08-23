@@ -96,10 +96,11 @@
 .row .dps {
   color: #fff;
   text-shadow: 0 0 5px #000;
-  padding: 0 5px 2px 0;
+  padding: 0 0 2px 8px;
   margin: 3px 0 0 0;
   flex-grow: 1;
   position: relative;
+  text-align: left;
 }
 .row.self .dps {
   color: #000;
@@ -140,6 +141,8 @@
 }
 .dps:last-child {
   text-align: right;
+  padding-right: 8px;
+  padding-left: 0;
 }
 .dps span.label {
   font-size: 8px;

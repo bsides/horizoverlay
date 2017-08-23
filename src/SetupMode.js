@@ -57,7 +57,7 @@ function SetupModeRaw(props) {
                           : mock.job.toUpperCase()}
                       </span>
                       <span className="label">
-                        {props.config.showHps ? 'HPS' : null}
+                        {props.config.showHps ? ' HPS' : null}
                       </span>
                     </div>
                   </div>
@@ -70,7 +70,7 @@ function SetupModeRaw(props) {
                       <span className="damage-stats">
                         {mock.dps}
                       </span>
-                      <span className="label">DPS</span>
+                      <span className="label"> DPS</span>
                     </div>
                   </div>
                 </div>
