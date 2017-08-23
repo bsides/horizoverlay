@@ -34,12 +34,7 @@ export default class CombatantHorizontal extends Component {
     let jobStyleClass, jobIcon, damageWidth
 
     // don't need to render this component if this is a limit break
-    if (!data.Job && name === 'limit break') {
-      // return null
-      this.props.handleLimitBreak(
-        parseInt(data.damage / this.props.encounterDamage * 100, 10)
-      )
-    }
+    if (!data.Job && name === 'limit break') return null
 
     // Color theme byRole
     if (config.color === 'byRole') {
@@ -144,12 +139,12 @@ function DataText({ type, show = true, ...data } = {}) {
   switch (type) {
     case 'hps':
       text = data.enchps
-      label = 'HPS'
+      label = ' HPS'
       relevant = data.enchps > 0
       break
     case 'dps':
       text = data.ENCDPS
-      label = 'DPS'
+      label = ' DPS'
       relevant = data.ENCDPS > 0
       break
     case 'job':

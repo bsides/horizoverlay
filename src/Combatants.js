@@ -25,8 +25,10 @@ class Combatants extends Component {
     let combatant
     let isSelf
 
-    for (let i = 0; i < names.length; i++) {
-      combatant = this.props.data[names[i]]
+    for (let ref in names) {
+      combatant = this.props.data[names[ref]]
+      // don't need to render this component if this is a limit break
+      if (combatant.name.toLowerCase() === 'limit break') break
 
       if (!maxdps) {
         maxdps = parseFloat(combatant.ENCDPS)
@@ -34,7 +36,7 @@ class Combatants extends Component {
 
       isSelf = combatant.name === 'YOU' || combatant.name === 'You'
 
-      let order = i + 1
+      let order = parseInt(ref + 1, 10)
 
       rows.push(
         <CombatantHorizontal
@@ -43,8 +45,7 @@ class Combatants extends Component {
           data={combatant}
           config={this.props.config}
           isSelf={isSelf}
-          key={names[i]}
-          handleLimitBreak={this.props.handleLimitBreak}
+          key={names[ref]}
         />
       )
     }

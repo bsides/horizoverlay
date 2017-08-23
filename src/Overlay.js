@@ -17,7 +17,7 @@ class OverlayRaw extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     if (Object.getOwnPropertyNames(this.props.Combatant).length === 0)
-      return null
+      return false
 
     let maxRows = 10
     let dataArray = Object.keys(this.props.Combatant)
@@ -28,6 +28,17 @@ class OverlayRaw extends React.Component {
       combatant = this.props.Combatant[names[i]]
       if (combatant.name.toUpperCase() === 'YOU')
         combatant.name = this.props.config.characterName
+
+      if (combatant.name.toLowerCase() === 'limit break') {
+        this.handleLimitBreak(
+          parseInt(
+            this.props.Combatant.damage / this.props.Encounter.damage * 100,
+            10
+          )
+        )
+        break
+      }
+
       discordData.push({
         job: combatant.Job,
         characterName: combatant.name,
@@ -56,7 +67,6 @@ class OverlayRaw extends React.Component {
         <Combatants
           data={props.Combatant}
           encounterDamage={props.Encounter.damage}
-          handleLimitBreak={this.handleLimitBreak}
           config={props.config}
         />
         <Encounter
