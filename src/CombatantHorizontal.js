@@ -148,9 +148,9 @@ function DataText({ type, show = true, ...data } = {}) {
       relevant = data.enchps > 0
       break
     case 'dps':
-      text = data.encdps
+      text = data.ENCDPS
       label = 'DPS'
-      relevant = data.encdps > 0
+      relevant = data.ENCDPS > 0
       break
     case 'job':
       text = data.Job.toUpperCase()
