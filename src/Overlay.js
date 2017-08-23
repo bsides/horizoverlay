@@ -15,8 +15,35 @@ class OverlayRaw extends React.Component {
   handleLimitBreak = value => {
     this.setState({ limitBreak: value })
   }
-  handleDiscordData = value => {
-    this.setState({ discordData: value })
+  componentWillReceiveProps(nextProps) {
+    if (Object.getOwnPropertyNames(this.props.Combatant).length === 0)
+      return null
+
+    let maxRows = 10
+    let dataArray = Object.keys(this.props.Combatant)
+    let names = dataArray.slice(0, maxRows - 1)
+    let combatant
+    let discordData = []
+    for (let i = 0; i < names.length; i++) {
+      combatant = this.props.Combatant[names[i]]
+      if (combatant.name.toUpperCase() === 'YOU')
+        combatant.name = this.props.config.characterName
+      discordData.push({
+        job: combatant.Job,
+        characterName: combatant.name,
+        dps: combatant.ENCDPS,
+        damage: parseInt(
+          combatant.damage / this.props.Encounter.damage * 100,
+          10
+        ),
+        hps: combatant.ENCHPS,
+        healed: combatant.healed,
+        deaths: combatant.deaths,
+        crit: combatant['crithit%'],
+        dhit: combatant.DirectHitPct
+      })
+    }
+    this.setState({ discordData })
   }
   render() {
     const props = this.props
@@ -30,12 +57,10 @@ class OverlayRaw extends React.Component {
           data={props.Combatant}
           encounterDamage={props.Encounter.damage}
           handleLimitBreak={this.handleLimitBreak}
-          handleDiscordData={this.handleDiscordData}
           config={props.config}
         />
         <Encounter
           {...props.Encounter}
-          wholeData={props}
           limitBreak={this.state.limitBreak}
           discordData={this.state.discordData}
           config={props.config}
