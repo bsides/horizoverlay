@@ -9,19 +9,36 @@ class Encounter extends Component {
   }
   sendToDiscord = () => {
     // finish the fight for ACT
+    // Right now bugging everything so it's off
     // window.OverlayPluginApi.endEncounter()
 
-    //     const combatantRow = `-------------------------------------------------------------------------------------
-    // [JOB] CHARACTER | 💪 DPS (DPS%) | 💊 HEAL (HEAL%) | 💀 DEATH | 💣 CRIT% | 🎯 DHIT% |`
+    // Converts 'YOU-Shot-1500' into 'Character Name, Shot (1500)'
+    const maxhitName = this.props.maxhit
+      .replace(/YOU/g, this.props.config.characterName)
+      .replace(/-/, ', ')
+      .replace(/-/, ' (')
+      .concat(')')
+    const encData = {
+      title: this.props.title,
+      zone: this.props.CurrentZoneName,
+      duration: this.props.duration,
+      totalDps: this.props.ENCDPS,
+      maxhit: maxhitName
+    }
+    const encounterRow = `\`${'='.repeat(
+      85
+    )}\`\n\`${encData.title} | ${encData.zone} | ${encData.duration} | ${encData.totalDps} | ${encData.maxhit}\`\n\`${'-'.repeat(
+      85
+    )}\``
 
     const data = this.props.discordData
-    console.log(data)
+
+    // [JOB] CHARACTER | 💪 DPS (DPS%) | 💊 HEAL (HEAL%) | 💀 DEATH | 💣 CRIT% | 🎯 DHIT% |`
     const combatantRow = data.map(combatant => {
-      return `**[${combatant.job}] ${combatant.characterName}** \`| DPS: ${combatant.dps} (${combatant.damage}%) | HPS: ${combatant.hps} (${combatant.healed}%) | DIE: ${combatant.deaths} | CRIT: ${combatant.crit} | DHIT: ${combatant.dhit}% |\`\n`
+      return `\n**[${combatant.job}] ${combatant.characterName}** \`| DPS: ${combatant.dps} (${combatant.damage}%) | HPS: ${combatant.hps} (${combatant.healed}%) | DIE: ${combatant.deaths} | CRIT: ${combatant.crit} | DHIT: ${combatant.dhit} |\`\n\`${'-'.repeat(
+        85
+      )}\``
     })
-    console.log(combatantRow)
-    const encounterRow = `=====================================================================================
-Encounter: ENCOUNTER | ZONE | DURATION | RDPS | MAXHIT`
 
     fetch(this.props.config.discord, {
       method: 'post',
@@ -33,12 +50,7 @@ Encounter: ENCOUNTER | ZONE | DURATION | RDPS | MAXHIT`
         username: 'H O R I Z O V E R L A Y',
         avatar_url:
           'https://68.media.tumblr.com/2d83ce19282a68c3e2365be87254ae6a/tumblr_oh9wzyYbdb1u9t5z9o1_500.gif',
-        content:
-          '\n' +
-          `
-${combatantRow}
-          ` +
-          '\n'
+        content: `${encounterRow}${combatantRow.join('', ',')}`
       })
     })
   }
