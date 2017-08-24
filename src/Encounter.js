@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { object } from 'prop-types'
+import { object, array } from 'prop-types'
 
 import './css/encounter.css'
 
 class Encounter extends Component {
   static propTypes = {
-    config: object.isRequired
+    config: object.isRequired,
+    discordData: array
   }
   sendToDiscord = () => {
     // finish the fight for ACT
@@ -35,7 +36,7 @@ class Encounter extends Component {
 
     // [JOB] CHARACTER | 💪 DPS (DPS%) | 💊 HEAL (HEAL%) | 💀 DEATH | 💣 CRIT% | 🎯 DHIT% |`
     const combatantRow = data.map(combatant => {
-      return `\n**[${combatant.job}] ${combatant.characterName}** \`| DPS: ${combatant.dps} (${combatant.damage}%) | HPS: ${combatant.hps} (${combatant.healed}%) | DIE: ${combatant.deaths} | CRIT: ${combatant.crit} | DHIT: ${combatant.dhit} |\`\n\`${'-'.repeat(
+      return `\n**[${combatant.job}] ${combatant.characterName}** \`| DPS: ${combatant.dps} (${combatant.damage}%) | HPS: ${combatant.hps} (${combatant.healed}) | DIE: ${combatant.deaths} | CRIT: ${combatant.crit} | DHIT: ${combatant.dhit} |\`\n\`${'-'.repeat(
         85
       )}\``
     })
@@ -59,6 +60,7 @@ class Encounter extends Component {
     let dps =
       this.props.encdps.length <= 7 ? this.props.encdps : this.props.ENCDPS
     let totalDps = parseFloat(dps)
+
     // Looks stupid but it's better than isNaN()
     // eslint-disable-next-line
     totalDps = totalDps !== totalDps ? '∞' : totalDps
@@ -68,8 +70,6 @@ class Encounter extends Component {
         ? this.props.CurrentZoneName
         : this.props.title
     let hasOptions = config.showTotalDps || config.showDuration
-
-    // https://discordapp.com/api/webhooks/347402490242793475/imwUYWomByxJh55M1AMWyfYrx1rZMIo869GZDRA6lJqcx87I4jY0UXwZR4DeUrOu5LuY
     return (
       <div className={`encounter${hasOptions ? ' show' : ''}`}>
         <div className="skewer">
