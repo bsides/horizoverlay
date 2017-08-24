@@ -2,12 +2,6 @@ import React, { Component } from 'react'
 import CombatantHorizontal from './CombatantHorizontal'
 
 class Combatants extends Component {
-  constructor(props) {
-    super(props)
-
-    this.maxRows = 10
-    this.rows = []
-  }
   shouldComponentUpdate() {
     // if data is empty then don't re-render
     if (Object.getOwnPropertyNames(this.props.data).length === 0) {
@@ -17,35 +11,30 @@ class Combatants extends Component {
     return true
   }
   render() {
+    const maxRows = 10
+    const dataArray = Object.keys(this.props.data)
+    const battler = dataArray.slice(0, maxRows - 1)
     let rows = []
-    let maxRows = 10
-    let dataArray = Object.keys(this.props.data)
-    let names = dataArray.slice(0, maxRows - 1)
-    let maxdps = false
     let combatant
     let isSelf
 
-    for (let ref in names) {
-      combatant = this.props.data[names[ref]]
+    for (const ref in battler) {
+      combatant = this.props.data[battler[ref]]
+
       // don't need to render this component if this is a limit break
       if (combatant.name.toLowerCase() === 'limit break') break
 
-      if (!maxdps) {
-        maxdps = parseFloat(combatant.ENCDPS)
-      }
-
-      isSelf = combatant.name === 'YOU' || combatant.name === 'You'
-
-      let order = parseInt(ref + 1, 10)
+      // We'll change the global 'YOU' name in case it's, well, you
+      isSelf = combatant.name.toUpperCase() === 'YOU'
 
       rows.push(
         <CombatantHorizontal
           encounterDamage={this.props.encounterDamage}
-          rank={order}
+          rank={parseInt(ref + 1, 10)}
           data={combatant}
           config={this.props.config}
           isSelf={isSelf}
-          key={names[ref]}
+          key={battler[ref]}
         />
       )
     }
