@@ -21,14 +21,18 @@ class OverlayRaw extends React.Component {
 
     let maxRows = 10
     let dataArray = Object.keys(this.props.Combatant)
-    let names = dataArray.slice(0, maxRows - 1)
+    let battler = dataArray.slice(0, maxRows - 1)
     let combatant
     let discordData = []
-    for (let i = 0; i < names.length; i++) {
-      combatant = this.props.Combatant[names[i]]
+
+    for (const ref in battler) {
+      combatant = this.props.Combatant[battler[ref]]
+
+      // Send to Discord the right name in Settings
       if (combatant.name.toUpperCase() === 'YOU')
         combatant.name = this.props.config.characterName
 
+      // Send limit break data separated
       if (combatant.name.toLowerCase() === 'limit break') {
         this.handleLimitBreak(
           parseInt(
@@ -48,7 +52,7 @@ class OverlayRaw extends React.Component {
           10
         ),
         hps: combatant.ENCHPS,
-        healed: combatant.healed,
+        healed: combatant['healed%'],
         deaths: combatant.deaths,
         crit: combatant['crithit%'],
         dhit: combatant.DirectHitPct
