@@ -52,12 +52,10 @@ export default class CombatantHorizontal extends Component {
     }
 
     // Damage Percent
-    if (config.showDamagePercent) {
-      damageWidth = `${parseInt(
-        data.damage / this.props.encounterDamage * 100,
-        10
-      )}%`
-    }
+    damageWidth = `${parseInt(
+      data.damage / this.props.encounterDamage * 100,
+      10
+    )}%`
 
     // Job icon
     if (config.showJobIcon) {
@@ -98,13 +96,14 @@ export default class CombatantHorizontal extends Component {
           <DataText type="job" show={!config.showHps} {...data} />
           <DataText type="dps" {...data} />
         </div>
-        <DamageBar {...damageWidth} show={config.showDamagePercent} />
+        <DamageBar width={damageWidth} show={config.showDamagePercent} />
       </div>
     )
   }
 }
 
 function DamageBar({ width, show }) {
+  console.log(width)
   if (!show) return null
   return (
     <div>
