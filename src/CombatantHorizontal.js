@@ -137,9 +137,9 @@ function DataText({ type, show = true, ...data } = {}) {
   let text, label, relevant
   switch (type) {
     case 'hps':
-      text = data.enchps
+      text = data.ENCHPS
       label = ' HPS'
-      relevant = data.enchps > 0
+      relevant = data.ENCHPS > 0
       break
     case 'dps':
       text = data.ENCDPS
