@@ -84,8 +84,9 @@ export default class CombatantHorizontal extends Component {
         style={{ order }}
       >
         <div className="name">
-          {config.showRank &&
-            <span className="rank">{`${this.props.rank}. `}</span>}
+          {config.showRank
+            ? <span className="rank">{`${this.props.rank}. `}</span>
+            : ''}
           <span className="character-name">
             {characterName}
           </span>
