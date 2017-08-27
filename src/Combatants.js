@@ -27,10 +27,13 @@ class Combatants extends Component {
       // We'll change the global 'YOU' name in case it's, well, you
       isSelf = combatant.name.toUpperCase() === 'YOU'
 
+      // We need to reasign it here since it will call a reference
+      const rank = parseInt(ref + 1, 10)
+
       rows.push(
         <CombatantHorizontal
           encounterDamage={this.props.encounterDamage}
-          rank={parseInt(ref + 1, 10)}
+          rank={rank}
           data={combatant}
           config={this.props.config}
           isSelf={isSelf}

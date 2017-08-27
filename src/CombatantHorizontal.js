@@ -103,7 +103,6 @@ export default class CombatantHorizontal extends Component {
 }
 
 function DamageBar({ width, show }) {
-  console.log(width)
   if (!show) return null
   return (
     <div>
