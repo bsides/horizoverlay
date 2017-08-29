@@ -52,12 +52,10 @@ export default class CombatantHorizontal extends Component {
     }
 
     // Damage Percent
-    if (config.showDamagePercent) {
-      damageWidth = `${parseInt(
-        data.damage / this.props.encounterDamage * 100,
-        10
-      )}%`
-    }
+    damageWidth = `${parseInt(
+      data.damage / this.props.encounterDamage * 100,
+      10
+    )}%`
 
     // Job icon
     if (config.showJobIcon) {
@@ -86,8 +84,9 @@ export default class CombatantHorizontal extends Component {
         style={{ order }}
       >
         <div className="name">
-          {config.showRank &&
-            <span className="rank">{`${this.props.rank}. `}</span>}
+          {config.showRank
+            ? <span className="rank">{`${this.props.rank}. `}</span>
+            : ''}
           <span className="character-name">
             {characterName}
           </span>
@@ -98,7 +97,7 @@ export default class CombatantHorizontal extends Component {
           <DataText type="job" show={!config.showHps} {...data} />
           <DataText type="dps" {...data} />
         </div>
-        <DamageBar {...damageWidth} show={config.showDamagePercent} />
+        <DamageBar width={damageWidth} show={config.showDamagePercent} />
       </div>
     )
   }
@@ -138,14 +137,14 @@ function DataText({ type, show = true, ...data } = {}) {
   let text, label, relevant
   switch (type) {
     case 'hps':
-      text = data.enchps
-      label = 'HPS'
-      relevant = data.enchps > 0
+      text = data.ENCHPS
+      label = ' HPS'
+      relevant = data.ENCHPS > 0
       break
     case 'dps':
-      text = data.encdps
-      label = 'DPS'
-      relevant = data.encdps > 0
+      text = data.ENCDPS
+      label = ' DPS'
+      relevant = data.ENCDPS > 0
       break
     case 'job':
       text = data.Job.toUpperCase()
