@@ -4,7 +4,7 @@ import { jobRoles, otherIcons } from './helpers'
 var images = require.context('./images', false, /\.png$/)
 
 DataWrapper.propTypes = {
-  text: string.isRequired,
+  text: oneOfType([string, number]).isRequired,
   label: string,
   relevant: oneOfType([bool, string, number]).isRequired
 }
@@ -91,7 +91,7 @@ export default class CombatantHorizontal extends Component {
           )}
           <span className="character-name">{characterName}</span>
         </div>
-        <div className="horiz-elems">
+        <div className="data-items">
           {jobIcon && <img src={jobIcon} className="job" alt={jobName} />}
           <DataText type="hps" show={config.showHps} {...data} />
           <DataText type="job" show={!config.showHps} {...data} />
