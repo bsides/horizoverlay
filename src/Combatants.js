@@ -27,7 +27,7 @@ class Combatants extends Component {
         maxdps = parseFloat(combatant.encdps)
       }
 
-      isSelf = combatant.name === 'YOU' || combatant.name === 'You'
+      isSelf = combatant.name.toUpperCase() === 'YOU'
 
       let order = i + 1
 
@@ -42,11 +42,7 @@ class Combatants extends Component {
         />
       )
     }
-    return (
-      <div className="combatants">
-        {rows}
-      </div>
-    )
+    return <div className="combatants">{rows}</div>
   }
 }
 
