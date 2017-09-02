@@ -34,10 +34,18 @@ function SetupModeRaw(props) {
                       <span className="rank">{`${mock.rank}. `}</span>
                     ) : null}
                     <span className="character-name">
-                      {mock.isSelf ? props.config.characterName : mock.name}
+                      {mock.isSelf && props.config.showSelf ? (
+                        props.config.characterName
+                      ) : (
+                        mock.name
+                      )}
                     </span>
                   </div>
-                  <div className="data-items">
+                  <div
+                    className={`data-items${props.config.showHighlight
+                      ? ' highlight'
+                      : ''}${mock.isHealing ? ' inverse' : ''}`}
+                  >
                     {props.config.showJobIcon ? (
                       <img
                         src={images(`./${mock.job}.png`)}

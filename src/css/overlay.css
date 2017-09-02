@@ -19,24 +19,57 @@
 }
 .row.job-dps .data-items:before {
   background: rgba(244, 67, 54, 0.5);
-
+}
+.row.job-dps .data-items.highlight:before {
   background-image: linear-gradient(
     to left,
     rgba(244, 67, 54, 0.5) 0%,
-    rgba(244, 67, 54, 0.5) 50%,
-    white 50%,
-    white 100%
+    rgba(244, 67, 54, 0.5) 51%,
+    rgba(244, 67, 54, 0.1) 51%,
+    rgba(244, 67, 54, 0.1) 100%
   );
   background-repeat: no-repeat;
 }
 .row.job-tank .data-items:before {
-  background: rgba(33, 150, 243, 0.5);
+  background: rgba(32, 149, 243, 0.5);
+}
+.row.job-tank .data-items.highlight:before {
+  background-image: linear-gradient(
+    to left,
+    rgba(32, 149, 243, 0.5) 0%,
+    rgba(32, 149, 243, 0.5) 51%,
+    rgba(32, 149, 243, 0.1) 51%,
+    rgba(32, 149, 243, 0.1) 100%
+  );
+  background-repeat: no-repeat;
 }
 .row.job-healer .data-items:before {
   background: rgba(139, 195, 74, 0.5);
 }
-.row.self .data-items:before {
-  background: rgba(255, 255, 255, 1);
+.row.job-healer .data-items.highlight:before {
+  background-image: linear-gradient(
+    to left,
+    rgba(139, 195, 74, 0.5) 0%,
+    rgba(139, 195, 74, 0.5) 51%,
+    rgba(139, 195, 74, 0.1) 51%,
+    rgba(139, 195, 74, 0.1) 100%
+  );
+  background-repeat: no-repeat;
+}
+.row.job-healer .data-items.highlight.inverse:before {
+  background-image: linear-gradient(
+    to left,
+    rgba(139, 195, 74, 0.1) 0%,
+    rgba(139, 195, 74, 0.1) 51%,
+    rgba(139, 195, 74, 0.5) 51%,
+    rgba(139, 195, 74, 0.5) 100%
+  );
+  background-repeat: no-repeat;
+}
+.row.self .data-items:before,
+.row.self .data-items.highlight:before,
+.row.self .data-items.highlight.invert:before {
+  background: rgba(255, 255, 255, 0.8);
 }
 .row.job-dps .damage-percent-bg {
   background: rgba(244, 67, 54, 0.3);
