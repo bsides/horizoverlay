@@ -11,34 +11,35 @@ class Combatants extends Component {
     return true
   }
   render() {
+    const maxRows = 10
+    const dataArray = Object.keys(this.props.data)
+    const battler = dataArray.slice(0, maxRows - 1)
     let rows = []
-    let maxRows = 10
-    let dataArray = Object.keys(this.props.data)
-    // let limit = Math.max(dataArray.length, maxRows)
-    let names = dataArray.slice(0, maxRows - 1)
-    let maxdps = false
     let combatant
     let isSelf
 
-    for (let i = 0; i < names.length; i++) {
-      combatant = this.props.data[names[i]]
+    for (const ref in battler) {
+      combatant = this.props.data[battler[ref]]
 
-      if (!maxdps) {
-        maxdps = parseFloat(combatant.encdps)
-      }
+      // don't need to render this component if this is a limit break
+      if (combatant.name.toLowerCase() === 'limit break') break
 
+      // We'll change the global 'YOU' name in case it's, well, you
       isSelf = combatant.name.toUpperCase() === 'YOU'
+      // In case you changed your name in ACT and in the overlay config
+      isSelf = this.props.config.characterName === combatant.name
 
-      let order = i + 1
+      // We need to reasign it here since it will call a reference
+      const rank = parseInt(ref + 1, 10)
 
       rows.push(
         <CombatantHorizontal
           encounterDamage={this.props.encounterDamage}
-          rank={order}
+          rank={rank}
           data={combatant}
           config={this.props.config}
           isSelf={isSelf}
-          key={names[i]}
+          key={battler[ref]}
         />
       )
     }

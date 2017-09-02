@@ -52,12 +52,10 @@ export default class CombatantHorizontal extends Component {
     }
 
     // Damage Percent
-    if (config.showDamagePercent) {
-      damageWidth = `${parseInt(
-        data.damage / this.props.encounterDamage * 100,
-        10
-      )}%`
-    }
+    damageWidth = `${parseInt(
+      data.damage / this.props.encounterDamage * 100,
+      10
+    )}%`
 
     // Job icon
     if (config.showJobIcon) {
@@ -86,11 +84,12 @@ export default class CombatantHorizontal extends Component {
         style={{ order }}
       >
         <div className="name">
-          {config.showRank &&
-            <span className="rank">{`${this.props.rank}. `}</span>}
-          <span className="character-name">
-            {characterName}
-          </span>
+          {config.showRank ? (
+            <span className="rank">{`${this.props.rank}. `}</span>
+          ) : (
+            ''
+          )}
+          <span className="character-name">{characterName}</span>
         </div>
         <div className="horiz-elems">
           {jobIcon && <img src={jobIcon} className="job" alt={jobName} />}
@@ -98,7 +97,7 @@ export default class CombatantHorizontal extends Component {
           <DataText type="job" show={!config.showHps} {...data} />
           <DataText type="dps" {...data} />
         </div>
-        <DamageBar {...damageWidth} show={config.showDamagePercent} />
+        <DamageBar width={damageWidth} show={config.showDamagePercent} />
       </div>
     )
   }
@@ -111,9 +110,7 @@ function DamageBar({ width, show }) {
       <div className="damage-percent-bg">
         <div className="damage-percent-fg" style={{ width }} />
       </div>
-      <div className="damage-percent">
-        {width}
-      </div>
+      <div className="damage-percent">{width}</div>
     </div>
   )
 }
@@ -122,12 +119,8 @@ function DataWrapper(props) {
   return (
     <div className={props.relevant ? 'dps' : 'dps irrelevant'}>
       <div>
-        <span className="damage-stats">
-          {props.text}
-        </span>
-        <span className="label">
-          {props.label}
-        </span>
+        <span className="damage-stats">{props.text}</span>
+        <span className="label">{props.label}</span>
       </div>
     </div>
   )
@@ -138,14 +131,14 @@ function DataText({ type, show = true, ...data } = {}) {
   let text, label, relevant
   switch (type) {
     case 'hps':
-      text = data.enchps
+      text = data.ENCHPS
       label = 'HPS'
-      relevant = data.enchps > data.encdps
+      relevant = data.ENCHPS > data.encdps
       break
     case 'dps':
-      text = data.encdps
+      text = data.ENCDPS
       label = 'DPS'
-      relevant = data.encdps > data.enchps
+      relevant = data.ENCDPS > data.enchps
       break
     case 'job':
       text = data.Job.toUpperCase()

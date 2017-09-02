@@ -266,10 +266,21 @@ class ConfigRaw extends Component {
             <span>Reset</span>
           </button>
         </form>
-        <div>
-          Resize this window as necessary. Everything saves automatically.{' '}
-          <strong>Right click</strong> open this window.
-        </div>
+        <form className="form-discord">
+          <label htmlFor="discord">Discord Webhook URL</label>
+          <input
+            type="text"
+            id="discord"
+            name="discord"
+            value={config.discord}
+            placeholder="Get this from your discord channel"
+            onChange={this.handleConfig}
+          />
+          <span>
+            Everything saves automatically.{' '}
+            <strong>Right click open this window.</strong>
+          </span>
+        </form>
       </div>
     )
   }
