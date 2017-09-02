@@ -100,9 +100,7 @@ class Encounter extends Component {
             {this.props.duration}
           </div>
           <div
-            className={`encounter-discord${config.showDiscord === ''
-              ? ' hide'
-              : ''}`}
+            className={`encounter-discord${config.showDiscord ? '' : ' hide'}`}
           >
             <button type="button" onClick={this.sendToDiscord}>
               Send to Discord
