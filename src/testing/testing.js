@@ -1,5 +1,5 @@
 /*eslint-disable*/
-export var ActXivBefore = {
+var ActXivBefore = {
   Encounter: {
     n: '\n',
     t: '\t',
@@ -463,7 +463,7 @@ export var ActXivBefore = {
       Last10DPS: '0',
       Last30DPS: '0',
       Last60DPS: '2',
-      Job: '',
+      Job: 'War',
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '89.12',
@@ -2056,7 +2056,7 @@ export var ActXivAfter = {
       Last10DPS: '0',
       Last30DPS: '0',
       Last60DPS: '2',
-      Job: '',
+      Job: 'War',
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '89.12',
@@ -3650,7 +3650,7 @@ export var ActXiv = {
       Last10DPS: '0',
       Last30DPS: '0',
       Last60DPS: '2',
-      Job: '',
+      Job: 'War',
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '89.12',
@@ -4780,14 +4780,44 @@ export var ActXiv = {
   isActive: true
 }
 
-setTimeout(function() {
-  var event = new CustomEvent('onOverlayDataUpdate', { detail: ActXivBefore })
-  document.dispatchEvent(event)
-  var event = new CustomEvent('onOverlayDataUpdate', { detail: ActXivAfter })
-  document.dispatchEvent(event)
-}, 500)
+function getRandom(min, max) {
+  const first = Math.ceil(min)
+  const last = Math.floor(max)
+  return Math.floor(Math.random() * (last - first + 1)) + first
+}
 
-setInterval(function() {
+var replaceWithRandom
+function getNewRandom() {
+  return (replaceWithRandom = {
+    ENCDPS: getRandom(2200, 4500),
+    'damage%': `${getRandom(3, 28)}%`,
+    'crithit%': `${getRandom(0, 76)}%`,
+    'healed%': `${getRandom(0, 30)}%`,
+    ENCHPS: getRandom(0, 6000),
+    deaths: getRandom(0, 3)
+  })
+}
+
+// setTimeout(function() {
+//   var event = new CustomEvent('onOverlayDataUpdate', { detail: ActXivBefore })
+//   document.dispatchEvent(event)
+//   var event = new CustomEvent('onOverlayDataUpdate', { detail: ActXivAfter })
+//   document.dispatchEvent(event)
+// }, 500)
+
+var timer = setInterval(function() {
+  // ActXiv.Combatant.YOU.ENCDPS = rand.ENCDPS
+  const combatant = ActXiv.Combatant
+  for (const i in combatant) {
+    getNewRandom()
+    combatant[i] = { ...combatant[i], ...replaceWithRandom }
+  }
+  ActXiv.Combatant = combatant
   var event = new CustomEvent('onOverlayDataUpdate', { detail: ActXiv })
   document.dispatchEvent(event)
 }, 2000)
+
+window.timer = timer
+window.ActXiv = ActXiv
+window.ActXivBefore = ActXivBefore
+window.ActXivAfter = ActXivAfter
