@@ -4811,6 +4811,7 @@ var timer = setInterval(function() {
   for (const i in combatant) {
     getNewRandom()
     combatant[i] = { ...combatant[i], ...replaceWithRandom }
+    if (i === 'Crippled Jordan') combatant[i] = { ...combatant[i], ENCDPS: 100 }
   }
   ActXiv.Combatant = combatant
   var event = new CustomEvent('onOverlayDataUpdate', { detail: ActXiv })
