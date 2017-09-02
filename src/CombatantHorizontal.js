@@ -140,12 +140,12 @@ function DataText({ type, show = true, ...data } = {}) {
     case 'hps':
       text = data.enchps
       label = 'HPS'
-      relevant = data.enchps > 0
+      relevant = data.enchps > data.encdps
       break
     case 'dps':
       text = data.encdps
       label = 'DPS'
-      relevant = data.encdps > 0
+      relevant = data.encdps > data.enchps
       break
     case 'job':
       text = data.Job.toUpperCase()
