@@ -21,9 +21,6 @@ class Combatants extends Component {
     for (const ref in battler) {
       combatant = this.props.data[battler[ref]]
 
-      // don't need to render this component if this is a limit break
-      if (combatant.name.toLowerCase() === 'limit break') break
-
       // We'll change the global 'YOU' name in case it's, well, you
       isSelf = combatant.name.toUpperCase() === 'YOU'
       // In case you changed your name in ACT and in the overlay config
@@ -32,6 +29,8 @@ class Combatants extends Component {
       // We need to reasign it here since it will call a reference
       const rank = parseInt(ref + 1, 10)
 
+      // don't need to render this component if this is a limit break
+      // if (!combatant.name.toLowerCase() === 'limit break')
       rows.push(
         <CombatantHorizontal
           encounterDamage={this.props.encounterDamage}
