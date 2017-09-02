@@ -140,7 +140,7 @@ class ConfigRaw extends Component {
               defaultChecked={config.showRank}
               onChange={this.handleConfig}
             />
-            <label htmlFor="showRank">Rank</label>
+            <label htmlFor="showRank">Rank #</label>
             <input
               type="checkbox"
               name="showDamagePercent"
@@ -149,6 +149,14 @@ class ConfigRaw extends Component {
               onChange={this.handleConfig}
             />
             <label htmlFor="showDamagePercent">Damage Percent</label>
+            <input
+              type="checkbox"
+              name="showDiscord"
+              id="showDiscord"
+              defaultChecked={config.showDiscord}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showDiscord">Discord</label>
           </fieldset>
           <fieldset className="fieldsZoom">
             <legend>Zoom Scale</legend>

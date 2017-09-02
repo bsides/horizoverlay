@@ -11,6 +11,8 @@ export const defaultConfig = {
   showJobIcon: true,
   showRank: true,
   showDamagePercent: true,
+  showRelevant: false,
+  showDiscord: false,
   zoom: '1',
   discord: '',
   configWindow: {
