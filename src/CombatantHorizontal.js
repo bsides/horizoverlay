@@ -4,7 +4,7 @@ import { jobRoles, otherIcons } from './helpers'
 var images = require.context('./images', false, /\.png$/)
 
 DataWrapper.propTypes = {
-  text: string.isRequired,
+  text: oneOfType([string, number]).isRequired,
   label: string,
   relevant: oneOfType([bool, string, number]).isRequired
 }
@@ -76,9 +76,12 @@ export default class CombatantHorizontal extends Component {
 
     // Character name (self, instead of 'YOU')
     const characterName = this.props.isSelf ? config.characterName : data.name
+
+    const isHealing = data.ENCHPS > data.ENCDPS
     return (
       <div
-        className={`row ${data.Job}${jobStyleClass}${this.props.isSelf
+        className={`row ${data.Job}${jobStyleClass}${this.props.isSelf &&
+        config.showSelf
           ? ' self'
           : ''}`}
         style={{ order }}
@@ -91,7 +94,11 @@ export default class CombatantHorizontal extends Component {
           )}
           <span className="character-name">{characterName}</span>
         </div>
-        <div className="horiz-elems">
+        <div
+          className={`data-items${config.showHighlight
+            ? ' highlight'
+            : ''}${isHealing ? ' inverse' : ''}`}
+        >
           {jobIcon && <img src={jobIcon} className="job" alt={jobName} />}
           <DataText type="hps" show={config.showHps} {...data} />
           <DataText type="job" show={!config.showHps} {...data} />
@@ -132,13 +139,13 @@ function DataText({ type, show = true, ...data } = {}) {
   switch (type) {
     case 'hps':
       text = data.ENCHPS
-      label = 'HPS'
-      relevant = data.ENCHPS > data.encdps
+      label = ' HPS'
+      relevant = data.ENCHPS > data.ENCDPS
       break
     case 'dps':
       text = data.ENCDPS
-      label = 'DPS'
-      relevant = data.ENCDPS > data.enchps
+      label = ' DPS'
+      relevant = data.ENCDPS > data.ENCHPS
       break
     case 'job':
       text = data.Job.toUpperCase()

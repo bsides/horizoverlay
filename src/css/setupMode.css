@@ -37,8 +37,8 @@
   max-width: 140px;
 }
 
-.row.self div.horiz-elems:before,
-.byRole .row.self .horiz-elems:before {
+.row.self div.data-items:before,
+.byRole .row.self .data-items:before {
   background: rgba(255, 255, 255, 0.8);
 }
 .row.self .dps {

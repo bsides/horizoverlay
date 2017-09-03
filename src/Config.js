@@ -102,6 +102,47 @@ class ConfigRaw extends Component {
             <legend>Check to Show</legend>
             <input
               type="checkbox"
+              name="showRank"
+              id="showRank"
+              defaultChecked={config.showRank}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showRank">Rank #</label>
+            <input
+              type="checkbox"
+              name="showJobIcon"
+              id="showJobIcon"
+              defaultChecked={config.showJobIcon}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showJobIcon">Job Icon</label>
+            <input
+              type="checkbox"
+              name="showHps"
+              id="showHps"
+              defaultChecked={config.showHps}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showHps">HPS</label>
+            <input
+              type="checkbox"
+              name="showHighlight"
+              id="showHighlight"
+              defaultChecked={config.showHighlight}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showHighlight">Highlight</label>
+            <input
+              type="checkbox"
+              name="showSelf"
+              id="showSelf"
+              defaultChecked={config.showSelf}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showSelf">Self</label>
+            <br />
+            <input
+              type="checkbox"
               name="showDuration"
               id="showDuration"
               defaultChecked={config.showDuration}
@@ -118,37 +159,20 @@ class ConfigRaw extends Component {
             <label htmlFor="showTotalDps">Total DPS</label>
             <input
               type="checkbox"
-              name="showHps"
-              id="showHps"
-              defaultChecked={config.showHps}
-              onChange={this.handleConfig}
-            />
-            <label htmlFor="showHps">HPS</label>
-            <br />
-            <input
-              type="checkbox"
-              name="showJobIcon"
-              id="showJobIcon"
-              defaultChecked={config.showJobIcon}
-              onChange={this.handleConfig}
-            />
-            <label htmlFor="showJobIcon">Job Icon</label>
-            <input
-              type="checkbox"
-              name="showRank"
-              id="showRank"
-              defaultChecked={config.showRank}
-              onChange={this.handleConfig}
-            />
-            <label htmlFor="showRank">Rank</label>
-            <input
-              type="checkbox"
               name="showDamagePercent"
               id="showDamagePercent"
               defaultChecked={config.showDamagePercent}
               onChange={this.handleConfig}
             />
-            <label htmlFor="showDamagePercent">Damage Percent</label>
+            <label htmlFor="showDamagePercent">Damage %</label>
+            <input
+              type="checkbox"
+              name="showDiscord"
+              id="showDiscord"
+              defaultChecked={config.showDiscord}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showDiscord">Discord</label>
           </fieldset>
           <fieldset className="fieldsZoom">
             <legend>Zoom Scale</legend>

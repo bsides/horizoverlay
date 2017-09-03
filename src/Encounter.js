@@ -73,9 +73,7 @@ class Encounter extends Component {
     return (
       <div className={`encounter${hasOptions ? ' show' : ''}`}>
         <div className="skewer">
-          <div className="encounter-title">
-            {title}
-          </div>
+          <div className="encounter-title">{title}</div>
           <div
             className={`encounter-totaldps${config.showTotalDps
               ? ' show'
@@ -102,9 +100,7 @@ class Encounter extends Component {
             {this.props.duration}
           </div>
           <div
-            className={`encounter-discord${config.discord === ''
-              ? ' hide'
-              : ''}`}
+            className={`encounter-discord${config.showDiscord ? '' : ' hide'}`}
           >
             <button type="button" onClick={this.sendToDiscord}>
               Send to Discord
