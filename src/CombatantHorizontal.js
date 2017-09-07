@@ -27,7 +27,7 @@ export default class CombatantHorizontal extends Component {
     isSelf: bool.isRequired
   }
   render() {
-    const { config, data } = this.props
+    const { config, data, isSelf } = this.props
     const order = this.props.rank
     const jobName = data.Job || 'WHO?'
     const name = data.name.toLowerCase()
@@ -75,13 +75,12 @@ export default class CombatantHorizontal extends Component {
     }
 
     // Character name (self, instead of 'YOU')
-    const characterName = this.props.isSelf ? config.characterName : data.name
+    const characterName = isSelf ? config.characterName : data.name
 
     const isHealing = data.ENCHPS > data.ENCDPS
     return (
       <div
-        className={`row ${data.Job}${jobStyleClass}${this.props.isSelf &&
-        config.showSelf
+        className={`row ${data.Job}${jobStyleClass}${isSelf && config.showSelf
           ? ' self'
           : ''}`}
         style={{ order }}
