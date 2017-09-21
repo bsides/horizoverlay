@@ -33,6 +33,9 @@ If you can't see the Settings window, just alt tab until you do.
 
 Congratulations, you have it installed and setup.
 
+## Install locally
+Just download the [build folder](https://github.com/bsides/horizoverlay/tree/master/build) and put the `index.html` in Overlay field.
+
 ## I want version 1!
 It's still in the same URL `https://bsides.github.io/horizoverlay` but I won't update it anymore. Also, you're free to download version 1 [straight from here](https://github.com/bsides/horizoverlay/tree/version-1) and serve the html locally. It should work. I recommend it as I don't know how long this URL will be available.
 
