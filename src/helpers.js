@@ -14,8 +14,10 @@ export const defaultConfig = {
   showTotalDps: true,
   showDamagePercent: true,
   showDiscord: false,
+  showLocale: false,
   zoom: '1',
   discord: '',
+  locale: 'enUS',
   configWindow: {
     width: 1300,
     height: 239
@@ -103,9 +105,9 @@ export function withHelper({
     }
     openConfig = () => {
       this.setState({ isConfigOpen: true })
-      const windowFeatures = `menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=${this
-        .props.config.configWindow.width},height=${this.props.config
-        .configWindow.height}`
+      const windowFeatures = `menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=${
+        this.props.config.configWindow.width
+      },height=${this.props.config.configWindow.height}`
       this.configWindow = window.open(
         '/#/config',
         'Horizoverlay Config',
