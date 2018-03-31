@@ -23,6 +23,8 @@ function SetupModeRaw(props) {
         <div className="combatants">
           {mockData.map((mock, index) => {
             if (index >= maxCombatants) return false
+            let maxhit
+            if (mock.maxhit) maxhit = mock.maxhit.replace('-', ': ')
             return (
               mock.name.toLowerCase() !== 'limit break' && (
                 <div
@@ -92,6 +94,9 @@ function SetupModeRaw(props) {
                       <div className="damage-percent">{mock.damagePct}%</div>
                     </div>
                   ) : null}
+                  <div className="maxhit">
+                    {props.config.showMaxhit && maxhit}
+                  </div>
                 </div>
               )
             )

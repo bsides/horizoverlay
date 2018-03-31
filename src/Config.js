@@ -173,6 +173,17 @@ class ConfigRaw extends Component {
               {/* Self */}
               {loc.toggleOption5}
             </label>
+            <input
+              type="checkbox"
+              name="showMaxhit"
+              id="showMaxhit"
+              defaultChecked={config.showMaxhit}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showMaxhit">
+              {/* Self */}
+              {loc.toggleOption11}
+            </label>
             <br />
             <input
               type="checkbox"

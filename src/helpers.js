@@ -10,6 +10,7 @@ export const defaultConfig = {
   showHps: true,
   showHighlight: false,
   showSelf: true,
+  showMaxhit: false,
   showDuration: true,
   showTotalDps: true,
   showDamagePercent: true,
@@ -199,7 +200,8 @@ export const mockData = [
     hps: '0',
     ehps: '0.0',
     isHealing: false,
-    damagePct: '36'
+    damagePct: '36',
+    maxhit: 'Super Yey-3921'
   },
   {
     isSelf: false,
@@ -214,7 +216,8 @@ export const mockData = [
     hps: '0',
     ehps: '0.0',
     isHealing: false,
-    damagePct: '32'
+    damagePct: '32',
+    maxhit: 'Meteor-4221'
   },
   {
     isSelf: false,
@@ -229,7 +232,8 @@ export const mockData = [
     hps: '4',
     ehps: '4.12',
     isHealing: false,
-    damagePct: '22'
+    damagePct: '22',
+    maxhit: 'Thievery-2332'
   },
   {
     isSelf: false,
@@ -244,7 +248,8 @@ export const mockData = [
     hps: '12',
     ehps: '12.10',
     isHealing: false,
-    damagePct: '15'
+    damagePct: '15',
+    maxhit: 'Alexander-8720'
   },
   {
     isSelf: false,
@@ -259,7 +264,8 @@ export const mockData = [
     hps: '3',
     ehps: '3.10',
     isHealing: false,
-    damagePct: '16'
+    damagePct: '16',
+    maxhit: "Rei's Wind-3092"
   },
   {
     isSelf: false,
@@ -274,7 +280,8 @@ export const mockData = [
     hps: '588',
     ehps: '588.50',
     isHealing: false,
-    damagePct: '9'
+    damagePct: '9',
+    maxhit: 'Power Break-1251'
   },
   {
     isSelf: false,
@@ -289,7 +296,8 @@ export const mockData = [
     hps: '112',
     ehps: '112.50',
     isHealing: false,
-    damagePct: '6'
+    damagePct: '6',
+    maxhit: 'Frog Drop-9999'
   },
   {
     isSelf: false,
@@ -304,7 +312,8 @@ export const mockData = [
     hps: '9821',
     ehps: '9821.50',
     isHealing: true,
-    damagePct: '7'
+    damagePct: '7',
+    maxhit: 'Carbuncle-9701'
   },
   {
     isSelf: false,
@@ -319,7 +328,8 @@ export const mockData = [
     hps: '5661',
     ehps: '5661.12',
     isHealing: true,
-    damagePct: '2'
+    damagePct: '2',
+    maxhit: 'Geez-411'
   },
   {
     isSelf: false,
@@ -334,6 +344,7 @@ export const mockData = [
     hps: '',
     ehps: '',
     isHealing: true,
-    damagePct: '4'
+    damagePct: '4',
+    maxhit: 'Limit Break-29891'
   }
 ]

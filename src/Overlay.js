@@ -56,6 +56,7 @@ class OverlayRaw extends React.Component {
         deaths: combatant.deaths,
         crit: combatant['crithit%'],
         dhit: combatant.DirectHitPct
+        // maxhit: combatant.maxhit.split('-')
       })
     }
     this.setState({ discordData })
