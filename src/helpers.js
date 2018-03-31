@@ -17,6 +17,7 @@ export const defaultConfig = {
   showLocale: false,
   zoom: '1',
   discord: '',
+  maxCombatants: 8,
   locale: 'enUS',
   configWindow: {
     width: 1300,

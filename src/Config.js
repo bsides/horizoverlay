@@ -229,6 +229,19 @@ class ConfigRaw extends Component {
               {/* Language */}
               {loc.toggleOption10}
             </label>
+            <div className="combatants">
+              <label htmlFor="maxCombatants">
+                {/* # Combatants */}
+                {loc.maxCombatantsTitle}
+              </label>
+              <input
+                type="text"
+                id="maxCombatants"
+                name="maxCombatants"
+                value={config.maxCombatants}
+                onChange={this.handleConfig}
+              />
+            </div>
           </fieldset>
           <fieldset className="fieldsZoom">
             <legend>
@@ -392,7 +405,7 @@ class ConfigRaw extends Component {
             </option>
           </select>
           <span
-            class="help"
+            className="help"
             dangerouslySetInnerHTML={{
               __html: loc.help
             }}

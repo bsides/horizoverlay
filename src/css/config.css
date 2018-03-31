@@ -170,3 +170,7 @@ legend {
   display: none !important;
   visibility: hidden;
 }
+.combatants input {
+  width: 3em;
+  height: 2em;
+}

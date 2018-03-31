@@ -9,6 +9,7 @@ var images = require.context('./images', false, /\.png$/)
 
 function SetupModeRaw(props) {
   const { mockData } = props
+  const { maxCombatants } = props.config
   const colorClass = props.config.color
   const isVisible = props.config.showSetup ? 'show' : 'hide'
   const loc = locale[props.config.locale]
@@ -20,8 +21,9 @@ function SetupModeRaw(props) {
     >
       <div className={`wrapper ${isVisible}`}>
         <div className="combatants">
-          {mockData.map(
-            mock =>
+          {mockData.map((mock, index) => {
+            if (index >= maxCombatants) return false
+            return (
               mock.name.toLowerCase() !== 'limit break' && (
                 <div
                   className={`row${mock.isSelf ? ' self' : ''} ${
@@ -92,7 +94,8 @@ function SetupModeRaw(props) {
                   ) : null}
                 </div>
               )
-          )}
+            )
+          })}
         </div>
         <div className="instructions">
           <div
