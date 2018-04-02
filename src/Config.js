@@ -390,6 +390,14 @@ class ConfigRaw extends Component {
               {/* Português */}
               {loc.localeOption2}
             </option>
+            <option value={loc.localeOption3Value}>
+              {/* Simplified Chinese */}
+              {loc.localeOption3}
+            </option>
+            <option value={loc.localeOption4Value}>
+              {/* Traditional Chinese */}
+              {loc.localeOption4}
+            </option>
           </select>
           <span
             class="help"
