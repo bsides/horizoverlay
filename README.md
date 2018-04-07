@@ -35,7 +35,14 @@ If you can't see the Settings window, just alt tab until you do.
 Congratulations, you have it installed and setup.
 
 ## Install locally
-Download the project, install serve `yarn global add serve` then type `serve docs`. Then inside ACT, the url would be `http://localhost:5000`
+1. Install Yarn https://yarnpkg.com/en/
+2. Download the project
+3. Install serve yarn global add serve
+4. Go to the terminal (cmd.exe) and to the project's folder
+5. Once inside the project's folder, type yarn, wait for it to finish, then yarn build
+6. Still inside the project's folder, type serve docs.
+7. Leave the terminal open!
+8. Then inside ACT, the url would be http://localhost:5000
 
 ## Screenshots
 Color by Role and [@bmwang](https://github.com/bmwang)'s
@@ -75,7 +82,7 @@ Thanks to [@bmwang](https://github.com/bmwang) for introducing more options and 
 
 A lot of inspiration from [Kagerou](https://github.com/hibiyasleep/kagerou) overlay by [@hibiyasleep](https://github.com/hibiyasleep).
 
-A very special thanks for (yorushika)(https://github.com/yorushika) to translating into Simplified / Traditional Chinese!!!
+A very special thanks for [@yorushika](https://github.com/yorushika) to translating into Simplified / Traditional Chinese!!!
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
