@@ -4,7 +4,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Overlay from './Overlay'
 import Config from './Config'
@@ -21,7 +21,7 @@ Raven.config(sentryUrl).install()
 window.lastData = {}
 const Inactive = detail => {
   return (
-    <Router>
+    <Router basename="/horizoverlay">
       <Switch>
         <Route path={`./config`} component={Config} />
         <Route component={SetupMode} />
@@ -32,10 +32,10 @@ const Inactive = detail => {
 
 const Root = detail => {
   return (
-    <Router>
+    <Router basename="/horizoverlay">
       <Switch>
-        <Route exact path={`./`} render={() => <Overlay {...detail} />} />
-        <Route path={`./config`} component={Config} />
+        <Route exact path={`/`} render={() => <Overlay {...detail} />} />
+        <Route path={`/config`} component={Config} />
         <Route render={() => <NotFound text="Page Not Found!" />} />
       </Switch>
     </Router>
