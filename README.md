@@ -82,7 +82,7 @@ Thanks to [@bmwang](https://github.com/bmwang) for introducing more options and 
 
 A lot of inspiration from [Kagerou](https://github.com/hibiyasleep/kagerou) overlay by [@hibiyasleep](https://github.com/hibiyasleep).
 
-A very special thanks for (yorushika)(https://github.com/yorushika) to translating into Simplified / Traditional Chinese!!!
+A very special thanks for [yorushika](https://github.com/yorushika) to translating into Simplified / Traditional Chinese!!!
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
