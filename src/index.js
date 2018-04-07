@@ -34,7 +34,7 @@ const Root = detail => {
   return (
     <Router basename={`${process.env.PUBLIC_URL}`}>
       <Switch>
-        <Route exact path={`/`} render={() => <Overlay {...detail} />} />
+        <Route path={`/`} render={() => <Overlay {...detail} />} />
         <Route path={`/config`} component={Config} />
         <Route render={() => <NotFound text="Page Not Found!" />} />
       </Switch>
