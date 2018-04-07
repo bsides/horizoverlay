@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withHelper } from './helpers'
+import locale from './locale'
 
 import './css/config.css'
 
@@ -41,6 +42,7 @@ class ConfigRaw extends Component {
   // Gotta bind 'onChange' for checkboxes since false values don't bubble to 'onChange'!
   render() {
     let { config } = this.state
+    const loc = locale[config.locale].config
     return (
       <div className="config" style={{ zoom: config.zoom }}>
         <form onSubmit={e => this.resetConfig(e)}>
@@ -56,14 +58,18 @@ class ConfigRaw extends Component {
                 checked={config.showSetup}
                 onChange={this.handleConfig}
               />{' '}
-              Setup Mode
+              {/* Setup Mode */}
+              {loc.setupTitle}
             </span>
           </label>
 
           <fieldset>
-            <legend>Character Name</legend>
+            <legend>{loc.nameTitle}</legend>
             <div>
-              <label htmlFor="characterName">Your character's name:</label>
+              <label htmlFor="characterName">
+                {/* Your character's name: */}
+                {loc.nameHelp}
+              </label>
               <input
                 type="text"
                 name="characterName"
@@ -75,7 +81,10 @@ class ConfigRaw extends Component {
             </div>
           </fieldset>
           <fieldset>
-            <legend>Color theme</legend>
+            <legend>
+              {/* Color theme */}
+              {loc.themeTitle}
+            </legend>
             <div>
               <input
                 type="radio"
@@ -85,7 +94,10 @@ class ConfigRaw extends Component {
                 checked={config.color === 'byRole'}
                 onChange={this.handleConfig}
               />
-              <label htmlFor="colorByRole">Color By Role</label>
+              <label htmlFor="colorByRole">
+                {/* Color By Role */}
+                {loc.themeOption1}
+              </label>
               <br />
               <input
                 type="radio"
@@ -95,11 +107,17 @@ class ConfigRaw extends Component {
                 checked={config.color === 'blackWhite'}
                 onChange={this.handleConfig}
               />
-              <label htmlFor="colorBlackWhite">Black & White</label>
+              <label htmlFor="colorBlackWhite">
+                {/* Black & White */}
+                {loc.themeOption2}
+              </label>
             </div>
           </fieldset>
           <fieldset className="fieldsToShow">
-            <legend>Check to Show</legend>
+            <legend>
+              {/* Check to Show */}
+              {loc.toggleTitle}
+            </legend>
             <input
               type="checkbox"
               name="showRank"
@@ -107,7 +125,10 @@ class ConfigRaw extends Component {
               defaultChecked={config.showRank}
               onChange={this.handleConfig}
             />
-            <label htmlFor="showRank">Rank #</label>
+            <label htmlFor="showRank">
+              {/* Rank # */}
+              {loc.toggleOption1}
+            </label>
             <input
               type="checkbox"
               name="showJobIcon"
@@ -115,7 +136,10 @@ class ConfigRaw extends Component {
               defaultChecked={config.showJobIcon}
               onChange={this.handleConfig}
             />
-            <label htmlFor="showJobIcon">Job Icon</label>
+            <label htmlFor="showJobIcon">
+              {/* Job Icon */}
+              {loc.toggleOption2}
+            </label>
             <input
               type="checkbox"
               name="showHps"
@@ -123,7 +147,10 @@ class ConfigRaw extends Component {
               defaultChecked={config.showHps}
               onChange={this.handleConfig}
             />
-            <label htmlFor="showHps">HPS</label>
+            <label htmlFor="showHps">
+              {/* HPS */}
+              {loc.toggleOption3}
+            </label>
             <input
               type="checkbox"
               name="showHighlight"
@@ -131,7 +158,10 @@ class ConfigRaw extends Component {
               defaultChecked={config.showHighlight}
               onChange={this.handleConfig}
             />
-            <label htmlFor="showHighlight">Highlight</label>
+            <label htmlFor="showHighlight">
+              {/* Highlight */}
+              {loc.toggleOption4}
+            </label>
             <input
               type="checkbox"
               name="showSelf"
@@ -139,7 +169,21 @@ class ConfigRaw extends Component {
               defaultChecked={config.showSelf}
               onChange={this.handleConfig}
             />
-            <label htmlFor="showSelf">Self</label>
+            <label htmlFor="showSelf">
+              {/* Self */}
+              {loc.toggleOption5}
+            </label>
+            <input
+              type="checkbox"
+              name="showMaxhit"
+              id="showMaxhit"
+              defaultChecked={config.showMaxhit}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showMaxhit">
+              {/* Self */}
+              {loc.toggleOption11}
+            </label>
             <br />
             <input
               type="checkbox"
@@ -148,7 +192,10 @@ class ConfigRaw extends Component {
               defaultChecked={config.showDuration}
               onChange={this.handleConfig}
             />
-            <label htmlFor="showDuration">Duration</label>
+            <label htmlFor="showDuration">
+              {/* Duration */}
+              {loc.toggleOption6}
+            </label>
             <input
               type="checkbox"
               name="showTotalDps"
@@ -156,7 +203,10 @@ class ConfigRaw extends Component {
               defaultChecked={config.showTotalDps}
               onChange={this.handleConfig}
             />
-            <label htmlFor="showTotalDps">Total DPS</label>
+            <label htmlFor="showTotalDps">
+              {/* Total DPS */}
+              {loc.toggleOption7}
+            </label>
             <input
               type="checkbox"
               name="showDamagePercent"
@@ -164,7 +214,10 @@ class ConfigRaw extends Component {
               defaultChecked={config.showDamagePercent}
               onChange={this.handleConfig}
             />
-            <label htmlFor="showDamagePercent">Damage %</label>
+            <label htmlFor="showDamagePercent">
+              {/* Damage % */}
+              {loc.toggleOption8}
+            </label>
             <input
               type="checkbox"
               name="showDiscord"
@@ -172,11 +225,58 @@ class ConfigRaw extends Component {
               defaultChecked={config.showDiscord}
               onChange={this.handleConfig}
             />
-            <label htmlFor="showDiscord">Discord</label>
+            <label htmlFor="showDiscord">
+              {/* Discord */}
+              {loc.toggleOption9}
+            </label>
+            <input
+              type="checkbox"
+              name="showLocale"
+              id="showLocale"
+              defaultChecked={config.showLocale}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showLocale">
+              {/* Language */}
+              {loc.toggleOption10}
+            </label>
+            <div className="combatants">
+              <label htmlFor="maxCombatants">
+                {/* # Combatants */}
+                {loc.maxCombatantsTitle}
+              </label>
+              <input
+                type="text"
+                id="maxCombatants"
+                name="maxCombatants"
+                value={config.maxCombatants}
+                onChange={this.handleConfig}
+              />
+            </div>
           </fieldset>
           <fieldset className="fieldsZoom">
-            <legend>Zoom Scale</legend>
+            <legend>
+              {/* Zoom Scale */}
+              {loc.zoomTitle}
+            </legend>
 
+            <label
+              htmlFor="zoom80"
+              className={`${config.zoom === '0.8' ? '' : ' disabled'}`}
+            >
+              <span>
+                <input
+                  type="radio"
+                  name="zoom"
+                  id="zoom80"
+                  value="0.8"
+                  checked={config.zoom === '0.8'}
+                  onChange={this.handleConfig}
+                />{' '}
+                {/* 80% */}
+                {loc.zoomOption1}
+              </span>
+            </label>
             <label
               htmlFor="zoom90"
               className={`${config.zoom === '0.9' ? '' : ' disabled'}`}
@@ -190,7 +290,8 @@ class ConfigRaw extends Component {
                   checked={config.zoom === '0.9'}
                   onChange={this.handleConfig}
                 />{' '}
-                90%
+                {/* 90% */}
+                {loc.zoomOption2}
               </span>
             </label>
             <label
@@ -206,9 +307,12 @@ class ConfigRaw extends Component {
                   checked={config.zoom === '1'}
                   onChange={this.handleConfig}
                 />{' '}
-                100%
+                {/* 100% */}
+                {loc.zoomOption3}
               </span>
             </label>
+
+            <br />
             <label
               htmlFor="zoom110"
               className={`${config.zoom === '1.1' ? '' : ' disabled'}`}
@@ -222,25 +326,8 @@ class ConfigRaw extends Component {
                   checked={config.zoom === '1.1'}
                   onChange={this.handleConfig}
                 />{' '}
-                110%
-              </span>
-            </label>
-
-            <br />
-            <label
-              htmlFor="zoom125"
-              className={`${config.zoom === '1.25' ? '' : ' disabled'}`}
-            >
-              <span>
-                <input
-                  type="radio"
-                  name="zoom"
-                  id="zoom125"
-                  value="1.25"
-                  checked={config.zoom === '1.25'}
-                  onChange={this.handleConfig}
-                />{' '}
-                125%
+                {/* 110% */}
+                {loc.zoomOption4}
               </span>
             </label>
             <label
@@ -256,7 +343,8 @@ class ConfigRaw extends Component {
                   checked={config.zoom === '1.5'}
                   onChange={this.handleConfig}
                 />{' '}
-                150%
+                {/* 150% */}
+                {loc.zoomOption5}
               </span>
             </label>
             <label
@@ -272,7 +360,8 @@ class ConfigRaw extends Component {
                   checked={config.zoom === '2'}
                   onChange={this.handleConfig}
                 />{' '}
-                200%
+                {/* 200% */}
+                {loc.zoomOption6}
               </span>
             </label>
             <input
@@ -287,22 +376,61 @@ class ConfigRaw extends Component {
             />
           </fieldset>
           <button type="submit" className="reset">
-            <span>Reset</span>
+            <span>
+              {/* Reset */}
+              {loc.resetTitle}
+            </span>
           </button>
         </form>
         <form className="form-discord">
-          <label htmlFor="discord">Discord Webhook URL</label>
+          <label htmlFor="discord">
+            {/* Discord Webhook URL */}
+            {loc.discordTitle}
+          </label>
           <input
             type="text"
             id="discord"
             name="discord"
             value={config.discord}
-            placeholder="Get this from your discord channel"
+            placeholder={loc.discordHelp}
             onChange={this.handleConfig}
           />
-          <span>
-            Everything saves automatically.{' '}
-            <strong>Right click open this window.</strong>
+          <label htmlFor="locale" className={config.showLocale ? '' : 'hide'}>
+            {/* Language */}
+            {loc.localeTitle}
+          </label>
+          <select
+            name="locale"
+            id="locale"
+            onChange={this.handleConfig}
+            value={config.locale}
+            className={config.showLocale ? '' : 'hide'}
+          >
+            <option value={loc.localeOption1Value}>
+              {/* English */}
+              {loc.localeOption1}
+            </option>
+            <option value={loc.localeOption2Value}>
+              {/* Português */}
+              {loc.localeOption2}
+            </option>
+            <option value={loc.localeOption3Value}>
+              {/* Simplified Chinese */}
+              {loc.localeOption3}
+            </option>
+            <option value={loc.localeOption4Value}>
+              {/* Traditional Chinese */}
+              {loc.localeOption4}
+            </option>
+          </select>
+          <span
+            class="help"
+            dangerouslySetInnerHTML={{
+              __html: loc.help
+            }}
+          >
+            {/* Everything saves automatically.<br />
+            <strong>Right click open this window.</strong> */}
           </span>
         </form>
       </div>

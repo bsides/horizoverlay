@@ -7,13 +7,12 @@ class Combatants extends Component {
     if (Object.getOwnPropertyNames(this.props.data).length === 0) {
       return false
     }
-
     return true
   }
   render() {
-    const maxRows = 10
+    const maxRows = this.props.config.maxCombatants
     const dataArray = Object.keys(this.props.data)
-    const battler = dataArray.slice(0, maxRows - 1)
+    const battler = dataArray.slice(0, maxRows)
     let rows = []
     let combatant
     let isSelf
@@ -25,7 +24,9 @@ class Combatants extends Component {
 
       // We'll change the global 'YOU' name in case it's, well, you
       // In case you changed your name in ACT and in the overlay config
-      isSelf = combatant.name.toUpperCase() === 'YOU' || this.props.config.characterName === combatant.name
+      isSelf =
+        combatant.name.toUpperCase() === 'YOU' ||
+        this.props.config.characterName === combatant.name
 
       // We need to reasign it here since it will call a reference
       const rank = parseInt(ref, 10) + 1

@@ -78,11 +78,14 @@ export default class CombatantHorizontal extends Component {
     const characterName = isSelf ? config.characterName : data.name
 
     const isHealing = data.ENCHPS > data.ENCDPS
+
+    let maxhit
+    if (data.maxhit) maxhit = data.maxhit.replace('-', ': ')
     return (
       <div
-        className={`row ${data.Job}${jobStyleClass}${isSelf && config.showSelf
-          ? ' self'
-          : ''}`}
+        className={`row ${data.Job}${jobStyleClass}${
+          isSelf && config.showSelf ? ' self' : ''
+        }`}
         style={{ order }}
       >
         <div className="name">
@@ -94,9 +97,9 @@ export default class CombatantHorizontal extends Component {
           <span className="character-name">{characterName}</span>
         </div>
         <div
-          className={`data-items${config.showHighlight
-            ? ' highlight'
-            : ''}${isHealing ? ' inverse' : ''}`}
+          className={`data-items${config.showHighlight ? ' highlight' : ''}${
+            isHealing ? ' inverse' : ''
+          }`}
         >
           {jobIcon && <img src={jobIcon} className="job" alt={jobName} />}
           <DataText type="hps" show={config.showHps} {...data} />
@@ -104,6 +107,7 @@ export default class CombatantHorizontal extends Component {
           <DataText type="dps" {...data} />
         </div>
         <DamageBar width={damageWidth} show={config.showDamagePercent} />
+        <div className="maxhit">{config.showMaxhit && maxhit}</div>
       </div>
     )
   }

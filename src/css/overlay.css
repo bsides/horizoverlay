@@ -190,3 +190,9 @@
   font-size: 8px;
   margin: 0 0 0 1px;
 }
+.row .maxhit {
+  font-size: 0.85em;
+  margin-top: -0.3em;
+  margin-left: -0.8em;
+  text-align: left;
+}

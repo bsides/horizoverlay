@@ -19,9 +19,9 @@ class OverlayRaw extends React.Component {
     if (Object.getOwnPropertyNames(this.props.Combatant).length === 0)
       return false
 
-    let maxRows = 10
+    let maxRows = this.props.config.maxCombatants
     let dataArray = Object.keys(this.props.Combatant)
-    let battler = dataArray.slice(0, maxRows - 1)
+    let battler = dataArray.slice(0, maxRows)
     let combatant
     let discordData = []
 
@@ -56,6 +56,7 @@ class OverlayRaw extends React.Component {
         deaths: combatant.deaths,
         crit: combatant['crithit%'],
         dhit: combatant.DirectHitPct
+        // maxhit: combatant.maxhit.split('-')
       })
     }
     this.setState({ discordData })
