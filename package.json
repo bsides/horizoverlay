@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/bsides/horizoverlay/issues"
   },
-  "homepage": ".",
+  "homepage" "https://bsides.github.io/horizoverlay",
   "dependencies": {
     "raven-js": "^3.24.0",
     "react": "^16.3.0",
