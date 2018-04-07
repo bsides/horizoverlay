@@ -15,7 +15,11 @@ function SetupModeRaw(props) {
   const loc = locale[props.config.locale]
   return (
     <div
-      className={`setupMode ${colorClass}`}
+      className={`setupMode ${colorClass}${
+        props.config.locale === 'zhCN' || props.config.locale === 'zhHK'
+          ? ' chinese'
+          : ''
+      }`}
       onContextMenu={props.openConfig}
       style={{ zoom: props.config.zoom }}
     >
