@@ -1,9 +1,7 @@
 {
-  "main.css": "static/css/main.7ed55cb2.css",
-  "main.css.map": "static/css/main.7ed55cb2.css.map",
+  "main.css": "static/css/main.45e070b1.css",
+  "main.css.map": "static/css/main.45e070b1.css.map",
   "main.js": "static/js/main.cbbc6df2.js",
   "main.js.map": "static/js/main.cbbc6df2.js.map",
-  "static\\media\\mog.png": "static/media/mog.e1e18820.png",
-  "static\\media\\sarasa-gothic-sc-regular.ttf": "static/media/sarasa-gothic-sc-regular.4dd7ef52.ttf",
-  "static\\media\\sarasa-gothic-sc-regular.woff": "static/media/sarasa-gothic-sc-regular.23cafd75.woff"
+  "static\\media\\mog.png": "static/media/mog.e1e18820.png"
 }
