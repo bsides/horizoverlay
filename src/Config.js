@@ -240,7 +240,6 @@ class ConfigRaw extends Component {
               {/* Language */}
               {loc.toggleOption10}
             </label>
-<<<<<<< HEAD
             <div className="combatants">
               <label htmlFor="maxCombatants">
                 {/* # Combatants */}
@@ -254,8 +253,6 @@ class ConfigRaw extends Component {
                 onChange={this.handleConfig}
               />
             </div>
-=======
->>>>>>> 8fcd5f6eabb8d7c7d610270edcaf152600ddf9e4
           </fieldset>
           <fieldset className="fieldsZoom">
             <legend>
@@ -417,11 +414,6 @@ class ConfigRaw extends Component {
               {/* Português */}
               {loc.localeOption2}
             </option>
-<<<<<<< HEAD
-          </select>
-          <span
-            className="help"
-=======
             <option value={loc.localeOption3Value}>
               {/* Simplified Chinese */}
               {loc.localeOption3}
@@ -433,7 +425,6 @@ class ConfigRaw extends Component {
           </select>
           <span
             class="help"
->>>>>>> 8fcd5f6eabb8d7c7d610270edcaf152600ddf9e4
             dangerouslySetInnerHTML={{
               __html: loc.help
             }}
