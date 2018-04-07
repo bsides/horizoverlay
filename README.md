@@ -16,7 +16,7 @@ This is how it should be showing for you after setup with everything checked
 1. Please, be sure you are running version 0.3.3.13 or higher of hibiyasleep Overlay plugin: https://github.com/hibiyasleep/OverlayPlugin/releases | [Version x64](https://github.com/hibiyasleep/OverlayPlugin/releases/download/0.3.3.13/OverlayPlugin-0.3.3.13-x64-full.zip) | [Version x86](https://github.com/hibiyasleep/OverlayPlugin/releases/download/0.3.3.13/OverlayPlugin-0.3.3.13-x86-full.zip) |
 
 2. Just paste this url into the overlay's url field:
-`https://horizoverlay.now.sh` and click in the _Reload Overlay_ button. You should see something like this:
+`https://bsides.github.io/horizoverlay` and click in the _Reload Overlay_ button. You should see something like this:
 
 ![First Screen](https://raw.githubusercontent.com/bsides/horizoverlay/master/screenshots/config-initial.png "First Screen of Horizoverlay")
 
@@ -34,10 +34,7 @@ If you can't see the Settings window, just alt tab until you do.
 Congratulations, you have it installed and setup.
 
 ## Install locally
-Just download the [build folder](https://github.com/bsides/horizoverlay/tree/master/build) and put the `index.html` in Overlay field.
-
-## I want version 1!
-It's still in the same URL `https://bsides.github.io/horizoverlay` but I won't update it anymore. Also, you're free to download version 1 [straight from here](https://github.com/bsides/horizoverlay/tree/version-1) and serve the html locally. It should work. I recommend it as I don't know how long this URL will be available.
+Download the project, install serve `yarn global add serve` then type `serve docs`. Then inside ACT, the url would be `http://localhost:5000`
 
 ## Screenshots
 Color by Role and [@bmwang](https://github.com/bmwang)'s
@@ -76,6 +73,8 @@ The background image from the config window was made by [Richard Tabor](https://
 Thanks to [@bmwang](https://github.com/bmwang) for introducing more options and color themes.
 
 A lot of inspiration from [Kagerou](https://github.com/hibiyasleep/kagerou) overlay by [@hibiyasleep](https://github.com/hibiyasleep).
+
+A very special thanks for (yorushika)(https://github.com/yorushika) to translating into Simplified / Traditional Chinese!!!
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
