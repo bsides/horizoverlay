@@ -21,7 +21,7 @@ Raven.config(sentryUrl).install()
 window.lastData = {}
 const Inactive = detail => {
   return (
-    <Router>
+    <Router basename={`${process.env.PUBLIC_URL}`}>
       <Switch>
         <Route path={`/config`} component={Config} />
         <Route component={SetupMode} />
@@ -32,14 +32,10 @@ const Inactive = detail => {
 
 const Root = detail => {
   return (
-    <Router>
+    <Router basename={`${process.env.PUBLIC_URL}`}>
       <Switch>
-        <Route
-          exact
-          path={`${process.env.PUBLIC_URL}/`}
-          render={() => <Overlay {...detail} />}
-        />
-        <Route path={`${process.env.PUBLIC_URL}/config`} component={Config} />
+        <Route exact path={`/`} render={() => <Overlay {...detail} />} />
+        <Route path={`/config`} component={Config} />
         <Route render={() => <NotFound text="Page Not Found!" />} />
       </Switch>
     </Router>
