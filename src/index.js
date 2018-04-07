@@ -23,7 +23,7 @@ const Inactive = detail => {
   return (
     <Router basename="/horizoverlay">
       <Switch>
-        <Route path={`/config`} component={Config} />
+        <Route path={`./config`} component={Config} />
         <Route component={SetupMode} />
       </Switch>
     </Router>
