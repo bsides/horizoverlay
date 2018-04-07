@@ -424,7 +424,7 @@ class ConfigRaw extends Component {
             </option>
           </select>
           <span
-            class="help"
+            className="help"
             dangerouslySetInnerHTML={{
               __html: loc.help
             }}

@@ -65,7 +65,11 @@ class OverlayRaw extends React.Component {
     const props = this.props
     return (
       <div
-        className={`damage-meter${props.isActive ? '' : ' inactive'}`}
+        className={`damage-meter${props.isActive ? '' : ' inactive'}${
+          props.config.locale === 'zhCN' || props.config.locale === 'zhHK'
+            ? ' chinese'
+            : ''
+        }`}
         onContextMenu={props.openConfig}
         style={{ zoom: props.config.zoom }}
       >
