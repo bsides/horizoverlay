@@ -83,7 +83,7 @@
 
 ## 感謝 & 其他小玩意兒
 
-這個項目基於 [這個 repo](https://github.com/billyvg/OverlayPlugin-themes) 上意圖組合整組 that tries to compile a whole bunch of [Overlay](https://github.com/hibiyasleep/OverlayPlugin)主題的驚豔工作。感謝這個 repo 的 `testing.js` 文件（以及[/u/rdmty](https://www.reddit.com/user/rdmty)），有了這些我才能擺弄 ACT 輸出的數據並做成這個模版。
+這個項目基於 [這個 repo](https://github.com/billyvg/OverlayPlugin-themes) 上收集整組[模版](https://github.com/hibiyasleep/OverlayPlugin)主題的驚豔工作。感謝這個 repo 的 `testing.js` 文件（以及[/u/rdmty](https://www.reddit.com/user/rdmty)），有了這些我才能擺弄 ACT 輸出的數據並做成這個模版。
 
 設置窗口的背景圖像是由 [Richard Tabor](https://purtypixels.com/) 製作的，來自於[Subtle Patterns](https://www.toptal.com/designers/subtlepatterns/)。
 
