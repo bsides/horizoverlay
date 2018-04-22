@@ -8,7 +8,8 @@
 
 # production
 # Actually by request we're now "versioning" this
-#/build
+# Not anymore
+/build
 
 # IDE
 /.vscode

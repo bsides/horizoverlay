@@ -25,6 +25,7 @@
     "react-scripts": "^1.1.1"
   },
   "devDependencies": {
+    "gh-pages": "^1.1.0",
     "serve": "^6.5.3"
   },
   "scripts": {
@@ -35,6 +36,7 @@
     "eject": "react-scripts eject",
     "now": "npm-run-all -s build now-deploy",
     "now-deploy": "now build --public",
-    "predeploy": "npm run build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
