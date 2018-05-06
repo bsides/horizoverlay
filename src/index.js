@@ -1,6 +1,7 @@
 // uncomment for testing
 // import './testing/testing'
 
+import './actwebsocket'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
