@@ -1,4 +1,5 @@
-var overlayWindowId, querieSet
+let overlayWindowId = undefined
+let querieSet = undefined
 export class ActWebsocketInterface {
   constructor(uri, path = 'MiniParse') {
     // url check
@@ -27,19 +28,18 @@ export class ActWebsocketInterface {
     if (typeof this.websocket !== 'undefined' && this.websocket !== null)
       this.close()
     this.activate = true
-    var This = this
     this.websocket = new WebSocket(this.uri)
-    this.websocket.onopen = function(evt) {
-      This.onopen(evt)
+    this.websocket.onopen = evt => {
+      this.onopen(evt)
     }
-    this.websocket.onmessage = function(evt) {
-      This.onmessage(evt)
+    this.websocket.onmessage = evt => {
+      this.onmessage(evt)
     }
-    this.websocket.onclose = function(evt) {
-      This.onclose(evt)
+    this.websocket.onclose = evt => {
+      this.onclose(evt)
     }
-    this.websocket.onerror = function(evt) {
-      This.onerror(evt)
+    this.websocket.onerror = evt => {
+      this.onerror(evt)
     }
   }
   close() {
@@ -56,10 +56,10 @@ export class ActWebsocketInterface {
       if (typeof overlayWindowId !== 'undefined') {
         this.set_id(overlayWindowId)
       } else {
-        var r = new RegExp(
+        const r = new RegExp(
           '[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}'
         )
-        var id = r.exec(navigator.userAgent)
+        const id = r.exec(navigator.userAgent)
         if (id !== null && id.length === 1) {
           this.set_id(id[0])
         }
@@ -69,9 +69,8 @@ export class ActWebsocketInterface {
   onclose(evt) {
     this.websocket = null
     if (this.activate) {
-      var This = this
-      setTimeout(function() {
-        This.connect()
+      setTimeout(() => {
+        this.connect()
       }, 5000)
     }
   }
@@ -81,21 +80,14 @@ export class ActWebsocketInterface {
       this.websocket.send('.')
     } else {
       try {
-        var obj = JSON.parse(evt.data)
-        var type = obj['type']
-        var from, msg
+        const obj = JSON.parse(evt.data)
+        let { type } = obj
         if (type === 'broadcast') {
-          from = obj['from']
-          type = obj['msgtype']
-          msg = obj['msg']
           document.dispatchEvent(
             new CustomEvent('onBroadcastMessage', { detail: obj })
           )
         }
         if (type === 'send') {
-          from = obj['from']
-          type = obj['msgtype']
-          msg = obj['msg']
           document.dispatchEvent(
             new CustomEvent('onRecvMessage', { detail: obj })
           )
@@ -111,13 +103,13 @@ export class ActWebsocketInterface {
     console.log(evt)
   }
   getQuerySet() {
-    var querySet = {}
+    const querySet = {}
     // get query
-    var query = window.location.search.substring(1)
-    var vars = query.split('&')
-    for (var i = 0; i < vars.length; i++) {
+    const query = window.location.search.substring(1)
+    const vars = query.split('&')
+    for (let i = 0; i < vars.length; i++) {
       try {
-        var pair = vars[i].split('=')
+        const pair = vars[i].split('=')
         querieSet[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1])
       } catch (e) {}
     }
@@ -128,10 +120,11 @@ export class ActWebsocketInterface {
     if (typeof overlayWindowId !== 'undefined' && this.id !== overlayWindowId) {
       this.set_id(overlayWindowId)
     }
-    var obj = {}
-    obj['type'] = 'broadcast'
-    obj['msgtype'] = type
-    obj['msg'] = msg
+    const obj = {
+      type: 'broadcast',
+      msgType: type,
+      msg
+    }
     this.websocket.send(JSON.stringify(obj))
   }
 
@@ -139,30 +132,29 @@ export class ActWebsocketInterface {
     if (typeof overlayWindowId !== 'undefined' && this.id !== overlayWindowId) {
       this.set_id(overlayWindowId)
     }
-    var obj = {}
-    obj['type'] = 'send'
-    obj['to'] = to
-    obj['msgtype'] = type
-    obj['msg'] = msg
+    const obj = {
+      type: 'send',
+      msgType: type,
+      to,
+      msg
+    }
     this.websocket.send(JSON.stringify(obj))
   }
 
   overlayAPI(type, msg) {
-    var obj = {}
+    const obj = {}
     if (typeof overlayWindowId !== 'undefined' && this.id !== overlayWindowId) {
       this.set_id(overlayWindowId)
     }
-    obj['type'] = 'overlayAPI'
-    obj['to'] = overlayWindowId
-    obj['msgtype'] = type
-    obj['msg'] = msg
+    obj.type = 'overlayAPI'
+    obj.to = overlayWindowId
+    obj.msgtype = type
+    obj.msg = msg
     this.websocket.send(JSON.stringify(obj))
   }
 
   set_id(id) {
-    var obj = {}
-    obj['type'] = 'set_id'
-    obj['id'] = id
+    const obj = { type: 'set_id', id }
     this.id = overlayWindowId
     this.websocket.send(JSON.stringify(obj))
   }
@@ -181,10 +173,9 @@ export default class WebSocketImpl extends ActWebsocketInterface {
   onRecvMessage(e) {}
 
   onBroadcastMessage(e) {
-    if (e.detail.msgtype === 'CombatData') {
-      document.dispatchEvent(
-        new CustomEvent('onOverlayDataUpdate', { detail: e.detail.msg })
-      )
-    }
+    // if (e.detail.msgtype === 'CombatData') {
+    console.log(e)
+    document.dispatchEvent(new CustomEvent('onOverlayDataUpdate', e))
+    // }
   }
 }

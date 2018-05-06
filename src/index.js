@@ -15,6 +15,7 @@ import Raven from 'raven-js'
 import { sentryUrl } from './sentry'
 
 import WebSocketImpl from './actwebsocket'
+import QueryString from './queryString'
 
 require(`./images/handle.png`)
 
@@ -45,81 +46,14 @@ const Root = detail => {
 }
 
 // This will run when data is ON
-var webs = null
-
-var wsUri = 'ws://@HOST_PORT@/MiniParse'
-var overlayWindowId, querieSet
-var QueryString = (function() {
-  // This function is anonymous, is executed immediately and
-  // the return value is assigned to QueryString!
-  var query_string = {}
-  var query = window.location.search.substring(1)
-  var vars = query.split('&')
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split('=')
-    // If first entry with this name
-    if (typeof query_string[pair[0]] === 'undefined') {
-      query_string[pair[0]] = decodeURIComponent(pair[1])
-      // If second entry with this name
-    } else if (typeof query_string[pair[0]] === 'string') {
-      var arr = [query_string[pair[0]], decodeURIComponent(pair[1])]
-      query_string[pair[0]] = arr
-      // If third or later entry with this name
-    } else {
-      query_string[pair[0]].push(decodeURIComponent(pair[1]))
-    }
-  }
-  return query_string
-})()
-
-// webs
-var host_port = QueryString['HOST_PORT']
-var need_to_get_host_port = false
-var need_to_set_wsuri = typeof wsUri === 'undefined'
-
-if (need_to_set_wsuri) {
-  window.wsUri = 'ws://@HOST_PORT@/MiniParse'
-  need_to_get_host_port = typeof host_port === 'undefined'
-} else {
-  need_to_get_host_port =
-    typeof host_port === 'undefined' ? wsUri.indexOf('HOST_PORT') === -1 : true
+const wsUri = 'ws://@HOST_PORT@/MiniParse'
+const newUri = new QueryString(wsUri).wsUri
+const webs = new WebSocketImpl(newUri)
+try {
+  webs.connect()
+} catch (e) {
+  console.log(e)
 }
-
-if (need_to_get_host_port) {
-  // ws://localhost:10501/
-  if (window.location.host !== '')
-    host_port = 'ws://' + window.location.host + '/'
-  else host_port = 'ws://localhost:10501/'
-}
-
-// wsUri check
-if (wsUri.indexOf('@HOST_PORT') !== -1) {
-  while (host_port.endsWith('/')) {
-    host_port = host_port.substring(0, host_port.length - 1)
-  }
-
-  if (wsUri.indexOf('//') === 0) {
-    wsUri = wsUri.substring(2)
-  }
-
-  if (wsUri.indexOf('ws://') === 0 || wsUri.indexOf('wss://') === 0) {
-    if (host_port.indexOf('ws://') === 0 || host_port.indexOf('wss://') === 0) {
-      wsUri = wsUri.replace(/ws:\/\/@HOST_PORT@/im, host_port)
-      wsUri = wsUri.replace(/wss:\/\/@HOST_PORT@/im, host_port)
-    } else {
-      wsUri = wsUri.replace(/@HOST_PORT@/im, host_port)
-    }
-  } else {
-    if (host_port.indexOf('ws://') === 0 || host_port.indexOf('wss://') === 0) {
-      wsUri = wsUri.replace(/@HOST_PORT@/im, host_port)
-    } else {
-      wsUri = 'ws://' + wsUri.replace(/@HOST_PORT@/im, host_port)
-    }
-  }
-}
-
-webs = new WebSocketImpl(wsUri)
-webs.connect()
 if (document.addEventListener) {
   window.onbeforeunload = function() {
     webs.close()
@@ -132,6 +66,10 @@ if (document.addEventListener) {
     false
   )
 }
+// webs.onBroadcastMessage(e => {
+//   console.log(e)
+//   ReactDOM.render(<Root {...e.detail} />, document.getElementById('root'))
+// })
 function onOverlayDataUpdate(e) {
   // discordString is true whenever the user uses '/e discord' in game
   // const discordString =
@@ -152,6 +90,8 @@ function onOverlayDataUpdate(e) {
   // )
   // }
   ReactDOM.render(<Root {...e.detail} />, document.getElementById('root'))
+
+  // ReactDOM.render(<Root {...e.detail} />, document.getElementById('root'))
 }
 // This will run when there's no data
 ReactDOM.render(<Inactive />, document.getElementById('root'))
@@ -162,7 +102,7 @@ ReactDOM.render(<Inactive />, document.getElementById('root'))
 
 // - onOverlayDataUpdate
 // This event occurs when the OverlayPlugin sends the new data.
-document.addEventListener('onOverlayDataUpdate', onOverlayDataUpdate(evt))
+document.addEventListener('onOverlayDataUpdate', onOverlayDataUpdate)
 
 // - onLogLine
 // This event occurs when anything in the chat happens, so we need to clean it up a bit before sending to the component or else it will polute and re-render it a lot unnecessarily
@@ -181,6 +121,7 @@ document.addEventListener('onOverlayStateUpdate', function(e) {
 // Receiver of OverlayPluginApi.sendMessage and OverlayPluginApi.broadcastMessage, not being used as far as I know
 window.addEventListener('message', function(e) {
   if (e.data.type === 'onOverlayDataUpdate') {
+    webs.onBroadcastMessage(e)
     onOverlayDataUpdate(e.data)
   }
 })
