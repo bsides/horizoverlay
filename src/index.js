@@ -14,8 +14,7 @@ import SetupMode from './SetupMode'
 import Raven from 'raven-js'
 import { sentryUrl } from './sentry'
 
-import WebSocketImpl from './actwebsocket'
-import QueryString from './queryString'
+import initActWebSocket from './actwebsocket'
 
 require(`./images/handle.png`)
 
@@ -45,31 +44,8 @@ const Root = detail => {
   )
 }
 
+initActWebSocket()
 // This will run when data is ON
-const wsUri = 'ws://@HOST_PORT@/MiniParse'
-const newUri = new QueryString(wsUri).wsUri
-const webs = new WebSocketImpl(newUri)
-try {
-  webs.connect()
-} catch (e) {
-  console.log(e)
-}
-if (document.addEventListener) {
-  window.onbeforeunload = function() {
-    webs.close()
-  }
-  window.addEventListener(
-    'unload',
-    function() {
-      webs.close()
-    },
-    false
-  )
-}
-// webs.onBroadcastMessage(e => {
-//   console.log(e)
-//   ReactDOM.render(<Root {...e.detail} />, document.getElementById('root'))
-// })
 function onOverlayDataUpdate(e) {
   // discordString is true whenever the user uses '/e discord' in game
   // const discordString =
@@ -89,9 +65,7 @@ function onOverlayDataUpdate(e) {
   //   document.getElementById('root')
   // )
   // }
-  ReactDOM.render(<Root {...e.detail} />, document.getElementById('root'))
-
-  // ReactDOM.render(<Root {...e.detail} />, document.getElementById('root'))
+  ReactDOM.render(<Root {...e.detail.msg} />, document.getElementById('root'))
 }
 // This will run when there's no data
 ReactDOM.render(<Inactive />, document.getElementById('root'))
@@ -121,7 +95,6 @@ document.addEventListener('onOverlayStateUpdate', function(e) {
 // Receiver of OverlayPluginApi.sendMessage and OverlayPluginApi.broadcastMessage, not being used as far as I know
 window.addEventListener('message', function(e) {
   if (e.data.type === 'onOverlayDataUpdate') {
-    webs.onBroadcastMessage(e)
     onOverlayDataUpdate(e.data)
   }
 })

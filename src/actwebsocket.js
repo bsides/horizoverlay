@@ -1,6 +1,33 @@
 let overlayWindowId = undefined
 let querieSet = undefined
-export class ActWebsocketInterface {
+
+export default function initActWebSocket() {
+  var webs
+  const url = new URLSearchParams(window.location.search)
+  const wsUri = `${url.get('HOST_PORT')}MiniParse` || undefined
+  if (wsUri) {
+    webs = new WebSocketImpl(wsUri)
+    try {
+      webs.connect()
+    } catch (e) {
+      console.log(e)
+    }
+    if (document.addEventListener) {
+      window.onbeforeunload = function() {
+        webs.close()
+      }
+      window.addEventListener(
+        'unload',
+        function() {
+          webs.close()
+        },
+        false
+      )
+    }
+  }
+}
+
+class ActWebsocketInterface {
   constructor(uri, path = 'MiniParse') {
     // url check
     const querySet = this.getQuerySet()
@@ -164,7 +191,7 @@ export class ActWebsocketInterface {
   onBroadcastMessage(e) {}
 }
 
-export default class WebSocketImpl extends ActWebsocketInterface {
+class WebSocketImpl extends ActWebsocketInterface {
   constructor(uri, path = 'MiniParse') {
     super(uri, path)
   }
@@ -173,9 +200,8 @@ export default class WebSocketImpl extends ActWebsocketInterface {
   onRecvMessage(e) {}
 
   onBroadcastMessage(e) {
-    // if (e.detail.msgtype === 'CombatData') {
-    console.log(e)
-    document.dispatchEvent(new CustomEvent('onOverlayDataUpdate', e))
-    // }
+    if (e.detail.msgtype === 'CombatData') {
+      document.dispatchEvent(new CustomEvent('onOverlayDataUpdate', e))
+    }
   }
 }
