@@ -14,21 +14,11 @@ import SetupMode from './SetupMode'
 import Raven from 'raven-js'
 import { sentryUrl } from './sentry'
 
-import initActWebSocket from './actwebsocket'
+require(`./images/handle.png`)
 
-// The resizer
-import './images/handle.png'
-
-// ActWebSocket Support is here!
-initActWebSocket()
-
-// Error handler
 Raven.config(sentryUrl).install()
 
-// I need to remember why is this here
 window.lastData = {}
-
-// Component to setup
 const Inactive = detail => {
   return (
     <Router basename={`${process.env.PUBLIC_URL}`}>
@@ -40,7 +30,6 @@ const Inactive = detail => {
   )
 }
 
-// Component to show the overlay
 const Root = detail => {
   return (
     <Router basename={`${process.env.PUBLIC_URL}`}>
@@ -73,7 +62,7 @@ function onOverlayDataUpdate(e) {
   //   document.getElementById('root')
   // )
   // }
-  ReactDOM.render(<Root {...e.detail.msg} />, document.getElementById('root'))
+  ReactDOM.render(<Root {...e.detail} />, document.getElementById('root'))
 }
 // This will run when there's no data
 ReactDOM.render(<Inactive />, document.getElementById('root'))
