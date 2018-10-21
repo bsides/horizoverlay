@@ -29,7 +29,7 @@ class Combatants extends Component {
         this.props.config.characterName === combatant.name
 
       // We need to reasign it here since it will call a reference
-      const rank = parseInt(ref, 10) + 1
+      const rank = parseInt(ref, 10)
 
       // don't need to render this component if this is a limit break
       // if (!combatant.name.toLowerCase() === 'limit break')
