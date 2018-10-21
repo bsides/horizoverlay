@@ -102,6 +102,7 @@ export default class CombatantHorizontal extends Component {
           }`}
         >
           {jobIcon && <img src={jobIcon} className="job" alt={jobName} />}
+          <DataText type="pct" show={config.showFFLogsPCT} {...data} />
           <DataText type="hps" show={config.showHps} {...data} />
           <DataText type="job" show={!config.showHps} {...data} />
           <DataText type="dps" {...data} />
@@ -144,6 +145,11 @@ function DataText({ type, show = true, ...data } = {}) {
       text = data.ENCHPS
       label = ' HPS'
       relevant = data.ENCHPS > data.ENCDPS
+      break
+    case 'pct':
+      text = data.Percentile
+      label = ' pct'
+      relevant = data.Percentile > data.ENCHPS
       break
     case 'dps':
       text = data.ENCDPS

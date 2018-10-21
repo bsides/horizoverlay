@@ -67,12 +67,13 @@ function SetupModeRaw(props) {
                     >
                       <div>
                         <span className="damage-stats">
-                          {props.config.showHps
-                            ? mock.hps
-                            : mock.job.toUpperCase()}
+                          {props.config.showFFLogsPCT
+                            ? mock.pct
+                            : (props.config.showHps) ? mock.hps :
+                                mock.job.toUpperCase()}
                         </span>
                         <span className="label">
-                          {props.config.showHps ? ' HPS' : null}
+                          {props.config.showFFLogsPCT ? 'PCT' : (props.config.showHps) ? ' HPS' : null}
                         </span>
                       </div>
                     </div>
