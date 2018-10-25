@@ -1,8 +1,13 @@
 # H O R I Z O V E R L A Y
 
+
 ![](https://api.travis-ci.org/bsides/horizoverlay.svg?branch=master)
 
-## URL CHANGED AGAIN, PLEASE UPDATE TO `https://bsides.github.io/horizoverlay`
+
+## (ORIGINAL)`https://bsides.github.io/horizoverlay`
+## (PERCENTILE)`https://unfaiyted.github.io/horizoverlay`
+* BSides and I are working to figure out the best final solution as he cant currently test. 
+
 ## URL for [ActWebSocket Plugin](https://github.com/ZCube/ACTWebSocket): Self host it!
 
 A simple horizontal damage meter [overlay](https://github.com/hibiyasleep/OverlayPlugin) for Final Fantasy XIV. It currently shows player dps, damage %, hps, encounter duration and total dps. Based on [this post on reddit](https://www.reddit.com/r/ffxiv/comments/6q41r3/what_act_overlay_is_this_snipped_off_of_a_stream/).
