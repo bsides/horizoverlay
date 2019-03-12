@@ -11,12 +11,12 @@ import Config from './Config'
 import NotFound from './NotFound'
 import SetupMode from './SetupMode'
 
-import Raven from 'raven-js'
-import { sentryUrl } from './sentry'
+// import Raven from 'raven-js'
+// import { sentryUrl } from './sentry'
 
 require(`./images/handle.png`)
 
-Raven.config(sentryUrl).install()
+// Raven.config(sentryUrl).install()
 
 window.lastData = {}
 const Inactive = detail => {
