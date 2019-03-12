@@ -253,6 +253,17 @@ class ConfigRaw extends Component {
                 onChange={this.handleConfig}
               />
             </div>
+            <label htmlFor="showFFogsPCT">
+              {/* FFLOGs PCT # */}
+              {loc.toggleOption12}
+            </label>
+            <input
+              type="checkbox"
+              name="showFFLogsPCT"
+              id="showFFLogsPCT"
+              defaultChecked={config.showFFLogsPCT}
+              onChange={this.handleConfig}
+            />
           </fieldset>
           <fieldset className="fieldsZoom">
             <legend>

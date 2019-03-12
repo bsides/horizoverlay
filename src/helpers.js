@@ -16,6 +16,7 @@ export const defaultConfig = {
   showDamagePercent: true,
   showDiscord: false,
   showLocale: false,
+  showFFLogsPCT: false,
   zoom: '1',
   discord: '',
   maxCombatants: 8,
@@ -50,6 +51,7 @@ export function withHelper({
         showHps: bool.isRequired,
         showJobIcon: bool.isRequired,
         showRank: bool.isRequired,
+        showFFLogsPCT: bool.isRequired,
         showDamagePercent: bool.isRequired,
         zoom: string.isRequired,
         configWindow: object.isRequired
@@ -199,6 +201,7 @@ export const mockData = [
     edps: '5450.30',
     hps: '0',
     ehps: '0.0',
+    pct: '95',
     isHealing: false,
     damagePct: '36',
     maxhit: 'Super Yey-3921'
@@ -215,6 +218,7 @@ export const mockData = [
     edps: '5283.29',
     hps: '0',
     ehps: '0.0',
+    pct: '95',
     isHealing: false,
     damagePct: '32',
     maxhit: 'Meteor-4221'
@@ -231,6 +235,7 @@ export const mockData = [
     edps: '2648.91',
     hps: '4',
     ehps: '4.12',
+    pct: '95',
     isHealing: false,
     damagePct: '22',
     maxhit: 'Thievery-2332'
@@ -247,6 +252,7 @@ export const mockData = [
     edps: '1654.90',
     hps: '12',
     ehps: '12.10',
+    pct: '95',
     isHealing: false,
     damagePct: '15',
     maxhit: 'Alexander-8720'
@@ -263,6 +269,7 @@ export const mockData = [
     edps: '1977.42',
     hps: '3',
     ehps: '3.10',
+    pct: '95',
     isHealing: false,
     damagePct: '16',
     maxhit: "Rei's Wind-3092"
@@ -279,6 +286,7 @@ export const mockData = [
     edps: '1548.24',
     hps: '588',
     ehps: '588.50',
+    pct: '95',
     isHealing: false,
     damagePct: '9',
     maxhit: 'Power Break-1251'
@@ -295,6 +303,7 @@ export const mockData = [
     edps: '1366.61',
     hps: '112',
     ehps: '112.50',
+    pct: '95',
     isHealing: false,
     damagePct: '6',
     maxhit: 'Frog Drop-9999'
@@ -311,6 +320,7 @@ export const mockData = [
     edps: '1461.64',
     hps: '9821',
     ehps: '9821.50',
+    pct: '95',
     isHealing: true,
     damagePct: '7',
     maxhit: 'Carbuncle-9701'
@@ -327,6 +337,7 @@ export const mockData = [
     edps: '447.18',
     hps: '5661',
     ehps: '5661.12',
+    pct: '95',
     isHealing: true,
     damagePct: '2',
     maxhit: 'Geez-411'
@@ -343,6 +354,7 @@ export const mockData = [
     edps: '447.18',
     hps: '',
     ehps: '',
+    pct: '95',
     isHealing: true,
     damagePct: '4',
     maxhit: 'Limit Break-29891'

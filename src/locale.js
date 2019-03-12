@@ -23,6 +23,7 @@ const locale = {
       toggleOption9: 'Discord',
       toggleOption10: 'Language',
       toggleOption11: 'Max Hit',
+      toggleOption12: 'FFLogs PCT',
       maxCombatantsTitle: 'Max Combatants',
       zoomTitle: 'Zoom Scale',
       zoomOption1: '80%',
@@ -77,6 +78,7 @@ const locale = {
       toggleOption9: 'Discord',
       toggleOption10: 'Língua',
       toggleOption11: 'Max Hit',
+      toggleOption12: 'FFLogs PCT',
       maxCombatantsTitle: 'Máx. Personagens',
       zoomTitle: 'Escala de Zoom',
       zoomOption1: '80%',
@@ -110,7 +112,7 @@ const locale = {
   zhCN: {
     initial: {
       help:
-        '在此处右击打开设置菜单。请确认插件设置中“鼠标穿透(Enable clickthru)”已关闭。'  
+        '在此处右击打开设置菜单。请确认插件设置中“鼠标穿透(Enable clickthru)”已关闭。'
     },
     config: {
       setupTitle: '配置模式',
@@ -131,6 +133,7 @@ const locale = {
       toggleOption9: 'Discord',
       toggleOption10: '模版语言',
       toggleOption11: '最强伤害',
+      toggleOption12: 'FFLogs PCT',
       maxCombatantsTitle: '最强战员',
       zoomTitle: '缩放尺寸',
       zoomOption1: '80%',
@@ -185,6 +188,7 @@ const locale = {
       toggleOption9: 'Discord',
       toggleOption10: '模版語言',
       toggleOption11: '最強傷害',
+      toggleOption12: 'FFLogs PCT',
       maxCombatantsTitle: '最強戰員',
       zoomTitle: '縮放尺寸',
       zoomOption1: '80%',
