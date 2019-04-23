@@ -1,42 +1,42 @@
 {
   "name": "horizoverlay",
-  "description":
-    "A simple horizontal damage meter overlay for Final Fantasy XIV with ACT",
-  "version": "2.2.2",
-  "author": "Rafael 'BSIDES' Pereira (https://twitter.com/bsides)",
-  "contributors": [
-    "Please check this url for the whole list(https://github.com/bsides/horizoverlay/graphs/contributors)"
-  ],
+  "version": "0.1.0",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bsides/horizoverlay.git"
-  },
-  "bugs": {
-    "url": "https://github.com/bsides/horizoverlay/issues"
-  },
-  "homepage": "https://bsides.github.io/horizoverlay",
   "dependencies": {
-    "raven-js": "^3.24.0",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "^1.1.1"
-  },
-  "devDependencies": {
-    "gh-pages": "^1.1.0",
-    "serve": "^6.5.3"
+    "@types/jest": "24.0.11",
+    "@types/node": "11.13.7",
+    "@types/react": "16.8.14",
+    "@types/react-dom": "16.8.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.0",
+    "styled-components": "^4.2.0",
+    "typescript": "3.4.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "now-start": "serve -s build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "now": "npm-run-all -s build now-deploy",
-    "now-deploy": "now build --public",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^4.3.2",
+    "@types/styled-components": "^4.1.14"
   }
 }
