@@ -1,0 +1,55 @@
+.setupMode {
+  color: #fff;
+  text-align: center;
+  padding: 8px 12px;
+  margin: 0 auto;
+  text-shadow: 0 0 6px #000;
+}
+.setupMode .wrapper {
+  background: rgba(150, 0, 0, 0.1);
+}
+.setupMode .wrapper.hide {
+  display: none;
+}
+.setupMode .notice {
+  color: rgba(255, 255, 255, 0.7);
+  display: none;
+}
+.notice > div {
+  color: rgba(255, 255, 255, 0.3);
+}
+.setupMode .wrapper.hide + .notice {
+  display: block;
+}
+
+.instructions {
+  margin-top: 6px;
+}
+
+.combatants {
+  display: flex;
+  text-align: center;
+}
+.row {
+  flex: 1;
+  text-shadow: 0 0 8px #000;
+  margin: 0 6px;
+  max-width: 140px;
+}
+
+.row.self div.data-items:before,
+.byRole .row.self .data-items:before {
+  background: rgba(255, 255, 255, 0.8);
+}
+.row.self .dps {
+  text-shadow: none;
+}
+.default .row .dps {
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-shadow: 0 0 5px #000;
+}
+.row > div {
+  margin: 0px auto;
+  padding: 0 0 1px;
+}

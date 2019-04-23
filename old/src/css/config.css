@@ -1,0 +1,176 @@
+.config {
+  padding: 6px 8px;
+  background: black url(../images/bg.png) 50% 85%;
+}
+.config > div {
+  text-align: center;
+}
+
+fieldset {
+  display: block;
+  -webkit-margin-start: 2px;
+  -webkit-margin-end: 2px;
+  -webkit-padding-before: 0.35em;
+  -webkit-padding-start: 0.75em;
+  -webkit-padding-end: 0.75em;
+  -webkit-padding-after: 0.625em;
+  min-width: -webkit-min-content;
+  border-width: 2px;
+  border-style: groove;
+  border-color: rgba(0, 0, 0, 0.4);
+  border-image: initial;
+  text-align: center;
+  flex: 1;
+}
+.fieldsToShow {
+  flex: 3;
+}
+.fieldsZoom {
+  flex: 2;
+}
+form {
+  display: flex;
+}
+
+/* form div:first-of-type {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 5px;
+} */
+
+label {
+  margin: 0;
+  margin-right: 15px;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+input[type='radio'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+
+  border: 2px solid #ddd;
+}
+input[type='radio']:checked {
+  border: 6px solid white;
+}
+input[type='radio'],
+input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  transition: 0.2s all linear;
+  outline: none;
+  margin-right: 5px;
+
+  position: relative;
+  top: 3px;
+}
+input[type='text'] {
+  padding: 2px 6px;
+  background: #fff;
+  border: 0;
+}
+
+legend {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px 10px;
+  border-radius: 0;
+  border: 0;
+  font-size: 14px;
+}
+
+.reset {
+  margin-top: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  transition: 0.2s all linear;
+}
+.reset:hover {
+  background: rgba(255, 56, 59, 0.8);
+}
+.reset > span {
+  transform: rotate(90deg);
+  display: inline-block;
+}
+.setup-btn span {
+  transform: rotate(-90deg);
+  display: inline-block;
+  white-space: nowrap;
+  margin-left: -28px;
+}
+.setup-btn {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+  background: rgba(255, 56, 215, 0.8);
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+  padding-top: 44px;
+  width: 50px;
+  cursor: pointer;
+}
+.setup-btn.disabled {
+  background: rgba(0, 0, 0, 0.2);
+}
+.fieldsZoom label,
+.fieldsZoom button {
+  border: 2px solid rgba(23, 162, 184, 0.1);
+  background: rgba(23, 162, 184, 0.1);
+  color: #fff;
+  cursor: pointer;
+  margin-right: 3px;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.25;
+  margin: 0 8px 6px 0;
+}
+.fieldsZoom label:hover,
+.fieldsZoom button:hover {
+  color: #fff;
+  background-color: #138496;
+  border-color: #117a8b;
+}
+.fieldsZoom input[type='range'] {
+  display: none;
+}
+
+.form-discord {
+  margin: 0 auto;
+  justify-content: center;
+  padding: 6px 0;
+  border: 2px groove rgba(0, 0, 0, 0.4);
+  border-top: 0;
+}
+.form-discord label {
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 0;
+  padding: 0 20px;
+}
+.form-discord input[type='text'] {
+  min-width: 47%;
+}
+.form-discord span {
+  display: inline-block;
+  margin-left: 12px;
+  line-height: 2.6;
+}
+.form-discord span.help {
+  line-height: 1.1;
+}
+.form-discord input + label {
+  margin-left: 1.5em;
+}
+.hide {
+  display: none !important;
+  visibility: hidden;
+}
+.combatants input {
+  width: 3em;
+  height: 2em;
+}

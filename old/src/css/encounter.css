@@ -1,0 +1,77 @@
+.encounter,
+.encounter-totaldps,
+.encounter-limitBreak,
+.encounter .hide,
+.encounter-duration {
+  display: none;
+}
+.encounter-totaldps.show,
+.encounter-limitBreak.show,
+.encounter-duration.show,
+.encounter.show {
+  display: block;
+}
+
+.encounter {
+  text-shadow: 0 0 8px #000;
+  text-align: center;
+  margin: 5px 0 0;
+}
+.encounter .skewer:before {
+  transform: skew(-30deg);
+  background: rgba(0, 0, 0, 0.25);
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.encounter .skewer {
+  display: flex;
+  margin: 0 auto;
+  /* years of css and never heard of this */
+  width: -webkit-fit-content;
+  padding: 0 2px;
+  position: relative;
+  justify-content: center;
+}
+/* Encounter name, Raid DPS and Encounter Duration boxes */
+.encounter .skewer > div {
+  flex: 1;
+
+  white-space: nowrap;
+  margin: 2px 4px;
+  z-index: 1;
+  padding: 0 8px 0 12px;
+}
+.encounter .skewer > div:first-child {
+  flex: 3;
+  padding: 0 8px;
+}
+.encounter .skewer .encounter-discord {
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  margin: 2px 0;
+}
+.encounter-discord button {
+  color: white;
+  border: 0;
+  background: transparent;
+  padding: 0 8px 0 12px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+}
+.encounter-discord:before {
+  background: rgba(255, 255, 255, 0.2);
+  transform: skew(-30deg);
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
