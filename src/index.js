@@ -10,11 +10,14 @@ import Overlay from './Overlay'
 import Config from './Config'
 import NotFound from './NotFound'
 import SetupMode from './SetupMode'
+import initActWebSocket from './actwebsocket'
 
 // import Raven from 'raven-js'
 // import { sentryUrl } from './sentry'
 
 require(`./images/handle.png`)
+
+initActWebSocket()
 
 // Raven.config(sentryUrl).install()
 
@@ -62,7 +65,9 @@ function onOverlayDataUpdate(e) {
   //   document.getElementById('root')
   // )
   // }
-  ReactDOM.render(<Root {...e.detail} />, document.getElementById('root'))
+  const detail = (e.detail.msg ? e.detail.msg : e.detail)
+  
+  ReactDOM.render(<Root {...detail} />, document.getElementById('root'))
 }
 // This will run when there's no data
 ReactDOM.render(<Inactive />, document.getElementById('root'))
