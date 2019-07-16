@@ -12,12 +12,12 @@ class Combatants extends Component {
   render() {
     const maxRows = this.props.config.maxCombatants
     const dataArray = Object.keys(this.props.data)
-	const regexp = /[a-zA-Z]+\s+[a-zA-Z]+/g;
+    const regexp = /[a-zA-Z]+\s+[a-zA-Z]+/g;
     const battler = dataArray.filter(player => (
-		this.props.data[player].name.toLowerCase() !== 'limit break' 
-		&& (this.props.data[player].name.toUpperCase() === 'YOU' 
-		|| regexp.test(this.props.data[player].name))
-	)).slice(0, maxRows)
+        this.props.data[player].name.toLowerCase() !== 'limit break' 
+        && (this.props.data[player].name.toUpperCase() === 'YOU' 
+        || regexp.test(this.props.data[player].name))
+    )).slice(0, maxRows)
     let rows = []
     let combatant
     let isSelf
