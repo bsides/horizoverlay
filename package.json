@@ -9,12 +9,12 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/Rawrington/horizoverlay.git"
+    "url": "https://github.com/bsides/horizoverlay.git"
   },
   "bugs": {
-    "url": "https://github.com/Rawrington/horizoverlay/issues"
+    "url": "https://github.com/bsides/horizoverlay/issues"
   },
-  "homepage": "https://rawrington.github.io/horizoverlay",
+  "homepage": "https://bsides.github.io/horizoverlay",
   "dependencies": {
     "raven-js": "^3.24.0",
     "react": "^16.3.0",
