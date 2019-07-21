@@ -16,6 +16,7 @@ export const defaultConfig = {
   showDamagePercent: true,
   showDiscord: false,
   showLocale: false,
+  showJobless: false,
   zoom: '1',
   discord: '',
   maxCombatants: 8,
@@ -51,6 +52,7 @@ export function withHelper({
         showJobIcon: bool.isRequired,
         showRank: bool.isRequired,
         showDamagePercent: bool.isRequired,
+		showJobless: bool.isRequired,
         zoom: string.isRequired,
         configWindow: object.isRequired
       })

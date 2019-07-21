@@ -218,6 +218,17 @@ class ConfigRaw extends Component {
               {/* Damage % */}
               {loc.toggleOption8}
             </label>
+			<input
+              type="checkbox"
+              name="showJobless"
+              id="showJobless"
+              defaultChecked={config.showJobless}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showJobless">
+              {/* Self */}
+              {loc.toggleOption12}
+            </label>
             <input
               type="checkbox"
               name="showDiscord"
