@@ -21,11 +21,11 @@
     "react-dom": "^16.3.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^1.1.1"
   },
   "devDependencies": {
     "gh-pages": "^1.1.0",
-    "serve": "^11.1.0"
+    "serve": "^6.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,17 +37,5 @@
     "now-deploy": "now build --public",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ]
   }
 }
