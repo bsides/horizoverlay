@@ -11,29 +11,30 @@ class Combatants extends Component {
   }
   render() {
     const maxRows = this.props.config.maxCombatants
-    const dataArray = Object.keys(this.props.data)
-    const battler = dataArray.filter(player => (
+    const dataArray = this.props.isWebSocket ? Object.keys(this.props.data).reverse() : Object.keys(this.props.data)
+    const battlers = dataArray.filter(player => (
         this.props.data[player].name.toLowerCase() !== 'limit break'
-		&& (!this.props.config.showJobless && this.props.data[player].Job && this.props.data[player].Job !== '') //doesn't have a job, filter it out.
-		&& (this.props.data[player].ENCDPS > 0 || this.props.data[player].ENCHPS > 0) //irrelevant npcs (i.e. estinien) like to show up for whatever reason
-	)).slice(-maxRows)
+        && (!this.props.config.showJobless && this.props.data[player].Job && this.props.data[player].Job !== '') //doesn't have a job, filter it out.
+        && (this.props.data[player].ENCDPS > 0 || this.props.data[player].ENCHPS > 0) //irrelevant npcs (i.e. estinien) like to show up for whatever reason
+	)).slice(0, maxRows)
     let rows = []
-    let combatant
-    let isSelf
+	let currentRow = 1
 
-    for (const ref in battler) {
-      combatant = this.props.data[battler[ref]]
+    for (const battler of battlers) {
+      const combatant = this.props.data[battler]
 
       // console.log(combatant)
 
       // We'll change the global 'YOU' name in case it's, well, you
-      // In case you changedw your name in ACT and in the overlay config
-      isSelf =
+      // In case you changed your name in ACT and in the overlay config
+      const isSelf =
         combatant.name.toUpperCase() === 'YOU' ||
         this.props.config.characterName === combatant.name
 
       // We need to reasign it here since it will call a reference
-      const rank = parseInt(ref, 10) + 1
+      const rank = currentRow
+ 
+      currentRow = currentRow + 1
 
       // don't need to render this component if this is a limit break
       // if (!combatant.name.toLowerCase() === 'limit break')
@@ -44,7 +45,7 @@ class Combatants extends Component {
           data={combatant}
           config={this.props.config}
           isSelf={isSelf}
-          key={battler[ref]}
+          key={battler}
         />
       )
     }
