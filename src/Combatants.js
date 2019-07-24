@@ -18,7 +18,7 @@ class Combatants extends Component {
         && (this.props.data[player].ENCDPS > 0 || this.props.data[player].ENCHPS > 0) //irrelevant npcs (i.e. estinien) like to show up for whatever reason
 	)).slice(0, maxRows)
     let rows = []
-	let currentRow = 1
+    let currentRow = 1
 
     for (const battler of battlers) {
       const combatant = this.props.data[battler]
