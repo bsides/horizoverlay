@@ -134,7 +134,7 @@ const locale = {
       toggleOption10: '模版语言',
       toggleOption11: '最强伤害',
       toggleOption12: 'Show "jobless" Combatants',
-	  maxCombatantsTitle: '最强战员',
+      maxCombatantsTitle: '最强战员',
       zoomTitle: '缩放尺寸',
       zoomOption1: '80%',
       zoomOption2: '90%',
