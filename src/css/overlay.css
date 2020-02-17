@@ -130,9 +130,17 @@
   position: relative;
   text-align: right;
   width: 100%;
-  font-size: 7px;
+  font-size: 9px;
   top: -2px;
   right: 10px;
+}
+.row .damage-percent .damage-1 {
+  position: absolute;
+  right: 30%;
+}
+.row .damage-percent .damage-2 {
+  position: absolute;
+  right: 60%;
 }
 
 .row .dps {

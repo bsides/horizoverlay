@@ -9,12 +9,12 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/bsides/horizoverlay.git"
+    "url": "https://github.com/javajake/horizoverlay.git"
   },
   "bugs": {
-    "url": "https://github.com/bsides/horizoverlay/issues"
+    "url": "https://github.com/javajake/horizoverlay/issues"
   },
-  "homepage": "https://bsides.github.io/horizoverlay",
+  "homepage": "https://javajake.github.io/horizoverlay",
   "dependencies": {
     "raven-js": "^3.24.0",
     "react": "^16.3.0",

@@ -106,21 +106,21 @@ export default class CombatantHorizontal extends Component {
           <DataText type="job" show={!config.showHps} {...data} />
           <DataText type="dps" {...data} />
         </div>
-        <DamageBar width={damageWidth} show={config.showDamagePercent} />
+        <DamageBar dhit={data.DirectHitPct} crit={data['crithit%']} crit_dh={data.CritDirectHitPct} width={damageWidth} show={config.showDamagePercent} />
         <div className="maxhit">{config.showMaxhit && maxhit}</div>
       </div>
     )
   }
 }
 
-function DamageBar({ width, show }) {
+function DamageBar({ dhit, crit, crit_dh, width, show }) {
   if (!show) return null
   return (
     <div>
       <div className="damage-percent-bg">
         <div className="damage-percent-fg" style={{ width }} />
       </div>
-      <div className="damage-percent">{width}</div>
+      <div className="damage-percent"><span className="damage-2">DH: { dhit }</span><span className="damage-1">CR: { crit }</span>DC: {crit_dh}</div>
     </div>
   )
 }
