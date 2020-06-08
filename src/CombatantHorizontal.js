@@ -117,7 +117,12 @@ function DamageBar({ dhit, crit, crit_dh, deaths, width, show }) {
   if (!show) return null
   return (
     <div>
-      <div className="damage-percent"><span className="damage-dh">DH: { dhit }</span><span className="damage-crit">!: { crit }</span><span className="damage-dcrit">!!: {crit_dh}</span>[{deaths}]</div>
+      <div className="damage-percent">
+        <span className="damage-dh">^: { dhit }</span>
+        <span className="damage-crit">!: { crit }</span>
+        <span className="damage-dcrit">!!: {crit_dh}</span>
+        <span className="damage-deaths">[{deaths}]</span>
+      </div>
     </div>
   )
 }

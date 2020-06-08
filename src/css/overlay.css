@@ -1,25 +1,534 @@
 .inactive .combatants {
   display: none;
 }
+
 .combatants {
   display: flex;
   text-align: center;
   justify-content: center;
 }
+
 .row {
   flex: 1;
   text-shadow: 0 0 8px #000;
   margin: 0 6px;
   max-width: 140px;
 }
-.row.self.job-dps .data-items:before,
-.row.self.job-tank .data-items:before,
-.row.self.job-healer .data-items:before {
-  background: rgba(255, 255, 255, 0.8);
+
+.row.self .data-items.highlight:before {
+  outline: none;
+  border: 1px solid #e9ab00e8;
+  box-shadow: 0px 0px 8px #e9ab00e8;
+  -moz-box-shadow: 0px 0px 8px #e9ab00e8;
+  -webkit-box-shadow: 0px 0px 8px #e9ab00e8;
 }
-.row.job-dps .data-items:before {
+
+.row.self.job-dps.Mnk .data-items:before {
+  background: rgba(215, 156, 0, 0.5);
+}
+
+.row.job-dps.Mnk .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(215, 156, 0, 1.0) 0%,
+      rgba(215, 156, 0, 0.5) 51%,
+      rgba(215, 156, 0, 0.1) 51%,
+      rgba(215, 156, 0, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Drg .data-items:before {
+  background: rgba(66, 101, 205, 0.5);
+}
+
+.row.job-dps.Drg .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(66, 101, 205, 1.0) 0%,
+      rgba(66, 101, 205, 0.5) 51%,
+      rgba(66, 101, 205, 0.1) 51%,
+      rgba(66, 101, 205, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.self.job-dps.Nin .data-items:before {
+  background: rgba(175, 25, 99, 0.5);
+}
+
+.row.self.job-dps.Nin .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(175, 25, 99, 1.0) 0%,
+      rgba(175, 25, 99, 0.5) 51%,
+      rgba(175, 25, 99, 0.1) 51%,
+      rgba(175, 25, 99, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.self.job-dps.Sam .data-items:before {
+  background: rgba(228, 110, 4, 0.5);
+}
+
+.row.self.job-dps.Sam .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(228, 110, 4, 1.0) 0%,
+      rgba(228, 110, 4, 0.5) 51%,
+      rgba(228, 110, 4, 0.1) 51%,
+      rgba(228, 110, 4, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Brd .data-items:before {
+  background: rgba(145, 186, 94, 0.5);
+}
+
+.row.job-dps.Brd .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(145, 186, 94, 1.0) 0%,
+      rgba(145, 186, 94, 0.5) 51%,
+      rgba(145, 186, 94, 0.1) 51%,
+      rgba(145, 186, 94, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Mch .data-items:before {
+  background: rgba(109, 252, 214, 0.5);
+}
+
+.row.job-dps.Mch .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(109, 252, 214, 1.0) 0%,
+      rgba(109, 252, 214, 0.5) 51%,
+      rgba(109, 252, 214, 0.1) 51%,
+      rgba(109, 252, 214, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Dnc .data-items:before {
+  background: rgba(226, 176, 175, 0.5);
+}
+
+.row.job-dps.Dnc .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(226, 176, 175, 1.0) 0%,
+      rgba(226, 176, 175, 0.5) 51%,
+      rgba(226, 176, 175, 0.1) 51%,
+      rgba(226, 176, 175, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Smn .data-items:before {
+  background: rgba(45, 155, 120, 0.5);
+}
+
+.row.job-dps.Smn .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(45, 155, 120, 1.0) 0%,
+      rgba(45, 155, 120, 0.5) 51%,
+      rgba(45, 155, 120, 0.1) 51%,
+      rgba(45, 155, 120, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Blm .data-items:before {
+  background: rgba(165, 122, 214, 0.5);
+}
+
+.row.job-dps.Blm .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(165, 122, 214, 1.0) 0%,
+      rgba(165, 122, 214, 0.5) 51%,
+      rgba(165, 122, 214, 0.1) 51%,
+      rgba(165, 122, 214, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Rdm .data-items:before {
+  background: rgba(233, 123, 124, 0.5);
+}
+
+.row.job-dps.Rdm .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(233, 123, 124, 1.0) 0%,
+      rgba(233, 123, 124, 0.5) 51%,
+      rgba(233, 123, 124, 0.1) 51%,
+      rgba(233, 123, 124, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Blu .data-items:before {
+  background: rgba(41, 45, 94, 0.5);
+}
+
+.row.job-dps.Blu .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(41, 45, 94, 1.0) 0%,
+      rgba(41, 45, 94, 0.5) 51%,
+      rgba(41, 45, 94, 0.1) 51%,
+      rgba(41, 45, 94, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-tank.Pld .data-items:before {
+  background: rgba(168, 211, 230, 0.5);
+}
+
+.row.job-tank.Pld .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(168, 211, 230, 1.0) 0%,
+      rgba(168, 211, 230, 0.5) 51%,
+      rgba(168, 211, 230, 0.1) 51%,
+      rgba(168, 211, 230, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-tank.War .data-items:before {
+  background: rgba(207, 38, 33, 0.5);
+}
+
+.row.job-tank.War .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(207, 38, 33, 1.0) 0%,
+      rgba(207, 38, 33, 0.5) 51%,
+      rgba(207, 38, 33, 0.1) 51%,
+      rgba(207, 38, 33, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-tank.Drk .data-items:before {
+  background: rgba(209, 38, 204, 0.5);
+}
+
+.row.job-tank.Drk .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(209, 38, 204, 1.0) 0%,
+      rgba(209, 38, 204, 0.5) 51%,
+      rgba(209, 38, 204, 0.1) 51%,
+      rgba(209, 38, 204, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-tank.Gnb .data-items:before {
+  background: rgba(121, 110, 48, 0.5);
+}
+
+.row.job-tank.Gnb .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(121, 110, 48, 1.0) 0%,
+      rgba(121, 110, 48, 0.5) 51%,
+      rgba(121, 110, 48, 0.1) 51%,
+      rgba(121, 110, 48, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-healer.Whm .data-items:before {
+  background: rgba(255, 240, 219, 0.5);
+}
+
+.row.job-healer.Whm .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(255, 240, 219, 1.0) 0%,
+      rgba(255, 240, 219, 0.5) 51%,
+      rgba(255, 240, 219, 0.1) 51%,
+      rgba(255, 240, 219, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-healer.Sch .data-items:before {
+  background: rgba(134, 87, 255, 0.5);
+}
+
+.row.job-healer.Sch .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(134, 87, 255, 1.0) 0%,
+      rgba(134, 87, 255, 0.5) 51%,
+      rgba(134, 87, 255, 0.1) 51%,
+      rgba(134, 87, 255, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-healer.Ast .data-items:before {
+  background: rgba(255, 231, 73, 0.5);
+}
+
+.row.job-healer.Ast .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(255, 231, 73, 1.0) 0%,
+      rgba(255, 231, 73, 0.5) 51%,
+      rgba(255, 231, 73, 0.1) 51%,
+      rgba(255, 231, 73, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+
+.row.job-dps.Mnk .data-items:before {
+  background: rgba(215, 156, 0, 0.5);
+}
+
+.row.job-dps.Mnk .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(215, 156, 0, 1.0) 0%,
+      rgba(215, 156, 0, 0.5) 51%,
+      rgba(215, 156, 0, 0.1) 51%,
+      rgba(215, 156, 0, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Drg .data-items:before {
+  background: rgba(66, 101, 205, 0.5);
+}
+
+.row.job-dps.Drg .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(66, 101, 205, 1.0) 0%,
+      rgba(66, 101, 205, 0.5) 51%,
+      rgba(66, 101, 205, 0.1) 51%,
+      rgba(66, 101, 205, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Nin .data-items:before {
+  background: rgba(175, 25, 99, 0.5);
+}
+
+.row.job-dps.Nin .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(175, 25, 99, 1.0) 0%,
+      rgba(175, 25, 99, 0.5) 51%,
+      rgba(175, 25, 99, 0.1) 51%,
+      rgba(175, 25, 99, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Sam .data-items:before {
+  background: rgba(228, 110, 4, 0.5);
+}
+
+.row.job-dps.Sam .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(228, 110, 4, 1.0) 0%,
+      rgba(228, 110, 4, 0.5) 51%,
+      rgba(228, 110, 4, 0.1) 51%,
+      rgba(228, 110, 4, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Brd .data-items:before {
+  background: rgba(145, 186, 94, 0.5);
+}
+
+.row.job-dps.Brd .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(145, 186, 94, 1.0) 0%,
+      rgba(145, 186, 94, 0.5) 51%,
+      rgba(145, 186, 94, 0.1) 51%,
+      rgba(145, 186, 94, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Mch .data-items:before {
+  background: rgba(109, 252, 214, 0.5);
+}
+
+.row.job-dps.Mch .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(109, 252, 214, 1.0) 0%,
+      rgba(109, 252, 214, 0.5) 51%,
+      rgba(109, 252, 214, 0.1) 51%,
+      rgba(109, 252, 214, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Dnc .data-items:before {
+  background: rgba(226, 176, 175, 0.5);
+}
+
+.row.job-dps.Dnc .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(226, 176, 175, 1.0) 0%,
+      rgba(226, 176, 175, 0.5) 51%,
+      rgba(226, 176, 175, 0.1) 51%,
+      rgba(226, 176, 175, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Smn .data-items:before {
+  background: rgba(45, 155, 120, 0.5);
+}
+
+.row.job-dps.Smn .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(45, 155, 120, 1.0) 0%,
+      rgba(45, 155, 120, 0.5) 51%,
+      rgba(45, 155, 120, 0.1) 51%,
+      rgba(45, 155, 120, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Blm .data-items:before {
+  background: rgba(165, 122, 214, 0.5);
+}
+
+.row.job-dps.Blm .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(165, 122, 214, 1.0) 0%,
+      rgba(165, 122, 214, 0.5) 51%,
+      rgba(165, 122, 214, 0.1) 51%,
+      rgba(165, 122, 214, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Rdm .data-items:before {
+  background: rgba(233, 123, 124, 0.5);
+}
+
+.row.job-dps.Rdm .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(233, 123, 124, 1.0) 0%,
+      rgba(233, 123, 124, 0.5) 51%,
+      rgba(233, 123, 124, 0.1) 51%,
+      rgba(233, 123, 124, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-dps.Blu .data-items:before {
+  background: rgba(41, 45, 94, 0.5);
+}
+
+.row.job-dps.Blu .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(41, 45, 94, 1.0) 0%,
+      rgba(41, 45, 94, 0.5) 51%,
+      rgba(41, 45, 94, 0.1) 51%,
+      rgba(41, 45, 94, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-tank.Pld .data-items:before {
+  background: rgba(168, 211, 230, 0.5);
+}
+
+.row.job-tank.Pld .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(168, 211, 230, 1.0) 0%,
+      rgba(168, 211, 230, 0.5) 51%,
+      rgba(168, 211, 230, 0.1) 51%,
+      rgba(168, 211, 230, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-tank.War .data-items:before {
+  background: rgba(207, 38, 33, 0.5);
+}
+
+.row.job-tank.War .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(207, 38, 33, 1.0) 0%,
+      rgba(207, 38, 33, 0.5) 51%,
+      rgba(207, 38, 33, 0.1) 51%,
+      rgba(207, 38, 33, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-tank.Drk .data-items:before {
+  background: rgba(209, 38, 204, 0.5);
+}
+
+.row.job-tank.Drk .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(209, 38, 204, 1.0) 0%,
+      rgba(209, 38, 204, 0.5) 51%,
+      rgba(209, 38, 204, 0.1) 51%,
+      rgba(209, 38, 204, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-tank.Gnb .data-items:before {
+  background: rgba(121, 110, 48, 0.5);
+}
+
+.row.job-tank.Gnb .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(121, 110, 48, 1.0) 0%,
+      rgba(121, 110, 48, 0.5) 51%,
+      rgba(121, 110, 48, 0.1) 51%,
+      rgba(121, 110, 48, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-healer.Whm .data-items:before {
+  background: rgba(255, 240, 219, 0.5);
+}
+
+.row.job-healer.Whm .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(255, 240, 219, 1.0) 0%,
+      rgba(255, 240, 219, 0.5) 51%,
+      rgba(255, 240, 219, 0.1) 51%,
+      rgba(255, 240, 219, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-healer.Sch .data-items:before {
+  background: rgba(134, 87, 255, 0.5);
+}
+
+.row.job-healer.Sch .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(134, 87, 255, 1.0) 0%,
+      rgba(134, 87, 255, 0.5) 51%,
+      rgba(134, 87, 255, 0.1) 51%,
+      rgba(134, 87, 255, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+.row.job-healer.Ast .data-items:before {
+  background: rgba(255, 231, 73, 0.5);
+}
+
+.row.job-healer.Ast .data-items.highlight:before {
+  background-image: linear-gradient(to left,
+      rgba(255, 231, 73, 1.0) 0%,
+      rgba(255, 231, 73, 0.5) 51%,
+      rgba(255, 231, 73, 0.1) 51%,
+      rgba(255, 231, 73, 0.1) 100%);
+  background-repeat: no-repeat;
+}
+
+/*
+.row.self.job-dps .data-items.highlight:before {
+  background-image: linear-gradient(
+    to left,
+    rgba(136, 9, 1, 0.5) 0%,
+    rgba(136, 9, 1, 0.5) 51%,
+    rgba(136, 9, 1, 0.1) 51%,
+    rgba(136, 9, 1, 0.1) 100%
+  );
+  background-repeat: no-repeat;
+}
+.row.self.job-tank .data-items.highlight:before {
+  background-image: linear-gradient(
+    to left,
+    rgba(0, 88, 160, 0.5) 0%,
+    rgba(0, 88, 160, 0.5) 51%,
+    rgba(0, 88, 160, 0.1) 51%,
+    rgba(0, 88, 160, 0.1) 100%
+  );
+  background-repeat: no-repeat;
+}
+.row.self.job-healer .data-items.highlight:before {
+  background-image: linear-gradient(
+    to left,
+    rgba(53, 100, 0, 0.5) 0%,
+    rgba(53, 100, 0, 0.5) 51%,
+    rgba(53, 100, 0, 0.1) 51%,
+    rgba(53, 100, 0, 0.1) 100%
+  );
+  background-repeat: no-repeat;
+}
+
+.row.job-dps .data-items:before,
+.row.self.job-dps .data-items:before {
   background: rgba(244, 67, 54, 0.5);
 }
+
 .row.job-dps .data-items.highlight:before {
   background-image: linear-gradient(
     to left,
@@ -30,7 +539,8 @@
   );
   background-repeat: no-repeat;
 }
-.row.job-tank .data-items:before {
+.row.job-tank .data-items:before,
+.row.self.job-tank .data-items:before {
   background: rgba(32, 149, 243, 0.5);
 }
 .row.job-tank .data-items.highlight:before {
@@ -43,7 +553,8 @@
   );
   background-repeat: no-repeat;
 }
-.row.job-healer .data-items:before {
+.row.job-healer .data-items:before,
+.row.self.job-healer .data-items:before {
   background: rgba(139, 195, 74, 0.5);
 }
 .row.job-healer .data-items.highlight:before {
@@ -56,21 +567,9 @@
   );
   background-repeat: no-repeat;
 }
-.row.job-healer .data-items.highlight.inverse:before {
-  background-image: linear-gradient(
-    to left,
-    rgba(139, 195, 74, 0.1) 0%,
-    rgba(139, 195, 74, 0.1) 51%,
-    rgba(139, 195, 74, 0.5) 51%,
-    rgba(139, 195, 74, 0.5) 100%
-  );
-  background-repeat: no-repeat;
-}
-.row.self .data-items:before,
-.row.self .data-items.highlight:before,
-.row.self .data-items.highlight.invert:before {
-  background: rgba(255, 255, 255, 0.8);
-}
+*/
+
+/*
 .row.job-dps .damage-percent-bg {
   background: rgba(244, 67, 54, 0.3);
 }
@@ -80,9 +579,11 @@
 .row.job-healer .damage-percent-bg {
   background: rgba(139, 195, 74, 0.3);
 }
+
 .row.self .damage-percent-bg {
   background: rgba(255, 255, 255, 0.5);
 }
+
 .row.job-dps .damage-percent-fg {
   background: rgba(244, 67, 54, 0.7);
 }
@@ -95,6 +596,8 @@
 .row.self .damage-percent-fg {
   background: rgba(255, 255, 255, 1);
 }
+*/
+
 /*
 .row.job-dps .dps.irrelevant {
   background: rgba(244, 67, 54, 0.1);
@@ -111,16 +614,24 @@
 .row .dps.irrelevant {
   background: rgba(0, 0, 0, 0.1);
 }
-    */
+*/
 
 .row .damage-percent {
-  position: relative;
-  text-align: right;
+  display: table;
+  text-align: center;
   width: 100%;
   font-size: 11px;
   top: -2px;
   right: 10px;
 }
+
+.row .damage-percent>* {
+  display: table-cell;
+  width: 25%;
+  text-align: center;
+}
+
+/*
 .row .damage-percent .damage-dh {
   position: absolute;
   left: 5%;
@@ -133,20 +644,8 @@
   position: absolute;
   left: 65%;
 }
- /*
-.row .damage-percent .damage-dh {
-  position: absolute;
-  right: 62%;
-}
-.row .damage-percent .damage-crit {
-  position: absolute;
-  right: 37.5%;
-}
-.row .damage-percent .damage-dcrit {
-  position: absolute;
-  right: 11%;
-}
 */
+
 .row .dps {
   color: #fff;
   text-shadow: 0 0 5px #000;
@@ -156,9 +655,11 @@
   position: relative;
   text-align: left;
 }
+
 .row.self .dps {
-  color: #000;
-  text-shadow: none;
+  color: #fff;
+  text-shadow: 0 0 5px #000;
+  font-weight: bold;
 }
 
 .row .data-items:before {
@@ -170,11 +671,13 @@
   width: 100%;
   height: 96%;
 }
-.row > div {
+
+.row>div {
   margin: 0px auto;
   padding: 0 0 1px;
 }
-.row div.dps > div {
+
+.row div.dps>div {
   /* transform: skew(30deg); */
 }
 
@@ -185,23 +688,28 @@
   left: 59px;
   z-index: 1;
 }
+
 .name {
   white-space: nowrap;
 }
+
 .data-items {
   display: flex;
   width: 140px;
   position: relative;
 }
+
 .dps:last-child {
   text-align: right;
   padding-right: 8px;
   padding-left: 0;
 }
+
 .dps span.label {
   font-size: 8px;
   margin: 0 0 0 1px;
 }
+
 .row .maxhit {
   font-size: 0.85em;
   margin-top: -0.3em;
