@@ -106,7 +106,7 @@ export default class CombatantHorizontal extends Component {
           <DataText type="job" show={!config.showHps} {...data} />
           <DataText type="dps" {...data} />
         </div>
-        <DamageBar dhit={data.DirectHitPct} crit={data['crithit%']} crit_dh={data.CritDirectHitPct} deaths={config.showDeathNumber ? deaths : false} width={damageWidth} show={config.showDamagePercent} />
+        <DamageBar dhit={data.DirectHitPct} crit={data['crithit%']} crit_dh={data.CritDirectHitPct} deaths={data.deaths} width={damageWidth} show={config.showDamagePercent} />
         <div className="maxhit">{config.showMaxhit && maxhit}</div>
       </div>
     )
