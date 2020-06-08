@@ -121,15 +121,32 @@
   top: -2px;
   right: 10px;
 }
-.row .damage-percent .damage-1 {
+.row .damage-percent .damage-dh {
   position: absolute;
-  right: 30%;
+  left: 5%;
 }
-.row .damage-percent .damage-2 {
+.row .damage-percent .damage-crit {
   position: absolute;
-  right: 60%;
+  left: 39.5%;
 }
-
+.row .damage-percent .damage-dcrit {
+  position: absolute;
+  left: 65%;
+}
+ /*
+.row .damage-percent .damage-dh {
+  position: absolute;
+  right: 62%;
+}
+.row .damage-percent .damage-crit {
+  position: absolute;
+  right: 37.5%;
+}
+.row .damage-percent .damage-dcrit {
+  position: absolute;
+  right: 11%;
+}
+*/
 .row .dps {
   color: #fff;
   text-shadow: 0 0 5px #000;
