@@ -9,12 +9,12 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/javajake/horizoverlay.git"
+    "url": "https://github.com/kzvee/horizoverlay.git"
   },
   "bugs": {
-    "url": "https://github.com/javajake/horizoverlay/issues"
+    "url": "https://github.com/kzvee/horizoverlay/issues"
   },
-  "homepage": "https://javajake.github.io/horizoverlay",
+  "homepage": "https://kzvee.github.io/horizoverlay",
   "dependencies": {
     "raven-js": "^3.24.0",
     "react": "^16.3.0",
@@ -24,7 +24,7 @@
     "react-scripts": "^3.0.1"
   },
   "devDependencies": {
-    "gh-pages": "^1.1.0",
+    "gh-pages": "^1.2.0",
     "serve": "^11.1.0"
   },
   "scripts": {

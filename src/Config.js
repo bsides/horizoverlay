@@ -209,6 +209,17 @@ class ConfigRaw extends Component {
             </label>
             <input
               type="checkbox"
+              name="showDeathNumber"
+              id="showDeathNumber"
+              defaultChecked={config.showDeathNumber}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showDeathNumber">
+              {/* Damage % */}
+              {loc.toggleOption13}
+            </label>
+            <input
+              type="checkbox"
               name="showDamagePercent"
               id="showDamagePercent"
               defaultChecked={config.showDamagePercent}

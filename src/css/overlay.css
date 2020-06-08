@@ -112,20 +112,7 @@
   background: rgba(0, 0, 0, 0.1);
 }
     */
-.row .damage-percent-bg {
-  height: 2px;
-  background: rgba(0, 0, 0, 0.3);
-  transform: skew(-30deg);
-  position: relative;
-  left: -8px;
-  margin: 0;
-}
-.row .damage-percent-fg {
-  height: 2px;
-  background: rgba(0, 0, 0, 0.7);
-  transform: skew(-30deg);
-  margin: 0;
-}
+
 .row .damage-percent {
   position: relative;
   text-align: right;
