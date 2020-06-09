@@ -33,7 +33,7 @@ function SetupModeRaw(props) {
               mock.name.toLowerCase() !== 'limit break' && (
                 <div
                   className={`row${mock.isSelf ? ' self' : ''} ${
-                    props.config.color === 'byRole' ? mock.jobRole : ''
+                    props.config.color === 'byRole' ? mock.jobRole : props.config.color === 'byJob' ? 'byJob' : ''
                   } ${mock.jobClass} `}
                   style={{ order: mock.rank }}
                   key={mock.rank}
@@ -51,7 +51,7 @@ function SetupModeRaw(props) {
                   <div
                     className={`data-items${
                       props.config.showHighlight ? ' highlight' : ''
-                    }${mock.isHealing ? ' inverse' : ''}`}
+                    }${props.config.showHighlightSelf ? ' highlightSelf' : ''}${mock.isHealing ? ' inverse' : ''}`}
                   >
                     {props.config.showJobIcon ? (
                       <img

@@ -15,7 +15,7 @@
   max-width: 140px;
 }
 
-.row.self .data-items.highlight:before {
+.row.self .data-items.highlightSelf:before {
   outline: none;
   border: 1px solid #e9ab00e8;
   box-shadow: 0px 0px 8px #e9ab00e8;
@@ -23,11 +23,11 @@
   -webkit-box-shadow: 0px 0px 8px #e9ab00e8;
 }
 
-.row.self.job-dps.Mnk .data-items:before {
+.row.self.byJob.Mnk .data-items:before {
   background: rgba(215, 156, 0, 0.5);
 }
 
-.row.job-dps.Mnk .data-items.highlight:before {
+.row.byJob.Mnk .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(215, 156, 0, 1.0) 0%,
       rgba(215, 156, 0, 0.5) 51%,
@@ -36,11 +36,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Drg .data-items:before {
+.row.byJob.Drg .data-items:before {
   background: rgba(66, 101, 205, 0.5);
 }
 
-.row.job-dps.Drg .data-items.highlight:before {
+.row.byJob.Drg .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(66, 101, 205, 1.0) 0%,
       rgba(66, 101, 205, 0.5) 51%,
@@ -49,11 +49,11 @@
   background-repeat: no-repeat;
 }
 
-.row.self.job-dps.Nin .data-items:before {
+.row.self.byJob.Nin .data-items:before {
   background: rgba(175, 25, 99, 0.5);
 }
 
-.row.self.job-dps.Nin .data-items.highlight:before {
+.row.self.byJob.Nin .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(175, 25, 99, 1.0) 0%,
       rgba(175, 25, 99, 0.5) 51%,
@@ -62,11 +62,11 @@
   background-repeat: no-repeat;
 }
 
-.row.self.job-dps.Sam .data-items:before {
+.row.self.byJob.Sam .data-items:before {
   background: rgba(228, 110, 4, 0.5);
 }
 
-.row.self.job-dps.Sam .data-items.highlight:before {
+.row.self.byJob.Sam .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(228, 110, 4, 1.0) 0%,
       rgba(228, 110, 4, 0.5) 51%,
@@ -75,11 +75,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Brd .data-items:before {
+.row.byJob.Brd .data-items:before {
   background: rgba(145, 186, 94, 0.5);
 }
 
-.row.job-dps.Brd .data-items.highlight:before {
+.row.byJob.Brd .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(145, 186, 94, 1.0) 0%,
       rgba(145, 186, 94, 0.5) 51%,
@@ -88,11 +88,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Mch .data-items:before {
+.row.byJob.Mch .data-items:before {
   background: rgba(109, 252, 214, 0.5);
 }
 
-.row.job-dps.Mch .data-items.highlight:before {
+.row.byJob.Mch .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(109, 252, 214, 1.0) 0%,
       rgba(109, 252, 214, 0.5) 51%,
@@ -101,11 +101,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Dnc .data-items:before {
+.row.byJob.Dnc .data-items:before {
   background: rgba(226, 176, 175, 0.5);
 }
 
-.row.job-dps.Dnc .data-items.highlight:before {
+.row.byJob.Dnc .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(226, 176, 175, 1.0) 0%,
       rgba(226, 176, 175, 0.5) 51%,
@@ -114,11 +114,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Smn .data-items:before {
+.row.byJob.Smn .data-items:before {
   background: rgba(45, 155, 120, 0.5);
 }
 
-.row.job-dps.Smn .data-items.highlight:before {
+.row.byJob.Smn .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(45, 155, 120, 1.0) 0%,
       rgba(45, 155, 120, 0.5) 51%,
@@ -127,11 +127,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Blm .data-items:before {
+.row.byJob.Blm .data-items:before {
   background: rgba(165, 122, 214, 0.5);
 }
 
-.row.job-dps.Blm .data-items.highlight:before {
+.row.byJob.Blm .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(165, 122, 214, 1.0) 0%,
       rgba(165, 122, 214, 0.5) 51%,
@@ -140,11 +140,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Rdm .data-items:before {
+.row.byJob.Rdm .data-items:before {
   background: rgba(233, 123, 124, 0.5);
 }
 
-.row.job-dps.Rdm .data-items.highlight:before {
+.row.byJob.Rdm .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(233, 123, 124, 1.0) 0%,
       rgba(233, 123, 124, 0.5) 51%,
@@ -153,11 +153,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Blu .data-items:before {
+.row.byJob.Blu .data-items:before {
   background: rgba(41, 45, 94, 0.5);
 }
 
-.row.job-dps.Blu .data-items.highlight:before {
+.row.byJob.Blu .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(41, 45, 94, 1.0) 0%,
       rgba(41, 45, 94, 0.5) 51%,
@@ -166,11 +166,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-tank.Pld .data-items:before {
+.row.byJob.Pld .data-items:before {
   background: rgba(168, 211, 230, 0.5);
 }
 
-.row.job-tank.Pld .data-items.highlight:before {
+.row.byJob.Pld .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(168, 211, 230, 1.0) 0%,
       rgba(168, 211, 230, 0.5) 51%,
@@ -179,11 +179,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-tank.War .data-items:before {
+.row.byJob.War .data-items:before {
   background: rgba(207, 38, 33, 0.5);
 }
 
-.row.job-tank.War .data-items.highlight:before {
+.row.byJob.War .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(207, 38, 33, 1.0) 0%,
       rgba(207, 38, 33, 0.5) 51%,
@@ -192,11 +192,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-tank.Drk .data-items:before {
+.row.byJob.Drk .data-items:before {
   background: rgba(209, 38, 204, 0.5);
 }
 
-.row.job-tank.Drk .data-items.highlight:before {
+.row.byJob.Drk .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(209, 38, 204, 1.0) 0%,
       rgba(209, 38, 204, 0.5) 51%,
@@ -205,11 +205,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-tank.Gnb .data-items:before {
+.row.byJob.Gnb .data-items:before {
   background: rgba(121, 110, 48, 0.5);
 }
 
-.row.job-tank.Gnb .data-items.highlight:before {
+.row.byJob.Gnb .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(121, 110, 48, 1.0) 0%,
       rgba(121, 110, 48, 0.5) 51%,
@@ -218,11 +218,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-healer.Whm .data-items:before {
+.row.byJob.Whm .data-items:before {
   background: rgba(255, 240, 219, 0.5);
 }
 
-.row.job-healer.Whm .data-items.highlight:before {
+.row.byJob.Whm .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(255, 240, 219, 1.0) 0%,
       rgba(255, 240, 219, 0.5) 51%,
@@ -231,11 +231,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-healer.Sch .data-items:before {
+.row.byJob.Sch .data-items:before {
   background: rgba(134, 87, 255, 0.5);
 }
 
-.row.job-healer.Sch .data-items.highlight:before {
+.row.byJob.Sch .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(134, 87, 255, 1.0) 0%,
       rgba(134, 87, 255, 0.5) 51%,
@@ -244,11 +244,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-healer.Ast .data-items:before {
+.row.byJob.Ast .data-items:before {
   background: rgba(255, 231, 73, 0.5);
 }
 
-.row.job-healer.Ast .data-items.highlight:before {
+.row.byJob.Ast .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(255, 231, 73, 1.0) 0%,
       rgba(255, 231, 73, 0.5) 51%,
@@ -258,11 +258,11 @@
 }
 
 
-.row.job-dps.Mnk .data-items:before {
+.row.byJob.Mnk .data-items:before {
   background: rgba(215, 156, 0, 0.5);
 }
 
-.row.job-dps.Mnk .data-items.highlight:before {
+.row.byJob.Mnk .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(215, 156, 0, 1.0) 0%,
       rgba(215, 156, 0, 0.5) 51%,
@@ -271,11 +271,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Drg .data-items:before {
+.row.byJob.Drg .data-items:before {
   background: rgba(66, 101, 205, 0.5);
 }
 
-.row.job-dps.Drg .data-items.highlight:before {
+.row.byJob.Drg .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(66, 101, 205, 1.0) 0%,
       rgba(66, 101, 205, 0.5) 51%,
@@ -284,11 +284,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Nin .data-items:before {
+.row.byJob.Nin .data-items:before {
   background: rgba(175, 25, 99, 0.5);
 }
 
-.row.job-dps.Nin .data-items.highlight:before {
+.row.byJob.Nin .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(175, 25, 99, 1.0) 0%,
       rgba(175, 25, 99, 0.5) 51%,
@@ -297,11 +297,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Sam .data-items:before {
+.row.byJob.Sam .data-items:before {
   background: rgba(228, 110, 4, 0.5);
 }
 
-.row.job-dps.Sam .data-items.highlight:before {
+.row.byJob.Sam .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(228, 110, 4, 1.0) 0%,
       rgba(228, 110, 4, 0.5) 51%,
@@ -310,11 +310,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Brd .data-items:before {
+.row.byJob.Brd .data-items:before {
   background: rgba(145, 186, 94, 0.5);
 }
 
-.row.job-dps.Brd .data-items.highlight:before {
+.row.byJob.Brd .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(145, 186, 94, 1.0) 0%,
       rgba(145, 186, 94, 0.5) 51%,
@@ -323,11 +323,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Mch .data-items:before {
+.row.byJob.Mch .data-items:before {
   background: rgba(109, 252, 214, 0.5);
 }
 
-.row.job-dps.Mch .data-items.highlight:before {
+.row.byJob.Mch .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(109, 252, 214, 1.0) 0%,
       rgba(109, 252, 214, 0.5) 51%,
@@ -336,11 +336,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Dnc .data-items:before {
+.row.byJob.Dnc .data-items:before {
   background: rgba(226, 176, 175, 0.5);
 }
 
-.row.job-dps.Dnc .data-items.highlight:before {
+.row.byJob.Dnc .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(226, 176, 175, 1.0) 0%,
       rgba(226, 176, 175, 0.5) 51%,
@@ -349,11 +349,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Smn .data-items:before {
+.row.byJob.Smn .data-items:before {
   background: rgba(45, 155, 120, 0.5);
 }
 
-.row.job-dps.Smn .data-items.highlight:before {
+.row.byJob.Smn .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(45, 155, 120, 1.0) 0%,
       rgba(45, 155, 120, 0.5) 51%,
@@ -362,11 +362,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Blm .data-items:before {
+.row.byJob.Blm .data-items:before {
   background: rgba(165, 122, 214, 0.5);
 }
 
-.row.job-dps.Blm .data-items.highlight:before {
+.row.byJob.Blm .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(165, 122, 214, 1.0) 0%,
       rgba(165, 122, 214, 0.5) 51%,
@@ -375,11 +375,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Rdm .data-items:before {
+.row.byJob.Rdm .data-items:before {
   background: rgba(233, 123, 124, 0.5);
 }
 
-.row.job-dps.Rdm .data-items.highlight:before {
+.row.byJob.Rdm .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(233, 123, 124, 1.0) 0%,
       rgba(233, 123, 124, 0.5) 51%,
@@ -388,11 +388,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-dps.Blu .data-items:before {
+.row.byJob.Blu .data-items:before {
   background: rgba(41, 45, 94, 0.5);
 }
 
-.row.job-dps.Blu .data-items.highlight:before {
+.row.byJob.Blu .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(41, 45, 94, 1.0) 0%,
       rgba(41, 45, 94, 0.5) 51%,
@@ -401,11 +401,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-tank.Pld .data-items:before {
+.row.byJob.Pld .data-items:before {
   background: rgba(168, 211, 230, 0.5);
 }
 
-.row.job-tank.Pld .data-items.highlight:before {
+.row.byJob.Pld .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(168, 211, 230, 1.0) 0%,
       rgba(168, 211, 230, 0.5) 51%,
@@ -414,11 +414,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-tank.War .data-items:before {
+.row.byJob.War .data-items:before {
   background: rgba(207, 38, 33, 0.5);
 }
 
-.row.job-tank.War .data-items.highlight:before {
+.row.byJob.War .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(207, 38, 33, 1.0) 0%,
       rgba(207, 38, 33, 0.5) 51%,
@@ -427,11 +427,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-tank.Drk .data-items:before {
+.row.byJob.Drk .data-items:before {
   background: rgba(209, 38, 204, 0.5);
 }
 
-.row.job-tank.Drk .data-items.highlight:before {
+.row.byJob.Drk .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(209, 38, 204, 1.0) 0%,
       rgba(209, 38, 204, 0.5) 51%,
@@ -440,11 +440,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-tank.Gnb .data-items:before {
+.row.byJob.Gnb .data-items:before {
   background: rgba(121, 110, 48, 0.5);
 }
 
-.row.job-tank.Gnb .data-items.highlight:before {
+.row.byJob.Gnb .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(121, 110, 48, 1.0) 0%,
       rgba(121, 110, 48, 0.5) 51%,
@@ -453,11 +453,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-healer.Whm .data-items:before {
+.row.byJob.Whm .data-items:before {
   background: rgba(255, 240, 219, 0.5);
 }
 
-.row.job-healer.Whm .data-items.highlight:before {
+.row.byJob.Whm .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(255, 240, 219, 1.0) 0%,
       rgba(255, 240, 219, 0.5) 51%,
@@ -466,11 +466,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-healer.Sch .data-items:before {
+.row.byJob.Sch .data-items:before {
   background: rgba(134, 87, 255, 0.5);
 }
 
-.row.job-healer.Sch .data-items.highlight:before {
+.row.byJob.Sch .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(134, 87, 255, 1.0) 0%,
       rgba(134, 87, 255, 0.5) 51%,
@@ -479,11 +479,11 @@
   background-repeat: no-repeat;
 }
 
-.row.job-healer.Ast .data-items:before {
+.row.byJob.Ast .data-items:before {
   background: rgba(255, 231, 73, 0.5);
 }
 
-.row.job-healer.Ast .data-items.highlight:before {
+.row.byJob.Ast .data-items.highlight:before {
   background-image: linear-gradient(to left,
       rgba(255, 231, 73, 1.0) 0%,
       rgba(255, 231, 73, 0.5) 51%,
@@ -492,11 +492,10 @@
   background-repeat: no-repeat;
 }
 
-/*
 .row.self.job-dps .data-items.highlight:before {
   background-image: linear-gradient(
     to left,
-    rgba(136, 9, 1, 0.5) 0%,
+    rgba(136, 9, 1, 0.9) 0%,
     rgba(136, 9, 1, 0.5) 51%,
     rgba(136, 9, 1, 0.1) 51%,
     rgba(136, 9, 1, 0.1) 100%
@@ -506,7 +505,7 @@
 .row.self.job-tank .data-items.highlight:before {
   background-image: linear-gradient(
     to left,
-    rgba(0, 88, 160, 0.5) 0%,
+    rgba(0, 88, 160, 0.9) 0%,
     rgba(0, 88, 160, 0.5) 51%,
     rgba(0, 88, 160, 0.1) 51%,
     rgba(0, 88, 160, 0.1) 100%
@@ -516,7 +515,7 @@
 .row.self.job-healer .data-items.highlight:before {
   background-image: linear-gradient(
     to left,
-    rgba(53, 100, 0, 0.5) 0%,
+    rgba(53, 100, 0, 0.9) 0%,
     rgba(53, 100, 0, 0.5) 51%,
     rgba(53, 100, 0, 0.1) 51%,
     rgba(53, 100, 0, 0.1) 100%
@@ -567,7 +566,6 @@
   );
   background-repeat: no-repeat;
 }
-*/
 
 /*
 .row.job-dps .damage-percent-bg {
@@ -620,15 +618,32 @@
   display: table;
   text-align: center;
   width: 100%;
-  font-size: 11px;
+  font-size: 12px;
   top: -2px;
   right: 10px;
 }
 
 .row .damage-percent>* {
   display: table-cell;
-  width: 25%;
+  width: 10%;
   text-align: center;
+}
+
+.damage-dh{ 
+  column-span: 3;
+}
+.damage-crit{ 
+  column-span: 3;
+}
+.damage-dcrit{ 
+  column-span: 3;
+}
+.damage-deaths{ 
+  column-span: 1;
+}
+
+.row .damage-percent .damage-deaths {
+  color: #ff9191e8;
 }
 
 /*
@@ -659,7 +674,6 @@
 .row.self .dps {
   color: #fff;
   text-shadow: 0 0 5px #000;
-  font-weight: bold;
 }
 
 .row .data-items:before {

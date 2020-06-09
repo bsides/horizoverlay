@@ -47,7 +47,17 @@ export default class CombatantHorizontal extends Component {
           }
         }
       }
-    } else {
+    } else if (config.color === 'byJob') {
+        for (const role in jobRoles) {
+          if (jobRoles[role].indexOf(data.Job.toLowerCase()) >= 0)
+            jobStyleClass = ` byJob`
+          if (data.Job === '') {
+            for (const job of jobRoles[role]) {
+              if (name.indexOf(job) >= 0) jobStyleClass = ` byJob`
+            }
+          }
+        }
+      } else {
       jobStyleClass = ''
     }
 
@@ -97,7 +107,7 @@ export default class CombatantHorizontal extends Component {
           <span className="character-name">{characterName}</span>
         </div>
         <div
-          className={`data-items${config.showHighlight ? ' highlight' : ''}${
+          className={`data-items${config.showHighlight ? ' highlight' : ''}${config.showHighlightSelf ? ' highlightSelf' : ''}${
             isHealing ? ' inverse' : ''
           }`}
         >
@@ -121,7 +131,7 @@ function DamageBar({ dhit, crit, crit_dh, deaths, width, show }) {
         <span className="damage-dh">^: { dhit }</span>
         <span className="damage-crit">!: { crit }</span>
         <span className="damage-dcrit">!!: {crit_dh}</span>
-        <span className="damage-deaths">[{deaths}]</span>
+        <span className="damage-deaths">{deaths}</span>
       </div>
     </div>
   )
