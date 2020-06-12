@@ -54,3 +54,31 @@
   margin: 0px auto;
   padding: 0 0 1px;
 }
+
+.row .damage-percent {
+  display: table;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  top: -2px;
+  right: 10px;
+}
+
+.row .damage-percent>* {
+  display: table-cell;
+  width: 10%;
+  text-align: center;
+}
+
+.damage-dh{ 
+  column-span: 3;
+}
+.damage-crit{ 
+  column-span: 3;
+}
+.damage-dcrit{ 
+  column-span: 3;
+}
+.damage-deaths{ 
+  column-span: 1;
+}

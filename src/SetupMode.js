@@ -92,10 +92,15 @@ function SetupModeRaw(props) {
                       <div className="damage-percent-bg">
                         <div
                           className="damage-percent-fg"
-                          style={{ width: `${mock.damagePct}px` }}
+                          style={{ width: `100%` }}
                         />
                       </div>
-                      <div className="damage-percent">{mock.damagePct}%</div>
+                      <div className="damage-percent">
+                        <span className="damage-dh">^: {mock.dh}</span>
+                        <span className="damage-crit">!: {mock.crit}</span>
+                        <span className="damage-dcrit">!!: {mock.dcrit}</span>
+                        <span className="damage-deaths">{mock.deaths}</span>
+                      </div>
                     </div>
                   ) : null}
                   <div className="maxhit">

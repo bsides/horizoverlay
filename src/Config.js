@@ -179,11 +179,11 @@ class ConfigRaw extends Component {
               type="checkbox"
               name="showHighlightSelf"
               id="showHighlightSelf"
-              defaultChecked={config.showSelf}
+              defaultChecked={config.showHighlightSelf}
               onChange={this.handleConfig}
             />
             <label htmlFor="showHighlightSelf">
-              {/* Self */}
+              {/* Highlight Self */}
               {loc.toggleOption13}
             </label>
             <input

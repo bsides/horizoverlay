@@ -9,6 +9,7 @@ export const defaultConfig = {
   showJobIcon: true,
   showHps: true,
   showHighlight: false,
+  showHighlightSelf: false,
   showSelf: true,
   showMaxhit: false,
   showDuration: true,
@@ -52,7 +53,7 @@ export function withHelper({
         showJobIcon: bool.isRequired,
         showRank: bool.isRequired,
         showDamagePercent: bool.isRequired,
-		showJobless: bool.isRequired,
+		    showJobless: bool.isRequired,
         zoom: string.isRequired,
         configWindow: object.isRequired
       })
@@ -203,7 +204,10 @@ export const mockData = [
     hps: '0',
     ehps: '0.0',
     isHealing: false,
-    damagePct: '36',
+    dh: '25%',
+    crit: '30%',
+    dcrit: '10%',
+    deaths: '0',
     maxhit: 'Super Yey-3921'
   },
   {
@@ -219,7 +223,10 @@ export const mockData = [
     hps: '0',
     ehps: '0.0',
     isHealing: false,
-    damagePct: '32',
+    dh: '22%',
+    crit: '28%',
+    dcrit: '8%',
+    deaths: '0',
     maxhit: 'Meteor-4221'
   },
   {
@@ -235,7 +242,10 @@ export const mockData = [
     hps: '4',
     ehps: '4.12',
     isHealing: false,
-    damagePct: '22',
+    dh: '32%',
+    crit: '19%',
+    dcrit: '16%',
+    deaths: '0',
     maxhit: 'Thievery-2332'
   },
   {
@@ -251,7 +261,10 @@ export const mockData = [
     hps: '12',
     ehps: '12.10',
     isHealing: false,
-    damagePct: '15',
+    dh: '15%',
+    crit: '21%',
+    dcrit: '10%',
+    deaths: '1',
     maxhit: 'Alexander-8720'
   },
   {
@@ -267,7 +280,10 @@ export const mockData = [
     hps: '3',
     ehps: '3.10',
     isHealing: false,
-    damagePct: '16',
+    dh: '12%',
+    crit: '19%',
+    dcrit: '5%',
+    deaths: '3',
     maxhit: "Rei's Wind-3092"
   },
   {
@@ -283,7 +299,10 @@ export const mockData = [
     hps: '588',
     ehps: '588.50',
     isHealing: false,
-    damagePct: '9',
+    dh: '1%',
+    crit: '19%',
+    dcrit: '0%',
+    deaths: '0',
     maxhit: 'Power Break-1251'
   },
   {
@@ -299,7 +318,10 @@ export const mockData = [
     hps: '112',
     ehps: '112.50',
     isHealing: false,
-    damagePct: '6',
+    dh: '99%',
+    crit: '99%',
+    dcrit: '99%',
+    deaths: '0',
     maxhit: 'Frog Drop-9999'
   },
   {
@@ -315,7 +337,10 @@ export const mockData = [
     hps: '9821',
     ehps: '9821.50',
     isHealing: true,
-    damagePct: '7',
+    dh: '9%',
+    crit: '26%',
+    dcrit: '4%',
+    deaths: '0',
     maxhit: 'Carbuncle-9701'
   },
   {
@@ -331,7 +356,10 @@ export const mockData = [
     hps: '5661',
     ehps: '5661.12',
     isHealing: true,
-    damagePct: '2',
+    dh: '6%',
+    crit: '31%',
+    dcrit: '2%',
+    deaths: '0',
     maxhit: 'Geez-411'
   },
   {
@@ -347,7 +375,10 @@ export const mockData = [
     hps: '',
     ehps: '',
     isHealing: true,
-    damagePct: '4',
+    dh: '--',
+    crit: '--',
+    dcrit: '--',
+    deaths: '-',
     maxhit: 'Limit Break-29891'
   }
 ]
