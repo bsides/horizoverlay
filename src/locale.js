@@ -24,6 +24,7 @@ const locale = {
       toggleOption10: 'Language',
       toggleOption11: 'Max Hit',
 	  toggleOption12: 'Show "jobless" Combatants',
+      toggleOption13: 'Combine Pets',
       maxCombatantsTitle: 'Max Combatants',
       zoomTitle: 'Zoom Scale',
       zoomOption1: '80%',

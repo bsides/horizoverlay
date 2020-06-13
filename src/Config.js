@@ -264,6 +264,17 @@ class ConfigRaw extends Component {
                 onChange={this.handleConfig}
               />
             </div>
+            <input
+                type="checkbox"
+                name="combinePets"
+                id="combinePets"
+                defaultChecked={config.combinePets}
+                onChange={this.handleConfig}
+            />
+            <label htmlFor="combinePets">
+              {/* Combine Pets */}
+              {loc.toggleOption13}
+            </label>
           </fieldset>
           <fieldset className="fieldsZoom">
             <legend>

@@ -37,6 +37,18 @@ class Combatants extends Component {
 
       // don't need to render this component if this is a limit break
       // if (!combatant.name.toLowerCase() === 'limit break')
+
+      let encdps = Number(combatant.ENCDPS);
+      for (const pet in combatant.pets) {
+        encdps += Number(combatant.pets[pet].ENCDPS);
+      }
+      let enchps = Number(combatant.ENCHPS);
+      for (const pet in combatant.pets) {
+        enchps += Number(combatant.pets[pet].ENCHPS);
+      }
+      combatant.ENCDPS = encdps
+      combatant.ENCHPS = enchps
+
       rows.push(
         <CombatantHorizontal
           encounterDamage={this.props.encounterDamage}
