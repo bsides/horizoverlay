@@ -21,7 +21,7 @@ export const defaultConfig = {
   discord: '',
   maxCombatants: 8,
   locale: 'enUS',
-  combinePets: false,
+  combinePets: true,
   configWindow: {
     width: 1300,
     height: 239
