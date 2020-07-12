@@ -141,12 +141,12 @@ function DataText({ type, show = true, ...data } = {}) {
   let text, label, relevant
   switch (type) {
     case 'hps':
-      text = data.ENCHPS
+      text = data.ENCHPS.toLocaleString()
       label = ' HPS'
       relevant = data.ENCHPS > data.ENCDPS
       break
     case 'dps':
-      text = data.ENCDPS
+      text = data.ENCDPS.toLocaleString()
       label = ' DPS'
       relevant = data.ENCDPS > data.ENCHPS
       break
