@@ -5,7 +5,7 @@
 #### This fork is a version that offers extra features such as:
 * Display of % for Direct Hits, Critical Hits and Direct Critical Hits.
 * Keeps track of # of deaths per player.
-* Display players by their job color. (Colors used for each job match those used in [FFLogs](https://www.fflogs.com).
+* Display players by their job color. (Colors used for each job match those used in [FFLogs](https://www.fflogs.com).)
 * Extra highlight option for Self.
 
 
