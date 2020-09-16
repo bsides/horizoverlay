@@ -4,7 +4,7 @@ let querieSet = undefined
 const getHost = () => /HOST_PORT=(wss?:\/\/.+)/.exec(window.location.search)
 
 export default function initActWebSocket() {
-  if (!getHost()) return
+  if (!getHost()) return false
   var webs
   const url = new URLSearchParams(window.location.search)
   const wsUri = `${url.get('HOST_PORT')}MiniParse` || undefined
@@ -28,6 +28,7 @@ export default function initActWebSocket() {
       )
     }
   }
+  return true
 }
 
 class ActWebsocketInterface {

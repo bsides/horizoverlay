@@ -17,7 +17,7 @@ import initActWebSocket from './actwebsocket'
 
 require(`./images/handle.png`)
 
-initActWebSocket()
+let isWS = initActWebSocket()
 
 // Raven.config(sentryUrl).install()
 
@@ -67,7 +67,7 @@ function onOverlayDataUpdate(e) {
   // }
   const detail = (e.detail.msg ? e.detail.msg : e.detail)
   
-  ReactDOM.render(<Root {...detail} />, document.getElementById('root'))
+  ReactDOM.render(<Root {...detail} isWebSocket={isWS} />, document.getElementById('root'))
 }
 // This will run when there's no data
 ReactDOM.render(<Inactive />, document.getElementById('root'))
