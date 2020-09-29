@@ -44,6 +44,8 @@ const locale = {
       localeOption3Value: 'zhCN',
       localeOption4: '正體中文',
       localeOption4Value: 'zhHK',
+      localeOption5: 'French',
+      localeOption5Value: 'frFR',
       help:
         'Everything saves automatically.<br /><strong>Right click</strong> to open this window'
     },
@@ -99,6 +101,8 @@ const locale = {
       localeOption3Value: 'zhCN',
       localeOption4: '正體中文',
       localeOption4Value: 'zhHK',
+      localeOption5: 'Français',
+      localeOption5Value: 'frFR',
       help:
         'Tudo salva automaticamente.<br /><strong>Botão direito</strong> abre essa janela.'
     },
@@ -154,6 +158,8 @@ const locale = {
       localeOption3Value: 'zhCN',
       localeOption4: '正體中文',
       localeOption4Value: 'zhHK',
+      localeOption5: 'Français',
+      localeOption5Value: 'frFR',
       help:
         '所有内容都将自动保存。<br /><strong>右击模板界面</strong>打开本窗口。'
     },
@@ -209,6 +215,8 @@ const locale = {
       localeOption3Value: 'zhCN',
       localeOption4: '正體中文',
       localeOption4Value: 'zhHK',
+      localeOption5: 'Français',
+      localeOption5Value: 'frFR',
       help:
         '所有內容都將自動保存。<br /><strong>右擊範本介面</strong>打開本視窗。'
     },
@@ -217,6 +225,63 @@ const locale = {
         '<strong>在本視窗的任意位置右擊打開配置功能表！</strong>',
       instructions:
         '這不是真正的統計資料，只是一個讓你在配置模版顯示內容時參考的樣例。打木樁或者進入真正的戰鬥才能把真實資料顯示在這裡。<br />另外，請將這個視窗的尺寸調整到和設置視窗差不多大小方便使用。'
+    }
+  },
+  frFR: {
+    initial: {
+      help:
+        'Clic droit ici pour afficher les Paramètres. Vérifiez bien que vous avez désactivé "Cliquer à travers" dans ACT.'
+    },
+    config: {
+      setupTitle: 'Mode Config',
+      nameTitle: 'Nom du personnage',
+      nameHelp: "Votre nom :",
+      themeTitle: 'Thème des couleurs',
+      themeOption1: 'Couleur par rôle',
+      themeOption2: 'Noir & blanc',
+      toggleTitle: 'Cochez pour afficher',
+      toggleOption1: 'Rang',
+      toggleOption2: 'Icône de Job',
+      toggleOption3: 'HPS',
+      toggleOption4: 'Surbrillance',
+      toggleOption5: 'Soi-même',
+      toggleOption6: 'Durée',
+      toggleOption7: 'DPS Total',
+      toggleOption8: 'Dommage %',
+      toggleOption9: 'Discord',
+      toggleOption10: 'Langage',
+      toggleOption11: 'Max Hit',
+	  toggleOption12: 'Afficher les combatants sans Job',
+      maxCombatantsTitle: 'Combatants max',
+      zoomTitle: 'Échelle',
+      zoomOption1: '80%',
+      zoomOption2: '90%',
+      zoomOption3: '100%',
+      zoomOption4: '110%',
+      zoomOption5: '150%',
+      zoomOption6: '200%',
+      resetTitle: 'RàZ',
+      discordTitle: 'Discord Webhook URL',
+      discordHelp: 'Obtenez l\'adresse depuis de votre canal Discord',
+      localeTitle: 'Langage',
+      localeOption1: 'Anglais',
+      localeOption1Value: 'enUS',
+      localeOption2: 'Portugais',
+      localeOption2Value: 'ptBR',
+      localeOption3: 'Chinois',
+      localeOption3Value: 'zhCN',
+      localeOption4: 'Hong Kong',
+      localeOption4Value: 'zhHK',
+      localeOption5: 'Français',
+      localeOption5Value: 'frFR',
+      help:
+        'Tout est sauvegardé automatiquement.<br /><strong>Clic droit</strong> pour ouvrir cette fenêtre'
+    },
+    setupMode: {
+      instructionsTitle:
+        '<strong>Clic droit n\'importe où dans cette fenêtre pour ouvrir les paramètres !</strong>',
+      instructions:
+        'Il ne s\'agit PAS de vraies données, mais d\'une simulation qui vous permet de placer et de configurer l\'overlay comme vous le souhaitez. Allez frapper un mannequin ou engagez un combat réel pour obtenir de vraies données ici. <br />Veuillez également redimensionner cette fenêtre pour qu'elle corresponde à la largeur de la fenêtre des paramètres.'
     }
   },
 }
