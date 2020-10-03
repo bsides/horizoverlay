@@ -79,7 +79,7 @@ class Encounter extends Component {
               ? ' show'
               : ''}`}
           >
-            {totalDps} DPS
+            {totalDps.toLocaleString()} DPS
           </div>
           <div
             className={`encounter-limitBreak${config.showTotalDps &&
