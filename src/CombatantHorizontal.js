@@ -47,7 +47,17 @@ export default class CombatantHorizontal extends Component {
           }
         }
       }
-    } else {
+    } else if (config.color === 'byJob') {
+        for (const role in jobRoles) {
+          if (jobRoles[role].indexOf(data.Job.toLowerCase()) >= 0)
+            jobStyleClass = ` byJob`
+          if (data.Job === '') {
+            for (const job of jobRoles[role]) {
+              if (name.indexOf(job) >= 0) jobStyleClass = ` byJob`
+            }
+          }
+        }
+      } else {
       jobStyleClass = ''
     }
 
@@ -97,7 +107,7 @@ export default class CombatantHorizontal extends Component {
           <span className="character-name">{characterName}</span>
         </div>
         <div
-          className={`data-items${config.showHighlight ? ' highlight' : ''}${
+          className={`data-items${config.showHighlight ? ' highlight' : ''}${config.showHighlightSelf ? ' highlightSelf' : ''}${
             isHealing ? ' inverse' : ''
           }`}
         >
@@ -106,21 +116,23 @@ export default class CombatantHorizontal extends Component {
           <DataText type="job" show={!config.showHps} {...data} />
           <DataText type="dps" {...data} />
         </div>
-        <DamageBar dhit={data.DirectHitPct} crit={data['crithit%']} crit_dh={data.CritDirectHitPct} width={damageWidth} show={config.showDamagePercent} />
+        <DamageBar dhit={data.DirectHitPct} crit={data['crithit%']} crit_dh={data.CritDirectHitPct} deaths={data.deaths} width={damageWidth} show={config.showDamagePercent} />
         <div className="maxhit">{config.showMaxhit && maxhit}</div>
       </div>
     )
   }
 }
 
-function DamageBar({ dhit, crit, crit_dh, width, show }) {
+function DamageBar({ dhit, crit, crit_dh, deaths, width, show }) {
   if (!show) return null
   return (
     <div>
-      <div className="damage-percent-bg">
-        <div className="damage-percent-fg" style={{ width }} />
+      <div className="damage-percent">
+        <span className="damage-dh">^: { dhit }</span>
+        <span className="damage-crit">!: { crit }</span>
+        <span className="damage-dcrit">!!: {crit_dh}</span>
+        <span className="damage-deaths">{deaths}</span>
       </div>
-      <div className="damage-percent"><span className="damage-2">DH: { dhit }</span><span className="damage-1">CR: { crit }</span>DC: {crit_dh}</div>
     </div>
   )
 }

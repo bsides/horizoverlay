@@ -70,6 +70,7 @@ class Encounter extends Component {
         ? this.props.CurrentZoneName
         : this.props.title
     let hasOptions = config.showTotalDps || config.showDuration
+    let lb = this.props.maxhit.includes("Limit Break") ? this.props.maxhit.split("-") : false;
     return (
       <div className={`encounter${hasOptions ? ' show' : ''}`}>
         <div className="skewer">
@@ -82,12 +83,12 @@ class Encounter extends Component {
             {totalDps} DPS
           </div>
           <div
-            className={`encounter-limitBreak${config.showTotalDps &&
-            this.props.limitBreak > 0
+            className={`encounter-limitBreak${false
               ? ' show'
               : ''}`}
           >
-            LB {this.props.limitBreak}%
+            <span className='limit-break-text'>Limit Break  </span>
+            <span className='limit-break-dmg'> {lb[2] ? lb[2] : "------"}</span>
           </div>
           <div
             className={`encounter-duration${config.showDuration
