@@ -7,7 +7,7 @@ export const defaultConfig = {
   characterName: 'YOU',
   showRank: true,
   showJobIcon: true,
-  showHps: true,
+  showHps: false,
   showHighlight: false,
   showHighlightSelf: false,
   showSelf: true,
