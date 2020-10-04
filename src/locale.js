@@ -102,7 +102,7 @@ const locale = {
       localeOption3Value: 'zhCN',
       localeOption4: '正體中文',
       localeOption4Value: 'zhHK',
-      localeOption5: 'Français',
+      localeOption5: 'Francês',
       localeOption5Value: 'frFR',
       help:
         'Tudo salva automaticamente.<br /><strong>Botão direito</strong> abre essa janela.',
