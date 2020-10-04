@@ -85,6 +85,8 @@ A lot of inspiration from [Kagerou](https://github.com/hibiyasleep/kagerou) over
 
 A very special thanks for [@yorushika](https://github.com/yorushika) to translating into Simplified / Traditional Chinese!!!
 
+A very special thanks for [@moondark](https://github.com/mooondark) to translating into French!!!
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Special thanks to [my awesome boyfriend](http://na.finalfantasyxiv.com/lodestone/character/2834234/), who test everything everytime I ask ❤
