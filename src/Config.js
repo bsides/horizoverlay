@@ -6,7 +6,7 @@ import './css/config.css'
 
 class ConfigRaw extends Component {
   state = { ...this.props }
-  handleConfig = e => {
+  handleConfig = (e) => {
     const target = e.target
     if (target.type === 'text') e.preventDefault()
     const config = { ...this.state.config }
@@ -26,7 +26,7 @@ class ConfigRaw extends Component {
     // And then save it to localStorage!
     localStorage.setItem('horizoverlay', JSON.stringify(config))
   }
-  resetConfig = e => {
+  resetConfig = (e) => {
     e.preventDefault()
 
     // Clear any setup
@@ -45,7 +45,7 @@ class ConfigRaw extends Component {
     const loc = locale[config.locale].config
     return (
       <div className="config" style={{ zoom: config.zoom }}>
-        <form onSubmit={e => this.resetConfig(e)}>
+        <form onSubmit={(e) => this.resetConfig(e)}>
           <label
             htmlFor="showSetup"
             className={`setup-btn${config.showSetup ? '' : ' disabled'}`}
@@ -218,7 +218,7 @@ class ConfigRaw extends Component {
               {/* Damage % */}
               {loc.toggleOption8}
             </label>
-			<input
+            <input
               type="checkbox"
               name="showJobless"
               id="showJobless"
@@ -433,11 +433,15 @@ class ConfigRaw extends Component {
               {/* Traditional Chinese */}
               {loc.localeOption4}
             </option>
+            <option value={loc.localeOption5Value}>
+              {/* French */}
+              {loc.localeOption5}
+            </option>
           </select>
           <span
             className="help"
             dangerouslySetInnerHTML={{
-              __html: loc.help
+              __html: loc.help,
             }}
           >
             {/* Everything saves automatically.<br />
