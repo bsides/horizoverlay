@@ -14,9 +14,9 @@ class Combatants extends Component {
     const dataArray = Object.keys(this.props.data)
     const battler = dataArray.filter(player => (
         this.props.data[player].name.toLowerCase() !== 'limit break'
-		&& (!this.props.config.showJobless && this.props.data[player].Job && this.props.data[player].Job !== '') //doesn't have a job, filter it out.
+		&& (this.props.config.showJobless || (this.props.data[player].Job && this.props.data[player].Job !== '')) //doesn't have a job, filter it out.
 		&& (this.props.data[player].ENCDPS > 0 || this.props.data[player].ENCHPS > 0) //irrelevant npcs (i.e. estinien) like to show up for whatever reason
-	)).slice(-maxRows)
+	)).slice(0, maxRows)
     let rows = []
     let combatant
     let isSelf

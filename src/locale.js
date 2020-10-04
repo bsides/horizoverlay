@@ -2,7 +2,7 @@ const locale = {
   enUS: {
     initial: {
       help:
-        'Right click here to show Settings. Be sure "Enable clickthru" in ACT is off.'
+        'Right click here to show Settings. Be sure "Enable clickthru" in ACT is off.',
     },
     config: {
       setupTitle: 'Setup Mode',
@@ -47,20 +47,22 @@ const locale = {
       localeOption3Value: 'zhCN',
       localeOption4: '正體中文',
       localeOption4Value: 'zhHK',
+      localeOption5: 'French',
+      localeOption5Value: 'frFR',
       help:
-        'Everything saves automatically.<br /><strong>Right click</strong> to open this window'
+        'Everything saves automatically.<br /><strong>Right click</strong> to open this window',
     },
     setupMode: {
       instructionsTitle:
         '<strong>Right click anywhere this window to open settings!</strong>',
       instructions:
-        'This is NOT real data, this is just a mock so you can place and setup this overlay the way you want. Go hit a dummy or engage in real combat to get real data here. <br />Also, please resize this window to something like the width of the settings window.'
-    }
+        'This is NOT real data, this is just a mock so you can place and setup this overlay the way you want. Go hit a dummy or engage in real combat to get real data here. <br />Also, please resize this window to something like the width of the settings window.',
+    },
   },
   ptBR: {
     initial: {
       help:
-        'Clique com o botão direito para configurar. Certifique-se que "Enable clickthru" no ACT está desligado.'
+        'Clique com o botão direito para configurar. Certifique-se que "Enable clickthru" no ACT está desligado.',
     },
     config: {
       setupTitle: 'Modo Config',
@@ -105,25 +107,27 @@ const locale = {
       localeOption3Value: 'zhCN',
       localeOption4: '正體中文',
       localeOption4Value: 'zhHK',
+      localeOption5: 'Francês',
+      localeOption5Value: 'frFR',
       help:
-        'Tudo salva automaticamente.<br /><strong>Botão direito</strong> abre essa janela.'
+        'Tudo salva automaticamente.<br /><strong>Botão direito</strong> abre essa janela.',
     },
     setupMode: {
       instructionsTitle:
         '<strong>Botão direito por aqui para abrir as configurações!</strong>',
       instructions:
-        'O que é mostrado no modo de configuração não são dados reais, serve apenas para que você configure e posicione esse overlay como quiser antes de ir para o combate real. Se quiser dados reais, inicie um combate, seja real ou num Dummy. <br />Aproveite para também redimensionar essa janela pra algo mais largo que alto, como a janela de configurações.'
-    }
+        'O que é mostrado no modo de configuração não são dados reais, serve apenas para que você configure e posicione esse overlay como quiser antes de ir para o combate real. Se quiser dados reais, inicie um combate, seja real ou num Dummy. <br />Aproveite para também redimensionar essa janela pra algo mais largo que alto, como a janela de configurações.',
+    },
   },
   zhCN: {
     initial: {
       help:
-        '在此处右击打开设置菜单。请确认插件设置中“鼠标穿透(Enable clickthru)”已关闭。'  
+        '在此处右击打开设置菜单。请确认插件设置中“鼠标穿透(Enable clickthru)”已关闭。',
     },
     config: {
       setupTitle: '配置模式',
       nameTitle: '角色姓名',
-      nameHelp: "你的角色名字",
+      nameHelp: '你的角色名字',
       themeTitle: '颜色主题',
       themeOption1: '职业特有',
       themeOption2: '黑白色调',
@@ -139,7 +143,7 @@ const locale = {
       toggleOption9: 'Discord',
       toggleOption10: '模版语言',
       toggleOption11: '最强伤害',
-	  toggleOption12: 'Show "jobless" Combatants',
+      toggleOption12: 'Show "jobless" Combatants',
       toggleOption13: 'Highlight Self',
       toggleOption14: 'Combine Pets',
       maxCombatantsTitle: '最强战员',
@@ -162,25 +166,27 @@ const locale = {
       localeOption3Value: 'zhCN',
       localeOption4: '正體中文',
       localeOption4Value: 'zhHK',
+      localeOption5: 'Français',
+      localeOption5Value: 'frFR',
       help:
-        '所有内容都将自动保存。<br /><strong>右击模板界面</strong>打开本窗口。'
+        '所有内容都将自动保存。<br /><strong>右击模板界面</strong>打开本窗口。',
     },
     setupMode: {
       instructionsTitle:
         '<strong>在本窗口的任意位置右击打开配置菜单！</strong>',
       instructions:
-        '这不是真正的统计数据，只是一个让你在配置模版显示内容时参考的样例。打木桩或者进入真正的战斗才能把真实数据显示在这里。<br />另外，请将这个窗口的尺寸调整到和设置窗口差不多大小方便使用。'
-    }
+        '这不是真正的统计数据，只是一个让你在配置模版显示内容时参考的样例。打木桩或者进入真正的战斗才能把真实数据显示在这里。<br />另外，请将这个窗口的尺寸调整到和设置窗口差不多大小方便使用。',
+    },
   },
   zhHK: {
     initial: {
       help:
-        '在此處右擊打開設置菜單。請確認外掛程式設置中“滑鼠穿透(Enable clickthru)”已關閉。'
+        '在此處右擊打開設置菜單。請確認外掛程式設置中“滑鼠穿透(Enable clickthru)”已關閉。',
     },
     config: {
       setupTitle: '配置模式',
       nameTitle: '角色姓名',
-      nameHelp: "你的角色名字",
+      nameHelp: '你的角色名字',
       themeTitle: '顏色主題',
       themeOption1: '職業特有',
       themeOption2: '黑白色調',
@@ -196,7 +202,7 @@ const locale = {
       toggleOption9: 'Discord',
       toggleOption10: '模版語言',
       toggleOption11: '最強傷害',
-	  toggleOption12: 'Show "jobless" Combatants',
+      toggleOption12: 'Show "jobless" Combatants',
       toggleOption13: 'Highlight Self',
       toggleOption14: 'Combine Pets',
       maxCombatantsTitle: '最強戰員',
@@ -219,15 +225,74 @@ const locale = {
       localeOption3Value: 'zhCN',
       localeOption4: '正體中文',
       localeOption4Value: 'zhHK',
+      localeOption5: 'Français',
+      localeOption5Value: 'frFR',
       help:
-        '所有內容都將自動保存。<br /><strong>右擊範本介面</strong>打開本視窗。'
+        '所有內容都將自動保存。<br /><strong>右擊範本介面</strong>打開本視窗。',
     },
     setupMode: {
       instructionsTitle:
         '<strong>在本視窗的任意位置右擊打開配置功能表！</strong>',
       instructions:
-        '這不是真正的統計資料，只是一個讓你在配置模版顯示內容時參考的樣例。打木樁或者進入真正的戰鬥才能把真實資料顯示在這裡。<br />另外，請將這個視窗的尺寸調整到和設置視窗差不多大小方便使用。'
-    }
+        '這不是真正的統計資料，只是一個讓你在配置模版顯示內容時參考的樣例。打木樁或者進入真正的戰鬥才能把真實資料顯示在這裡。<br />另外，請將這個視窗的尺寸調整到和設置視窗差不多大小方便使用。',
+    },
+  },
+  frFR: {
+    initial: {
+      help:
+        'Clic droit ici pour afficher les Paramètres. Vérifiez bien que vous avez désactivé "Cliquer à travers" dans ACT.',
+    },
+    config: {
+      setupTitle: 'Mode Config',
+      nameTitle: 'Nom du personnage',
+      nameHelp: 'Votre nom :',
+      themeTitle: 'Thème des couleurs',
+      themeOption1: 'Couleur par rôle',
+      themeOption2: 'Noir & blanc',
+      toggleTitle: 'Cochez pour afficher',
+      toggleOption1: 'Rang',
+      toggleOption2: 'Icône de Job',
+      toggleOption3: 'HPS',
+      toggleOption4: 'Surbrillance',
+      toggleOption5: 'Soi-même',
+      toggleOption6: 'Durée',
+      toggleOption7: 'DPS Total',
+      toggleOption8: 'Dommage %',
+      toggleOption9: 'Discord',
+      toggleOption10: 'Langage',
+      toggleOption11: 'Max Hit',
+      toggleOption12: 'Afficher les combatants sans Job',
+      maxCombatantsTitle: 'Combatants max',
+      zoomTitle: 'Échelle',
+      zoomOption1: '80%',
+      zoomOption2: '90%',
+      zoomOption3: '100%',
+      zoomOption4: '110%',
+      zoomOption5: '150%',
+      zoomOption6: '200%',
+      resetTitle: 'RàZ',
+      discordTitle: 'Discord Webhook URL',
+      discordHelp: "Obtenez l'adresse depuis de votre canal Discord",
+      localeTitle: 'Langage',
+      localeOption1: 'Anglais',
+      localeOption1Value: 'enUS',
+      localeOption2: 'Portugais',
+      localeOption2Value: 'ptBR',
+      localeOption3: 'Chinois',
+      localeOption3Value: 'zhCN',
+      localeOption4: 'Hong Kong',
+      localeOption4Value: 'zhHK',
+      localeOption5: 'Français',
+      localeOption5Value: 'frFR',
+      help:
+        'Tout est sauvegardé automatiquement.<br /><strong>Clic droit</strong> pour ouvrir cette fenêtre',
+    },
+    setupMode: {
+      instructionsTitle:
+        "<strong>Clic droit n'importe où dans cette fenêtre pour ouvrir les paramètres !</strong>",
+      instructions:
+        "Il ne s'agit PAS de vraies données, mais d'une simulation qui vous permet de placer et de configurer l'overlay comme vous le souhaitez. Allez frapper un mannequin ou engagez un combat réel pour obtenir de vraies données ici. <br />Veuillez également redimensionner cette fenêtre pour qu 'elle corresponde à la largeur de la fenêtre des paramètres.",
+    },
   },
 }
 export default locale
