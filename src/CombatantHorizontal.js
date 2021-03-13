@@ -84,7 +84,6 @@ export default class CombatantHorizontal extends Component {
       let originalMaxHit = data.maxhit
       // get position of last
       let pos = originalMaxHit.lastIndexOf('-')
-      console.log('originalMaxHit', pos)
       // .replace() replaces only the first occurrence
       // we want to replace the last one
       // since that is the delimiter between skill name and value
