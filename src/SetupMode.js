@@ -28,7 +28,17 @@ function SetupModeRaw(props) {
           {mockData.map((mock, index) => {
             if (index >= maxCombatants) return false
             let maxhit
-            if (mock.maxhit) maxhit = mock.maxhit.replace('-', ': ')
+            if (mock.maxhit) {
+              let originalMaxHit = mock.maxhit
+              // get position of last hyphen
+              let pos = originalMaxHit.lastIndexOf('-')
+              // .replace() replaces only the first occurrence
+              // we want to replace the last one
+              // since that is the delimiter between skill name and value
+              // get first part of string until the last hyphen, concat it with a colon and add the remaining part   
+              maxhit = `${originalMaxHit.substring(0, pos)}: ${originalMaxHit.substring(pos + 1)}`
+            }
+
             return (
               mock.name.toLowerCase() !== 'limit break' && (
                 <div

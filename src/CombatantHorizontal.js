@@ -80,7 +80,18 @@ export default class CombatantHorizontal extends Component {
     const isHealing = data.ENCHPS > data.ENCDPS
 
     let maxhit
-    if (data.maxhit) maxhit = data.maxhit.replace('-', ': ')
+    if (data.maxhit) {
+      let originalMaxHit = data.maxhit
+      // get position of last
+      let pos = originalMaxHit.lastIndexOf('-')
+      console.log('originalMaxHit', pos)
+      // .replace() replaces only the first occurrence
+      // we want to replace the last one
+      // since that is the delimiter between skill name and value
+      // get first part of string until the last hyphen, concat it with a colon and add the remaining part  
+      maxhit = `${originalMaxHit.substring(0, pos)}: ${originalMaxHit.substring(pos + 1)}`
+    }
+
     return (
       <div
         className={`row ${data.Job}${jobStyleClass}${
