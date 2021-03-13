@@ -21,6 +21,8 @@ fieldset {
   border-image: initial;
   text-align: center;
   flex: 1;
+  height: 200px;
+  overflow-y: auto;
 }
 .fieldsToShow {
   flex: 3;
@@ -30,6 +32,11 @@ fieldset {
 }
 form {
   display: flex;
+}
+
+.checkboxFieldsToChange {
+  text-align: left;
+  margin-left: 20px;
 }
 
 /* form div:first-of-type {

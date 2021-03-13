@@ -23,7 +23,7 @@ export const defaultConfig = {
   locale: 'enUS',
   configWindow: {
     width: 1300,
-    height: 239
+    height: 258
   },
   colorHealer: 'rgba(139, 195, 74, 0.3)',
   colorTank: 'rgba(33, 150, 243, 0.3)',

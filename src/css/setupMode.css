@@ -30,6 +30,11 @@
   display: flex;
   text-align: center;
 }
+
+.combatants-reversed {
+  flex-direction: row-reverse;
+}
+
 .row {
   flex: 1;
   text-shadow: 0 0 8px #000;

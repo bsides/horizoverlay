@@ -24,7 +24,7 @@ function SetupModeRaw(props) {
       style={{ zoom: props.config.zoom }}
     >
       <div className={`wrapper ${isVisible}`}>
-        <div className="combatants">
+        <div className={`combatants ${props.config.reverseOrder ? 'combatants-reversed' : ''}`}>
           {mockData.map((mock, index) => {
             if (index >= maxCombatants) return false
             let maxhit
