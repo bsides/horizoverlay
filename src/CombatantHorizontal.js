@@ -82,7 +82,7 @@ export default class CombatantHorizontal extends Component {
     let maxhit
     if (data.maxhit) {
       let originalMaxHit = data.maxhit
-      // get position of last
+      // get position of last hyphen
       let pos = originalMaxHit.lastIndexOf('-')
       // .replace() replaces only the first occurrence
       // we want to replace the last one
