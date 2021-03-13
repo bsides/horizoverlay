@@ -251,6 +251,17 @@ class ConfigRaw extends Component {
               {/* Language */}
               {loc.toggleOption10}
             </label>
+            <input
+              type="checkbox"
+              name="enableStreamerMode"
+              id="enableStreamerMode"
+              defaultChecked={config.enableStreamerMode}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="enableStreamerMode">
+              {/* Enbale Streamer Mode (blur names) */}
+              {loc.toggleOption13}
+            </label>
             <div className="combatants">
               <label htmlFor="maxCombatants">
                 {/* # Combatants */}
