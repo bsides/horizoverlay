@@ -27,7 +27,7 @@ export function withHelper({ WrappedComponent, willMock = false }) {
       }),
     };
 
-    state = {...this.props};
+    state = { ...this.props };
 
     componentWillMount() {
       window.addEventListener('storage', this.updateState, false);
@@ -47,36 +47,36 @@ export function withHelper({ WrappedComponent, willMock = false }) {
       if (!configStore) {
         const config = this.props.config;
         localStorage.setItem('horizoverlay', JSON.stringify(config));
-        this.setState({config});
+        this.setState({ config });
       } else {
         const config = JSON.parse(configStore);
-        this.setState({config});
+        this.setState({ config });
       }
     };
 
     openConfig = () => {
-      this.setState({isConfigOpen: true});
+      this.setState({ isConfigOpen: true });
 
       const windowFeatures = `menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=${this.props.config.configWindow.width},height=${this.props.config.configWindow.height}`;
       this.configWindow = window.open('./#/config', 'Horizoverlay Config', windowFeatures);
       this.configWindow.focus();
       this.configWindow.onbeforeunload = () => {
-        this.setState({isConfigOpen: false});
+        this.setState({ isConfigOpen: false });
         this.configWindow = null;
       };
     };
 
     render = () => {
-      const {Combatant, Encounter, isActive} = this.props;
+      const { Combatant, Encounter, isActive } = this.props;
       return (
-          <WrappedComponent
-              {...this.state}
-              Combatant={Combatant}
-              Encounter={Encounter}
-              isActive={isActive}
-              openConfig={this.openConfig}
-              handleReset={this.updateState}
-          />
+        <WrappedComponent
+          {...this.state}
+          Combatant={Combatant}
+          Encounter={Encounter}
+          isActive={isActive}
+          openConfig={this.openConfig}
+          handleReset={this.updateState}
+        />
       );
     };
   };
