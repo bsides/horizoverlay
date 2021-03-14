@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Overlay from './Overlay';
-import Config from './Config';
+import Configuration from './Configuration';
 import NotFound from './NotFound';
 import SetupMode from './SetupMode';
 import initActWebSocket from './actwebsocket';
@@ -20,7 +20,7 @@ window.lastData = {};
 const Inactive = () => (
   <Router basename={`${process.env.PUBLIC_URL}`}>
     <Switch>
-      <Route path="/config" component={Config} />
+      <Route path="/config" component={Configuration} />
       <Route component={SetupMode} />
     </Switch>
   </Router>
@@ -30,7 +30,7 @@ const Root = (detail) => (
   <Router basename={`${process.env.PUBLIC_URL}`}>
     <Switch>
       <Route path="/" render={() => <Overlay {...detail} />} />
-      <Route exact path="/config" component={Config} />
+      <Route exact path="/config" component={Configuration} />
       <Route render={() => <NotFound text="Page Not Found!" />} />
     </Switch>
   </Router>

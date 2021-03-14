@@ -6,7 +6,7 @@ import locale from './locale';
 
 import './css/config.css';
 
-function ConfigRaw(props) {
+function ConfigurationRaw(props) {
   const [state, setState] = useState({ ...props });
   const { config } = state;
   const loc = locale[config.locale].config;
@@ -454,9 +454,9 @@ function ConfigRaw(props) {
   );
 }
 
-ConfigRaw.propTypes = {
+ConfigurationRaw.propTypes = {
   handleReset: func.isRequired,
 };
 
-const Config = withHelper({ WrappedComponent: ConfigRaw, isConfig: true });
-export default Config;
+const Configuration = withHelper({ WrappedComponent: ConfigurationRaw, isConfig: true });
+export default Configuration;
