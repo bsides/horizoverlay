@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { shape, bool, string, object } from 'prop-types'
+import React, { Component } from 'react';
+import { shape, bool, string, object } from 'prop-types';
 
 export const defaultConfig = {
   showSetup: false,
@@ -23,127 +23,12 @@ export const defaultConfig = {
   locale: 'enUS',
   configWindow: {
     width: 1300,
-    height: 239
+    height: 239,
   },
   colorHealer: 'rgba(139, 195, 74, 0.3)',
   colorTank: 'rgba(33, 150, 243, 0.3)',
-  colorDps: 'rgba(244, 67, 54, 0.3)'
-}
-
-// Declaring as a function makes it hoisted and don't mess with constructor from React.Component
-export function withHelper({
-  WrappedComponent,
-  willMock = false,
-  isConfig = false
-}) {
-  return class withConfig extends Component {
-    static defaultProps = {
-      mockData: willMock ? mockData : null,
-      config: defaultConfig
-    }
-    static propTypes = {
-      config: shape({
-        showSetup: bool.isRequired,
-        color: string.isRequired,
-        characterName: string.isRequired,
-        showDuration: bool.isRequired,
-        showTotalDps: bool.isRequired,
-        showHps: bool.isRequired,
-        showJobIcon: bool.isRequired,
-        showRank: bool.isRequired,
-        showDamagePercent: bool.isRequired,
-		showJobless: bool.isRequired,
-        zoom: string.isRequired,
-        configWindow: object.isRequired
-      })
-    }
-    state = { ...this.props }
-    resizeTimeout = undefined
-    componentWillMount() {
-      window.addEventListener('storage', this.updateState, false)
-      // Check this before implementing
-      // https://lodash.com/docs/4.17.4#throttle
-      // if (isConfig)
-      //   window.addEventListener('resize', this.handleResizeThrottler, false)
-      this.updateState()
-    }
-    componentWillReceiveProps(nextProps) {
-      this.updateState()
-    }
-    componentWillUnmount() {
-      window.removeEventListener('storage', this.updateState)
-      // if (isConfig)
-      //   window.removeEventListener('resize', this.handleResizeThrottler)
-    }
-    updateState = () => {
-      const configStore = localStorage.getItem('horizoverlay')
-      if (!configStore) {
-        const config = this.props.config
-        localStorage.setItem('horizoverlay', JSON.stringify(config))
-        this.setState({ config })
-      } else {
-        const config = JSON.parse(configStore)
-        this.setState({ config })
-      }
-    }
-    handleResize = () => {
-      const config = { ...this.state.config }
-      let width = window.innerWidth,
-        height = window.innerHeight
-
-      // update the value in our copied state...
-      config.configWindow = { width, height }
-      // ...and set it to component' state
-      this.setState({ config })
-
-      // And then save it to localStorage!
-      localStorage.setItem('horizoverlay', JSON.stringify(config))
-    }
-    handleResizeThrottler = () => {
-      if (!this.resizeTimeout) {
-        this.resizeTimeout = setTimeout(() => {
-          this.resizeTimeout = null
-          this.handleResize()
-        }, 66)
-      }
-    }
-    openConfig = () => {
-      this.setState({ isConfigOpen: true })
-      const windowFeatures = `menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=${
-        this.props.config.configWindow.width
-      },height=${this.props.config.configWindow.height}`
-      this.configWindow = window.open(
-        './#/config',
-        'Horizoverlay Config',
-        windowFeatures
-      )
-      this.configWindow.focus()
-      this.configWindow.onbeforeunload = () => {
-        this.setState({ isConfigOpen: false })
-        this.configWindow = null
-      }
-    }
-    render = () => {
-      const { Combatant, Encounter, isActive } = this.props
-      return (
-        <WrappedComponent
-          {...this.state}
-          Combatant={Combatant}
-          Encounter={Encounter}
-          isActive={isActive}
-          openConfig={this.openConfig}
-          handleReset={this.updateState}
-        />
-      )
-    }
-  }
-}
-
-export function getRandom(min, max) {
-  const first = Math.ceil(min)
-  const last = Math.floor(max)
-  return Math.floor(Math.random() * (last - first + 1)) + first
-}
+  colorDps: 'rgba(244, 67, 54, 0.3)',
+};
 
 export const jobRoles = {
   tank: ['drk', 'gla', 'mrd', 'pld', 'war', 'titan', 'gnb'],
@@ -172,9 +57,9 @@ export const jobRoles = {
     'rook',
     'bishop',
     'chocobo',
-    'lb'
-  ]
-}
+    'lb',
+  ],
+};
 
 export const otherIcons = [
   'lb',
@@ -186,8 +71,8 @@ export const otherIcons = [
   'carbuncle',
   'garuda',
   'ifrit',
-  'titan'
-]
+  'titan',
+];
 
 export const mockData = [
   {
@@ -204,7 +89,7 @@ export const mockData = [
     ehps: '0.0',
     isHealing: false,
     damagePct: '36',
-    maxhit: 'Super Yey-3921'
+    maxhit: 'Super Yey-3921',
   },
   {
     isSelf: false,
@@ -220,7 +105,7 @@ export const mockData = [
     ehps: '0.0',
     isHealing: false,
     damagePct: '32',
-    maxhit: 'Meteor-4221'
+    maxhit: 'Meteor-4221',
   },
   {
     isSelf: false,
@@ -236,7 +121,7 @@ export const mockData = [
     ehps: '4.12',
     isHealing: false,
     damagePct: '22',
-    maxhit: 'Thievery-2332'
+    maxhit: 'Thievery-2332',
   },
   {
     isSelf: false,
@@ -252,7 +137,7 @@ export const mockData = [
     ehps: '12.10',
     isHealing: false,
     damagePct: '15',
-    maxhit: 'Alexander-8720'
+    maxhit: 'Alexander-8720',
   },
   {
     isSelf: false,
@@ -268,7 +153,7 @@ export const mockData = [
     ehps: '3.10',
     isHealing: false,
     damagePct: '16',
-    maxhit: "Rei's Wind-3092"
+    maxhit: "Rei's Wind-3092",
   },
   {
     isSelf: false,
@@ -284,7 +169,7 @@ export const mockData = [
     ehps: '588.50',
     isHealing: false,
     damagePct: '9',
-    maxhit: 'Power Break-1251'
+    maxhit: 'Power Break-1251',
   },
   {
     isSelf: false,
@@ -300,7 +185,7 @@ export const mockData = [
     ehps: '112.50',
     isHealing: false,
     damagePct: '6',
-    maxhit: 'Frog Drop-9999'
+    maxhit: 'Frog Drop-9999',
   },
   {
     isSelf: false,
@@ -316,7 +201,7 @@ export const mockData = [
     ehps: '9821.50',
     isHealing: true,
     damagePct: '7',
-    maxhit: 'Carbuncle-9701'
+    maxhit: 'Carbuncle-9701',
   },
   {
     isSelf: false,
@@ -332,7 +217,7 @@ export const mockData = [
     ehps: '5661.12',
     isHealing: true,
     damagePct: '2',
-    maxhit: 'Geez-411'
+    maxhit: 'Geez-411',
   },
   {
     isSelf: false,
@@ -348,6 +233,106 @@ export const mockData = [
     ehps: '',
     isHealing: true,
     damagePct: '4',
-    maxhit: 'Limit Break-29891'
-  }
-]
+    maxhit: 'Limit Break-29891',
+  },
+];
+
+// Declaring as a function makes it hoisted and don't mess with constructor from React.Component
+export function withHelper({ WrappedComponent, willMock = false, isConfig = false }) {
+  return class withConfig extends Component {
+    static defaultProps = {
+      mockData: willMock ? mockData : null,
+      config: defaultConfig,
+    };
+    static propTypes = {
+      config: shape({
+        showSetup: bool.isRequired,
+        color: string.isRequired,
+        characterName: string.isRequired,
+        showDuration: bool.isRequired,
+        showTotalDps: bool.isRequired,
+        showHps: bool.isRequired,
+        showJobIcon: bool.isRequired,
+        showRank: bool.isRequired,
+        showDamagePercent: bool.isRequired,
+        showJobless: bool.isRequired,
+        zoom: string.isRequired,
+        configWindow: object.isRequired,
+      }),
+    };
+    state = { ...this.props };
+    resizeTimeout = undefined;
+    componentWillMount() {
+      window.addEventListener('storage', this.updateState, false);
+      // Check this before implementing
+      // https://lodash.com/docs/4.17.4#throttle
+      // if (isConfig)
+      //   window.addEventListener('resize', this.handleResizeThrottler, false)
+      this.updateState();
+    }
+    componentWillReceiveProps(nextProps) {
+      this.updateState();
+    }
+    componentWillUnmount() {
+      window.removeEventListener('storage', this.updateState);
+      // if (isConfig)
+      //   window.removeEventListener('resize', this.handleResizeThrottler)
+    }
+    updateState = () => {
+      const configStore = localStorage.getItem('horizoverlay');
+      if (!configStore) {
+        const config = this.props.config;
+        localStorage.setItem('horizoverlay', JSON.stringify(config));
+        this.setState({ config });
+      } else {
+        const config = JSON.parse(configStore);
+        this.setState({ config });
+      }
+    };
+    handleResize = () => {
+      const config = { ...this.state.config };
+      let width = window.innerWidth,
+        height = window.innerHeight;
+
+      // update the value in our copied state...
+      config.configWindow = { width, height };
+      // ...and set it to component' state
+      this.setState({ config });
+
+      // And then save it to localStorage!
+      localStorage.setItem('horizoverlay', JSON.stringify(config));
+    };
+    handleResizeThrottler = () => {
+      if (!this.resizeTimeout) {
+        this.resizeTimeout = setTimeout(() => {
+          this.resizeTimeout = null;
+          this.handleResize();
+        }, 66);
+      }
+    };
+    openConfig = () => {
+      this.setState({ isConfigOpen: true });
+
+      const windowFeatures = `menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=${this.props.config.configWindow.width},height=${this.props.config.configWindow.height}`;
+      this.configWindow = window.open('./#/config', 'Horizoverlay Config', windowFeatures);
+      this.configWindow.focus();
+      this.configWindow.onbeforeunload = () => {
+        this.setState({ isConfigOpen: false });
+        this.configWindow = null;
+      };
+    };
+    render = () => {
+      const { Combatant, Encounter, isActive } = this.props;
+      return (
+        <WrappedComponent
+          {...this.state}
+          Combatant={Combatant}
+          Encounter={Encounter}
+          isActive={isActive}
+          openConfig={this.openConfig}
+          handleReset={this.updateState}
+        />
+      );
+    };
+  };
+}

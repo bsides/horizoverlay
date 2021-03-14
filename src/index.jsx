@@ -1,49 +1,40 @@
 // uncomment for testing
 // import './testing/testing'
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Overlay from './Overlay'
-import Config from './Config'
-import NotFound from './NotFound'
-import SetupMode from './SetupMode'
-import initActWebSocket from './actwebsocket'
+import Overlay from './Overlay';
+import Config from './Config';
+import NotFound from './NotFound';
+import SetupMode from './SetupMode';
+import initActWebSocket from './actwebsocket';
 
-// import Raven from 'raven-js'
-// import { sentryUrl } from './sentry'
+require(`./images/handle.png`);
 
-require(`./images/handle.png`)
+initActWebSocket();
 
-initActWebSocket()
+window.lastData = {};
+const Inactive = () => (
+  <Router basename={`${process.env.PUBLIC_URL}`}>
+    <Switch>
+      <Route path="/config" component={Config} />
+      <Route component={SetupMode} />
+    </Switch>
+  </Router>
+);
 
-// Raven.config(sentryUrl).install()
-
-window.lastData = {}
-const Inactive = detail => {
-  return (
-    <Router basename={`${process.env.PUBLIC_URL}`}>
-      <Switch>
-        <Route path={`/config`} component={Config} />
-        <Route component={SetupMode} />
-      </Switch>
-    </Router>
-  )
-}
-
-const Root = detail => {
-  return (
-    <Router basename={`${process.env.PUBLIC_URL}`}>
-      <Switch>
-        <Route path={`/`} render={() => <Overlay {...detail} />} />
-        <Route exact path={`/config`} component={Config} />
-        <Route render={() => <NotFound text="Page Not Found!" />} />
-      </Switch>
-    </Router>
-  )
-}
+const Root = (detail) => (
+  <Router basename={`${process.env.PUBLIC_URL}`}>
+    <Switch>
+      <Route path="/" render={() => <Overlay {...detail} />} />
+      <Route exact path="/config" component={Config} />
+      <Route render={() => <NotFound text="Page Not Found!" />} />
+    </Switch>
+  </Router>
+);
 
 // This will run when data is ON
 function onOverlayDataUpdate(e) {
@@ -65,12 +56,12 @@ function onOverlayDataUpdate(e) {
   //   document.getElementById('root')
   // )
   // }
-  const detail = (e.detail.msg ? e.detail.msg : e.detail)
-  
-  ReactDOM.render(<Root {...detail} />, document.getElementById('root'))
+  const detail = e.detail.msg ? e.detail.msg : e.detail;
+
+  ReactDOM.render(<Root {...detail} />, document.querySelector('#root'));
 }
 // This will run when there's no data
-ReactDOM.render(<Inactive />, document.getElementById('root'))
+ReactDOM.render(<Inactive />, document.querySelector('#root'));
 
 // :: Events
 // https://github.com/RainbowMage/OverlayPlugin/wiki/JavaScript-API-reference
@@ -78,7 +69,7 @@ ReactDOM.render(<Inactive />, document.getElementById('root'))
 
 // - onOverlayDataUpdate
 // This event occurs when the OverlayPlugin sends the new data.
-document.addEventListener('onOverlayDataUpdate', onOverlayDataUpdate)
+document.addEventListener('onOverlayDataUpdate', onOverlayDataUpdate);
 
 // - onLogLine
 // This event occurs when anything in the chat happens, so we need to clean it up a bit before sending to the component or else it will polute and re-render it a lot unnecessarily
@@ -87,16 +78,16 @@ document.addEventListener('onOverlayDataUpdate', onOverlayDataUpdate)
 
 // - onOverlayStateUpdate
 // This event occurs when the overlay setting has changed.
-document.addEventListener('onOverlayStateUpdate', function(e) {
+document.addEventListener('onOverlayStateUpdate', (e) => {
   if (!e.detail.isLocked) {
-    document.documentElement.classList.add('resizable')
+    document.documentElement.classList.add('resizable');
   } else {
-    document.documentElement.classList.remove('resizable')
+    document.documentElement.classList.remove('resizable');
   }
-})
+});
 // Receiver of OverlayPluginApi.sendMessage and OverlayPluginApi.broadcastMessage, not being used as far as I know
-window.addEventListener('message', function(e) {
+window.addEventListener('message', (e) => {
   if (e.data.type === 'onOverlayDataUpdate') {
-    onOverlayDataUpdate(e.data)
+    onOverlayDataUpdate(e.data);
   }
-})
+});

@@ -1,5 +1,4 @@
-/*eslint-disable*/
-var ActXivBefore = {
+const ActXivBefore = {
   Encounter: {
     n: '\n',
     t: '\t',
@@ -46,7 +45,7 @@ var ActXivBefore = {
     deaths: '1',
     Last10DPS: '100',
     Last30DPS: '',
-    Last60DPS: ''
+    Last60DPS: '',
   },
   Combatant: {
     YOU: {
@@ -117,7 +116,7 @@ var ActXivBefore = {
       ParryPct: '6%',
       BlockPct: '0%',
       IncToHit: '92.73',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Dodd Himself': {
       n: '\n',
@@ -187,7 +186,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Kyrie Otaku': {
       n: '\n',
@@ -257,7 +256,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '62.50',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Lexxi Foxx': {
       n: '\n',
@@ -327,7 +326,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '62.50',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Crippled Jordan': {
       n: '\n',
@@ -397,7 +396,7 @@ var ActXivBefore = {
       ParryPct: '100%',
       BlockPct: '0%',
       IncToHit: '95.45',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Wood Wailer Lance': {
       n: '\n',
@@ -467,7 +466,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '89.12',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Nobono Nobo': {
       n: '\n',
@@ -537,7 +536,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '66.67',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Nailius Grieves': {
       n: '\n',
@@ -607,7 +606,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '72.73',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Yehn Woln': {
       n: '\n',
@@ -677,7 +676,7 @@ var ActXivBefore = {
       ParryPct: '50%',
       BlockPct: '0%',
       IncToHit: '100.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     "J'nai Kitsunah": {
       n: '\n',
@@ -747,7 +746,7 @@ var ActXivBefore = {
       ParryPct: '23%',
       BlockPct: '8%',
       IncToHit: '82.50',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Sathyasai Baba': {
       n: '\n',
@@ -817,7 +816,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '66.67',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Val (Kyrie Otaku)': {
       n: '\n',
@@ -887,7 +886,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '---',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Slynxx (Lexxi Foxx)': {
       n: '\n',
@@ -957,7 +956,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '---',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Chumpchange (Crippled Jordan)': {
       n: '\n',
@@ -1027,7 +1026,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '---',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Morendo Czell': {
       n: '\n',
@@ -1097,7 +1096,7 @@ var ActXivBefore = {
       ParryPct: '5%',
       BlockPct: '5%',
       IncToHit: '47.83',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Spookweh (Gaalmak Errethios)': {
       n: '\n',
@@ -1167,7 +1166,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '---',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Khari Nahdahra': {
       n: '\n',
@@ -1237,7 +1236,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '0.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Gaalmak Errethios': {
       n: '\n',
@@ -1307,7 +1306,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '100.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Lenex Zemphonia': {
       n: '\n',
@@ -1377,7 +1376,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Cid Garlond': {
       n: '\n',
@@ -1447,7 +1446,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Star Gazer': {
       n: '\n',
@@ -1517,7 +1516,7 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Darth Vader': {
       n: '\n',
@@ -1587,12 +1586,13 @@ var ActXivBefore = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
-    }
+      OverHealPct: '0%',
+    },
   },
-  isActive: true
-}
-export var ActXivAfter = {
+  isActive: true,
+};
+
+export const ActXivAfter = {
   Encounter: {
     n: '\n',
     t: '\t',
@@ -1639,7 +1639,7 @@ export var ActXivAfter = {
     deaths: '1',
     Last10DPS: '100',
     Last30DPS: '',
-    Last60DPS: ''
+    Last60DPS: '',
   },
   Combatant: {
     YOU: {
@@ -1710,7 +1710,7 @@ export var ActXivAfter = {
       ParryPct: '6%',
       BlockPct: '0%',
       IncToHit: '92.73',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Dodd Himself': {
       n: '\n',
@@ -1780,7 +1780,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Kyrie Otaku': {
       n: '\n',
@@ -1850,7 +1850,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '62.50',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Lexxi Foxx': {
       n: '\n',
@@ -1920,7 +1920,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '62.50',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Crippled Jordan': {
       n: '\n',
@@ -1990,7 +1990,7 @@ export var ActXivAfter = {
       ParryPct: '100%',
       BlockPct: '0%',
       IncToHit: '95.45',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Wood Wailer Lance': {
       n: '\n',
@@ -2060,7 +2060,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '89.12',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Nobono Nobo': {
       n: '\n',
@@ -2130,7 +2130,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '66.67',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Nailius Grieves': {
       n: '\n',
@@ -2200,7 +2200,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '72.73',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Yehn Woln': {
       n: '\n',
@@ -2270,7 +2270,7 @@ export var ActXivAfter = {
       ParryPct: '50%',
       BlockPct: '0%',
       IncToHit: '100.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     "J'nai Kitsunah": {
       n: '\n',
@@ -2340,7 +2340,7 @@ export var ActXivAfter = {
       ParryPct: '23%',
       BlockPct: '8%',
       IncToHit: '82.50',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Sathyasai Baba': {
       n: '\n',
@@ -2410,7 +2410,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '66.67',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Val (Kyrie Otaku)': {
       n: '\n',
@@ -2480,7 +2480,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '---',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Slynxx (Lexxi Foxx)': {
       n: '\n',
@@ -2550,7 +2550,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '---',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Chumpchange (Crippled Jordan)': {
       n: '\n',
@@ -2620,7 +2620,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '---',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Morendo Czell': {
       n: '\n',
@@ -2690,7 +2690,7 @@ export var ActXivAfter = {
       ParryPct: '5%',
       BlockPct: '5%',
       IncToHit: '47.83',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Spookweh (Gaalmak Errethios)': {
       n: '\n',
@@ -2760,7 +2760,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '---',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Khari Nahdahra': {
       n: '\n',
@@ -2830,7 +2830,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '0.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Gaalmak Errethios': {
       n: '\n',
@@ -2900,7 +2900,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '100.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Lenex Zemphonia': {
       n: '\n',
@@ -2970,7 +2970,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Cid Garlond': {
       n: '\n',
@@ -3040,7 +3040,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Star Gazer': {
       n: '\n',
@@ -3110,7 +3110,7 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Darth Vader': {
       n: '\n',
@@ -3180,13 +3180,13 @@ export var ActXivAfter = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
-    }
+      OverHealPct: '0%',
+    },
   },
-  isActive: true
-}
+  isActive: true,
+};
 
-export var ActXiv = {
+export const ActXiv = {
   Encounter: {
     n: '\n',
     t: '\t',
@@ -3233,7 +3233,7 @@ export var ActXiv = {
     deaths: '1',
     Last10DPS: '100',
     Last30DPS: '',
-    Last60DPS: ''
+    Last60DPS: '',
   },
   Combatant: {
     YOU: {
@@ -3304,7 +3304,7 @@ export var ActXiv = {
       ParryPct: '6%',
       BlockPct: '0%',
       IncToHit: '92.73',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Dodd Himself': {
       n: '\n',
@@ -3374,7 +3374,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Kyrie Otaku': {
       n: '\n',
@@ -3444,7 +3444,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '62.50',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Lexxi Foxx': {
       n: '\n',
@@ -3514,7 +3514,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '62.50',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Crippled Jordan': {
       n: '\n',
@@ -3584,7 +3584,7 @@ export var ActXiv = {
       ParryPct: '100%',
       BlockPct: '0%',
       IncToHit: '95.45',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Wood Wailer Lance': {
       n: '\n',
@@ -3654,7 +3654,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '89.12',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Nobono Nobo': {
       n: '\n',
@@ -3724,7 +3724,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '66.67',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Nailius Grieves': {
       n: '\n',
@@ -3794,7 +3794,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '72.73',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Yehn Woln': {
       n: '\n',
@@ -3864,7 +3864,7 @@ export var ActXiv = {
       ParryPct: '50%',
       BlockPct: '0%',
       IncToHit: '100.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     "J'nai Kitsunah": {
       n: '\n',
@@ -3934,7 +3934,7 @@ export var ActXiv = {
       ParryPct: '23%',
       BlockPct: '8%',
       IncToHit: '82.50',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Sathyasai Baba': {
       n: '\n',
@@ -4004,7 +4004,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '66.67',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Val (Kyrie Otaku)': {
       n: '\n',
@@ -4074,7 +4074,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '---',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Slynxx (Lexxi Foxx)': {
       n: '\n',
@@ -4144,7 +4144,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '---',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Chumpchange (Crippled Jordan)': {
       n: '\n',
@@ -4214,7 +4214,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '---',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Morendo Czell': {
       n: '\n',
@@ -4284,7 +4284,7 @@ export var ActXiv = {
       ParryPct: '5%',
       BlockPct: '5%',
       IncToHit: '47.83',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Spookweh (Gaalmak Errethios)': {
       n: '\n',
@@ -4354,7 +4354,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '---',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Khari Nahdahra': {
       n: '\n',
@@ -4424,7 +4424,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '0.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Gaalmak Errethios': {
       n: '\n',
@@ -4494,7 +4494,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '100.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Lenex Zemphonia': {
       n: '\n',
@@ -4564,7 +4564,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Cid Garlond': {
       n: '\n',
@@ -4634,7 +4634,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Star Gazer': {
       n: '\n',
@@ -4704,7 +4704,7 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
+      OverHealPct: '0%',
     },
     'Darth Vader': {
       n: '\n',
@@ -4774,51 +4774,47 @@ export var ActXiv = {
       ParryPct: '0%',
       BlockPct: '0%',
       IncToHit: '75.00',
-      OverHealPct: '0%'
-    }
+      OverHealPct: '0%',
+    },
   },
-  isActive: true
-}
+  isActive: true,
+};
 
 function getRandom(min, max) {
-  const first = Math.ceil(min)
-  const last = Math.floor(max)
-  return Math.floor(Math.random() * (last - first + 1)) + first
+  const first = Math.ceil(min);
+  const last = Math.floor(max);
+  return Math.floor(Math.random() * (last - first + 1)) + first;
 }
 
-var replaceWithRandom
+let replaceWithRandom;
+
 function getNewRandom() {
-  return (replaceWithRandom = {
+  replaceWithRandom = {
     ENCDPS: getRandom(2200, 4500),
     'damage%': `${getRandom(3, 28)}%`,
     'crithit%': `${getRandom(0, 76)}%`,
     'healed%': `${getRandom(0, 30)}%`,
     ENCHPS: getRandom(0, 6000),
-    deaths: getRandom(0, 3)
-  })
+    deaths: getRandom(0, 3),
+  };
 }
 
-// setTimeout(function() {
-//   var event = new CustomEvent('onOverlayDataUpdate', { detail: ActXivBefore })
-//   document.dispatchEvent(event)
-//   var event = new CustomEvent('onOverlayDataUpdate', { detail: ActXivAfter })
-//   document.dispatchEvent(event)
-// }, 500)
-
-var timer = setInterval(function() {
+const timer = setInterval(() => {
   // ActXiv.Combatant.YOU.ENCDPS = rand.ENCDPS
-  const combatant = ActXiv.Combatant
-  for (const i in combatant) {
-    getNewRandom()
-    combatant[i] = { ...combatant[i], ...replaceWithRandom }
-    if (i === 'Crippled Jordan') combatant[i] = { ...combatant[i], ENCDPS: 100 }
+  const combatant = ActXiv.Combatant;
+  for (const item of Object.keys(combatant)) {
+    getNewRandom();
+    combatant[item] = { ...combatant[item], ...replaceWithRandom };
+    if (item === 'Crippled Jordan') {
+      combatant[item] = { ...combatant[item], ENCDPS: 100 };
+    }
   }
-  ActXiv.Combatant = combatant
-  var event = new CustomEvent('onOverlayDataUpdate', { detail: ActXiv })
-  document.dispatchEvent(event)
-}, 2000)
+  ActXiv.Combatant = combatant;
+  const event = new CustomEvent('onOverlayDataUpdate', { detail: ActXiv });
+  document.dispatchEvent(event);
+}, 2000);
 
-window.timer = timer
-window.ActXiv = ActXiv
-window.ActXivBefore = ActXivBefore
-window.ActXivAfter = ActXivAfter
+window.timer = timer;
+window.ActXiv = ActXiv;
+window.ActXivBefore = ActXivBefore;
+window.ActXivAfter = ActXivAfter;

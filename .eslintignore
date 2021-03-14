@@ -1,0 +1,5 @@
+build/*
+docs/*
+public/*
+
+src/helpers.js
