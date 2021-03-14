@@ -1,7 +1,7 @@
 import React from 'react';
 import { bool, number, object, oneOfType, string } from 'prop-types';
 // eslint-disable-next-line import/named
-import { jobRoles, otherIcons } from './config';
+import { jobRoles, otherIcons } from './helper/config';
 
 const images = require.context('./images', false, /\.png$/);
 

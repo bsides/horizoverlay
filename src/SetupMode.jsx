@@ -2,7 +2,7 @@ import React from 'react';
 import { array, func, object } from 'prop-types';
 // eslint-disable-next-line import/named
 import { withHelper } from './helpers';
-import locale from './locale';
+import locale from './helper/locale';
 
 import './css/reboot.css';
 import './css/setupMode.css';

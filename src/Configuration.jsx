@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { func } from 'prop-types';
 // eslint-disable-next-line import/named
 import { withHelper } from './helpers';
-import locale from './locale';
+import locale from './helper/locale';
 
 import './css/config.css';
 

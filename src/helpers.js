@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { shape, bool, string, object } from 'prop-types';
-import { mockData, defaultConfig } from './config';
+import { mockData, defaultConfig } from './helper/config';
 
 // Declaring as a function makes it hoisted and don't mess with constructor from React.Component
 export function withHelper({ WrappedComponent, willMock = false, isConfig = false }) {

@@ -10,7 +10,7 @@ import Overlay from './Overlay';
 import Configuration from './Configuration';
 import NotFound from './NotFound';
 import SetupMode from './SetupMode';
-import initActWebSocket from './actwebsocket';
+import initActWebSocket from './helper/actwebsocket';
 
 require(`./images/handle.png`);
 
