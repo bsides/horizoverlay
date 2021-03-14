@@ -444,6 +444,7 @@ function ConfigRaw(props) {
         </select>
         <span
           className="help"
+          /* eslint-disable-next-line react/no-danger */
           dangerouslySetInnerHTML={{
             __html: loc.help,
           }}

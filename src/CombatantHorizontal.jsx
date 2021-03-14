@@ -5,6 +5,62 @@ import { jobRoles, otherIcons } from './helpers';
 
 const images = require.context('./images', false, /\.png$/);
 
+function DamageBar({ width, show }) {
+  if (!show) {
+    return null;
+  }
+
+  return (
+    <div>
+      <div className="damage-percent-bg">
+        <div className="damage-percent-fg" style={{ width }} />
+      </div>
+      <div className="damage-percent">{width}</div>
+    </div>
+  );
+}
+
+function DataWrapper(props) {
+  return (
+    <div className={props.relevant ? 'dps' : 'dps irrelevant'}>
+      <div>
+        <span className="damage-stats">{props.text}</span>
+        <span className="label">{props.label}</span>
+      </div>
+    </div>
+  );
+}
+
+function DataText({ type, show = true, ...data } = {}) {
+  if (!show) {
+    return null;
+  }
+  let text;
+  let label;
+  let relevant;
+
+  switch (type) {
+    case 'hps':
+      text = data.ENCHPS;
+      label = ' HPS';
+      relevant = data.ENCHPS > data.ENCDPS;
+      break;
+    case 'dps':
+      text = data.ENCDPS;
+      label = ' DPS';
+      relevant = data.ENCDPS > data.ENCHPS;
+      break;
+    case 'job':
+      text = data.Job.toUpperCase();
+      label = '';
+      relevant = '1';
+      break;
+    default:
+  }
+
+  return <DataWrapper text={text} label={label} relevant={relevant} />;
+}
+
 export default function CombatantHorizontal(props) {
   const { config, data, isSelf, encounterDamage, rank } = props;
   const order = rank;
@@ -89,62 +145,6 @@ export default function CombatantHorizontal(props) {
       <div className="maxhit">{config.showMaxhit && maxhit}</div>
     </div>
   );
-}
-
-function DamageBar({ width, show }) {
-  if (!show) {
-    return null;
-  }
-
-  return (
-    <div>
-      <div className="damage-percent-bg">
-        <div className="damage-percent-fg" style={{ width }} />
-      </div>
-      <div className="damage-percent">{width}</div>
-    </div>
-  );
-}
-
-function DataWrapper(props) {
-  return (
-    <div className={props.relevant ? 'dps' : 'dps irrelevant'}>
-      <div>
-        <span className="damage-stats">{props.text}</span>
-        <span className="label">{props.label}</span>
-      </div>
-    </div>
-  );
-}
-
-function DataText({ type, show = true, ...data } = {}) {
-  if (!show) {
-    return null;
-  }
-  let text;
-  let label;
-  let relevant;
-
-  switch (type) {
-    case 'hps':
-      text = data.ENCHPS;
-      label = ' HPS';
-      relevant = data.ENCHPS > data.ENCDPS;
-      break;
-    case 'dps':
-      text = data.ENCDPS;
-      label = ' DPS';
-      relevant = data.ENCDPS > data.ENCHPS;
-      break;
-    case 'job':
-      text = data.Job.toUpperCase();
-      label = '';
-      relevant = '1';
-      break;
-    default:
-  }
-
-  return <DataWrapper text={text} label={label} relevant={relevant} />;
 }
 
 CombatantHorizontal.propTypes = {

@@ -244,6 +244,7 @@ export function withHelper({ WrappedComponent, willMock = false, isConfig = fals
       mockData: willMock ? mockData : null,
       config: defaultConfig,
     };
+
     static propTypes = {
       config: shape({
         showSetup: bool.isRequired,
@@ -260,24 +261,25 @@ export function withHelper({ WrappedComponent, willMock = false, isConfig = fals
         configWindow: object.isRequired,
       }),
     };
+
     state = { ...this.props };
+
     resizeTimeout = undefined;
+
     componentWillMount() {
+      console.log(this.state);
       window.addEventListener('storage', this.updateState, false);
-      // Check this before implementing
-      // https://lodash.com/docs/4.17.4#throttle
-      // if (isConfig)
-      //   window.addEventListener('resize', this.handleResizeThrottler, false)
       this.updateState();
     }
-    componentWillReceiveProps(nextProps) {
+
+    componentWillReceiveProps() {
       this.updateState();
     }
+
     componentWillUnmount() {
       window.removeEventListener('storage', this.updateState);
-      // if (isConfig)
-      //   window.removeEventListener('resize', this.handleResizeThrottler)
     }
+
     updateState = () => {
       const configStore = localStorage.getItem('horizoverlay');
       if (!configStore) {
@@ -289,27 +291,7 @@ export function withHelper({ WrappedComponent, willMock = false, isConfig = fals
         this.setState({ config });
       }
     };
-    handleResize = () => {
-      const config = { ...this.state.config };
-      let width = window.innerWidth,
-        height = window.innerHeight;
 
-      // update the value in our copied state...
-      config.configWindow = { width, height };
-      // ...and set it to component' state
-      this.setState({ config });
-
-      // And then save it to localStorage!
-      localStorage.setItem('horizoverlay', JSON.stringify(config));
-    };
-    handleResizeThrottler = () => {
-      if (!this.resizeTimeout) {
-        this.resizeTimeout = setTimeout(() => {
-          this.resizeTimeout = null;
-          this.handleResize();
-        }, 66);
-      }
-    };
     openConfig = () => {
       this.setState({ isConfigOpen: true });
 
@@ -321,6 +303,7 @@ export function withHelper({ WrappedComponent, willMock = false, isConfig = fals
         this.configWindow = null;
       };
     };
+
     render = () => {
       const { Combatant, Encounter, isActive } = this.props;
       return (
