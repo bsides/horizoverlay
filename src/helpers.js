@@ -267,7 +267,6 @@ export function withHelper({ WrappedComponent, willMock = false, isConfig = fals
     resizeTimeout = undefined;
 
     componentWillMount() {
-      console.log(this.state);
       window.addEventListener('storage', this.updateState, false);
       this.updateState();
     }
