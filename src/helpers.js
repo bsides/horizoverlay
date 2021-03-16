@@ -29,16 +29,16 @@ export function withHelper({ WrappedComponent, willMock = false }) {
 
     state = { ...this.props };
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       window.addEventListener('storage', this.updateState, false);
       this.updateState();
     }
 
-    componentWillReceiveProps() {
+    UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
       this.updateState();
     }
 
-    componentWillUnmount() {
+    UNSAFE_componentWillUpdate(nextProps, nextState, nextContext) {
       window.removeEventListener('storage', this.updateState);
     }
 

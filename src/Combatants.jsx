@@ -18,11 +18,8 @@ export default function Combatants(props) {
         .filter(
           (player) =>
             data[player].name.toLowerCase() !== 'limit break' &&
-            (config.showJobless || (data[player].Job && data[player].Job !== ''))(
-              // doesn't have a job, filter it out.
-              // irrelevant npcs (i.e. estinien) like to show up for whatever reason
-              data[player].ENCDPS > 0 || data[player].ENCHPS > 0,
-            ),
+            (config.showJobless || (data[player].Job && data[player].Job !== '')) &&
+            (data[player].ENCDPS > 0 || data[player].ENCHPS > 0)
         )
         .slice(0, maxRows);
       const rows = [];
@@ -49,7 +46,7 @@ export default function Combatants(props) {
             config={config}
             isSelf={isSelf}
             key={battler[ref]}
-          />,
+          />
         );
       }
       return <div className="combatants">{rows}</div>;

@@ -36,7 +36,9 @@ function OverlayRaw(props) {
     // Send limit break data separated
     if (combatant.name.toLowerCase() === 'limit break') {
       handleLimitBreak(
-        Number.parseInt((props.Combatant.damage / props.Encounter.damage) * 100, 10),
+        (Number.parseInt(props.Combatant.damage, 10) /
+          Number.parseInt(props.Encounter.damage, 10)) *
+          100
       );
       break;
     }
@@ -45,7 +47,8 @@ function OverlayRaw(props) {
       job: combatant.Job,
       characterName: combatant.name,
       dps: combatant.ENCDPS,
-      damage: Number.parseInt((combatant.damage / props.Encounter.damage) * 100, 10),
+      damage:
+        (Number.parseInt(combatant.damage, 10) / Number.parseInt(props.Encounter.damage, 10)) * 100,
       hps: combatant.ENCHPS,
       healed: combatant['healed%'],
       deaths: combatant.deaths,
@@ -53,7 +56,6 @@ function OverlayRaw(props) {
       dhit: combatant.DirectHitPct,
     });
   }
-  setState({ discordData });
 
   const updateState = () => {
     const configStore = localStorage.getItem('horizoverlay');
@@ -67,11 +69,10 @@ function OverlayRaw(props) {
 
   useEffect(() => {
     window.addEventListener('storage', updateState, false);
-    updateState();
     return () => {
       window.removeEventListener('storage', updateState);
     };
-  }, [props]);
+  }, []);
 
   return (
     <div
@@ -89,7 +90,7 @@ function OverlayRaw(props) {
       <Encounter
         {...props.Encounter}
         limitBreak={state.limitBreak}
-        discordData={state.discordData}
+        discordData={discordData}
         config={props.config}
       />
     </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import { array, func, object } from 'prop-types';
 // eslint-disable-next-line import/named
@@ -19,7 +20,7 @@ function SetupModeRaw(props) {
     color,
     showMaxhit,
     showRank,
-    locale: locale1,
+    locale: configuredLanguage,
     showHps,
     showJobIcon,
     showSelf,
@@ -28,12 +29,12 @@ function SetupModeRaw(props) {
   } = config;
   const colorClass = color;
   const isVisible = showSetup ? 'show' : 'hide';
-  const loc = locale[locale1];
+  const loc = locale[configuredLanguage];
 
   return (
     <div
       className={`setupMode ${colorClass}${
-        locale1 === 'zhCN' || locale1 === 'zhHK' ? ' chinese' : ''
+        configuredLanguage === 'zhCN' || configuredLanguage === 'zhHK' ? ' chinese' : ''
       }`}
       onContextMenu={openConfig}
       style={{ zoom }}

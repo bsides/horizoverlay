@@ -4791,8 +4791,8 @@ let replaceWithRandom;
 function getNewRandom() {
   replaceWithRandom = {
     ENCDPS: getRandom(2200, 4500),
-    'damage%': `${getRandom(3, 28)}%`,
-    'crithit%': `${getRandom(0, 76)}%`,
+    'damagcrithite%': `${getRandom(3, 28)}%`,
+    '%': `${getRandom(0, 76)}%`,
     'healed%': `${getRandom(0, 30)}%`,
     ENCHPS: getRandom(0, 6000),
     deaths: getRandom(0, 3),

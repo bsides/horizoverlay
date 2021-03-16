@@ -15,6 +15,7 @@ export default function Encounter(props) {
     limitBreak,
     config,
   } = props;
+
   const sendToDiscord = () => {
     // finish the fight for ACT
     // Right now bugging everything so it's off
@@ -43,7 +44,7 @@ export default function Encounter(props) {
           combatant.damage
         }%) | HPS: ${combatant.hps} (${combatant.healed}) | DIE: ${combatant.deaths} | CRIT: ${
           combatant.crit
-        } | DHIT: ${combatant.dhit} |\`\n\`${'-'.repeat(85)}\``,
+        } | DHIT: ${combatant.dhit} |\`\n\`${'-'.repeat(85)}\``
     );
 
     fetch(config.discord, {
@@ -70,24 +71,24 @@ export default function Encounter(props) {
   const hasOptions = config.showTotalDps || config.showDuration;
 
   return (
-    <div className={`encounter${hasOptions ? ' show' : ''}`}>
+    <div className={`encounter ${hasOptions ? 'show' : ''}`}>
       <div className="skewer">
         <div className="encounter-title">{title === 'Encounter' ? CurrentZoneName : title}</div>
         <div className={`encounter-totaldps${config.showTotalDps ? ' show' : ''}`}>
           {totalDps} DPS
         </div>
         <div
-          className={`encounter-limitBreak${config.showTotalDps && limitBreak > 0 ? ' show' : ''}`}
+          className={`encounter-limitBreak ${config.showTotalDps && limitBreak > 0 ? 'show' : ''}`}
         >
           LB {limitBreak}%
         </div>
-        <div className={`encounter-duration${config.showDuration ? ' show' : ''}`}>
+        <div className={`encounter-duration ${config.showDuration ? 'show' : ''}`}>
           <span role="img" aria-label="Time">
             🕒
           </span>{' '}
           {duration}
         </div>
-        <div className={`encounter-discord${config.showDiscord ? '' : ' hide'}`}>
+        <div className={`encounter-discord ${config.showDiscord ? '' : 'hide'}`}>
           <button type="button" onClick={sendToDiscord}>
             Send to Discord
           </button>
@@ -100,11 +101,15 @@ export default function Encounter(props) {
 Encounter.propTypes = {
   config: object.isRequired,
   limitBreak: number.isRequired,
-  duration: number.isRequired,
+  duration: number,
   CurrentZoneName: string.isRequired,
   maxhit: string.isRequired,
   discordData: string.isRequired,
   encdps: string.isRequired,
   ENCDPS: string.isRequired,
   title: string.isRequired,
+};
+
+Encounter.defaultProps = {
+  duration: 0,
 };
