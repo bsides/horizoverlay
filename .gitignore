@@ -11,6 +11,8 @@
 # Not anymore
 /build
 
+.idea
+
 # IDE
 /.vscode
 

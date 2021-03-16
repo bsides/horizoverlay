@@ -40,8 +40,7 @@ form {
 } */
 
 label {
-  margin: 0;
-  margin-right: 15px;
+  margin: 0 15px 0 0;
   line-height: 32px;
   cursor: pointer;
 }
@@ -109,10 +108,8 @@ legend {
   color: #fff;
   background: rgba(255, 56, 215, 0.8);
   -webkit-appearance: button;
-  margin: 0;
-  padding: 0;
-  margin-top: 15px;
-  padding-top: 44px;
+  margin: 15px 0 0;
+  padding: 44px 0 0;
   width: 50px;
   cursor: pointer;
 }
@@ -125,7 +122,6 @@ legend {
   background: rgba(23, 162, 184, 0.1);
   color: #fff;
   cursor: pointer;
-  margin-right: 3px;
   padding: 0.5rem 0.75rem;
   line-height: 1.25;
   margin: 0 8px 6px 0;

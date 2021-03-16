@@ -1,8 +1,7 @@
 const locale = {
   enUS: {
     initial: {
-      help:
-        'Right click here to show Settings. Be sure "Enable clickthru" in ACT is off.',
+      help: 'Right click here to show Settings. Be sure "Enable clickthru" in ACT is off.',
     },
     config: {
       setupTitle: 'Setup Mode',
@@ -46,12 +45,10 @@ const locale = {
       localeOption4Value: 'zhHK',
       localeOption5: 'French',
       localeOption5Value: 'frFR',
-      help:
-        'Everything saves automatically.<br /><strong>Right click</strong> to open this window',
+      help: 'Everything saves automatically.<br /><strong>Right click</strong> to open this window',
     },
     setupMode: {
-      instructionsTitle:
-        '<strong>Right click anywhere this window to open settings!</strong>',
+      instructionsTitle: '<strong>Right click anywhere this window to open settings!</strong>',
       instructions:
         'This is NOT real data, this is just a mock so you can place and setup this overlay the way you want. Go hit a dummy or engage in real combat to get real data here. <br />Also, please resize this window to something like the width of the settings window.',
     },
@@ -103,20 +100,17 @@ const locale = {
       localeOption4Value: 'zhHK',
       localeOption5: 'Francês',
       localeOption5Value: 'frFR',
-      help:
-        'Tudo salva automaticamente.<br /><strong>Botão direito</strong> abre essa janela.',
+      help: 'Tudo salva automaticamente.<br /><strong>Botão direito</strong> abre essa janela.',
     },
     setupMode: {
-      instructionsTitle:
-        '<strong>Botão direito por aqui para abrir as configurações!</strong>',
+      instructionsTitle: '<strong>Botão direito por aqui para abrir as configurações!</strong>',
       instructions:
         'O que é mostrado no modo de configuração não são dados reais, serve apenas para que você configure e posicione esse overlay como quiser antes de ir para o combate real. Se quiser dados reais, inicie um combate, seja real ou num Dummy. <br />Aproveite para também redimensionar essa janela pra algo mais largo que alto, como a janela de configurações.',
     },
   },
   zhCN: {
     initial: {
-      help:
-        '在此处右击打开设置菜单。请确认插件设置中“鼠标穿透(Enable clickthru)”已关闭。',
+      help: '在此处右击打开设置菜单。请确认插件设置中“鼠标穿透(Enable clickthru)”已关闭。',
     },
     config: {
       setupTitle: '配置模式',
@@ -160,20 +154,17 @@ const locale = {
       localeOption4Value: 'zhHK',
       localeOption5: 'Français',
       localeOption5Value: 'frFR',
-      help:
-        '所有内容都将自动保存。<br /><strong>右击模板界面</strong>打开本窗口。',
+      help: '所有内容都将自动保存。<br /><strong>右击模板界面</strong>打开本窗口。',
     },
     setupMode: {
-      instructionsTitle:
-        '<strong>在本窗口的任意位置右击打开配置菜单！</strong>',
+      instructionsTitle: '<strong>在本窗口的任意位置右击打开配置菜单！</strong>',
       instructions:
         '这不是真正的统计数据，只是一个让你在配置模版显示内容时参考的样例。打木桩或者进入真正的战斗才能把真实数据显示在这里。<br />另外，请将这个窗口的尺寸调整到和设置窗口差不多大小方便使用。',
     },
   },
   zhHK: {
     initial: {
-      help:
-        '在此處右擊打開設置菜單。請確認外掛程式設置中“滑鼠穿透(Enable clickthru)”已關閉。',
+      help: '在此處右擊打開設置菜單。請確認外掛程式設置中“滑鼠穿透(Enable clickthru)”已關閉。',
     },
     config: {
       setupTitle: '配置模式',
@@ -217,12 +208,10 @@ const locale = {
       localeOption4Value: 'zhHK',
       localeOption5: 'Français',
       localeOption5Value: 'frFR',
-      help:
-        '所有內容都將自動保存。<br /><strong>右擊範本介面</strong>打開本視窗。',
+      help: '所有內容都將自動保存。<br /><strong>右擊範本介面</strong>打開本視窗。',
     },
     setupMode: {
-      instructionsTitle:
-        '<strong>在本視窗的任意位置右擊打開配置功能表！</strong>',
+      instructionsTitle: '<strong>在本視窗的任意位置右擊打開配置功能表！</strong>',
       instructions:
         '這不是真正的統計資料，只是一個讓你在配置模版顯示內容時參考的樣例。打木樁或者進入真正的戰鬥才能把真實資料顯示在這裡。<br />另外，請將這個視窗的尺寸調整到和設置視窗差不多大小方便使用。',
     },
@@ -284,5 +273,6 @@ const locale = {
         "Il ne s'agit PAS de vraies données, mais d'une simulation qui vous permet de placer et de configurer l'overlay comme vous le souhaitez. Allez frapper un mannequin ou engagez un combat réel pour obtenir de vraies données ici. <br />Veuillez également redimensionner cette fenêtre pour qu 'elle corresponde à la largeur de la fenêtre des paramètres.",
     },
   },
-}
-export default locale
+};
+
+export default locale;
