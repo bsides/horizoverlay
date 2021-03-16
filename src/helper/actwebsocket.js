@@ -64,7 +64,7 @@ class ActWebsocketInterface {
       this.setId(overlayWindowId);
     } else {
       const r = new RegExp(
-        '[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}',
+        '[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}'
       );
       const id = r.exec(navigator.userAgent);
       if (id !== null && id.length === 1) {
@@ -216,7 +216,7 @@ export default function initActWebSocket() {
         () => {
           webs.close();
         },
-        false,
+        false
       );
     }
   }
