@@ -28,7 +28,12 @@ function SetupModeRaw(props) {
           {mockData.map((mock, index) => {
             if (index >= maxCombatants) return false
             let maxhit
-            if (mock.maxhit) maxhit = mock.maxhit.replace('-', ': ')
+            if (mock.maxhit) {
+              let originalMaxHit = mock.maxhit
+              let pos = originalMaxHit.lastIndexOf('-')
+              maxhit = `${originalMaxHit.substring(0, pos)}: ${originalMaxHit.substring(pos + 1)}`
+            }
+
             return (
               mock.name.toLowerCase() !== 'limit break' && (
                 <div
