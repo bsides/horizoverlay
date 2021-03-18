@@ -48,7 +48,7 @@ class Combatants extends Component {
         />
       )
     }
-    return <div className="combatants">{rows}</div>
+    return <div className={`combatants ${this.props.config.reverseOrder ? 'combatants-reversed' : ''}`}>{rows}</div>
   }
 }
 
