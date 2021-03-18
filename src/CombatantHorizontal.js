@@ -82,12 +82,7 @@ export default class CombatantHorizontal extends Component {
     let maxhit
     if (data.maxhit) {
       let originalMaxHit = data.maxhit
-      // get position of last hyphen
       let pos = originalMaxHit.lastIndexOf('-')
-      // .replace() replaces only the first occurrence
-      // we want to replace the last one
-      // since that is the delimiter between skill name and value
-      // get first part of string until the last hyphen, concat it with a colon and add the remaining part  
       maxhit = `${originalMaxHit.substring(0, pos)}: ${originalMaxHit.substring(pos + 1)}`
     }
 
