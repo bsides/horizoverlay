@@ -42,7 +42,7 @@ function SetupModeRaw(props) {
                     {props.config.showRank ? (
                       <span className="rank">{`${mock.rank}. `}</span>
                     ) : null}
-                    <span className="character-name">
+                    <span className={`character-name ${ !mock.isSelf && props.config.enableStreamerMode ? 'streamer-mode' : '' }`}>
                       {mock.isSelf && props.config.showSelf
                         ? props.config.characterName
                         : mock.name}

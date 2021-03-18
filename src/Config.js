@@ -122,6 +122,12 @@ class ConfigRaw extends Component {
         id: 'reverseOrder',
         defaultChecked: config.reverseOrder,
         label: loc.toggleOption14
+      },
+      {
+        name: 'enableStreamerMode',
+        id: 'enableStreamerMode',
+        defaultChecked: config.enableStreamerMode,
+        label: loc.toggleOption13
       }
     ]
 

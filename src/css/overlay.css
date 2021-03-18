@@ -196,3 +196,8 @@
   margin-left: -0.8em;
   text-align: center;
 }
+/*  blur effect */
+.streamer-mode {
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
