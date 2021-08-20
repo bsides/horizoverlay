@@ -147,8 +147,7 @@ export function withHelper({
         this.colorPickerWindow = null
         const config = { ...JSON.parse(localStorage.getItem('horizoverlay')) }
 
-        // ...and set it to component' state
-        this.setState({ ['color' + roleName]: config['color' + roleName] })
+        this.setState({ config })
       }
     }
     render = () => {

@@ -10,7 +10,7 @@ class ConfigRaw extends Component {
   handleConfig = (e) => {
     const target = e.target
     if (target.type === 'text') e.preventDefault()
-    const config = { ...this.state.config }
+    const config = JSON.parse(localStorage.getItem('horizoverlay'));
     let key = target.name,
       value = target.value
 

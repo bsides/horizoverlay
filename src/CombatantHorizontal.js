@@ -79,14 +79,24 @@ export default class CombatantHorizontal extends Component {
 
     const isHealing = data.ENCHPS > data.ENCDPS
 
+    // All we need from the saved colors is the numbers, not the rgb() portion
+    let colorTank = props.config['colorTank'];
+    colorTank = colorTank.substr(4, colorTank.length-5);
+    let colorHealer = props.config['colorHealer'];
+    colorHealer = colorHealer.substr(4, colorHealer.length-5);
+    let colorDPS = props.config['colorDPS'];
+    colorDPS = colorDPS.substr(4, colorDPS.length-5);
+
     let maxhit
     if (data.maxhit) maxhit = data.maxhit.replace('-', ': ')
     return (
       <div
-        className={`row ${data.Job}${jobStyleClass}${
+        className={`row job-style-variables ${data.Job}${jobStyleClass}${
           isSelf && config.showSelf ? ' self' : ''
         }`}
-        style={{ order }}
+
+        // Setting the CSS style variables here will overwrite whatever is in the .css file
+        style={{ order: order, '--tank': colorTank, '--dps': colorDPS, '--healer': colorHealer }}
       >
         <div className="name">
           {config.showRank ? (

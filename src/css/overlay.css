@@ -12,57 +12,64 @@
   margin: 0 6px;
   max-width: 140px;
 }
+
+/* This is needed to initialize the variables for role colors */
+.job-style-variables {
+  --dps: 244, 67, 54;
+  --tank: 33, 150, 243;
+  --healer: 139, 195, 74;
+}
 .row.self.job-dps .data-items:before,
 .row.self.job-tank .data-items:before,
 .row.self.job-healer .data-items:before {
   background: rgba(255, 255, 255, 0.8);
 }
 .row.job-dps .data-items:before {
-  background: rgba(244, 67, 54, 0.5);
+  background: rgba(var(--dps), 0.5);
 }
 .row.job-dps .data-items.highlight:before {
   background-image: linear-gradient(
     to left,
-    rgba(244, 67, 54, 0.5) 0%,
-    rgba(244, 67, 54, 0.5) 51%,
-    rgba(244, 67, 54, 0.1) 51%,
-    rgba(244, 67, 54, 0.1) 100%
+    rgba(var(--dps), 0.5) 0%,
+    rgba(var(--dps), 0.5) 51%,
+    rgba(var(--dps), 0.1) 51%,
+    rgba(var(--dps), 0.1) 100%
   );
   background-repeat: no-repeat;
 }
 .row.job-tank .data-items:before {
-  background: rgba(32, 149, 243, 0.5);
+  background: rgba(var(--tank), 0.5);
 }
 .row.job-tank .data-items.highlight:before {
   background-image: linear-gradient(
     to left,
-    rgba(32, 149, 243, 0.5) 0%,
-    rgba(32, 149, 243, 0.5) 51%,
-    rgba(32, 149, 243, 0.1) 51%,
-    rgba(32, 149, 243, 0.1) 100%
+    rgba(var(--tank), 0.5) 0%,
+    rgba(var(--tank), 0.5) 51%,
+    rgba(var(--tank), 0.1) 51%,
+    rgba(var(--tank), 0.1) 100%
   );
   background-repeat: no-repeat;
 }
 .row.job-healer .data-items:before {
-  background: rgba(139, 195, 74, 0.5);
+  background: rgba(var(--healer), 0.5);
 }
 .row.job-healer .data-items.highlight:before {
   background-image: linear-gradient(
     to left,
-    rgba(139, 195, 74, 0.5) 0%,
-    rgba(139, 195, 74, 0.5) 51%,
-    rgba(139, 195, 74, 0.1) 51%,
-    rgba(139, 195, 74, 0.1) 100%
+    rgba(var(--healer), 0.5) 0%,
+    rgba(var(--healer), 0.5) 51%,
+    rgba(var(--healer), 0.1) 51%,
+    rgba(var(--healer), 0.1) 100%
   );
   background-repeat: no-repeat;
 }
 .row.job-healer .data-items.highlight.inverse:before {
   background-image: linear-gradient(
     to left,
-    rgba(139, 195, 74, 0.1) 0%,
-    rgba(139, 195, 74, 0.1) 51%,
-    rgba(139, 195, 74, 0.5) 51%,
-    rgba(139, 195, 74, 0.5) 100%
+    rgba(var(--healer), 0.1) 0%,
+    rgba(var(--healer), 0.1) 51%,
+    rgba(var(--healer), 0.5) 51%,
+    rgba(var(--healer), 0.5) 100%
   );
   background-repeat: no-repeat;
 }
@@ -72,38 +79,38 @@
   background: rgba(255, 255, 255, 0.8);
 }
 .row.job-dps .damage-percent-bg {
-  background: rgba(244, 67, 54, 0.3);
+  background: rgba(var(--dps), 0.3);
 }
 .row.job-tank .damage-percent-bg {
-  background: rgba(33, 150, 243, 0.3);
+  background: rgba(var(--tank), 0.3);
 }
 .row.job-healer .damage-percent-bg {
-  background: rgba(139, 195, 74, 0.3);
+  background: rgba(var(--healer), 0.3);
 }
 .row.self .damage-percent-bg {
   background: rgba(255, 255, 255, 0.5);
 }
 .row.job-dps .damage-percent-fg {
-  background: rgba(244, 67, 54, 0.7);
+  background: rgba(var(--dps), 0.7);
 }
 .row.job-tank .damage-percent-fg {
-  background: rgba(33, 150, 243, 0.7);
+  background: rgba(var(--tank), 0.7);
 }
 .row.job-healer .damage-percent-fg {
-  background: rgba(139, 195, 74, 0.7);
+  background: rgba(var(--healer), 0.7);
 }
 .row.self .damage-percent-fg {
   background: rgba(255, 255, 255, 1);
 }
 /*
 .row.job-dps .dps.irrelevant {
-  background: rgba(244, 67, 54, 0.1);
+  background: rgba(var(--dps), 0.1);
 }
 .row.job-tank .dps.irrelevant {
-  background: rgba(33, 150, 243, 0.1);
+  background: rgba(var(--tank), 0.1);
 }
 .row.job-healer .dps.irrelevant {
-  background: rgba(139, 195, 74, 0.1);
+  background: rgba(var(--healer), 0.1);
 }
 .row.self div.dps.irrelevant {
   background: rgba(255, 255, 255, 0.5);
