@@ -6,6 +6,7 @@ import './css/config.css'
 
 class ConfigRaw extends Component {
   state = { ...this.props }
+  selectedRole = ''
   handleConfig = (e) => {
     const target = e.target
     if (target.type === 'text') e.preventDefault()
@@ -37,6 +38,10 @@ class ConfigRaw extends Component {
 
     // well that's horrible
     window.location.reload()
+  }
+  spawnColorPicker = (roleName, e) => {
+    e.preventDefault()
+    this.props.openColorPicker(roleName)
   }
   // *** IMPORTANT ***
   // Gotta bind 'onChange' for checkboxes since false values don't bubble to 'onChange'!
@@ -111,6 +116,16 @@ class ConfigRaw extends Component {
                 {/* Black & White */}
                 {loc.themeOption2}
               </label>
+              <br />
+              {config.color === 'byRole' &&
+                <div>
+                  <button className="color-btn" onClick={(e) => this.spawnColorPicker('Tank', e)}>Set Tank Color</button>
+                  <br />
+                  <button className="color-btn" onClick={(e) => this.spawnColorPicker('DPS', e)}>Set DPS Color</button>
+                  <br />
+                  <button className="color-btn" onClick={(e) => this.spawnColorPicker('Healer', e)}>Set Healer Color</button>
+                </div>
+              }
             </div>
           </fieldset>
           <fieldset className="fieldsToShow">

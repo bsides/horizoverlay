@@ -25,16 +25,21 @@ export const defaultConfig = {
     width: 1300,
     height: 239
   },
-  colorHealer: 'rgba(139, 195, 74, 0.3)',
-  colorTank: 'rgba(33, 150, 243, 0.3)',
-  colorDps: 'rgba(244, 67, 54, 0.3)'
+  colorPicker: {
+    width: 525,
+    height: 350
+  },
+  colorHealer: 'rgb(139, 195, 74)',
+  colorTank: 'rgb(33, 150, 243)',
+  colorDPS: 'rgb(244, 67, 54)'
 }
 
 // Declaring as a function makes it hoisted and don't mess with constructor from React.Component
 export function withHelper({
   WrappedComponent,
   willMock = false,
-  isConfig = false
+  isConfig = false,
+  isColorPicker = false
 }) {
   return class withConfig extends Component {
     static defaultProps = {
@@ -54,7 +59,10 @@ export function withHelper({
         showDamagePercent: bool.isRequired,
 		showJobless: bool.isRequired,
         zoom: string.isRequired,
-        configWindow: object.isRequired
+        configWindow: object.isRequired,
+        colorHealer: string.isRequired,
+        colorTank: string.isRequired,
+        colorDPS: string.isRequired
       })
     }
     state = { ...this.props }
@@ -123,6 +131,26 @@ export function withHelper({
         this.configWindow = null
       }
     }
+    openColorPicker = (roleName) => {
+      this.setState({ isColorPickerOpen: true })
+      const windowFeatures = `menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=${
+        this.props.config.colorPicker.width
+      },height=${this.props.config.colorPicker.height}`
+      this.colorPickerWindow = window.open(
+        './#/colorpicker/' + roleName,
+        'Color Picker',
+        windowFeatures
+      )
+      this.colorPickerWindow.focus()
+      this.colorPickerWindow.onunload = () => {
+        this.setState({ isColorPickerOpen: false })
+        this.colorPickerWindow = null
+        const config = { ...JSON.parse(localStorage.getItem('horizoverlay')) }
+
+        // ...and set it to component' state
+        this.setState({ ['color' + roleName]: config['color' + roleName] })
+      }
+    }
     render = () => {
       const { Combatant, Encounter, isActive } = this.props
       return (
@@ -132,6 +160,7 @@ export function withHelper({
           Encounter={Encounter}
           isActive={isActive}
           openConfig={this.openConfig}
+          openColorPicker={this.openColorPicker}
           handleReset={this.updateState}
         />
       )
