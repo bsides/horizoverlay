@@ -80,11 +80,11 @@ export default class CombatantHorizontal extends Component {
     const isHealing = data.ENCHPS > data.ENCDPS
 
     // All we need from the saved colors is the numbers, not the rgb() portion
-    let colorTank = props.config['colorTank'];
+    let colorTank = this.props.config['colorTank'];
     colorTank = colorTank.substr(4, colorTank.length-5);
-    let colorHealer = props.config['colorHealer'];
+    let colorHealer = this.props.config['colorHealer'];
     colorHealer = colorHealer.substr(4, colorHealer.length-5);
-    let colorDPS = props.config['colorDPS'];
+    let colorDPS = this.props.config['colorDPS'];
     colorDPS = colorDPS.substr(4, colorDPS.length-5);
 
     let maxhit
