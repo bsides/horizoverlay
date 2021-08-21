@@ -9,6 +9,8 @@ const ColorPickerRaw = (props) => {
   let state = { ...props }
   const role = state.match.params.role;
   let roleColor = props.config['color' + role];
+
+  // This is needed for react-colorful's binding to work
   const [color, setColor] = React.useState(roleColor);
 
   window.addEventListener('beforeunload', (event) => {
@@ -17,11 +19,11 @@ const ColorPickerRaw = (props) => {
   });
 
   return (
-    <div style={{padding: 20}}>
-      <RgbStringColorPicker color={ color } onChange={ setColor } />
+    <div>
+      <h1 style={{color: 'black', marginLeft: 20}}>{role} Color</h1>
       <hr></hr>
-      <div style={{color: 'black'}}>Config color: { props.config['color' + role] }</div>
-      <div style={{color: 'black'}}>WIP color: { color }</div>
+      <RgbStringColorPicker style={{marginLeft: 20}} color={ color } onChange={ setColor } />
+      <hr></hr>
     </div>
   )
 }

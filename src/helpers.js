@@ -26,8 +26,8 @@ export const defaultConfig = {
     height: 239
   },
   colorPicker: {
-    width: 525,
-    height: 350
+    width: 250,
+    height: 300
   },
   colorHealer: 'rgb(139, 195, 74)',
   colorTank: 'rgb(33, 150, 243)',
@@ -142,6 +142,8 @@ export function withHelper({
         windowFeatures
       )
       this.colorPickerWindow.focus()
+
+      // State wasn't getting set in the color picker window, so it gets set here instead
       this.colorPickerWindow.onunload = () => {
         this.setState({ isColorPickerOpen: false })
         this.colorPickerWindow = null
