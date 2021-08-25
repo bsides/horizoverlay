@@ -25,6 +25,8 @@ class ConfigRaw extends Component {
 
     // And then save it to localStorage!
     localStorage.setItem('horizoverlay', JSON.stringify(config))
+
+    console.log(config);
   }
   resetConfig = (e) => {
     e.preventDefault()
@@ -261,6 +263,17 @@ class ConfigRaw extends Component {
             <label htmlFor="enableStreamerMode">
               {/* Enbale Streamer Mode (blur names) */}
               {loc.toggleOption13}
+            </label>
+            <input
+              type="checkbox"
+              name="enableSoloMode"
+              id="enableSoloMode"
+              defaultChecked={config.enableSoloMode}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="enableSoloMode">
+              {/* Enable Solo Mode (Only show own DPS) */}
+              {loc.toggleOption14}
             </label>
             <div className="combatants">
               <label htmlFor="maxCombatants">

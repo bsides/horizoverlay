@@ -27,6 +27,7 @@ function SetupModeRaw(props) {
         <div className="combatants">
           {mockData.map((mock, index) => {
             if (index >= maxCombatants) return false
+            if (!mock.isSelf && props.config.enableSoloMode) return false
             let maxhit
             if (mock.maxhit) maxhit = mock.maxhit.replace('-', ': ')
             return (

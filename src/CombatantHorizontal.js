@@ -36,6 +36,8 @@ export default class CombatantHorizontal extends Component {
     // don't need to render this component if this is a limit break
     if (!data.Job && name === 'limit break') return null
 
+    if (!isSelf && config.enableSoloMode) return null
+
     // Color theme byRole
     if (config.color === 'byRole') {
       for (const role in jobRoles) {
