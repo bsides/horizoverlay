@@ -113,10 +113,17 @@ class Encounter extends Component {
             {this.props.duration}
           </div>
           <div
-            className={`encounter-discord`}
+            className={`encounter-discord${config.showDiscord ? '' : ' hide'}`}
+          >
+            <button type="button" onClick={this.sendToDiscord}>
+              Send to Discord
+            </button>
+          </div>
+          <div
+            className={`vee-defaults-for-obs`}
           >
             <button type="button" onClick={this.resetConfig}>
-              V
+             ☆
             </button>
           </div>
         </div>
