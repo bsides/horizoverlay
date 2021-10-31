@@ -12,4 +12,4 @@ From kzVee:
 From Ladish:
 * Fixes a bug in the combatant filter.
 
-Use the URL https://javajake.github.io/horizoverlay/ to use this overlay.
+Use the URL https://kzvee.github.io/horizoverlay/ to use this overlay.
