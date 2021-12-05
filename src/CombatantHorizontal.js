@@ -71,7 +71,12 @@ export default class CombatantHorizontal extends Component {
       } else {
         jobIcon += data.Job.toLowerCase()
       }
-      jobIcon = images(`${jobIcon}.png`)
+      try {
+        jobIcon = images(`${jobIcon}.png`)
+      } catch (e) {
+        console.error(e)
+        jobIcon = images('./empty.png')
+      }
     }
 
     // Character name (self, instead of 'YOU')
