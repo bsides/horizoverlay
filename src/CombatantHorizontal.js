@@ -71,7 +71,12 @@ export default class CombatantHorizontal extends Component {
       } else {
         jobIcon += data.Job.toLowerCase()
       }
-      jobIcon = images(`${jobIcon}.png`)
+      try {
+        jobIcon = images(`${jobIcon}.png`)
+      } catch (e) {
+        console.error(e)
+        jobIcon = images('./empty.png')
+      }
     }
 
     // Character name (self, instead of 'YOU')
@@ -94,7 +99,7 @@ export default class CombatantHorizontal extends Component {
           ) : (
             ''
           )}
-          <span className="character-name">{characterName}</span>
+          <span className={`character-name ${ !isSelf && config.enableStreamerMode ? 'streamer-mode' : '' }`}>{characterName}</span>
         </div>
         <div
           className={`data-items${config.showHighlight ? ' highlight' : ''}${

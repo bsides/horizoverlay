@@ -25,6 +25,7 @@ const locale = {
       toggleOption11: 'Max Hit',
       toggleOption12: 'Show "jobless" Combatants',
       toggleOption13: 'Combine Pets',
+      toggleOption14: 'Enable streamer mode (blur all names)',
       maxCombatantsTitle: 'Max Combatants',
       zoomTitle: 'Zoom Scale',
       zoomOption1: '80%',
