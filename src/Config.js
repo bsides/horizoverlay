@@ -284,7 +284,7 @@ class ConfigRaw extends Component {
             />
             <label htmlFor="enableStreamerMode">
               {/* Enbale Streamer Mode (blur names) */}
-              {loc.toggleOption14}
+              {loc.toggleOption15}
             </label>
             <div className="combatants">
               <label htmlFor="maxCombatants">
