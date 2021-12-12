@@ -62,7 +62,8 @@ class Encounter extends Component {
     window.localStorage.clear()
 
     // send to the wrapper component
-    this.props.handleReset(e)
+    // kzVee bug: handleReset not defined at this point
+    // this.props.handleReset(e)
 
     // well that's horrible
     window.location.reload()
