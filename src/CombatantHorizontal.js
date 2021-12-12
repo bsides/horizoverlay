@@ -47,6 +47,7 @@ export default class CombatantHorizontal extends Component {
           }
         }
       }
+    // Color theme byJob
     } else if (config.color === 'byJob') {
         for (const role in jobRoles) {
           if (jobRoles[role].indexOf(data.Job.toLowerCase()) >= 0)

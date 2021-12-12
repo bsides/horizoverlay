@@ -75,6 +75,40 @@
   height: 100%;
   z-index: 0;
 }
+.encounter .skewer .vee-defaults-for-obs {
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  margin: 2px 0;
+}
+.vee-defaults-for-obs button {
+  color: white;
+  border: 0;
+  background: transparent;
+  padding: 0 8px 0 12px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+}
+.vee-defaults-for-obs:before {
+  background: rgba(255, 255, 255, 0.2);
+  transform: skew(-30deg);
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+span.character-name,
+span.damage-stats,
+span.damage-dh,
+span.damage-crit,
+span.damage-dcrit{
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
 
 /*
 .limit-break-text {

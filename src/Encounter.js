@@ -55,6 +55,18 @@ class Encounter extends Component {
       })
     })
   }
+  resetConfig = (e) => {
+    e.preventDefault()
+
+    // Clear any setup
+    window.localStorage.clear()
+
+    // send to the wrapper component
+    this.props.handleReset(e)
+
+    // well that's horrible
+    window.location.reload()
+  }
   render() {
     const { config } = this.props
     let dps =
@@ -105,6 +117,13 @@ class Encounter extends Component {
           >
             <button type="button" onClick={this.sendToDiscord}>
               Send to Discord
+            </button>
+          </div>
+          <div
+            className={`vee-defaults-for-obs`}
+          >
+            <button type="button" onClick={this.resetConfig}>
+             ☆
             </button>
           </div>
         </div>
