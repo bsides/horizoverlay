@@ -779,6 +779,6 @@
 }
 /*  blur effect */
 .streamer-mode {
-  color: transparent;
-  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  color: black;
+  filter: blur(0.4rem);
 }
