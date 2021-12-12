@@ -36,13 +36,14 @@
   margin: 0 6px;
   max-width: 140px;
 }
-
+/*
 .row.self div.data-items:before,
 .byRole .row.self .data-items:before {
   background: rgba(255, 255, 255, 0.8);
 }
+*/
 .row.self .dps {
-  text-shadow: none;
+  text-shadow: 0 0 8px #000;;
 }
 .default .row .dps {
   background: rgba(0, 0, 0, 0.3);
@@ -52,4 +53,32 @@
 .row > div {
   margin: 0px auto;
   padding: 0 0 1px;
+}
+
+.row .damage-percent {
+  display: table;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  top: -2px;
+  right: 10px;
+}
+
+.row .damage-percent>* {
+  display: table-cell;
+  width: 10%;
+  text-align: center;
+}
+
+.damage-dh{ 
+  column-span: 3;
+}
+.damage-crit{ 
+  column-span: 3;
+}
+.damage-dcrit{ 
+  column-span: 3;
+}
+.damage-deaths{ 
+  column-span: 1;
 }

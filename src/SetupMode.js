@@ -33,7 +33,7 @@ function SetupModeRaw(props) {
               mock.name.toLowerCase() !== 'limit break' && (
                 <div
                   className={`row${mock.isSelf ? ' self' : ''} ${
-                    props.config.color === 'byRole' ? mock.jobRole : ''
+                    props.config.color === 'byRole' ? mock.jobRole : props.config.color === 'byJob' ? 'byJob' : ''
                   } ${mock.jobClass} `}
                   style={{ order: mock.rank }}
                   key={mock.rank}
@@ -51,7 +51,7 @@ function SetupModeRaw(props) {
                   <div
                     className={`data-items${
                       props.config.showHighlight ? ' highlight' : ''
-                    }${mock.isHealing ? ' inverse' : ''}`}
+                    }${props.config.showHighlightSelf ? ' highlightSelf' : ''}${mock.isHealing ? ' inverse' : ''}`}
                   >
                     {props.config.showJobIcon ? (
                       <img
@@ -92,10 +92,15 @@ function SetupModeRaw(props) {
                       <div className="damage-percent-bg">
                         <div
                           className="damage-percent-fg"
-                          style={{ width: `${mock.damagePct}px` }}
+                          style={{ width: `100%` }}
                         />
                       </div>
-                      <div className="damage-percent">{mock.damagePct}%</div>
+                      <div className="damage-percent">
+                        <span className="damage-dh">^: {mock.dh}</span>
+                        <span className="damage-crit">!: {mock.crit}</span>
+                        <span className="damage-dcrit">!!: {mock.dcrit}</span>
+                        <span className="damage-deaths">{mock.deaths}</span>
+                      </div>
                     </div>
                   ) : null}
                   <div className="maxhit">

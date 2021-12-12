@@ -102,6 +102,19 @@ class ConfigRaw extends Component {
               <input
                 type="radio"
                 name="color"
+                id="colorByJob"
+                value="byJob"
+                checked={config.color === 'byJob'}
+                onChange={this.handleConfig}
+              />
+              <label htmlFor="colorByJob">
+                {/* Color By Job */}
+                {loc.themeOption3}
+              </label>
+              <br />
+              <input
+                type="radio"
+                name="color"
                 id="colorBlackWhite"
                 value="blackWhite"
                 checked={config.color === 'blackWhite'}
@@ -159,19 +172,19 @@ class ConfigRaw extends Component {
               onChange={this.handleConfig}
             />
             <label htmlFor="showHighlight">
-              {/* Highlight */}
+              {/* Highlight DPS */}
               {loc.toggleOption4}
             </label>
             <input
               type="checkbox"
-              name="showSelf"
-              id="showSelf"
-              defaultChecked={config.showSelf}
+              name="showHighlightSelf"
+              id="showHighlightSelf"
+              defaultChecked={config.showHighlightSelf}
               onChange={this.handleConfig}
             />
-            <label htmlFor="showSelf">
-              {/* Self */}
-              {loc.toggleOption5}
+            <label htmlFor="showHighlightSelf">
+              {/* Highlight Self */}
+              {loc.toggleOption13}
             </label>
             <input
               type="checkbox"
@@ -181,7 +194,7 @@ class ConfigRaw extends Component {
               onChange={this.handleConfig}
             />
             <label htmlFor="showMaxhit">
-              {/* Self */}
+              {/* MaxHit */}
               {loc.toggleOption11}
             </label>
             <br />
@@ -215,7 +228,7 @@ class ConfigRaw extends Component {
               onChange={this.handleConfig}
             />
             <label htmlFor="showDamagePercent">
-              {/* Damage % */}
+              {/* Rates */}
               {loc.toggleOption8}
             </label>
             <input
@@ -252,6 +265,17 @@ class ConfigRaw extends Component {
               {loc.toggleOption10}
             </label>
             <input
+                type="checkbox"
+                name="combinePets"
+                id="combinePets"
+                defaultChecked={config.combinePets}
+                onChange={this.handleConfig}
+            />
+            <label htmlFor="combinePets">
+              {/* Combine Pets */}
+              {loc.toggleOption14}
+            </label>
+            <input
               type="checkbox"
               name="enableStreamerMode"
               id="enableStreamerMode"
@@ -275,17 +299,6 @@ class ConfigRaw extends Component {
                 onChange={this.handleConfig}
               />
             </div>
-            <input
-                type="checkbox"
-                name="combinePets"
-                id="combinePets"
-                defaultChecked={config.combinePets}
-                onChange={this.handleConfig}
-            />
-            <label htmlFor="combinePets">
-              {/* Combine Pets */}
-              {loc.toggleOption13}
-            </label>
           </fieldset>
           <fieldset className="fieldsZoom">
             <legend>
