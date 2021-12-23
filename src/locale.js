@@ -84,7 +84,7 @@ const locale = {
       toggleOption11: 'Max Hit',
       toggleOption12: 'Show "jobless" Combatants',
       toggleOption13: 'Enable streamer mode (blur all names)',
-      toggleOption14: 'Mostre apenas o seu DPS',
+      toggleOption14: 'Mostrar apenas o seu DPS',
       maxCombatantsTitle: 'Máx. Personagens',
       zoomTitle: 'Escala de Zoom',
       zoomOption1: '80%',

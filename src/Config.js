@@ -25,8 +25,6 @@ class ConfigRaw extends Component {
 
     // And then save it to localStorage!
     localStorage.setItem('horizoverlay', JSON.stringify(config))
-
-    console.log(config);
   }
   resetConfig = (e) => {
     e.preventDefault()
