@@ -174,3 +174,7 @@ legend {
   width: 3em;
   height: 2em;
 }
+.color-btn {
+  width: 9rem;
+  margin-bottom: .25rem;
+}

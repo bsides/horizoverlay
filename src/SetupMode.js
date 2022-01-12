@@ -13,6 +13,15 @@ function SetupModeRaw(props) {
   const colorClass = props.config.color
   const isVisible = props.config.showSetup ? 'show' : 'hide'
   const loc = locale[props.config.locale]
+
+  // All we need from the saved colors is the numbers, not the rgb() portion
+  let colorTank = props.config['colorTank'];
+  colorTank = colorTank.substr(4, colorTank.length-5);
+  let colorHealer = props.config['colorHealer'];
+  colorHealer = colorHealer.substr(4, colorHealer.length-5);
+  let colorDPS = props.config['colorDPS'];
+  colorDPS = colorDPS.substr(4, colorDPS.length-5);
+  
   return (
     <div
       className={`setupMode ${colorClass}${
@@ -35,8 +44,10 @@ function SetupModeRaw(props) {
                 <div
                   className={`row${mock.isSelf ? ' self' : ''} ${
                     props.config.color === 'byRole' ? mock.jobRole : ''
-                  } ${mock.jobClass} `}
-                  style={{ order: mock.rank }}
+                  } ${mock.jobClass} job-style-variables`}
+
+                  // Setting the CSS style variables here will overwrite whatever is in the .css file
+                  style={{ order: mock.rank, '--tank': colorTank, '--dps': colorDPS, '--healer': colorHealer }}
                   key={mock.rank}
                 >
                   <div className="name">
