@@ -17,6 +17,7 @@ export const defaultConfig = {
   showDiscord: false,
   showLocale: false,
   showJobless: false,
+  enableSoloMode: false,
   zoom: '1',
   discord: '',
   maxCombatants: 8,

@@ -262,6 +262,17 @@ class ConfigRaw extends Component {
               {/* Enbale Streamer Mode (blur names) */}
               {loc.toggleOption13}
             </label>
+            <input
+              type="checkbox"
+              name="enableSoloMode"
+              id="enableSoloMode"
+              defaultChecked={config.enableSoloMode}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="enableSoloMode">
+              {/* Enable Solo Mode (Only show own DPS) */}
+              {loc.toggleOption14}
+            </label>
             <div className="combatants">
               <label htmlFor="maxCombatants">
                 {/* # Combatants */}
