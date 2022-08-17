@@ -1,18 +1,16 @@
 {
   "files": {
-    "main.css": "/horizoverlay/static/css/main.02e8aebb.chunk.css",
-    "main.js": "/horizoverlay/static/js/main.7ac3c1bd.chunk.js",
-    "main.js.map": "/horizoverlay/static/js/main.7ac3c1bd.chunk.js.map",
-    "runtime~main.js": "/horizoverlay/static/js/runtime~main.5766f4f7.js",
-    "runtime~main.js.map": "/horizoverlay/static/js/runtime~main.5766f4f7.js.map",
-    "static/js/2.b7868ab6.chunk.js": "/horizoverlay/static/js/2.b7868ab6.chunk.js",
-    "static/js/2.b7868ab6.chunk.js.map": "/horizoverlay/static/js/2.b7868ab6.chunk.js.map",
+    "main.css": "/horizoverlay/static/css/main.731a38cc.css",
+    "main.js": "/horizoverlay/static/js/main.e0c077b8.js",
+    "static/media/mog.png": "/horizoverlay/static/media/mog.ac9775c8097840fbe8a5.png",
+    "static/media/rpr.png": "/horizoverlay/static/media/rpr.f4c8904d6ae85cf44081.png",
+    "static/media/sge.png": "/horizoverlay/static/media/sge.ed6d4372da983cc483a6.png",
     "index.html": "/horizoverlay/index.html",
-    "precache-manifest.af957a61ea999f0962ec30e74cb459ab.js": "/horizoverlay/precache-manifest.af957a61ea999f0962ec30e74cb459ab.js",
-    "service-worker.js": "/horizoverlay/service-worker.js",
-    "static/css/main.02e8aebb.chunk.css.map": "/horizoverlay/static/css/main.02e8aebb.chunk.css.map",
-    "static/media/mog.png": "/horizoverlay/static/media/mog.e1e18820.png",
-    "static/media/rpr.png": "/horizoverlay/static/media/rpr.fda2c25c.png",
-    "static/media/sge.png": "/horizoverlay/static/media/sge.750eccca.png"
-  }
+    "main.731a38cc.css.map": "/horizoverlay/static/css/main.731a38cc.css.map",
+    "main.e0c077b8.js.map": "/horizoverlay/static/js/main.e0c077b8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.731a38cc.css",
+    "static/js/main.e0c077b8.js"
+  ]
 }
