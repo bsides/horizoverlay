@@ -60,7 +60,7 @@ function Init() {
       <Router>
         <Routes>
           <Route path={`/`} element={<Overlay {...detail} />} />
-          <Route exact path={`/config`} component={Config} />
+          <Route exact path={`config`} element={<Config />} />
           <Route element={<NotFound text="Page Not Found!" />} />
         </Routes>
       </Router>
