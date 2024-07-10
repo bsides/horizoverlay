@@ -1,31 +1,33 @@
 import React, { Component } from 'react'
-import { bool, string, number, object, oneOfType } from 'prop-types'
+// import { bool, string, number, object, oneOfType } from 'prop-types'
 import { jobRoles, otherIcons } from './helpers'
-var images = require.context('./images', false, /\.png$/)
+const images = Object.values(
+  import.meta.glob('./images/*.png', { eager: true, as: 'url' })
+)
 
-DataWrapper.propTypes = {
-  text: oneOfType([string, number]).isRequired,
-  label: string,
-  relevant: oneOfType([bool, string, number]).isRequired
-}
-DataText.propTypes = {
-  type: string.isRequired,
-  show: bool,
-  data: object
-}
-DamageBar.propTypes = {
-  width: string,
-  show: bool.isRequired
-}
+// DataWrapper.propTypes = {
+//   text: oneOfType([string, number]).isRequired,
+//   label: string,
+//   relevant: oneOfType([bool, string, number]).isRequired,
+// }
+// DataText.propTypes = {
+//   type: string.isRequired,
+//   show: bool,
+//   data: object,
+// }
+// DamageBar.propTypes = {
+//   width: string,
+//   show: bool.isRequired,
+// }
 
 export default class CombatantHorizontal extends Component {
-  static propTypes = {
-    encounterDamage: oneOfType([string, number]).isRequired,
-    rank: number,
-    data: object.isRequired,
-    config: object.isRequired,
-    isSelf: bool.isRequired
-  }
+  // static propTypes = {
+  //   encounterDamage: oneOfType([string, number]).isRequired,
+  //   rank: number,
+  //   data: object.isRequired,
+  //   config: object.isRequired,
+  //   isSelf: bool.isRequired,
+  // }
   render() {
     const { config, data, isSelf } = this.props
     const order = this.props.rank
@@ -56,7 +58,7 @@ export default class CombatantHorizontal extends Component {
 
     // Damage Percent
     damageWidth = `${parseInt(
-      data.damage / this.props.encounterDamage * 100,
+      (data.damage / this.props.encounterDamage) * 100,
       10
     )}%`
 
@@ -102,7 +104,13 @@ export default class CombatantHorizontal extends Component {
           ) : (
             ''
           )}
-          <span className={`character-name ${ !isSelf && config.enableStreamerMode ? 'streamer-mode' : '' }`}>{characterName}</span>
+          <span
+            className={`character-name ${
+              !isSelf && config.enableStreamerMode ? 'streamer-mode' : ''
+            }`}
+          >
+            {characterName}
+          </span>
         </div>
         <div
           className={`data-items${config.showHighlight ? ' highlight' : ''}${

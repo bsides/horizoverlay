@@ -16,27 +16,23 @@
   },
   "homepage": "https://bsides.github.io/horizoverlay",
   "dependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
     "raven-js": "^3.24.0",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "^5.0.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.1",
+    "vite": "^5.3.3"
   },
   "devDependencies": {
     "gh-pages": "^4.0.0",
     "serve": "^14.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "now-start": "serve -s build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "now": "npm-run-all -s build now-deploy",
-    "now-deploy": "now build --public",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "start": "vite",
+    "build": "vite build",
+    "deploy": "gh-pages -d build",
+    "dev": "vite",
+    "serve": "vite preview"
   },
   "browserslist": {
     "production": [

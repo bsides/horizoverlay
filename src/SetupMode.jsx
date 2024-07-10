@@ -5,7 +5,9 @@ import locale from './locale'
 import './css/reboot.css'
 import './css/setupMode.css'
 
-var images = require.context('./images', false, /\.png$/)
+const images = Object.values(
+  import.meta.glob('./images/*.png', { eager: true, as: 'url' })
+)
 
 function SetupModeRaw(props) {
   const { mockData } = props
@@ -43,7 +45,13 @@ function SetupModeRaw(props) {
                     {props.config.showRank ? (
                       <span className="rank">{`${mock.rank}. `}</span>
                     ) : null}
-                    <span className={`character-name ${ !mock.isSelf && props.config.enableStreamerMode ? 'streamer-mode' : '' }`}>
+                    <span
+                      className={`character-name ${
+                        !mock.isSelf && props.config.enableStreamerMode
+                          ? 'streamer-mode'
+                          : ''
+                      }`}
+                    >
                       {mock.isSelf && props.config.showSelf
                         ? props.config.characterName
                         : mock.name}
@@ -110,12 +118,12 @@ function SetupModeRaw(props) {
         <div className="instructions">
           <div
             dangerouslySetInnerHTML={{
-              __html: loc.setupMode.instructionsTitle
+              __html: loc.setupMode.instructionsTitle,
             }}
           />
           <div
             dangerouslySetInnerHTML={{
-              __html: loc.setupMode.instructions
+              __html: loc.setupMode.instructions,
             }}
           />
         </div>
@@ -124,7 +132,7 @@ function SetupModeRaw(props) {
         <span>H O R I Z O V E R L A Y</span>
         <div
           dangerouslySetInnerHTML={{
-            __html: loc.initial.help
+            __html: loc.initial.help,
           }}
         />
       </div>

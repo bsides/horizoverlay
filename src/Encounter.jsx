@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { object, array } from 'prop-types'
+// import { object, array } from 'prop-types'
 
 import './css/encounter.css'
 
 class Encounter extends Component {
-  static propTypes = {
-    config: object.isRequired,
-    discordData: array
-  }
+  // static propTypes = {
+  //   config: object.isRequired,
+  //   discordData: array
+  // }
   sendToDiscord = () => {
     // finish the fight for ACT
     // Right now bugging everything so it's off
@@ -24,35 +24,39 @@ class Encounter extends Component {
       zone: this.props.CurrentZoneName,
       duration: this.props.duration,
       totalDps: this.props.ENCDPS,
-      maxhit: maxhitName
+      maxhit: maxhitName,
     }
-    const encounterRow = `\`${'='.repeat(
-      85
-    )}\`\n\`${encData.title} | ${encData.zone} | ${encData.duration} | ${encData.totalDps} | ${encData.maxhit}\`\n\`${'-'.repeat(
-      85
-    )}\``
+    const encounterRow = `\`${'='.repeat(85)}\`\n\`${encData.title} | ${
+      encData.zone
+    } | ${encData.duration} | ${encData.totalDps} | ${
+      encData.maxhit
+    }\`\n\`${'-'.repeat(85)}\``
 
     const data = this.props.discordData
 
     // [JOB] CHARACTER | 💪 DPS (DPS%) | 💊 HEAL (HEAL%) | 💀 DEATH | 💣 CRIT% | 🎯 DHIT% |`
-    const combatantRow = data.map(combatant => {
-      return `\n**[${combatant.job}] ${combatant.characterName}** \`| DPS: ${combatant.dps} (${combatant.damage}%) | HPS: ${combatant.hps} (${combatant.healed}) | DIE: ${combatant.deaths} | CRIT: ${combatant.crit} | DHIT: ${combatant.dhit} |\`\n\`${'-'.repeat(
-        85
-      )}\``
+    const combatantRow = data.map((combatant) => {
+      return `\n**[${combatant.job}] ${combatant.characterName}** \`| DPS: ${
+        combatant.dps
+      } (${combatant.damage}%) | HPS: ${combatant.hps} (${
+        combatant.healed
+      }) | DIE: ${combatant.deaths} | CRIT: ${combatant.crit} | DHIT: ${
+        combatant.dhit
+      } |\`\n\`${'-'.repeat(85)}\``
     })
 
     fetch(this.props.config.discord, {
       method: 'post',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         username: 'H O R I Z O V E R L A Y',
         avatar_url:
           'https://68.media.tumblr.com/2d83ce19282a68c3e2365be87254ae6a/tumblr_oh9wzyYbdb1u9t5z9o1_500.gif',
-        content: `${encounterRow}${combatantRow.join('', ',')}`
-      })
+        content: `${encounterRow}${combatantRow.join('', ',')}`,
+      }),
     })
   }
   render() {
@@ -75,24 +79,23 @@ class Encounter extends Component {
         <div className="skewer">
           <div className="encounter-title">{title}</div>
           <div
-            className={`encounter-totaldps${config.showTotalDps
-              ? ' show'
-              : ''}`}
+            className={`encounter-totaldps${
+              config.showTotalDps ? ' show' : ''
+            }`}
           >
             {totalDps} DPS
           </div>
           <div
-            className={`encounter-limitBreak${config.showTotalDps &&
-            this.props.limitBreak > 0
-              ? ' show'
-              : ''}`}
+            className={`encounter-limitBreak${
+              config.showTotalDps && this.props.limitBreak > 0 ? ' show' : ''
+            }`}
           >
             LB {this.props.limitBreak}%
           </div>
           <div
-            className={`encounter-duration${config.showDuration
-              ? ' show'
-              : ''}`}
+            className={`encounter-duration${
+              config.showDuration ? ' show' : ''
+            }`}
           >
             <span role="img" aria-label="Time">
               🕒
