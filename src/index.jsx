@@ -12,6 +12,10 @@ import NotFound from './NotFound'
 import SetupMode from './SetupMode'
 import initActWebSocket from './actwebsocket'
 
+const container = document.getElementById('root')
+const root = createRoot(container)
+root.render(<Init />)
+
 function Init() {
   const [detail, setDetail] = React.useState()
 
@@ -55,11 +59,13 @@ function Init() {
     return (
       <Router>
         <Routes>
-          <Route path={`/`} render={() => <Overlay {...detail} />} />
+          <Route path={`/`} element={<Overlay {...detail} />} />
           <Route exact path={`/config`} component={Config} />
-          <Route render={() => <NotFound text="Page Not Found!" />} />
+          <Route element={<NotFound text="Page Not Found!" />} />
         </Routes>
       </Router>
     )
   }
+
+  return null
 }

@@ -64,7 +64,10 @@ function SetupModeRaw(props) {
                   >
                     {props.config.showJobIcon ? (
                       <img
-                        src={images(`./${mock.job}.png`)}
+                        src={
+                          images.find((img) => img.includes(mock.job)) ||
+                          images.find((img) => img.includes('empty'))
+                        }
                         className="job"
                         alt={mock.jobFull}
                       />

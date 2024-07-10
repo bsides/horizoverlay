@@ -10,9 +10,9 @@ import './css/overlay.css'
 class OverlayRaw extends React.Component {
   state = {
     limitBreak: 0,
-    discordData: []
+    discordData: [],
   }
-  handleLimitBreak = value => {
+  handleLimitBreak = (value) => {
     this.setState({ limitBreak: value })
   }
   componentWillReceiveProps(nextProps) {
@@ -36,7 +36,7 @@ class OverlayRaw extends React.Component {
       if (combatant.name.toLowerCase() === 'limit break') {
         this.handleLimitBreak(
           parseInt(
-            this.props.Combatant.damage / this.props.Encounter.damage * 100,
+            (this.props.Combatant.damage / this.props.Encounter.damage) * 100,
             10
           )
         )
@@ -48,14 +48,14 @@ class OverlayRaw extends React.Component {
         characterName: combatant.name,
         dps: combatant.ENCDPS,
         damage: parseInt(
-          combatant.damage / this.props.Encounter.damage * 100,
+          (combatant.damage / this.props.Encounter.damage) * 100,
           10
         ),
         hps: combatant.ENCHPS,
         healed: combatant['healed%'],
         deaths: combatant.deaths,
         crit: combatant['crithit%'],
-        dhit: combatant.DirectHitPct
+        dhit: combatant.DirectHitPct,
         // maxhit: combatant.maxhit.split('-')
       })
     }

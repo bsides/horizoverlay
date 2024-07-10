@@ -77,10 +77,10 @@ export default class CombatantHorizontal extends Component {
         jobIcon += data.Job.toLowerCase()
       }
       try {
-        jobIcon = images(`${jobIcon}.png`)
+        jobIcon = images.find((image) => image.includes(jobIcon))
       } catch (e) {
         console.error(e)
-        jobIcon = images('./empty.png')
+        jobIcon = images.find((image) => image.includes('empty'))
       }
     }
 
