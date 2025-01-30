@@ -88,7 +88,7 @@ export default class CombatantHorizontal extends Component {
     const isHealing = data.ENCHPS > data.ENCDPS
 
     let maxhit
-    if (data.maxhit) maxhit = data.maxhit.replace('-', ': ')
+    if (data.maxhit) maxhit = data.maxhit.replace(/-([^-]*)$/, ": $1")
     return (
       <div
         className={`row ${data.Job}${jobStyleClass}${
