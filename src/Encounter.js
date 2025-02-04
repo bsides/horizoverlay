@@ -26,19 +26,16 @@ class Encounter extends Component {
       totalDps: this.props.ENCDPS,
       maxhit: maxhitName
     }
-    const encounterRow = `\`${'='.repeat(
-      85
-    )}\`\n\`${encData.title} | ${encData.zone} | ${encData.duration} | ${encData.totalDps} | ${encData.maxhit}\`\n\`${'-'.repeat(
-      85
-    )}\``
 
     const data = this.props.discordData
 
     // [JOB] CHARACTER | 💪 DPS (DPS%) | 💊 HEAL (HEAL%) | 💀 DEATH | 💣 CRIT% | 🎯 DHIT% |`
     const combatantRow = data.map(combatant => {
-      return `\n**[${combatant.job}] ${combatant.characterName}** \`| DPS: ${combatant.dps} (${combatant.damage}%) | HPS: ${combatant.hps} (${combatant.healed}) | DIE: ${combatant.deaths} | CRIT: ${combatant.crit} | DHIT: ${combatant.dhit} |\`\n\`${'-'.repeat(
-        85
-      )}\``
+      return {
+        name: `[${combatant.job}] ${combatant.characterName}:`,
+        value: `**DPS:** ${combatant.dps} (${combatant.damage}%)\n**HPS:** ${combatant.hps} (${combatant.healed})\n**DIE:** ${combatant.deaths}\n**CRIT:** ${combatant.crit}\n**DHIT:** ${combatant.dhit}`,
+        inline: true
+      }
     })
 
     fetch(this.props.config.discord, {
@@ -51,7 +48,12 @@ class Encounter extends Component {
         username: 'H O R I Z O V E R L A Y',
         avatar_url:
           'https://68.media.tumblr.com/2d83ce19282a68c3e2365be87254ae6a/tumblr_oh9wzyYbdb1u9t5z9o1_500.gif',
-        content: `${encounterRow}${combatantRow.join('', ',')}`
+        embeds: [{
+          title: `__${encData.title} | ${encData.zone}__`,
+          description: `**Duration:** ${encData.duration}\n**Total DPS:** ${encData.totalDps}\n**Max Hit:** ${encData.maxhit}`,
+          color: 0x22009d,
+          fields: combatantRow
+        }]
       })
     })
   }
